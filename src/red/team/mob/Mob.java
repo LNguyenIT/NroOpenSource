@@ -526,12 +526,18 @@ public class Mob {
             if (Util.isTrue(60, 100)) {
                 byte random = 2;
                 if (Util.isTrue(5, 100)) {
-                    random = 5;
+                    random = 3;
                 }
                 Item i = Manager.RUBY_REWARDS.get(Util.nextInt(0, Manager.RUBY_REWARDS.size() - 1));
                 i.quantity = random;
                 InventoryServiceNew.gI().addItemBag(player, i);
                 InventoryServiceNew.gI().sendItemBags(player);
+            }
+            if (Util.isTrue(1, 100)) {
+                    Item linhThu = ItemService.gI().createNewItem(Manager.itemIds_NR_SB[(Util.nextInt(0, 2))]);
+                    Service.getInstance().sendThongBao(player, "bạn vừa nhận được " + linhThu.template.name);
+                    InventoryServiceNew.gI().addItemBag(player, linhThu);
+                    InventoryServiceNew.gI().sendItemBags(player);                 
             }
             if ((!player.isPet && player.setClothes.setGod() == true
                     && (this.zone.map.mapId > 104 && this.zone.map.mapId < 111 || this.zone.map.mapId == 159))) {
