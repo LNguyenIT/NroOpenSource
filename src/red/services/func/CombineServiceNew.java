@@ -2514,14 +2514,14 @@ public class CombineServiceNew {
             }
         }
         if (InventoryServiceNew.gI().getCountEmptyBag(player) > 0) {// check chỗ trống hành trang
-            if (player.inventory.gold < 500000000) {
+            if (player.inventory.gold < 1000000000) {
                 Service.getInstance().sendThongBao(player, "Không đủ vàng để thực hiện");
                 return;
             }
-            player.inventory.gold -= 500000000;
+            player.inventory.gold -= 1000000000;
 
             int tilemacdinh = 35;
-            int tileLucky = 20;
+            int tileLucky = 10;
             if (daNC != null) {
                 tilemacdinh += (daNC.template.id - 1073) * 10;
             } else {
@@ -3345,8 +3345,8 @@ public class CombineServiceNew {
                 if (InventoryServiceNew.gI().getCountEmptyBag(player) > 0 // check chỗ trống hành trang
                         && player.inventory.ruby >= COST_DAP_DO_KICH_HOAT) {
                     player.inventory.ruby -= COST_DAP_DO_KICH_HOAT;
-                    int tiLe = dtl != null ? 100 : 50;
-                    if (Util.isTrue(tiLe, 100)) {
+//                    int tiLe = dtl != null ? 100 : 50;
+                    if (Util.isTrue(40, 100)) {
                         sendEffectSuccessCombine(player);
                         Item item = ItemService.gI()
                                 .createNewItem((short) getTempIdItemC0(dhd.template.gender, dhd.template.type));
@@ -3417,7 +3417,7 @@ public class CombineServiceNew {
                 player.inventory.gold -= gold;
                 player.inventory.gem -= gem;
                 InventoryServiceNew.gI().subQuantityItemsBag(player, manhVo, 99);
-                if (Util.isTrue(player.combineNew.ratioCombine, 100)) {
+                if (Util.isTrue(40, 100)) {
                     bongTai.template = ItemService.gI().getTemplate(921);
                     bongTai.itemOptions.add(new Item.ItemOption(72, 2));
                     sendEffectSuccessCombine(player);
@@ -3438,8 +3438,8 @@ public class CombineServiceNew {
                 Service.gI().sendThongBao(player, "Không đủ vàng để thực hiện");
                 return;
             }
-            int gem = player.combineNew.gemCombine;
-            if (player.inventory.gem < gem) {
+            int ruby = player.combineNew.gemCombine;
+            if (player.inventory.gem < ruby) {
                 Service.gI().sendThongBao(player, "Không đủ ngọc để thực hiện");
                 return;
             }
@@ -3457,29 +3457,29 @@ public class CombineServiceNew {
             }
             if (bongtai != null && honbongtai != null && honbongtai.quantity >= 99) {
                 player.inventory.gold -= gold;
-                player.inventory.gem -= gem;
+                player.inventory.ruby -= ruby;
                 InventoryServiceNew.gI().subQuantityItemsBag(player, honbongtai, 99);
                 InventoryServiceNew.gI().subQuantityItemsBag(player, daxanhlam, 1);
-                if (Util.isTrue(player.combineNew.ratioCombine, 100)) {
+                if (Util.isTrue(45, 100)) {
                     bongtai.itemOptions.clear();
                     bongtai.itemOptions.add(new Item.ItemOption(72, 2));
                     int rdUp = Util.nextInt(0, 7);
                     if (rdUp == 0) {
-                        bongtai.itemOptions.add(new Item.ItemOption(50, Util.nextInt(5, 25)));
+                        bongtai.itemOptions.add(new Item.ItemOption(50, Util.nextInt(5, 10)));
                     } else if (rdUp == 1) {
-                        bongtai.itemOptions.add(new Item.ItemOption(77, Util.nextInt(5, 25)));
+                        bongtai.itemOptions.add(new Item.ItemOption(77, Util.nextInt(5, 10)));
                     } else if (rdUp == 2) {
-                        bongtai.itemOptions.add(new Item.ItemOption(103, Util.nextInt(5, 25)));
+                        bongtai.itemOptions.add(new Item.ItemOption(103, Util.nextInt(5, 10)));
                     } else if (rdUp == 3) {
-                        bongtai.itemOptions.add(new Item.ItemOption(108, Util.nextInt(5, 25)));
+                        bongtai.itemOptions.add(new Item.ItemOption(108, Util.nextInt(5, 10)));
                     } else if (rdUp == 4) {
-                        bongtai.itemOptions.add(new Item.ItemOption(94, Util.nextInt(5, 15)));
+                        bongtai.itemOptions.add(new Item.ItemOption(94, Util.nextInt(5, 10)));
                     } else if (rdUp == 5) {
-                        bongtai.itemOptions.add(new Item.ItemOption(14, Util.nextInt(5, 15)));
+                        bongtai.itemOptions.add(new Item.ItemOption(14, Util.nextInt(5, 10)));
                     } else if (rdUp == 6) {
-                        bongtai.itemOptions.add(new Item.ItemOption(80, Util.nextInt(5, 25)));
+                        bongtai.itemOptions.add(new Item.ItemOption(80, Util.nextInt(5, 10)));
                     } else if (rdUp == 7) {
-                        bongtai.itemOptions.add(new Item.ItemOption(81, Util.nextInt(5, 25)));
+                        bongtai.itemOptions.add(new Item.ItemOption(81, Util.nextInt(5, 10)));
                     }
                     sendEffectSuccessCombine(player);
                 } else {
@@ -3538,8 +3538,8 @@ public class CombineServiceNew {
                 Service.gI().sendThongBao(player, "Không đủ vàng để thực hiện");
                 return;
             }
-            int gem = player.combineNew.gemCombine;
-            if (player.inventory.gem < gem) {
+            int ruby = player.combineNew.gemCombine;
+            if (player.inventory.ruby < ruby) {
                 Service.gI().sendThongBao(player, "Không đủ ngọc để thực hiện");
                 return;
             }
@@ -3557,7 +3557,7 @@ public class CombineServiceNew {
             }
             if (bongtai != null && thachPhu != null && thachPhu.quantity >= 99) {
                 player.inventory.gold -= gold;
-                player.inventory.gem -= gem;
+                player.inventory.ruby -= ruby;
                 InventoryServiceNew.gI().subQuantityItemsBag(player, thachPhu, 99);
                 InventoryServiceNew.gI().subQuantityItemsBag(player, daxanhlam, 1);
                 if (Util.isTrue(player.combineNew.ratioCombine, 100)) {
@@ -3565,21 +3565,21 @@ public class CombineServiceNew {
                     bongtai.itemOptions.add(new Item.ItemOption(72, 2));
                     int rdUp = Util.nextInt(0, 7);
                     if (rdUp == 0) {
-                        bongtai.itemOptions.add(new Item.ItemOption(50, Util.nextInt(5, 25)));
+                        bongtai.itemOptions.add(new Item.ItemOption(50, Util.nextInt(5, 15)));
                     } else if (rdUp == 1) {
-                        bongtai.itemOptions.add(new Item.ItemOption(77, Util.nextInt(5, 25)));
+                        bongtai.itemOptions.add(new Item.ItemOption(77, Util.nextInt(5, 15)));
                     } else if (rdUp == 2) {
-                        bongtai.itemOptions.add(new Item.ItemOption(103, Util.nextInt(5, 25)));
+                        bongtai.itemOptions.add(new Item.ItemOption(103, Util.nextInt(5, 15)));
                     } else if (rdUp == 3) {
-                        bongtai.itemOptions.add(new Item.ItemOption(108, Util.nextInt(5, 25)));
+                        bongtai.itemOptions.add(new Item.ItemOption(108, Util.nextInt(5, 15)));
                     } else if (rdUp == 4) {
                         bongtai.itemOptions.add(new Item.ItemOption(94, Util.nextInt(5, 15)));
                     } else if (rdUp == 5) {
                         bongtai.itemOptions.add(new Item.ItemOption(14, Util.nextInt(5, 15)));
                     } else if (rdUp == 6) {
-                        bongtai.itemOptions.add(new Item.ItemOption(80, Util.nextInt(5, 25)));
+                        bongtai.itemOptions.add(new Item.ItemOption(80, Util.nextInt(5, 15)));
                     } else if (rdUp == 7) {
-                        bongtai.itemOptions.add(new Item.ItemOption(81, Util.nextInt(5, 25)));
+                        bongtai.itemOptions.add(new Item.ItemOption(81, Util.nextInt(5, 15)));
                     }
                     sendEffectSuccessCombine(player);
                 } else {
@@ -3599,8 +3599,8 @@ public class CombineServiceNew {
                 Service.gI().sendThongBao(player, "Không đủ vàng để thực hiện");
                 return;
             }
-            int gem = player.combineNew.gemCombine;
-            if (player.inventory.gem < gem) {
+            int ruby = player.combineNew.gemCombine;
+            if (player.inventory.gem < ruby) {
                 Service.gI().sendThongBao(player, "Không đủ ngọc để thực hiện");
                 return;
             }
@@ -3615,9 +3615,9 @@ public class CombineServiceNew {
             }
             if (bongTai != null && manhVo != null && manhVo.quantity >= 999) {
                 player.inventory.gold -= gold;
-                player.inventory.gem -= gem;
+                player.inventory.gem -= ruby;
                 InventoryServiceNew.gI().subQuantityItemsBag(player, manhVo, 999);
-                if (Util.isTrue(player.combineNew.ratioCombine, 100)) {
+                if (Util.isTrue(40, 100)) {
                     bongTai.template = ItemService.gI().getTemplate(2075);
                     bongTai.itemOptions.add(new Item.ItemOption(72, 3));
                     sendEffectSuccessCombine(player);
@@ -3638,8 +3638,8 @@ public class CombineServiceNew {
                 Service.gI().sendThongBao(player, "Không đủ vàng để thực hiện");
                 return;
             }
-            int gem = player.combineNew.gemCombine;
-            if (player.inventory.gem < gem) {
+            int ruby = player.combineNew.gemCombine;
+            if (player.inventory.gem < ruby) {
                 Service.gI().sendThongBao(player, "Không đủ ngọc để thực hiện");
                 return;
             }
@@ -3658,29 +3658,29 @@ public class CombineServiceNew {
             if (bongtai != null && thachPhu != null && thachPhu.quantity >= 99 && daxanhlam != null
                     && daxanhlam.quantity >= 15) {
                 player.inventory.gold -= gold;
-                player.inventory.gem -= gem;
+                player.inventory.ruby -= ruby;
                 InventoryServiceNew.gI().subQuantityItemsBag(player, thachPhu, 99);
                 InventoryServiceNew.gI().subQuantityItemsBag(player, daxanhlam, 15);
-                if (Util.isTrue(player.combineNew.ratioCombine, 100)) {
+                if (Util.isTrue(35, 100)) {
                     bongtai.itemOptions.clear();
                     bongtai.itemOptions.add(new Item.ItemOption(72, 2));
                     int rdUp = Util.nextInt(0, 7);
                     if (rdUp == 0) {
-                        bongtai.itemOptions.add(new Item.ItemOption(50, Util.nextInt(5, 25)));
+                        bongtai.itemOptions.add(new Item.ItemOption(50, Util.nextInt(5, 20)));
                     } else if (rdUp == 1) {
-                        bongtai.itemOptions.add(new Item.ItemOption(77, Util.nextInt(5, 25)));
+                        bongtai.itemOptions.add(new Item.ItemOption(77, Util.nextInt(5, 20)));
                     } else if (rdUp == 2) {
-                        bongtai.itemOptions.add(new Item.ItemOption(103, Util.nextInt(5, 25)));
+                        bongtai.itemOptions.add(new Item.ItemOption(103, Util.nextInt(5, 20)));
                     } else if (rdUp == 3) {
-                        bongtai.itemOptions.add(new Item.ItemOption(108, Util.nextInt(5, 25)));
+                        bongtai.itemOptions.add(new Item.ItemOption(108, Util.nextInt(5, 20)));
                     } else if (rdUp == 4) {
-                        bongtai.itemOptions.add(new Item.ItemOption(94, Util.nextInt(5, 15)));
+                        bongtai.itemOptions.add(new Item.ItemOption(94, Util.nextInt(5, 20)));
                     } else if (rdUp == 5) {
-                        bongtai.itemOptions.add(new Item.ItemOption(14, Util.nextInt(5, 15)));
+                        bongtai.itemOptions.add(new Item.ItemOption(14, Util.nextInt(5, 20)));
                     } else if (rdUp == 6) {
-                        bongtai.itemOptions.add(new Item.ItemOption(80, Util.nextInt(5, 25)));
+                        bongtai.itemOptions.add(new Item.ItemOption(80, Util.nextInt(5, 20)));
                     } else if (rdUp == 7) {
-                        bongtai.itemOptions.add(new Item.ItemOption(81, Util.nextInt(5, 25)));
+                        bongtai.itemOptions.add(new Item.ItemOption(81, Util.nextInt(5, 20)));
                     }
                     sendEffectSuccessCombine(player);
                 } else {
@@ -3942,29 +3942,37 @@ public class CombineServiceNew {
     }
 
     private void nhapNgocRong(Player player) {
-        if (InventoryServiceNew.gI().getCountEmptyBag(player) > 0) {
-            if (!player.combineNew.itemsCombine.isEmpty()) {
-                Item item = player.combineNew.itemsCombine.get(0);
-                if (item != null && item.isNotNullItem() && (item.template.id > 14 && item.template.id <= 20)
-                        && item.quantity >= 7*7*7) {
-                    Item nr = ItemService.gI().createNewItem((short) (item.template.id - 1));
-                    InventoryServiceNew.gI().addItemBag(player, nr);
-                    InventoryServiceNew.gI().subQuantityItemsBag(player, item, 7*7*7);
-                    InventoryServiceNew.gI().sendItemBags(player);
-                    reOpenItemCombine(player);
-                    sendEffectCombineDB(player, item.template.iconID);
-                }else if (item != null && item.isNotNullItem() && (item.template.id > 14 && item.template.id <= 20)
-                        && item.quantity >= 14){
+    if (InventoryServiceNew.gI().getCountEmptyBag(player) > 0) {
+        if (!player.combineNew.itemsCombine.isEmpty()) {
+            Item item = player.combineNew.itemsCombine.get(0);
+            if (item != null && item.isNotNullItem() && (item.template.id > 14 && item.template.id <= 20)) {
+                int soLuong = item.quantity;
+
+                if (soLuong >= 343) { // Trường hợp nhập 49 viên => nhận 7 viên cấp cao hơn
+                    for (int i = 0; i < 49; i++) {
+                        Item nr = ItemService.gI().createNewItem((short) (item.template.id - 1));
+                        InventoryServiceNew.gI().addItemBag(player, nr);
+                    }
+                    InventoryServiceNew.gI().subQuantityItemsBag(player, item, 343);
+                } else if (soLuong >= 49) { // Trường hợp nhập 21 viên (7-7-7) => nhận 3 viên cấp cao hơn
+                    for (int i = 0; i < 7; i++) {
+                        Item nr = ItemService.gI().createNewItem((short) (item.template.id - 1));
+                        InventoryServiceNew.gI().addItemBag(player, nr);
+                    }
+                    InventoryServiceNew.gI().subQuantityItemsBag(player, item, 49);
+                } else if (soLuong >= 7) { // Trường hợp nhập 7 viên => nhận 1 viên cấp cao hơn
                     Item nr = ItemService.gI().createNewItem((short) (item.template.id - 1));
                     InventoryServiceNew.gI().addItemBag(player, nr);
                     InventoryServiceNew.gI().subQuantityItemsBag(player, item, 7);
-                    InventoryServiceNew.gI().sendItemBags(player);
-                    reOpenItemCombine(player);
-                    sendEffectCombineDB(player, item.template.iconID);
                 }
+
+                InventoryServiceNew.gI().sendItemBags(player);
+                reOpenItemCombine(player);
+                sendEffectCombineDB(player, item.template.iconID);
             }
         }
     }
+}
 
     private void nangCapVatPham(Player player) {
         if (player.combineNew.itemsCombine.size() >= 2 && player.combineNew.itemsCombine.size() < 4) {

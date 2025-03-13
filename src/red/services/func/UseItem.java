@@ -297,13 +297,13 @@ public class UseItem {
                             eatGrapes(pl, item);
                             break;
                         case 1105:// hop qua skh, item 2002 xd
-                            UseItem.gI().Hopts(pl, item);
+//                            UseItem.gI().Hopts(pl, item);
                             break;
                         case 1431:// hop qua skh, item 2002 xd
-                            UseItem.gI().Hoptl(pl, item);
+//                            UseItem.gI().Hoptl(pl, item);
                             break;
                         case 1432:// hop qua skh, item 2002 xd
-                            UseItem.gI().Hophd(pl, item);
+//                            UseItem.gI().Hophd(pl, item);
                             break;
                         // case 342:
                         // case 343:
@@ -1400,7 +1400,7 @@ public class UseItem {
             int tv = Util.nextInt(gold[0][0], gold[0][1]);
 
              int itemc2 = new Random().nextInt(Manager.itc2.length - 1);
-            if (Util.isTrue(2  , 100)) {
+            if (Util.isTrue(1  , 200)) {
                 Item it = ItemService.gI().createNewItem((short) (457), tv);
                 InventoryServiceNew.gI().addItemBag(pl, it);
 
@@ -1412,7 +1412,7 @@ public class UseItem {
 //                }
 //                PlayerService.gI().sendInfoHpMpMoney(pl);
 //                icon[1] = 930;
-            } else if (Util.isTrue(5, 100)) {
+            } else if (Util.isTrue(1, 100)) {
 
                 Item it = ItemService.gI().createNewItem((short)Manager.itc2[itemc2], 1);
                 InventoryServiceNew.gI().addItemBag(pl, it);
@@ -1422,7 +1422,6 @@ public class UseItem {
                 Item it = ItemService.gI().createNewItem(temp[index],1);
 //                Item it = ItemService.gI().createNewItem((short)Manager.itc2[itemc2], 1);
                 InventoryServiceNew.gI().addItemBag(pl, it);
-
                 Service.gI().sendThongBao(pl, "Bạn vừa mở ra item cấp 1!");
 
             }
@@ -1494,33 +1493,33 @@ public class UseItem {
     };
 
     private void useItemQuaDua(Player pl, Item item) {
-        if (InventoryServiceNew.gI().getCountEmptyBag(pl) > 0) {
-            short[] temp = { 2069, 2070, 2071, 2072, 2073 };
-            int[][] gold = { { 10000000, 20000000 } };
-            int[][] ruby = { { 10, 20 } };
-            byte index = (byte) Util.nextInt(0, temp.length - 1);
-            short[] icon = new short[2];
-            icon[0] = item.template.iconID;
-            if (index <= 3) {
-                pl.inventory.gold += Util.nextInt(gold[0][0], gold[0][1]);
-                if (pl.inventory.gold > Inventory.LIMIT_GOLD) {
-                    pl.inventory.gold = Inventory.LIMIT_GOLD;
-                }
-                PlayerService.gI().sendInfoHpMpMoney(pl);
-                icon[1] = 930;
-            } else {
-                Item it = ItemService.gI().createNewItem(temp[index]);
-                it.itemOptions.add(new ItemOption(73, 0));
-                InventoryServiceNew.gI().addItemBag(pl, it);
-                icon[1] = it.template.iconID;
-            }
-            InventoryServiceNew.gI().subQuantityItemsBag(pl, item, 1);
-            InventoryServiceNew.gI().sendItemBags(pl);
-
-            CombineServiceNew.gI().sendEffectOpenItem(pl, icon[0], icon[1]);
-        } else {
-            Service.gI().sendThongBao(pl, "Hàng trang đã đầy");
-        }
+//        if (InventoryServiceNew.gI().getCountEmptyBag(pl) > 0) {
+//            short[] temp = { 2069, 2070, 2071, 2072, 2073 };
+//            int[][] gold = { { 10000000, 20000000 } };
+//            int[][] ruby = { { 10, 20 } };
+//            byte index = (byte) Util.nextInt(0, temp.length - 1);
+//            short[] icon = new short[2];
+//            icon[0] = item.template.iconID;
+//            if (index <= 3) {
+//                pl.inventory.gold += Util.nextInt(gold[0][0], gold[0][1]);
+//                if (pl.inventory.gold > Inventory.LIMIT_GOLD) {
+//                    pl.inventory.gold = Inventory.LIMIT_GOLD;
+//                }
+//                PlayerService.gI().sendInfoHpMpMoney(pl);
+//                icon[1] = 930;
+//            } else {
+//                Item it = ItemService.gI().createNewItem(temp[index]);
+//                it.itemOptions.add(new ItemOption(73, 0));
+//                InventoryServiceNew.gI().addItemBag(pl, it);
+//                icon[1] = it.template.iconID;
+//            }
+//            InventoryServiceNew.gI().subQuantityItemsBag(pl, item, 1);
+//            InventoryServiceNew.gI().sendItemBags(pl);
+//
+//            CombineServiceNew.gI().sendEffectOpenItem(pl, icon[0], icon[1]);
+//        } else {
+            Service.gI().sendThongBao(pl, "Chức năng chưa mở");
+//        }
     }
 
     private void useItemTime(Player pl, Item item) {

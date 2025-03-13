@@ -174,22 +174,22 @@ public class ChangeMapService {
                 Service.gI().sendThongBaoOK(pl, "Không thể đổi khu vực trong map này");
                 return;
             }
-            if (MapService.gI().isMapMaBu(pl.zone.map.mapId)) {
-                Service.gI().sendThongBaoOK(pl, "Không thể đổi khu vực trong map này");
-                return;
-            }
-            if (MapService.gI().isMapSatan(pl.zone.map.mapId)) {
-                Service.gI().sendThongBaoOK(pl, "Không thể đổi khu vực trong map này");
-                return;
-            }
-             if (MapService.gI().isMapVodai(pl.zone.map.mapId)) {
-                Service.gI().sendThongBaoOK(pl, "Không thể đổi khu vực trong map này");
-                return;
-            }
-             if (MapService.gI().isMapMabu13h(pl.zone.map.mapId)) {
-                Service.gI().sendThongBaoOK(pl, "Không thể đổi khu vực trong map này");
-                return;
-            }
+//            if (MapService.gI().isMapMaBu(pl.zone.map.mapId)) {
+//                Service.gI().sendThongBaoOK(pl, "Không thể đổi khu vực trong map này");
+//                return;
+//            }
+//            if (MapService.gI().isMapSatan(pl.zone.map.mapId)) {
+//                Service.gI().sendThongBaoOK(pl, "Không thể đổi khu vực trong map này");
+//                return;
+//            }
+//             if (MapService.gI().isMapVodai(pl.zone.map.mapId)) {
+//                Service.gI().sendThongBaoOK(pl, "Không thể đổi khu vực trong map này");
+//                return;
+//            }
+//             if (MapService.gI().isMapMabu13h(pl.zone.map.mapId)) {
+//                Service.gI().sendThongBaoOK(pl, "Không thể đổi khu vực trong map này");
+//                return;
+//            }
             if (pl.zone.map.mapId == 51) {
                 Service.gI().sendThongBaoOK(pl, "Không thể đổi khu vực trong map này");
                 return;
@@ -241,34 +241,34 @@ public class ChangeMapService {
                 Service.gI().sendThongBaoOK(pl, "Không thể đổi khu vực lúc này");
                 return;
             }
-            if (MapService.gI().isMapBanDoKhoBau(pl.zone.map.mapId)) {
-                Service.getInstance().sendThongBaoOK(pl, "Không thể đổi khu vực trong map này");
-                return;
-            }
-            if (MapService.gI().isMapDoanhTrai(pl.zone.map.mapId)) {
-                Service.gI().sendThongBaoOK(pl, "Không thể đổi khu vực trong map này");
-                return;
-            }
-            if (MapService.gI().isMapMiNuong(pl.zone.map.mapId)) {
-                Service.gI().sendThongBaoOK(pl, "Không thể đổi khu vực trong map này");
-                return;
-            }
-            if (MapService.gI().isMapMaBu(pl.zone.map.mapId)) {
-                Service.gI().sendThongBaoOK(pl, "Không thể đổi khu vực trong map này");
-                return;
-            }
-            if (MapService.gI().isMapSatan(pl.zone.map.mapId)) {
-                Service.gI().sendThongBaoOK(pl, "Không thể đổi khu vực trong map này");
-                return;
-            }
-            if (MapService.gI().isMapMabu13h(pl.zone.map.mapId)) {
-                Service.gI().sendThongBaoOK(pl, "Không thể đổi khu vực trong map này");
-                return;
-            }
-            if (MapService.gI().isMapVodai(pl.zone.map.mapId)) {
-                Service.gI().sendThongBaoOK(pl, "Không thể đổi khu vực trong map này");
-                return;
-            }
+//            if (MapService.gI().isMapBanDoKhoBau(pl.zone.map.mapId)) {
+//                Service.getInstance().sendThongBaoOK(pl, "Không thể đổi khu vực trong map này");
+//                return;
+//            }
+//            if (MapService.gI().isMapDoanhTrai(pl.zone.map.mapId)) {
+//                Service.gI().sendThongBaoOK(pl, "Không thể đổi khu vực trong map này");
+//                return;
+//            }
+//            if (MapService.gI().isMapMiNuong(pl.zone.map.mapId)) {
+//                Service.gI().sendThongBaoOK(pl, "Không thể đổi khu vực trong map này");
+//                return;
+//            }
+//            if (MapService.gI().isMapMaBu(pl.zone.map.mapId)) {
+//                Service.gI().sendThongBaoOK(pl, "Không thể đổi khu vực trong map này");
+//                return;
+//            }
+//            if (MapService.gI().isMapSatan(pl.zone.map.mapId)) {
+//                Service.gI().sendThongBaoOK(pl, "Không thể đổi khu vực trong map này");
+//                return;
+//            }
+//            if (MapService.gI().isMapMabu13h(pl.zone.map.mapId)) {
+//                Service.gI().sendThongBaoOK(pl, "Không thể đổi khu vực trong map này");
+//                return;
+//            }
+//            if (MapService.gI().isMapVodai(pl.zone.map.mapId)) {
+//                Service.gI().sendThongBaoOK(pl, "Không thể đổi khu vực trong map này");
+//                return;
+//            }
             if (pl.zone.map.mapId == 51) {
                 Service.gI().sendThongBaoOK(pl, "Không thể đổi khu vực trong map này");
                 return;
@@ -628,7 +628,7 @@ public class ChangeMapService {
         }
         // namec
         if (zoneJoin != null) {
-            if (player.idNRNM != -1 && !Util.canDoWithTime(player.lastTimePickNRNM, 60000)) {
+            if (player.idNRNM != -1 && !Util.canDoWithTime(player.lastTimePickNRNM, 10000)) {
                 resetPoint(player);
                 Service.gI().sendThongBao(player, "Ngọc rồng namec quá nặng vui lòng đợi một chút để qua map");
                 return;

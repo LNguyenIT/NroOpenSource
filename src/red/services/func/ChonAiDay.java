@@ -69,8 +69,8 @@ public class ChonAiDay  implements Runnable{
                         if(pl != null){
                             ChatGlobalService.gI().chat(pl, pl.name + " đã chiến thắng Chọn ai đây giải thường");
                             int goldC = ChonAiDay.gI().goldNormar * 50 / 100;
-                            Service.gI().sendThongBao(pl, "Chúc mừng bạn đã dành chiến thắng và nhận được " + goldC +" thỏi vàng");
-                            Item it = ItemService.gI().createNewItem((short)457,goldC);
+                            Service.gI().sendThongBao(pl, "Chúc mừng bạn đã bị cướp " + goldC +" thỏi vàng");
+                            Item it = ItemService.gI().createNewItem((short)457,0);
                             InventoryServiceNew.gI().addItemBag(pl, it);
                             InventoryServiceNew.gI().sendItemBags(pl);
                         }
@@ -80,7 +80,7 @@ public class ChonAiDay  implements Runnable{
                             ChatGlobalService.gI().chat(pl, pl.name + " đã chiến thắng Chọn ai đây giải thường");
                             int goldC = ChonAiDay.gI().goldNormar * 50 / 100;
                             Service.gI().sendThongBao(pl, "Chúc mừng bạn đã dành chiến thắng và nhận được " + goldC +" thỏi vàng");
-                            Item it = ItemService.gI().createNewItem((short)457,goldC);
+                            Item it = ItemService.gI().createNewItem((short)457,0);
                             InventoryServiceNew.gI().addItemBag(pl, it);
                             InventoryServiceNew.gI().sendItemBags(pl);
                         }
@@ -93,7 +93,7 @@ public class ChonAiDay  implements Runnable{
                             ChatGlobalService.gI().chat(pl, pl.name + " đã chiến thắng Chọn ai đây giải VIP");
                             int goldC = ChonAiDay.gI().goldVip * 50 / 100;
                             Service.gI().sendThongBao(pl, "Chúc mừng bạn đã dành chiến thắng và nhận được " + goldC +" thỏi vàng");
-                            Item it = ItemService.gI().createNewItem((short)457,goldC);
+                            Item it = ItemService.gI().createNewItem((short)457,0);
                             InventoryServiceNew.gI().addItemBag(pl, it);
                             InventoryServiceNew.gI().sendItemBags(pl);
                         }
@@ -103,7 +103,7 @@ public class ChonAiDay  implements Runnable{
                             ChatGlobalService.gI().chat(pl, pl.name + " đã chiến thắng Chọn ai đây giải VIP");
                             int goldC = ChonAiDay.gI().goldVip * 50 / 100;
                             Service.gI().sendThongBao(pl, "Chúc mừng bạn đã dành chiến thắng và nhận được " + goldC +" thỏi vàng");
-                            Item it = ItemService.gI().createNewItem((short)457,goldC);
+                            Item it = ItemService.gI().createNewItem((short)457,0);
                             InventoryServiceNew.gI().addItemBag(pl, it);
                             InventoryServiceNew.gI().sendItemBags(pl);
                         }
