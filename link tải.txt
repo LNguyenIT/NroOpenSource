@@ -1,1 +1,5 @@
-https://mega.nz/file/hT0WFbZL#ou1CjDEIRXzsrNqvDTo2IfnJPYmcOJ3c46fS62VvcB0
+INSERT INTO `account` (`id`, `username`, `password`, `create_time`, `update_time`, `point_post`, `last_post`, `role`, `is_admin`, `last_time_login`, `last_time_logout`, `ip_address`, `active`, `thoi_vang`, `server_login`, `bd_player`, `is_gift_box`, `gift_time`, `reward`, `tongnap`, `coin`, `vnd`, `ban`, `kichhoat`, `admin`, `tichdiem`, `gmail`, `mkc2`, `gioithieu`, `recaf`) 
+VALUES 
+(10, 'dat1', '1', '2024-02-21 02:29:17', '2024-02-21 02:29:17', 0, 0, -1, 1, '2001-01-01 00:00:00', '2001-01-01 00:00:00', '127.0.0.1', 1, 0, -1, 1, 0, 0, NULL, 0, 0, 0, 0, 1, 1, 2, NULL, 0, 1, NULL),
+(11, 'dat2', '1', '2024-02-21 02:29:17', '2024-02-21 02:29:17', 0, 0, -1, 1, '2025-01-10 08:10:25', '2025-01-10 08:11:12', '127.0.0.1', 1, 0, -1, 1, 0, 0, NULL, 0, 0, 0, 0, 1, 1, 2, NULL, 0, 1, NULL),
+(12, 'dat3', '1', '2024-02-21 02:29:17', '2024-02-21 02:29:17', 0, 0, -1, 1, '2001-01-01 00:00:00', '2001-01-01 00:00:00', '14.191.226.37', 1, 0, -1, 1, 0, 0, NULL, 0, 0, 0, 0, 1, 1, 2, NULL, 0, 1, NULL);
