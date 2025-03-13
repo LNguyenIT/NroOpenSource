@@ -1,0 +1,17 @@
+# Bỏ qua thư mục biên dịch
+build/
+dist/
+
+# Bỏ qua cache của NetBeans
+nbproject/private/
+
+# Bỏ qua file binary và thư viện tạm
+*.dll
+*.exe
+*.so
+*.jar
+*.class
+
+# Bỏ qua file log, config cá nhân
+*.log
+run
