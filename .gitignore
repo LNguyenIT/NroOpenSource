@@ -9,9 +9,7 @@ nbproject/private/
 *.dll
 *.exe
 *.so
-*.jar
 *.class
-
 # Bỏ qua file log, config cá nhân
 *.log
 run
