@@ -25,6 +25,7 @@ import java.util.stream.Collectors;
 import org.apache.commons.lang.ArrayUtils;
 import java.security.MessageDigest;
 import java.math.BigInteger;
+import static java.time.temporal.TemporalQueries.zone;
 
 public class Util {
 
@@ -330,8 +331,8 @@ public class Util {
         it.options.add(new Item.ItemOption(30, 1)); // ko thể gd
         if (Util.isTrue(90, 100)) {// tỉ lệ ra spl
             it.options.add(new Item.ItemOption(107, new Random().nextInt(3) + 1));
-        } else if (Util.isTrue(4, 100)) {
-            it.options.add(new Item.ItemOption(107, new Random().nextInt(3) + 5));
+        } else if (Util.isTrue(80, 100)) {
+            it.options.add(new Item.ItemOption(107, 4));
         } else {
             it.options.add(new Item.ItemOption(107, new Random().nextInt(5) + 1));
         }
@@ -361,12 +362,12 @@ public class Util {
             it.options.add(new Item.ItemOption(14, new Random().nextInt(3) + 10));//10-12cm
         }
         it.options.add(new Item.ItemOption(209, 1));//đồ rơi từ boss
-        if (Util.isTrue(2, 800)) {// tỉ lệ ra spl 1-3 sao 70%
-            it.options.add(new Item.ItemOption(107, new Random().nextInt(2) + 3));
-        } else if (Util.isTrue(5, 100)) {// tỉ lệ ra spl 5-7 sao 4%
-            it.options.add(new Item.ItemOption(107, new Random().nextInt(3) + 5));
-        } else {// tỉ lệ ra spl 1-5 sao 6%
-            it.options.add(new Item.ItemOption(107, new Random().nextInt(2) + 3));
+        if (Util.isTrue(95, 100)) {// tỉ lệ ra spl
+            it.options.add(new Item.ItemOption(107, new Random().nextInt(3) + 1));
+        } else if (Util.isTrue(95, 100)) {
+            it.options.add(new Item.ItemOption(107, 4));
+        } else {
+            it.options.add(new Item.ItemOption(107, new Random().nextInt(5) + 1));
         }
         return it;
     }
@@ -397,28 +398,28 @@ public class Util {
         return it;
     }
     
-//    public static Item docui(int tempId) {
-//        ItemMap it = new ItemMap(zone, tempId, quantity, x, zone.map.yPhysicInTop(x, y - 24), playerId);
+//    public static Item docui(Zone zone, int tempId, int quantity, int x, int y, long playerId) {
+//        ItemMap it = new ItemMap(zone, tempId, quantity, x, y, playerId);
 //// Áo
-//List<Integer> ao = Arrays.asList(0, 1, 2, 3, 4, 5, 33, 34, 41, 42, 49, 50);
+//        List<Integer> ao = Arrays.asList(0, 1, 2, 3, 4, 5, 33, 34, 41, 42, 49, 50);
 //
 //// Quần
-//List<Integer> quan = Arrays.asList(6, 7, 8, 9, 10, 11, 35, 36, 51, 52);
+//        List<Integer> quan = Arrays.asList(6, 7, 8, 9, 10, 11, 35, 36, 51, 52);
 //
 //// Găng tay
-//List<Integer> gang = Arrays.asList(21, 22, 23, 24, 25, 26, 37, 38, 45, 46, 53, 54);
+//        List<Integer> gang = Arrays.asList(21, 22, 23, 24, 25, 26, 37, 38, 45, 46, 53, 54);
 //
 //// Giày
-//List<Integer> giay = Arrays.asList(27, 28, 29, 30, 31, 32, 39, 40, 47, 48, 55, 56);
+//        List<Integer> giay = Arrays.asList(27, 28, 29, 30, 31, 32, 39, 40, 47, 48, 55, 56);
 //
 //// Rada
-//List<Integer> rada = Arrays.asList(12, 13, 14, 15, 16, 17, 18, 19, 20, 57, 58, 59);
+//        List<Integer> rada = Arrays.asList(12, 13, 14, 15, 16, 17, 18, 19, 20, 57, 58, 59);
 //
 //        if (ao.contains(tempId)) {
-//            it.itemOptions.add(new Item.ItemOption(47, highlightsItem(it.template.gender == 2, new Random().nextInt(10) )));
+//            it.itemOptions.add(new Item.ItemOption(47, highlightsItem(it.template.gender == 2, new Random().nextInt(10))));
 //        }
 //        if (quan.contains(tempId)) {
-//            it.itemOptions.add(new Item.ItemOption(22, highlightsItem(it.template.gender == 0, new Random().nextInt(11) )));
+//            it.itemOptions.add(new Item.ItemOption(22, highlightsItem(it.template.gender == 0, new Random().nextInt(11))));
 //        }
 //        if (gang.contains(tempId)) {
 //            it.itemOptions.add(new Item.ItemOption(0, highlightsItem(it.template.gender == 2, new Random().nextInt(10) + 20)));
@@ -470,6 +471,46 @@ public class Util {
         }
         it.options.add(new Item.ItemOption(209, 1));
         it.options.add(new Item.ItemOption(21, 15));
+        return it;
+    }
+    public static ItemMap docui(Zone zone, int tempId, int quantity, int x, int y, long playerId) {
+        ItemMap it = new ItemMap(zone, tempId, quantity, x, y, playerId);
+        //Áo
+        List<Integer> ao = Arrays.asList(0, 1, 2, 3, 4, 5, 33, 34, 41, 42, 49, 50);
+
+// Quần
+        List<Integer> quan = Arrays.asList(0, 1, 2, 3, 4, 5, 33, 34, 41, 42, 49, 50);
+
+// Găng tay
+        List<Integer> gang = Arrays.asList(21, 22, 23, 24, 25, 26, 37, 38, 45, 46, 53, 54);
+
+// Giày
+        List<Integer> giay = Arrays.asList(27, 28, 29, 30, 31, 32, 39, 40, 47, 48, 55, 56);
+
+// Rada
+        List<Integer> rada = Arrays.asList(12, 13, 14, 15, 16, 17, 18, 19, 20, 57, 58, 59);
+        if (ao.contains(tempId)) {
+            it.options.add(new Item.ItemOption(47, highlightsItem(it.itemTemplate.gender == 2, new Random().nextInt(501) + 1000)));
+        }
+        if (quan.contains(tempId)) {
+            it.options.add(new Item.ItemOption(22, highlightsItem(it.itemTemplate.gender == 0, new Random().nextInt(11) + 45)));
+        }
+        if (gang.contains(tempId)) {
+            it.options.add(new Item.ItemOption(0, highlightsItem(it.itemTemplate.gender == 2, new Random().nextInt(1001) + 4500)));
+        }
+        if (giay.contains(tempId)) {
+            it.options.add(new Item.ItemOption(23, highlightsItem(it.itemTemplate.gender == 1, new Random().nextInt(11) + 45)));
+        }
+        if (rada.contains(tempId)) {
+            it.options.add(new Item.ItemOption(14, new Random().nextInt(3) + 15));
+        }
+        it.options.add(new Item.ItemOption(209, 1));
+        it.options.add(new Item.ItemOption(21, 15));
+        if (Util.isTrue(90, 100)) {// tỉ lệ ra spl
+            it.options.add(new Item.ItemOption(107, new Random().nextInt(3) + 1));
+        } else if (Util.isTrue(80, 100)) {
+            it.options.add(new Item.ItemOption(107, 4));
+        }
         return it;
     }
 
