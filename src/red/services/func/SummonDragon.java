@@ -24,6 +24,8 @@ import red.utils.Logger;
 import red.utils.Util;
 
 import java.util.List;
+import java.util.Random;
+import jdk.vm.ci.services.Services;
 
 /**
  *
@@ -124,27 +126,27 @@ public class SummonDragon {
 
     private long lastTimeShenronAppeared;
     private long lastTimeShenronWait;
-    private final int timeResummonShenron = 300000;
+    private final int timeResummonShenron = 30000;
 
     private boolean isShenronAppear;
-    private final int timeShenronWait = 300000;
+    private final int timeShenronWait = 30000;
 
     private final Thread update;
     private boolean active;
     // trb
     private long lastTimetrbAppeared;
     private long lastTimetrbWait;
-    private final int timeResummontrb = 300000;
+    private final int timeResummontrb = 30000;
     private int playertrbnronId;
     // bang
     private long lastTimebangAppeared;
     private long lastTimebangWait;
-    private final int timeResummonbang = 300000;
+    private final int timeResummonbang = 30000;
     private int playerbangnronId;
     // black
     private long lastTimeblackAppeared;
     private long lastTimeblackWait;
-    private final int timeResummonblack = 300000;
+    private final int timeResummonblack = 30000;
     private int playerblacknronId;
     //
     public boolean isPlayerDisconnect;
@@ -709,14 +711,7 @@ public class SummonDragon {
                         }
                         break;
                     case 2: // chí mạng +2%
-                        if (this.playerSummonShenron.nPoint.critg < 20) {
-                            this.playerSummonShenron.nPoint.critg += 2;
-                        } else {
-                            Service.gI().sendThongBao(playerSummonShenron,
-                                    "Điều ước này đã quá sức với ta, ta sẽ cho ngươi chọn lại");
-                            reOpenShenronWishes(playerSummonShenron);
-                            return;
-                        }
+                        this.playerSummonShenron.nPoint.critg += 2;                   
                         break;
                     case 3: // thay chiêu 2-3 đệ tử
                         if (playerSummonShenron.pet != null) {
@@ -742,22 +737,22 @@ public class SummonDragon {
             case ConstNpc.SHENRON_1_2:
                 switch (this.select) {
                     case 0: // đẹp trai nhất vũ trụ
-                        if (InventoryServiceNew.gI().getCountEmptyBag(playerSummonShenron) > 0) {
-                            byte gender = this.playerSummonShenron.gender;
-                            Item avtVip = ItemService.gI().createNewItem((short) (gender == ConstPlayer.TRAI_DAT ? 227
-                                    : gender == ConstPlayer.NAMEC ? 228 : 229));
-                            avtVip.itemOptions.add(new ItemOption(97, Util.nextInt(5, 10)));
-                            avtVip.itemOptions.add(new ItemOption(77, Util.nextInt(10, 20)));
-                            InventoryServiceNew.gI().addItemBag(playerSummonShenron, avtVip);
-                            InventoryServiceNew.gI().sendItemBags(playerSummonShenron);
-                        } else {
-                            Service.gI().sendThongBao(playerSummonShenron, "Hành trang đã đầy");
-                            reOpenShenronWishes(playerSummonShenron);
-                            return;
+                        int[] deolung = new int[]{995, 996, 997, 998, 999, 1000, 1001, 983, 982, 967, 966, 954, 955};
+                        int[] vanbay = new int[]{920, 1092, 745, 744};
+                        int[] pet = new int[]{2019, 2020, 2021, 2022, 2024, 2023, 2025};
+                        int dl = new Random().nextInt(deolung.length-1);
+                        int vb = new Random().nextInt(vanbay.length-1);
+                        int pt = new Random().nextInt(pet.length-1);
+                        if(Util.isTrue(1, 3)){
+                            ItemService.gI().DieuUoc(playerSummonShenron, deolung[dl]);
+                        }else if(Util.isTrue(1, 3)){
+                            ItemService.gI().DieuUoc(playerSummonShenron, vanbay[vb]);
+                        }else{
+                            ItemService.gI().DieuUoc(playerSummonShenron, pet[pt]);
                         }
                         break;
                     case 1: // +1,5 ngọc
-                        this.playerSummonShenron.inventory.ruby += 2000;
+                        this.playerSummonShenron.inventory.ruby += Util.nextInt(2000, 3000);
                         PlayerService.gI().sendInfoHpMpMoney(this.playerSummonShenron);
                         break;
                     case 2: // suc manh tiem an
