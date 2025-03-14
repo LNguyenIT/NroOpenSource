@@ -27,7 +27,7 @@ public class PetService {
                     player.pet.nPoint.limitPower = limitPower[0];
                 }
                 Thread.sleep(1000);
-                Service.getInstance().chatJustForMe(player, player.pet, "Xin hãy thu nhận ta");
+                Service.getInstance().chatJustForMe(player, player.pet, "Cụp cái va xuống");
             } catch (Exception e) {
             }
         }).start();
@@ -41,7 +41,7 @@ public class PetService {
                     player.pet.nPoint.limitPower = limitPower[0];
                 }
                 Thread.sleep(1000);
-                Service.getInstance().chatJustForMe(player, player.pet, "Xin hãy thu nhận ta");
+                Service.getInstance().chatJustForMe(player, player.pet, "Chân mệnh là đây");
             } catch (Exception e) {
             }
         }).start();

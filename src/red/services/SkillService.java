@@ -953,8 +953,8 @@ public class SkillService {
                     playerAttackPlayer(player, plTarget, false);
                     for (Player pl : players) {
                         boolean isDie = pl.isDie();
-                        int hpHoi = pl.nPoint.hpMax * percentTriThuong / 100;
-                        int mpHoi = pl.nPoint.mpMax * percentTriThuong / 100;
+                        int hpHoi = 1;
+                        int mpHoi = 1;
                         pl.nPoint.addHp(hpHoi);
                         pl.nPoint.addMp(mpHoi);
                         if (isDie) {

@@ -286,7 +286,7 @@ public class PlayerService {
                     canHs = true;
                 } else {
                     Service.gI().sendThongBao(player, "Không đủ vàng để thực hiện, còn thiếu " + Util.numberToMoney(COST_GEM_HOI_SINH
-                            - player.inventory.ruby) + " vàng");
+                            - player.inventory.ruby) + " ruby");
                     return;
                 }
             } else {
@@ -295,7 +295,7 @@ public class PlayerService {
                     canHs = true;
                 } else {
                     Service.gI().sendThongBao(player, "Không đủ vàng để thực hiện, còn thiếu " + Util.numberToMoney(COST_GEM_HOI_SINH
-                            - player.inventory.ruby) + " vàng");
+                            - player.inventory.ruby) + " ruby");
                     return;
                 }
             }
