@@ -2561,6 +2561,26 @@ public void openBoxngocboi(Player player) {
         CombineServiceNew.gI().sendEffectOpenItem(player, icon[0], icon[1]);
     }
 
+    public void DieuUoc(Player player,int idItem) {
+        if (InventoryServiceNew.gI().getCountEmptyBag(player) <= 1) {
+            Service.gI().sendThongBao(player, "Bạn phải có ít nhất 1 ô trống hành trang");
+            return;
+        }
+//        if (player.inventory.event < 3000) {
+//            Service.gI().sendThongBao(player, "Bạn không đủ bông...");
+//            return;
+//        }
+        Item item;
+        item = phuKien(idItem);
+//        short[] icon = new short[2];
+//        icon[0] = 6983;
+//        icon[1] = item.template.iconID;
+        InventoryServiceNew.gI().addItemBag(player, item);
+        InventoryServiceNew.gI().sendItemBags(player);
+        Service.gI().sendThongBao(player, "Bạn đã nhận được " + item.template.name);
+//        CombineServiceNew.gI().sendEffectOpenItem(player, icon[0], icon[1]);
+    }
+    
     public void giaobong(Player player, int quantity) {
         if (quantity > 100) return;
         try {
