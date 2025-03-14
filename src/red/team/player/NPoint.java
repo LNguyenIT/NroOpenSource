@@ -1979,10 +1979,10 @@ public void increasePointDT(byte type, short point) {
             this.crit += 10;
         }
         //
-        if (!this.player.effectSkill.isMonkey && !this.player.effectSkill.isCuongChien && this.crit > 33
-                && !this.player.itemTime.isEatDuoiKhi) {
-            this.crit = 50;
-        }
+//        if (!this.player.effectSkill.isMonkey && !this.player.effectSkill.isCuongChien && this.crit > 33
+//                && !this.player.itemTime.isEatDuoiKhi) {
+//            this.crit = 50;
+//        }
         if (this.player.fusion.typeFusion == ConstPlayer.LUONG_LONG_NHAT_THE && this.player.nPoint.isSSJ4
                 && this.player.pet != null && this.player.pet.nPoint.isSSJ4) {
             this.crit = 100;
