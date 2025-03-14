@@ -167,6 +167,7 @@ public class Manager {
     public static final short[] gangnm = { 162, 163, 258, 259, 260, 261, 564 };
     public static final short[] giaynm = { 166, 167, 270, 271, 272, 273, 565 };
     public static final short[] radaSKHVip = { 186, 187, 278, 279, 280, 281, 561 };
+    public static final short[] docui = { 0, 1, 2, 3, 4, 5, 33, 34, 41, 42, 49, 50,0, 1, 2, 3, 4, 5, 33, 34, 41, 42, 49,21, 22, 23, 24, 25, 26, 37, 38, 45, 46, 53, 54, 27, 28, 29, 30, 31, 32, 39, 40, 47, 48, 55, 56,12, 13, 14, 15, 16, 17, 18, 19, 20, 57, 58, 59};
     // ist mts
     public static final short[] manhts = { 1067, 1068, 1069, 1070, 1066 };
     // isst t.a
