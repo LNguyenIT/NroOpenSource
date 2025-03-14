@@ -16,14 +16,14 @@ public class ConstTask {
     public static final byte HELL = 4;
 
     //const gold reward side task
-    public static final int GOLD_EASY = Util.nextInt(1,2);
-    public static final int GOLD_NORMAL = Util.nextInt(2,3);
-    public static final int GOLD_HARD = Util.nextInt(3,4);
-    public static final int GOLD_VERY_HARD = 5;
-    public static final int GOLD_HELL = 7;
+    public static final int GOLD_EASY = 2;
+    public static final int GOLD_NORMAL = 3;
+    public static final int GOLD_HARD = 5;
+    public static final int GOLD_VERY_HARD = 10;
+    public static final int GOLD_HELL = 20;
 
     //const max side task of date
-    public static final byte MAX_SIDE_TASK = 10;
+    public static final byte MAX_SIDE_TASK = 15;
     public static final byte MAX_CLAN_TASK = 10;
     //const change map id
     public static final byte MAP_NHA = -2;
