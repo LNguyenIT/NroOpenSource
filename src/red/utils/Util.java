@@ -490,16 +490,16 @@ public class Util {
 // Rada
         List<Integer> rada = Arrays.asList(12, 13, 14, 15, 16, 17, 18, 19, 20, 57, 58, 59);
         if (ao.contains(tempId)) {
-            it.options.add(new Item.ItemOption(47, highlightsItem(it.itemTemplate.gender == 2, new Random().nextInt(501) + 1000)));
+            it.options.add(new Item.ItemOption(47, highlightsItem(it.itemTemplate.gender == 2, new Random().nextInt(501) + 100)));
         }
         if (quan.contains(tempId)) {
-            it.options.add(new Item.ItemOption(22, highlightsItem(it.itemTemplate.gender == 0, new Random().nextInt(11) + 45)));
+            it.options.add(new Item.ItemOption(22, highlightsItem(it.itemTemplate.gender == 0, new Random().nextInt(11) + 5)));
         }
         if (gang.contains(tempId)) {
-            it.options.add(new Item.ItemOption(0, highlightsItem(it.itemTemplate.gender == 2, new Random().nextInt(1001) + 4500)));
+            it.options.add(new Item.ItemOption(0, highlightsItem(it.itemTemplate.gender == 2, new Random().nextInt(1001) + 200)));
         }
         if (giay.contains(tempId)) {
-            it.options.add(new Item.ItemOption(23, highlightsItem(it.itemTemplate.gender == 1, new Random().nextInt(11) + 45)));
+            it.options.add(new Item.ItemOption(23, highlightsItem(it.itemTemplate.gender == 1, new Random().nextInt(11) + 5)));
         }
         if (rada.contains(tempId)) {
             it.options.add(new Item.ItemOption(14, new Random().nextInt(3) + 15));
