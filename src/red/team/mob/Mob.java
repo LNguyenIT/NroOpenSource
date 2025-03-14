@@ -30,6 +30,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import red.services.InventoryServiceNew;
 import red.services.ItemService;
+import static red.team.server.Manager.docui;
+import static red.utils.Util.docui;
 
 public class Mob {
 
@@ -523,6 +525,13 @@ public class Mob {
         // nplayer
         List<ItemMap> itemReward = new ArrayList<>();
         try {
+            //Rơi đồ sao
+            if (Util.isTrue(1, 1000)) {
+                int randomG = new Random().nextInt(docui.length-1);
+                                    Service.gI().dropItemMap(this.zone,
+                            Util.docui(zone, Manager.docui[randomG], 1, this.location.x + 2, this.location.y, player.id));
+            }
+            
             if (Util.isTrue(60, 100)) {
                 byte random = 2;
                 if (Util.isTrue(5, 100)) {
