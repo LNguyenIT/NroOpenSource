@@ -2327,6 +2327,33 @@ public class ItemService {
         }
         return item;
     }
+    
+    //phukien1
+    public Item phuKien(int itemId) {
+        Item item = createItemSetKichHoat(itemId, 1);
+        if(Util.isTrue(20, 100)){
+            item.itemOptions.add(new Item.ItemOption(77, new Random().nextInt(7) + 5));
+            item.itemOptions.add(new Item.ItemOption(103, new Random().nextInt(7) + 5));
+            item.itemOptions.add(new Item.ItemOption(147, new Random().nextInt(7) + 5));
+        }else{
+            item.itemOptions.add(new Item.ItemOption(77, new Random().nextInt(7)));
+            item.itemOptions.add(new Item.ItemOption(103, new Random().nextInt(7)));
+            item.itemOptions.add(new Item.ItemOption(147, new Random().nextInt(7)));
+        }
+        
+        if (Util.isTrue(1, 100)) {
+            item.itemOptions.get(Util.nextInt(item.itemOptions.size() - 1)).param = 10;
+        }
+        if (Util.isTrue(30, 100)) {
+            item.itemOptions.add(new Item.ItemOption(14, Util.nextInt(0, 5)));
+            item.itemOptions.add(new Item.ItemOption(5, Util.nextInt(0, 5)));
+        }
+        item.itemOptions.add(new Item.ItemOption(30, 1));//ko the gd
+//        if (Util.isTrue(995, 1000)) {// tỉ lệ ra hsd
+//            item.itemOptions.add(new Item.ItemOption(93, new Random().nextInt(3) + 1));//hsd
+//        }
+        return item;
+    }
 
     public Item vanBay2011(boolean rating) {
         Item item = createItemSetKichHoat(795, 1);
@@ -2514,10 +2541,10 @@ public void openBoxngocboi(Player player) {
             Service.gI().sendThongBao(player, "Bạn phải có ít nhất 2 ô trống hành trang");
             return;
         }
-        if (player.inventory.event < 3000) {
-            Service.gI().sendThongBao(player, "Bạn không đủ bông...");
-            return;
-        }
+//        if (player.inventory.event < 3000) {
+//            Service.gI().sendThongBao(player, "Bạn không đủ bông...");
+//            return;
+//        }
         Item item;
         if (Util.isTrue(45, 100)) {
             item = caitrang2011(false);
@@ -2569,9 +2596,9 @@ public void openBoxngocboi(Player player) {
         }
         phukien.itemOptions.add(new Item.ItemOption(192, 1));//WORLDCUP
         phukien.itemOptions.add(new Item.ItemOption(193, 1));//(2 món kích hoạt ....)
-        if (Util.isTrue(99, 100)) {// tỉ lệ ra hsd
-            phukien.itemOptions.add(new Item.ItemOption(93, new Random().nextInt(2) + 1));//hsd
-        }
+//        if (Util.isTrue(99, 100)) {// tỉ lệ ra hsd
+//            phukien.itemOptions.add(new Item.ItemOption(93, new Random().nextInt(2) + 1));//hsd
+//        }
         return phukien;
     }
 
