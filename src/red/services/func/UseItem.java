@@ -1400,7 +1400,7 @@ public class UseItem {
             int tv = Util.nextInt(gold[0][0], gold[0][1]);
 
              int itemc2 = new Random().nextInt(Manager.itc2.length - 1);
-            if (Util.isTrue(1  , 200)) {
+            if (Util.isTrue(1  , 100)) {
                 Item it = ItemService.gI().createNewItem((short) (457), tv);
                 InventoryServiceNew.gI().addItemBag(pl, it);
 
