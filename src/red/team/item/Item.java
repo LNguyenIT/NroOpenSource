@@ -57,7 +57,7 @@ public class Item {
     }
 
         public boolean isDaLinhThach() {
-        if (this.template.id == 2047) {
+        if (this.template.id == 344) {
             return true;
         }
         return false;
