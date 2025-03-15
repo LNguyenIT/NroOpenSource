@@ -22,9 +22,9 @@ public class Fide extends Boss {
             ItemMap it = new ItemMap(this.zone, 861, 1, this.location.x, this.zone.map.yPhysicInTop(this.location.x,
                     this.location.y - 24), plKill.id);
         Service.gI().dropItemMap(this.zone, it);
-        if (Util.isTrue(2, 10)) {
-            Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 2000+plKill.gender, 1, this.location.x, this.location.y, plKill.id));
-        }
+//        if (Util.isTrue(2, 10)) {
+//            Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 2000+plKill.gender, 1, this.location.x, this.location.y, plKill.id));
+//        }
         }
         plKill.pointBoss += 0;
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
