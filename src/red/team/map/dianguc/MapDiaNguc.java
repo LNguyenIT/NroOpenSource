@@ -12,11 +12,11 @@ import red.utils.Util;
 public class MapDiaNguc{
 
 
-    public static final byte HOUR_OPEN_MAP_DIA_NGUC = 8;
+    public static final byte HOUR_OPEN_MAP_DIA_NGUC = 0;
     public static final byte MIN_OPEN_MAP_DIA_NGUC = 0;
     public static final byte SECOND_OPEN_MAP_DIA_NGUC = 0;
 
-    public static final byte HOUR_CLOSE_MAP_DIA_NGUC = 10;
+    public static final byte HOUR_CLOSE_MAP_DIA_NGUC = 15;
     public static final byte MIN_CLOSE_MAP_DIA_NGUC = 59;
     public static final byte SECOND_CLOSE_MAP_DIA_NGUC = 0;
 
