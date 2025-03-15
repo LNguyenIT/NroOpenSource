@@ -29,9 +29,9 @@ public class Pic extends Boss {
             if (Util.isTrue(1, 50)) {
                 Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 457, 5, this.location.x, this.location.y, plKill.id));
             }
-            if (Util.isTrue(2, 10)) {
-                Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 2000+plKill.gender, 1, this.location.x, this.location.y, plKill.id));
-            }
+//            if (Util.isTrue(2, 10)) {
+//                Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 2000+plKill.gender, 1, this.location.x, this.location.y, plKill.id));
+//            }
             if (Util.isTrue(1, 3)) {
                 Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 457, 1, this.location.x+2, this.location.y, plKill.id));
             }

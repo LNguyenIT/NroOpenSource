@@ -34,8 +34,8 @@ public class SuperAndroid17 extends Boss {
         if (Util.isTrue(30, 100)) {
             Service.gI().dropItemMap(this.zone,
                     Util.ratiItem(zone, 457, 2, this.location.x + 2, this.location.y, plKill.id));
-            Service.gI().dropItemMap(this.zone,
-                    Util.ratiItem(zone, 2000 + plKill.gender, 1, this.location.x, this.location.y, plKill.id));
+//            Service.gI().dropItemMap(this.zone,
+//                    Util.ratiItem(zone, 2000 + plKill.gender, 1, this.location.x, this.location.y, plKill.id));
         }
         plKill.pointBoss += 2;
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
