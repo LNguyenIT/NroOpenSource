@@ -45,7 +45,7 @@ public class Zeno extends Boss {
         Service.gI().dropItemMap(this.zone,
                 Util.ratiItem(zone, 722, 1, this.location.x, this.location.y, plKill.id));
         Service.gI().dropItemMap(this.zone,
-                    new ItemMap(zone, (byte) 2119, 1, this.location.x, this.location.y, plKill.id));
+                    new ItemMap(zone, (byte) 2121, 1, this.location.x, this.location.y, plKill.id));
         Service.gI().sendThongBaoAllPlayer("Chết rồi GOKU đã rơi vào tay "+plKill.name);
         plKill.pointBoss += 0;
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
