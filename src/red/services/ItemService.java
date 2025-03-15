@@ -2331,14 +2331,18 @@ public class ItemService {
     //phukien1
     public Item phuKien(int itemId) {
         Item item = createItemSetKichHoat(itemId, 1);
-        if(Util.isTrue(20, 100)){
-            item.itemOptions.add(new Item.ItemOption(77, new Random().nextInt(7) + 5));
-            item.itemOptions.add(new Item.ItemOption(103, new Random().nextInt(7) + 5));
-            item.itemOptions.add(new Item.ItemOption(147, new Random().nextInt(7) + 5));
+        if(Util.isTrue(1, 300)){
+            item.itemOptions.add(new Item.ItemOption(77, new Random().nextInt(7) + 15));
+            item.itemOptions.add(new Item.ItemOption(103, new Random().nextInt(7) + 15));
+            item.itemOptions.add(new Item.ItemOption(147, new Random().nextInt(7) + 15));
+        }else if(Util.isTrue(5, 100)){
+            item.itemOptions.add(new Item.ItemOption(77, new Random().nextInt(7) + 10));
+            item.itemOptions.add(new Item.ItemOption(103, new Random().nextInt(7) + 10));
+            item.itemOptions.add(new Item.ItemOption(147, new Random().nextInt(7) + 10));
         }else{
-            item.itemOptions.add(new Item.ItemOption(77, new Random().nextInt(7)));
-            item.itemOptions.add(new Item.ItemOption(103, new Random().nextInt(7)));
-            item.itemOptions.add(new Item.ItemOption(147, new Random().nextInt(7)));
+            item.itemOptions.add(new Item.ItemOption(77, new Random().nextInt(4)+6));
+            item.itemOptions.add(new Item.ItemOption(103, new Random().nextInt(4)+6));
+            item.itemOptions.add(new Item.ItemOption(147, new Random().nextInt(4)+6));
         }
         
         if (Util.isTrue(1, 100)) {
@@ -2347,6 +2351,9 @@ public class ItemService {
         if (Util.isTrue(30, 100)) {
             item.itemOptions.add(new Item.ItemOption(14, Util.nextInt(0, 5)));
             item.itemOptions.add(new Item.ItemOption(5, Util.nextInt(0, 5)));
+        }else{
+            item.itemOptions.add(new Item.ItemOption(14, Util.nextInt(0, 5)+5));
+            item.itemOptions.add(new Item.ItemOption(5, Util.nextInt(0, 5)+5));
         }
         item.itemOptions.add(new Item.ItemOption(30, 1));//ko the gd
 //        if (Util.isTrue(995, 1000)) {// tỉ lệ ra hsd
