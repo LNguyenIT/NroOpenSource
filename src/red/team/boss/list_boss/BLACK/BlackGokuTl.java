@@ -25,33 +25,35 @@ public class BlackGokuTl extends Boss {
     @Override
     public void reward(Player plKill) {
         byte randomDo = (byte) new Random().nextInt(Manager.itemIds_TL.length - 1);
-        byte randomNR = (byte) new Random().nextInt(Manager.itemIds_NR_SB.length);
-        if (Util.isTrue(BossManager.ratioReward, 100)) {
-            if (Util.isTrue(10, 20)) {
-                int[] manhthuong = new int[]{1066,1067,1068,1069,1070};
-            int[] manhhiem = new int[]{561};
+        byte randomNR = (byte) new Random().nextInt(Manager.itemIds_NR_SB.length -1);
 
-            int randomAWJ = new Random().nextInt(manhthuong.length);
-            int randomGR = new Random().nextInt(manhhiem.length);
-            if (Util.isTrue(30, 100)) {
-                Service.gI().dropItemMap(this.zone, Util.manhTS(zone, manhthuong[randomAWJ], 1, this.location.x, this.location.y, plKill.id));
-            } else {
-                Service.gI().dropItemMap(this.zone, Util.manhTS(zone, manhhiem[randomGR], 3, this.location.x, this.location.y, plKill.id));
-            }
-                Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 561, 1, this.location.x, this.location.y, plKill.id));
-                if (Util.isTrue(5, 10)) {
-                    Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 457, 1, this.location.x+2, this.location.y, plKill.id));
-                    Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 2000+plKill.gender, 1, this.location.x, this.location.y, plKill.id));
-                }
+        if (Util.isTrue(15, 20)) {
+//                int[] manhthuong = new int[] { 1066, 1067, 1068, 1069, 1070 };  
+            int[] manhhiem = new int[]{561};
+            int[] gang = new int[]{562, 564, 566};
+            int randomG = new Random().nextInt(gang.length - 1);
+//                int randomAWJ = new Random().nextInt(manhthuong.length-1);
+            int randomGR = new Random().nextInt(manhhiem.length - 1);
+            if (Util.isTrue(70, 100)) {
+//                    Service.gI().dropItemMap(this.zone,
+//                            Util.manhTS(zone, manhthuong[randomAWJ], 1, this.location.x, this.location.y, plKill.id));
                 Service.gI().dropItemMap(this.zone,
-                        new ItemMap(zone, 865, 1, this.location.x, this.location.y, plKill.id));
+                        Util.ratiItem(zone, (byte) 15, 1, this.location.x + 2, this.location.y, plKill.id));
             } else {
-                Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, Manager.itemIds_TL[randomDo], 1, this.location.x, this.location.y, plKill.id));
+                Service.gI().dropItemMap(this.zone,
+                        Util.manhTS(zone, manhhiem[randomGR], 3, this.location.x, this.location.y, plKill.id));
+            }
+            Service.gI().dropItemMap(this.zone,
+                    new ItemMap(zone, 992, 1, this.location.x, this.location.y, plKill.id));
+            if (Util.isTrue(5, 100)) {
+                Service.gI().dropItemMap(this.zone,
+                        Util.ratiItem(zone, gang[randomG], 1, this.location.x, this.location.y, plKill.id));
             }
         } else {
-            Service.gI().dropItemMap(this.zone, new ItemMap(zone, Manager.itemIds_NR_SB[randomNR], 1, this.location.x, zone.map.yPhysicInTop(this.location.x, this.location.y - 24), plKill.id));
+            Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, Manager.itemIds_TL[randomDo], 1,
+                    this.location.x, this.location.y, plKill.id));
         }
-        plKill.pointBoss += 3;
+        plKill.pointBoss += 2;
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
     }
    @Override
