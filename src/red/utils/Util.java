@@ -462,9 +462,9 @@ public class Util {
             it.options.add(new Item.ItemOption(14, new Random().nextInt(3) + 15));
         }
         it.options.add(new Item.ItemOption(209, 1));//đồ rơi từ boss
-        if (Util.isTrue(80, 100)) {
-            it.options.add(new Item.ItemOption(107, new Random().nextInt(1,2) +3));
-        } else {
+        if(Util.isTrue(1, 100)){
+            it.options.add(new Item.ItemOption(107, 7));
+        }else if (Util.isTrue(80, 100)) {
             it.options.add(new Item.ItemOption(107, new Random().nextInt(1,2) + 4));
         }
         it.options.add(new Item.ItemOption(209, 1));
