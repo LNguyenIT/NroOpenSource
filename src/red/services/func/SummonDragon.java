@@ -112,7 +112,7 @@ public class SummonDragon {
     public static final String[] SHENRON_1_STAR_WISHES_1 = new String[] { "Giàu có\n+2 Tỏi\nVàng",
             "Găng tay\nđang mang\nlên 1 cấp", "Chí mạng\nGốc +2%",
             "Thay\nChiêu 2-3\nĐệ tử", "Điều ước\nkhác" };
-    public static final String[] SHENRON_1_STAR_WISHES_2 = new String[] { "Đẹp trai\nnhất\nVũ trụ",
+    public static final String[] SHENRON_1_STAR_WISHES_2 = new String[] { "Triệu gọi\nHỗn Mang",
             "Giàu có\n+2K\nHồng Ngọc", "Đột phá sức mạnh",
             "Găng tay đệ\nđang mang\nlên 1 cấp",
             "Điều ước\nkhác" };
