@@ -44,7 +44,7 @@ public class Bojack extends Boss {
             }
             
         } else {
-            Service.gI().dropItemMap(this.zone, new ItemMap(zone, NRs[randomNR], 1, this.location.x,
+            Service.gI().dropItemMap(this.zone, new ItemMap(zone, (byte) 16, 1, this.location.x,
                     zone.map.yPhysicInTop(this.location.x, this.location.y - 24), plKill.id));
         }
         plKill.pointBoss += 0;
