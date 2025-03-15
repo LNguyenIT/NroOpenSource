@@ -3023,30 +3023,38 @@ public class CombineServiceNew {
                 ngoc1sao = item;
             }
         }
+        if (chanMenh != null && ngoc1sao != null) {
+            int capChanMenh = chanMenh.template.id - 1252 + 1; // Lấy cấp hiện tại của Chân Mệnh
+            int soLuongNgocCan = 10 + 5 * (capChanMenh - 1); // Công thức tính số viên ngọc cần
 
-        if (chanMenh != null && ngoc1sao != null && ngoc1sao.quantity >= 10 && player.inventory.ruby > 5000) {
-            player.inventory.ruby -= 5000;
-            player.inventory.gem -= 0;
-            Item chanMenhMoi = ItemService.gI().createNewItem((short) (chanMenh.template.id + 1));
-            int capChanMenh = chanMenhMoi.template.id - 1252;
-            chanMenhMoi.itemOptions.add(new ItemOption(50, 5 + capChanMenh * 3));
-            chanMenhMoi.itemOptions.add(new ItemOption(77, 5 + capChanMenh * 3));
-            chanMenhMoi.itemOptions.add(new ItemOption(103, 5 + capChanMenh * 3));
-            chanMenhMoi.itemOptions.add(new ItemOption(5, 5 + capChanMenh));
-            chanMenhMoi.itemOptions.add(new ItemOption(14, 5 + capChanMenh));
-            chanMenhMoi.itemOptions.add(new ItemOption(101, 5 + capChanMenh * 3));
-            chanMenhMoi.itemOptions.add(new ItemOption(98, 5 + capChanMenh * 3));
-            InventoryServiceNew.gI().addItemBag(player, chanMenhMoi);
-            Service.gI().sendThongBao(player, "|7|Bạn nhận được " + chanMenhMoi.template.name);
-            InventoryServiceNew.gI().subQuantityItemsBag(player, ngoc1sao, 10);
-            InventoryServiceNew.gI().subQuantityItemsBag(player, chanMenh, 1);
-            sendEffectSuccessCombine(player);
-            InventoryServiceNew.gI().sendItemBags(player);
-            Service.gI().sendMoney(player);
-            reOpenItemCombine(player);
-        } else {
-            Service.gI().sendThongBao(player, "Không đủ nguyên liệu nâng cấp!");
-            reOpenItemCombine(player);
+            if (ngoc1sao.quantity >= soLuongNgocCan && player.inventory.ruby > 5000) {
+                player.inventory.ruby -= 5000;
+                Item chanMenhMoi = ItemService.gI().createNewItem((short) (chanMenh.template.id + 1));
+
+                // Cập nhật các chỉ số theo cấp mới
+                chanMenhMoi.itemOptions.add(new ItemOption(50, 5 + capChanMenh * 3));
+                chanMenhMoi.itemOptions.add(new ItemOption(77, 5 + capChanMenh * 3));
+                chanMenhMoi.itemOptions.add(new ItemOption(103, 5 + capChanMenh * 3));
+                chanMenhMoi.itemOptions.add(new ItemOption(5, 5 + capChanMenh));
+                chanMenhMoi.itemOptions.add(new ItemOption(14, 5 + capChanMenh));
+                chanMenhMoi.itemOptions.add(new ItemOption(101, 5 + capChanMenh * 3));
+                chanMenhMoi.itemOptions.add(new ItemOption(98, 5 + capChanMenh * 3));
+
+                InventoryServiceNew.gI().addItemBag(player, chanMenhMoi);
+                Service.gI().sendThongBao(player, "|7|Bạn nhận được " + chanMenhMoi.template.name);
+
+                // Trừ nguyên liệu sau khi nâng cấp
+                InventoryServiceNew.gI().subQuantityItemsBag(player, ngoc1sao, soLuongNgocCan);
+                InventoryServiceNew.gI().subQuantityItemsBag(player, chanMenh, 1);
+
+                sendEffectSuccessCombine(player);
+                InventoryServiceNew.gI().sendItemBags(player);
+                Service.gI().sendMoney(player);
+                reOpenItemCombine(player);
+            } else {
+                Service.gI().sendThongBao(player, "Không đủ nguyên liệu nâng cấp!");
+                reOpenItemCombine(player);
+            }
         }
 
         ///
