@@ -260,7 +260,23 @@ public class PlayerService {
                             - player.inventory.gold) + " vàng");
                     return;
                 }    
-            } else {
+            } else if(MapService.gI().isMapTuongLai(player.zone.map.mapId) || MapService.gI().isMapThienSu(player.zone.map.mapId) || MapService.gI().isMapHuyDiet(player.zone.map.mapId) ) {
+                if (player.inventory.ruby >= COST_GEM_HOI_SINH*10) {
+                    player.inventory.ruby -= COST_GEM_HOI_SINH*10;
+                    canHs = true;
+                } else {
+                    Service.gI().sendThongBao(player, "Không đủ ngọc rồi");
+                    return;
+                }
+            }else if(MapService.gI().isMapMabu13h(player.zone.map.mapId) || MapService.gI().isMapMaBu(player.zone.map.mapId)){
+                if (player.inventory.ruby >= COST_GEM_HOI_SINH*3) {
+                    player.inventory.ruby -= COST_GEM_HOI_SINH*3;
+                    canHs = true;
+                } else {
+                    Service.gI().sendThongBao(player, "Không đủ ngọc rồi");
+                    return;
+                }
+            }else{
                 if (player.inventory.ruby >= COST_GEM_HOI_SINH) {
                     player.inventory.ruby -= COST_GEM_HOI_SINH;
                     canHs = true;
