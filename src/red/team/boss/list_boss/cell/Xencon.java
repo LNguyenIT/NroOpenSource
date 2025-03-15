@@ -63,7 +63,7 @@ public class Xencon extends Boss {
         int randomNR = new Random().nextInt(NRs.length);
         if (Util.isTrue(30, 100)) {
             if (Util.isTrue(30, 100)) {
-                Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 14, 1, this.location.x, this.location.y, plKill.id));
+                Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 15, 1, this.location.x, this.location.y, plKill.id));
                 if (Util.isTrue(3, 10)) {
                     Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 457, 5, this.location.x+2, this.location.y, plKill.id));
 //                    Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 2000+plKill.gender, 1, this.location.x, this.location.y, plKill.id));

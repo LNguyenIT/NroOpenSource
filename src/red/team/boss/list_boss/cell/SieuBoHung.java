@@ -35,7 +35,7 @@ public class SieuBoHung extends Boss {
         int randomDo = new Random().nextInt(itemDos.length);
         int randomNR = new Random().nextInt(NRs.length);
         if (Util.isTrue(30, 100)) {
-            if (Util.isTrue(30, 100)) {
+            if (Util.isTrue(10, 100)) {
                 Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 14, 1, this.location.x, this.location.y, plKill.id));
                 if (Util.isTrue(3, 10)) {
                     Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 457, 5, this.location.x+2, this.location.y, plKill.id));
