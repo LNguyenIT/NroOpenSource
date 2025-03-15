@@ -29,7 +29,7 @@ public class Berusthan extends Boss {
         ItemMap it = new ItemMap(this.zone, 2119, 1, this.location.x, this.zone.map.yPhysicInTop(this.location.x,
                 this.location.y - 24), plKill.id);
         Service.gI().dropItemMap(this.zone, it);
-        if (Util.isTrue(100, 100)) {
+        if (Util.isTrue(20, 100)) {
             Service.gI().dropItemMap(this.zone,
                     Util.ratiItem(zone, 2000 + plKill.gender, 10, this.location.x, this.location.y, -1));
         }
