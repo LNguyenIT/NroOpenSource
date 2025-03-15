@@ -25,7 +25,7 @@ import red.utils.Util;
 
 import java.util.List;
 import java.util.Random;
-import jdk.vm.ci.services.Services;
+//import jdk.vm.ci.services.Services;
 
 /**
  *
@@ -126,27 +126,27 @@ public class SummonDragon {
 
     private long lastTimeShenronAppeared;
     private long lastTimeShenronWait;
-    private final int timeResummonShenron = 30000;
+    private final int timeResummonShenron = 300000;
 
     private boolean isShenronAppear;
-    private final int timeShenronWait = 30000;
+    private final int timeShenronWait = 300000;
 
     private final Thread update;
     private boolean active;
     // trb
     private long lastTimetrbAppeared;
     private long lastTimetrbWait;
-    private final int timeResummontrb = 30000;
+    private final int timeResummontrb = 300000;
     private int playertrbnronId;
     // bang
     private long lastTimebangAppeared;
     private long lastTimebangWait;
-    private final int timeResummonbang = 30000;
+    private final int timeResummonbang = 300000;
     private int playerbangnronId;
     // black
     private long lastTimeblackAppeared;
     private long lastTimeblackWait;
-    private final int timeResummonblack = 30000;
+    private final int timeResummonblack = 300000;
     private int playerblacknronId;
     //
     public boolean isPlayerDisconnect;
