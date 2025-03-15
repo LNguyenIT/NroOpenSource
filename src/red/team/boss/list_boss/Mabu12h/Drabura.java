@@ -39,7 +39,8 @@ public class Drabura extends Boss {
             Service.gI().dropItemMap(this.zone, Util.RaitiDoc12(zone, itemDos[randomc12], 1, this.location.x, this.location.y, plKill.id));
             
         } else {
-            Service.gI().dropItemMap(this.zone, new ItemMap(zone, Manager.itemIds_NR_SB[randomNR], 1, this.location.x, this.location.y, plKill.id));
+            Service.gI().dropItemMap(this.zone,
+                    new ItemMap(zone, (byte) 16, 1, this.location.x, this.location.y, plKill.id));
         }
         plKill.pointBoss += 0;
         plKill.fightMabu.changePoint(10);
