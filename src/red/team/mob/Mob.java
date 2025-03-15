@@ -577,7 +577,7 @@ public class Mob {
 
             if ((!player.isPet  && player.setClothes.setHuyDiet() == true
                     && (this.zone.map.mapId == 155))) {
-                if (Util.isTrue(5, 300)) {
+                if (Util.isTrue(5, 200)) {
                     Item linhThu = ItemService.gI().createNewItem(Manager.manhts[(Util.nextInt(0, 4))]);
                     Service.getInstance().sendThongBao(player, "Bạn vừa nhận được  " + linhThu.template.name);
                     InventoryServiceNew.gI().addItemBag(player, linhThu);
