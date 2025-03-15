@@ -854,7 +854,6 @@ public void increasePointDT(byte type, short point) {
             int pointHp2000 = point * 20 * 100;
 //          Tính tiềm năng hp 2000
             long tiemNangUse2000 = 0;
-            initialHpg = this.hpg;
             for (int i = 0; i < 100; i++) { // 2000 HP tương đương với 100 lần cộng 20 HP
                 tiemNangUse2000 += point * (2 * (initialHpg + 1000) + pointHp20 - 20) / 2;
                 initialHpg += pointHp20;
@@ -869,15 +868,15 @@ public void increasePointDT(byte type, short point) {
             tiemNangUse = point * (2 * (this.hpg + 1000) + pointHp20 - 20) / 2;
             if ((this.hpg + pointHp2000) <= getHpMpLimit() && doUseTiemNang(tiemNangUse2000)) {
 
-                hpg += pointHp2000;
+                this.hpg += pointHp2000;
 
             } else if ((this.hpg + pointHp200) <= getHpMpLimit() && doUseTiemNang(tiemNangUse200)) {
 
-                hpg += pointHp200;
+                this.hpg += pointHp200;
 
             } else if ((this.hpg + pointHp20) <= getHpMpLimit() && doUseTiemNang(tiemNangUse)) {
 
-                hpg += pointHp20;
+                this.hpg += pointHp20;
 
             } else {
                 Service.gI().sendThongBaoOK(player, "Vui lòng mở giới hạn sức mạnh");
@@ -892,7 +891,6 @@ public void increasePointDT(byte type, short point) {
 
             // Tính tiềm năng sử dụng cho việc tăng 2000 MP
             long tiemNangUse2000 = 0;
-            initialMpg = this.mpg; // Reset lại initialMpg
             for (int i = 0; i < 100; i++) {
                 tiemNangUse2000 += point * (2 * (initialMpg + 1000) + pointMp20 - 20) / 2;
                 initialMpg += pointMp20;
@@ -911,11 +909,11 @@ public void increasePointDT(byte type, short point) {
 
             // Kiểm tra và áp dụng tiềm năng cho mức tăng lớn nhất có thể
             if ((this.mpg + pointMp2000) <= getHpMpLimit() && doUseTiemNang(tiemNangUse2000)) {
-                mpg += pointMp2000;
+                this.mpg += pointMp2000;
             } else if ((this.mpg + pointMp200) <= getHpMpLimit() && doUseTiemNang(tiemNangUse200)) {
-                mpg += pointMp200;
+                this.mpg += pointMp200;
             } else if ((this.mpg + pointMp20) <= getHpMpLimit() && doUseTiemNang(tiemNangUse20)) {
-                mpg += pointMp20;
+                this.mpg += pointMp20;
             } else {
                 Service.gI().sendThongBaoOK(player, "Vui lòng mở giới hạn sức mạnh");
             }

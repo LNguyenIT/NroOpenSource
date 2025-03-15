@@ -646,9 +646,9 @@ public class Pet extends Player {
             if (Util.isTrue(40, 100)) {
                 this.nPoint.increasePointDT((byte) 2, (short) 1);
             } else {
-                byte type = (byte) Util.nextInt(0, 2);
+                byte tp = (byte) Util.nextInt(0, 1);
                 short point = (short) Util.nextInt(Manager.RATE_EXP_SERVER);
-                this.nPoint.increasePointDT(type, point);
+                this.nPoint.increasePointDT(tp, point);
             }
             lastTimeIncreasePoint = System.currentTimeMillis();
         }

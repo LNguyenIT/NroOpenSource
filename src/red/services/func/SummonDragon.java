@@ -112,7 +112,7 @@ public class SummonDragon {
     public static final String[] SHENRON_1_STAR_WISHES_1 = new String[] { "Giàu có\n+2 Tỏi\nVàng",
             "Găng tay\nđang mang\nlên 1 cấp", "Chí mạng\nGốc +2%",
             "Thay\nChiêu 2-3\nĐệ tử", "Điều ước\nkhác" };
-    public static final String[] SHENRON_1_STAR_WISHES_2 = new String[] { "Đẹp trai\nnhất\nVũ trụ",
+    public static final String[] SHENRON_1_STAR_WISHES_2 = new String[] { "Triệu gọi\nHỗn Mang",
             "Giàu có\n+2K\nHồng Ngọc", "Đột phá sức mạnh",
             "Găng tay đệ\nđang mang\nlên 1 cấp",
             "Điều ước\nkhác" };
@@ -737,19 +737,29 @@ public class SummonDragon {
             case ConstNpc.SHENRON_1_2:
                 switch (this.select) {
                     case 0: // đẹp trai nhất vũ trụ
-                        int[] deolung = new int[]{995, 996, 997, 998, 999, 1000, 1001, 983, 982, 967, 966, 954, 955};
-                        int[] vanbay = new int[]{920, 1092, 745, 744};
-                        int[] pet = new int[]{2019, 2020, 2021, 2022, 2024, 2023, 2025};
-                        int dl = new Random().nextInt(deolung.length-1);
-                        int vb = new Random().nextInt(vanbay.length-1);
-                        int pt = new Random().nextInt(pet.length-1);
-                        if(Util.isTrue(1, 3)){
-                            ItemService.gI().DieuUoc(playerSummonShenron, deolung[dl]);
-                        }else if(Util.isTrue(1, 3)){
-                            ItemService.gI().DieuUoc(playerSummonShenron, vanbay[vb]);
+                        if(Util.isTrue(1, 200)){
+                            Item item = ItemService.gI().createNewItem((short) 1252, 1);
+                            InventoryServiceNew.gI().addItemBag(playerSummonShenron, item);
+                            InventoryServiceNew.gI().sendItemBags(playerSummonShenron);
+                            Service.gI().sendThongBao(playerSummonShenron,
+                    "Bạn đã nhận được " + item.template.name);
+                            Service.gI().sendThongBaoAllPlayer("Chân mệnh"+ playerSummonShenron + " đã hiện thế");
                         }else{
-                            ItemService.gI().DieuUoc(playerSummonShenron, pet[pt]);
+                            int[] deolung = new int[]{995, 996, 997, 998, 999, 1000, 1001, 983, 982, 967, 966, 954, 955};
+                            int[] vanbay = new int[]{920, 1092, 745, 744};
+                            int[] pet = new int[]{2019, 2020, 2021, 2022, 2024, 2023, 2025};
+                            int dl = new Random().nextInt(deolung.length-1);
+                            int vb = new Random().nextInt(vanbay.length-1);
+                            int pt = new Random().nextInt(pet.length-1);
+                            if(Util.isTrue(1, 3)){
+                                ItemService.gI().DieuUoc(playerSummonShenron, deolung[dl]);
+                            }else if(Util.isTrue(1, 3)){
+                                ItemService.gI().DieuUoc(playerSummonShenron, vanbay[vb]);
+                            }else{
+                                ItemService.gI().DieuUoc(playerSummonShenron, pet[pt]);
+                            }
                         }
+                        
                         break;
                     case 1: // +1,5 ngọc
                         this.playerSummonShenron.inventory.ruby += Util.nextInt(2000, 3000);
