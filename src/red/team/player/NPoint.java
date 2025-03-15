@@ -848,16 +848,18 @@ public void increasePointDT(byte type, short point) {
         }
         long tiemNangUse = 0;
         if (type == 0) { // type = 0 đại diện cho nâng HP
-            long tiemNangUse1, tiemNangUse1To10, tiemNangUse1To100, tiemNangUse1To1000;
+            long tiemNangUse1, tiemNangUse1To10, tiemNangUse1To100, tiemNangUse1To1000, tiemNangUse1To10000;
 
             // Công thức tổng quát để tính tổng tiềm năng cần thiết
             tiemNangUse1 = this.hpg + 1000;
             tiemNangUse1To10 = 10 * (2 * this.hpg + 2000 + 20 * 9) / 2;
             tiemNangUse1To100 = 100 * (2 * this.hpg + 2000 + 20 * 99) / 2;
             tiemNangUse1To1000 = 1000 * (2 * this.hpg + 2000 + 20 * 999) / 2;
-
+            tiemNangUse1To10000 = 10000 * (2 * this.hpg + 2000 + 20 * 9999) / 2;
             // Kiểm tra điều kiện nâng cấp HP
-            if ((this.hpg + 20000) <= getHpMpLimit() && doUseTiemNang(tiemNangUse1To1000)) {
+            if ((this.hpg + 200000) <= getHpMpLimit() && doUseTiemNang(tiemNangUse1To10000)) {
+                this.hpg += 200000;
+            }else if ((this.hpg + 20000) <= getHpMpLimit() && doUseTiemNang(tiemNangUse1To1000)) {
                 this.hpg += 20000;
             } else if ((this.hpg + 2000) <= getHpMpLimit() && doUseTiemNang(tiemNangUse1To100)) {
                 this.hpg += 2000;
@@ -871,16 +873,18 @@ public void increasePointDT(byte type, short point) {
         }
 
         if (type == 1) {
-            long tiemNangUse1, tiemNangUse1To10, tiemNangUse1To100, tiemNangUse1To1000;
+            long tiemNangUse1, tiemNangUse1To10, tiemNangUse1To100, tiemNangUse1To1000,tiemNangUse1To10000;
 
             // Công thức tổng quát để tính tổng tiềm năng cần thiết
             tiemNangUse1 = this.mpg + 1000;
             tiemNangUse1To10 = 10 * (2 * this.mpg + 2000 + 20 * 9) / 2;
             tiemNangUse1To100 = 100 * (2 * this.mpg + 2000 + 20 * 99) / 2;
             tiemNangUse1To1000 = 1000 * (2 * this.mpg + 2000 + 20 * 999) / 2;
-
+            tiemNangUse1To10000 = 10000 * (2 * this.mpg + 2000 + 20 * 9999) / 2;
             // Kiểm tra điều kiện nâng cấp HP
-            if ((this.mpg + 20000) <= getHpMpLimit() && doUseTiemNang(tiemNangUse1To1000)) {
+            if ((this.mpg + 200000) <= getHpMpLimit() && doUseTiemNang(tiemNangUse1To10000)) {
+                this.mpg += 200000;
+            }else if ((this.mpg + 20000) <= getHpMpLimit() && doUseTiemNang(tiemNangUse1To1000)) {
                 this.mpg += 20000;
             } else if ((this.mpg + 2000) <= getHpMpLimit() && doUseTiemNang(tiemNangUse1To100)) {
                 this.mpg += 2000;
@@ -889,7 +893,7 @@ public void increasePointDT(byte type, short point) {
             } else if ((this.mpg + 20) <= getHpMpLimit() && doUseTiemNang(tiemNangUse1)) {
                 this.mpg += 20;
             } else {
-                Service.gI().sendThongBaoOK(player, "Vui lòng mở giới hạn HP");
+                Service.gI().sendThongBaoOK(player, "Vui lòng mở giới hạn MP");
             }
         }
         if (type == 2) {
