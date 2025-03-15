@@ -359,7 +359,7 @@ public class Util {
         if (Util.isTrue(80, 100)) {
             it.options.add(new Item.ItemOption(107, new Random().nextInt(1,2) +3));
         } else {
-            it.options.add(new Item.ItemOption(107, new Random().nextInt(1,2) + 4));
+            it.options.add(new Item.ItemOption(107, new Random().nextInt(1,3) + 4));
         }
         return it;
     }
