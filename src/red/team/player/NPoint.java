@@ -847,116 +847,94 @@ public void increasePointDT(byte type, short point) {
             return;
         }
         long tiemNangUse = 0;
-        if (type == 0) {
-            int initialHpg = this.hpg;
-            int pointHp20 = point * 20;
-            int pointHp200 = point * 20 * 10;
-            int pointHp2000 = point * 20 * 100;
-//          Tính tiềm năng hp 2000
-            long tiemNangUse2000 = 0;
-            for (int i = 0; i < 100; i++) { // 2000 HP tương đương với 100 lần cộng 20 HP
-                tiemNangUse2000 += point * (2 * (initialHpg + 1000) + pointHp20 - 20) / 2;
-                initialHpg += pointHp20;
-            }
-//          Tính tiềm năng hp 200
-            long tiemNangUse200 = 0;
-            for (int i = 0; i < 10; i++) { // 200 HP tương đương với 10 lần cộng 20 HP
-                tiemNangUse200 += point * (2 * (initialHpg + 1000) + pointHp20 - 20) / 2;
-                initialHpg += pointHp20;
-            }
-//          Tính tiềm năng hp 20
-            tiemNangUse = point * (2 * (this.hpg + 1000) + pointHp20 - 20) / 2;
-            if ((this.hpg + pointHp2000) <= getHpMpLimit() && doUseTiemNang(tiemNangUse2000)) {
+        if (type == 0) { // type = 0 đại diện cho nâng HP
+            long tiemNangUse1, tiemNangUse1To10, tiemNangUse1To100, tiemNangUse1To1000;
 
-                this.hpg += pointHp2000;
+            // Công thức tổng quát để tính tổng tiềm năng cần thiết
+            tiemNangUse1 = this.hpg + 1000;
+            tiemNangUse1To10 = 10 * (2 * this.hpg + 2000 + 20 * 9) / 2;
+            tiemNangUse1To100 = 100 * (2 * this.hpg + 2000 + 20 * 99) / 2;
+            tiemNangUse1To1000 = 1000 * (2 * this.hpg + 2000 + 20 * 999) / 2;
 
-            } else if ((this.hpg + pointHp200) <= getHpMpLimit() && doUseTiemNang(tiemNangUse200)) {
-
-                this.hpg += pointHp200;
-
-            } else if ((this.hpg + pointHp20) <= getHpMpLimit() && doUseTiemNang(tiemNangUse)) {
-
-                this.hpg += pointHp20;
-
+            // Kiểm tra điều kiện nâng cấp HP
+            if ((this.hpg + 20000) <= getHpMpLimit() && doUseTiemNang(tiemNangUse1To1000)) {
+                this.hpg += 20000;
+            } else if ((this.hpg + 2000) <= getHpMpLimit() && doUseTiemNang(tiemNangUse1To100)) {
+                this.hpg += 2000;
+            } else if ((this.hpg + 200) <= getHpMpLimit() && doUseTiemNang(tiemNangUse1To10)) {
+                this.hpg += 200;
+            } else if ((this.hpg + 20) <= getHpMpLimit() && doUseTiemNang(tiemNangUse1)) {
+                this.hpg += 20;
             } else {
-                Service.gI().sendThongBaoOK(player, "Vui lòng mở giới hạn sức mạnh");
-                return;
+                Service.gI().sendThongBaoOK(player, "Vui lòng mở giới hạn HP");
             }
         }
+
         if (type == 1) {
-            int initialMpg = this.mpg;
-            int pointMp20 = point * 20;
-            int pointMp200 = point * 20 * 10;  // 200 MP tương đương với 10 lần cộng 20 MP
-            int pointMp2000 = point * 20 * 100; // 2000 MP tương đương với 100 lần cộng 20 MP
+            long tiemNangUse1, tiemNangUse1To10, tiemNangUse1To100, tiemNangUse1To1000;
 
-            // Tính tiềm năng sử dụng cho việc tăng 2000 MP
-            long tiemNangUse2000 = 0;
-            for (int i = 0; i < 100; i++) {
-                tiemNangUse2000 += point * (2 * (initialMpg + 1000) + pointMp20 - 20) / 2;
-                initialMpg += pointMp20;
-            }
+            // Công thức tổng quát để tính tổng tiềm năng cần thiết
+            tiemNangUse1 = this.mpg + 1000;
+            tiemNangUse1To10 = 10 * (2 * this.mpg + 2000 + 20 * 9) / 2;
+            tiemNangUse1To100 = 100 * (2 * this.mpg + 2000 + 20 * 99) / 2;
+            tiemNangUse1To1000 = 1000 * (2 * this.mpg + 2000 + 20 * 999) / 2;
 
-            // Tính tiềm năng sử dụng cho việc tăng 200 MP
-            long tiemNangUse200 = 0;
-            initialMpg = this.mpg; // Reset lại initialMpg
-            for (int i = 0; i < 10; i++) {
-                tiemNangUse200 += point * (2 * (initialMpg + 1000) + pointMp20 - 20) / 2;
-                initialMpg += pointMp20;
-            }
-
-            // Tính tiềm năng sử dụng cho việc tăng 20 MP
-            long tiemNangUse20 = point * (2 * (this.mpg + 1000) + pointMp20 - 20) / 2;
-
-            // Kiểm tra và áp dụng tiềm năng cho mức tăng lớn nhất có thể
-            if ((this.mpg + pointMp2000) <= getHpMpLimit() && doUseTiemNang(tiemNangUse2000)) {
-                this.mpg += pointMp2000;
-            } else if ((this.mpg + pointMp200) <= getHpMpLimit() && doUseTiemNang(tiemNangUse200)) {
-                this.mpg += pointMp200;
-            } else if ((this.mpg + pointMp20) <= getHpMpLimit() && doUseTiemNang(tiemNangUse20)) {
-                this.mpg += pointMp20;
+            // Kiểm tra điều kiện nâng cấp HP
+            if ((this.mpg + 20000) <= getHpMpLimit() && doUseTiemNang(tiemNangUse1To1000)) {
+                this.mpg += 20000;
+            } else if ((this.mpg + 2000) <= getHpMpLimit() && doUseTiemNang(tiemNangUse1To100)) {
+                this.mpg += 2000;
+            } else if ((this.mpg + 200) <= getHpMpLimit() && doUseTiemNang(tiemNangUse1To10)) {
+                this.mpg += 200;
+            } else if ((this.mpg + 20) <= getHpMpLimit() && doUseTiemNang(tiemNangUse1)) {
+                this.mpg += 20;
             } else {
-                Service.gI().sendThongBaoOK(player, "Vui lòng mở giới hạn sức mạnh");
+                Service.gI().sendThongBaoOK(player, "Vui lòng mở giới hạn HP");
             }
         }
         if (type == 2) {
-            long tiemNangUse1To10 = 0;
-            long tiemNangUse1To100 = 0;
-            long tiemNangUse1To1000 = 0;
-            long tiemNangUse1 = point * (2 * this.dameg + point - 1) / 2 * 100;
+            long tiemNangUse1 = (long) this.dameg * 100;
+            long tiemNangUse10 = 0;
+            long tiemNangUse100 = 0;
+            long tiemNangUse1000 = 0;
 
-            // Tính tiềm năng để tăng từ dameg hiện tại lên 10
-            int dame10 = dameg;
+            int dameTemp = this.dameg;
+
+            // Tính tiềm năng để tăng 10 sức đánh
             for (int i = 0; i < 10; i++) {
-                tiemNangUse1To10 += (2 * dame10) / 2 * 100;
-                dame10++;
+                tiemNangUse10 += (long) dameTemp * 100;
+                dameTemp++;
             }
 
-            // Tính tiềm năng để tăng từ 1 đến 100
-            int dame100 = dameg;
+            // Tính tiềm năng để tăng 100 sức đánh
+            dameTemp = this.dameg;
             for (int i = 0; i < 100; i++) {
-                tiemNangUse1To100 += (2 * dame100) / 2 * 100;
-                dame100++;
+                tiemNangUse100 += (long) dameTemp * 100;
+                dameTemp++;
             }
-// Tính tiềm năng để tăng từ 1 đến 100
-            int dame1000 = dameg;
+
+            // Tính tiềm năng để tăng 1000 sức đánh
+            dameTemp = this.dameg;
             for (int i = 0; i < 1000; i++) {
-                tiemNangUse1To1000 += (2 * dame1000) / 2 * 100;
-                dame1000++;
+                tiemNangUse1000 += (long) dameTemp * 100;
+                dameTemp++;
             }
+
             // Kiểm tra và thực hiện tăng dameg
-            if ((this.dameg + 1000) <= getDameLimit() && doUseTiemNang(tiemNangUse1To1000)) {
-                dameg += 1000;
-            } else if ((this.dameg + 100) <= getDameLimit() && doUseTiemNang(tiemNangUse1To100)) {
-                dameg += 100;
-            } else if ((this.dameg + 10) <= getDameLimit() && doUseTiemNang(tiemNangUse1To10)) {
-                dameg += 10;
+            if ((this.dameg + 1000) <= getDameLimit() && doUseTiemNang(tiemNangUse1000)) {
+                this.dameg += 1000;
+            } else if ((this.dameg + 100) <= getDameLimit() && doUseTiemNang(tiemNangUse100)) {
+                this.dameg += 100;
+            } else if ((this.dameg + 10) <= getDameLimit() && doUseTiemNang(tiemNangUse10)) {
+                this.dameg += 10;
             } else if ((this.dameg + point) <= getDameLimit() && doUseTiemNang(tiemNangUse1)) {
-                dameg += point;
+                this.dameg += point;
             } else {
                 Service.gI().sendThongBaoOK(player, "Vui lòng mở giới hạn sức mạnh");
                 return;
             }
         }
+
         if (type == 3) {
             tiemNangUse = 2 * (this.defg + 5) / 2 * 100000;
             if ((this.defg + point) <= getDefLimit()) {
