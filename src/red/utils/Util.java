@@ -205,11 +205,8 @@ public class Util {
     }
 
     public static boolean isTrue(int ratio, int typeRatio) {
-        int num = Util.nextInt(typeRatio);
-        if (num < ratio) {
-            return true;
-        }
-        return false;
+        int a = Util.nextInt(typeRatio);
+        return a < ratio;
     }
 
     public static boolean isTrue(float ratio, int typeRatio) {
@@ -217,11 +214,8 @@ public class Util {
             ratio *= 10;
             typeRatio *= 10;
         }
-        int num = Util.nextInt(typeRatio);
-        if (num < ratio) {
-            return true;
-        }
-        return false;
+        int a = Util.nextInt(typeRatio);
+        return a < ratio;
     }
 
     public static boolean haveSpecialCharacter(String text) {
@@ -490,7 +484,7 @@ public class Util {
 // Rada
         List<Integer> rada = Arrays.asList(12, 13, 14, 15, 16, 17, 18, 19, 20, 57, 58, 59);
         if (ao.contains(tempId)) {
-            it.options.add(new Item.ItemOption(47, highlightsItem(it.itemTemplate.gender == 2, new Random().nextInt(501) + 100)));
+            it.options.add(new Item.ItemOption(47, highlightsItem(it.itemTemplate.gender == 2,   100)));
         }
         if (quan.contains(tempId)) {
             it.options.add(new Item.ItemOption(22, highlightsItem(it.itemTemplate.gender == 0, new Random().nextInt(11) + 5)));
