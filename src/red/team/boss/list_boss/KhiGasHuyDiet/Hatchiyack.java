@@ -35,22 +35,26 @@ public class Hatchiyack extends Boss {
     }
 
     @Override
+
     public void reward(Player plKill) {
-        
         int lv = plKill.clan.KhiGaHuyDiet.level;
         if (lv == 110) {
-            
-        } else if (lv <= 50) {  
-        
+
+        } else if (lv <= 50) {
+
         }
         if (Util.isTrue(100, 100)) {
-            ItemMap it = new ItemMap(this.zone, 14, 1, this.location.x, this.zone.map.yPhysicInTop(this.location.x,
-                    this.location.y - 24), plKill.id);
-            Service.getInstance().dropItemMap(this.zone, it);
+            for (int i = 0; i <= 10; i++) {
+                ItemMap it = new ItemMap(this.zone, 15, 1, this.location.x + 20*i, this.zone.map.yPhysicInTop(this.location.x,
+                        this.location.y - 24), plKill.id);
+                Service.getInstance().dropItemMap(this.zone, it);
+            }
         }
         plKill.pointBoss += 0;
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
+
     }
+    
     @Override
     public void active() {
         super.active();
