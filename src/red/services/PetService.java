@@ -434,6 +434,10 @@ public class PetService {
         if (player.fusion.typeFusion != ConstPlayer.NON_FUSION) {
             player.pet.unFusion();
         }
+        if(player.pet.typePet != 3){
+            Service.gI().sendThongBao(player, "Cần đệ goku");
+            return;
+        }
         ChangeMapService.gI().exitMap(player.pet);
         player.pet.dispose();
         player.pet = null;
@@ -444,6 +448,10 @@ public class PetService {
         byte limitPower = player.pet.nPoint.limitPower;
         if (player.fusion.typeFusion != ConstPlayer.NON_FUSION) {
             player.pet.unFusion();
+        }
+        if(player.pet.typePet != 3){
+            Service.gI().sendThongBao(player, "Cần đệ goku");
+            return;
         }
         ChangeMapService.gI().exitMap(player.pet);
         player.pet.dispose();
