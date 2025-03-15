@@ -596,9 +596,41 @@ public class Mob {
                     InventoryServiceNew.gI().sendItemBags(player);
                 }
             }
-
-            if ((!player.isPet ) && (this.zone.map.mapId > 92 )) {
+if((!player.isPet ) && (this.zone.map.mapId > 104 && this.zone.map.mapId < 111 || this.zone.map.mapId == 159)){
                 if (Util.isTrue(1, 10000)) {
+                    int[] itemDos = new int[]{
+                        556, 558, 560, 557, 559, 555, 563, 565, 567
+                    };
+                    int randomc12 = new Random().nextInt(itemDos.length);
+                    Service.gI().dropItemMap(this.zone,
+                            Util.ratiDTL(zone, itemDos[randomc12], 1, this.location.x, this.location.y, player.id));
+                } else if (Util.isTrue(1, 20000)) {
+                    int[] itemDos = new int[]{
+                        562, 564, 566, 561
+                    };
+                    int randomc12 = new Random().nextInt(itemDos.length);
+                    Service.gI().dropItemMap(this.zone,
+                            Util.ratiDTL(zone, itemDos[randomc12], 1, this.location.x, this.location.y, player.id));
+                }
+            }
+            if ((!player.isPet ) && (this.zone.map.mapId > 104 && this.zone.map.mapId < 111 || this.zone.map.mapId == 159)) {
+                if (Util.isTrue(1, 10000)) {
+                    int[] itemDos = new int[]{
+                        556, 558, 560, 557, 559, 555, 563, 565, 567
+                    };
+                    int randomc12 = new Random().nextInt(itemDos.length);
+                    Service.gI().dropItemMap(this.zone,
+                            Util.ratiDTL(zone, itemDos[randomc12], 1, this.location.x, this.location.y, player.id));
+                } else if (Util.isTrue(2, 15000)) {
+                    int[] itemDos = new int[]{
+                        562, 564, 566, 561
+                    };
+                    int randomc12 = new Random().nextInt(itemDos.length);
+                    Service.gI().dropItemMap(this.zone,
+                            Util.ratiDTL(zone, itemDos[randomc12], 1, this.location.x, this.location.y, player.id));
+                }
+            }else if((!player.isPet ) && (this.zone.map.mapId >= 92 &&this.zone.map.mapId >= 103)  ){
+                if (Util.isTrue(1,15000)) {
                     int[] itemDos = new int[]{
                         556, 558, 560, 557, 559, 555, 563, 565, 567
                     };
