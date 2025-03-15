@@ -151,7 +151,7 @@ public class Manager {
     public static List<TOP> topNHS;
     public static long timeRealTop = 0;
     public static final short[] itemIds_TL = { 555, 557, 559, 556, 558, 560, 562, 564, 566, 563, 565, 567, 561 };
-    public static final byte[] itemIds_NR_SB = { 16, 17, 15 };
+    public static final byte[] itemIds_NR_SB = { 20,19,18,17 };
     public static final short[] itemDC12 = { 233, 237, 241, 245, 249, 253, 257, 261, 265, 269, 273, 277 };
 
     public static final short[] aotd = { 138, 139, 230, 231, 232, 233, 555 };
