@@ -22,15 +22,15 @@ public class MabuBoss extends Boss {
     @Override
     public void reward(Player plKill) {
         byte randomDo = (byte) new Random().nextInt(Manager.itemIds_TL.length - 1);
-        byte randomNR = (byte) new Random().nextInt(Manager.itemIds_NR_SB.length);
+//        byte randomNR = (byte) new Random().nextInt(Manager.itemIds_NR_SB.length);
         int[] itemDos = new int[]{555, 556, 557, 558, 559, 560, 561, 562, 563, 564, 565, 566, 567};
         int randomc12 = new Random().nextInt(itemDos.length);
         if (Util.isTrue(70, 100)) {
-            if (Util.isTrue(3, 5)) {
+            if (Util.isTrue(1, 20)) {
                 Service.gI().dropItemMap(this.zone,
                         Util.ratiItem(zone, 561, 1, this.location.x, this.location.y, plKill.id));
             }
-            if (Util.isTrue(2, 10)) {
+            if (Util.isTrue(1, 40)) {
                 Service.gI().dropItemMap(this.zone,
                         Util.ratiItem(zone, 2000 + plKill.gender, 10, this.location.x, this.location.y, plKill.id));
             }
@@ -42,14 +42,14 @@ public class MabuBoss extends Boss {
 
         } else {
             Service.gI().dropItemMap(this.zone,
-                    new ItemMap(zone, Manager.itemIds_NR_SB[randomNR], 1, this.location.x, this.location.y, plKill.id));
+                    new ItemMap(zone, (byte) 15, 2, this.location.x, this.location.y, plKill.id));
         }
         if (plKill.pet == null) {
             PetService.gI().createNormalPet(plKill);
             Service.getInstance().sendThongBao(plKill,
                     "   Mày vừa nhận được đệ tử! Hãy chăm sóc nó nhé");
         } else {
-            if (Util.isTrue(1, 10)) {
+            if (Util.isTrue(10, 10)) {
                 Service.gI().dropItemMap(this.zone,
                         Util.ratiItem(zone, 568, 1, this.location.x, this.location.y, plKill.id));
             }
