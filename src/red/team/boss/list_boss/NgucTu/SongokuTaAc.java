@@ -32,23 +32,28 @@ public class SongokuTaAc extends Boss {
 
     @Override
     public void reward(Player plKill) {
-       int[] itemDos = new int[]{555,556,557,558,559,560,561,562,563,564,565,566,567};
-        int[] NRs = new int[]{16, 18};
+        int[] itemDos = new int[] { 555, 556, 557, 558, 559, 560, 561, 562, 563, 564, 565, 566, 567 };
+        int[] NRs = new int[] { 15, 16, 16, 16, 16 };
         int randomDo = new Random().nextInt(itemDos.length);
         int randomNR = new Random().nextInt(NRs.length);
-        if (Util.isTrue(35, 100)) {
-            if (Util.isTrue(10, 50)) {
-                Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 561, 1, this.location.x, this.location.y, plKill.id));
+        if (Util.isTrue(30, 100)) {
+            if (Util.isTrue(20, 50)) {
+                Service.gI().dropItemMap(this.zone,
+                        Util.ratiItem(zone, 561, 1, this.location.x, this.location.y, plKill.id));
             }
-            if (Util.isTrue(5, 10)) {
-                Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 2000+plKill.gender, 1, this.location.x, this.location.y, plKill.id));
+            if (Util.isTrue(1, 10)) {
+                Service.gI().dropItemMap(this.zone,
+                        Util.ratiItem(zone, 2000 + plKill.gender, 1, this.location.x, this.location.y, plKill.id));
             }
             if (Util.isTrue(1, 3)) {
-                Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 344, 1, this.location.x+2, this.location.y, plKill.id));
+                Service.gI().dropItemMap(this.zone,
+                        Util.ratiItem(zone, 344, 1, this.location.x + 2, this.location.y, plKill.id));
             }
-            Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, itemDos[randomDo], 1, this.location.x, this.location.y, plKill.id));
-         } else {
-            Service.gI().dropItemMap(this.zone, new ItemMap(zone, NRs[randomNR], 1, this.location.x, zone.map.yPhysicInTop(this.location.x, this.location.y - 24), plKill.id));
+            Service.gI().dropItemMap(this.zone,
+                    Util.ratiItem(zone, itemDos[randomDo], 1, this.location.x, this.location.y, plKill.id));
+        } else {
+            Service.gI().dropItemMap(this.zone, new ItemMap(zone, (byte) 15, 1, this.location.x,
+                    zone.map.yPhysicInTop(this.location.x, this.location.y - 24), plKill.id));
         }
         plKill.pointBoss += 3;
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
