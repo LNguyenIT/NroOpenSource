@@ -28,7 +28,7 @@ public class Baconsoi extends Boss {
         if (Util.isTrue(BossManager.ratioReward, 100)) {
             if (Util.isTrue(1, 5)) {
                 Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 561, 1, this.location.x, this.location.y, plKill.id));
-                if (Util.isTrue(2, 10)) {
+                if (Util.isTrue(1, 40)) {
                     Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 2000+plKill.gender, 1, this.location.x, this.location.y, plKill.id));
                 }
             }
@@ -37,11 +37,11 @@ public class Baconsoi extends Boss {
             Service.gI().dropItemMap(this.zone, Util.RaitiDoc12(zone, itemDos[randomc12], 1, this.location.x, this.location.y, plKill.id));
             
         } else {
-            Service.gI().dropItemMap(this.zone, new ItemMap(zone, Manager.itemIds_NR_SB[randomNR], 1, this.location.x, this.location.y, plKill.id));
+            Service.gI().dropItemMap(this.zone, new ItemMap(zone, (byte) 15, 1, this.location.x, this.location.y, plKill.id));
         }
         for(Integer i =0;i<3;i++){
             Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 344, 1, this.location.x+2, this.location.y, plKill.id));
-            Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 2000+plKill.gender, 1, this.location.x+10*i, this.location.y, -1));
+//            Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 2000+plKill.gender, 1, this.location.x+10*i, this.location.y, -1));
         }
         plKill.pointBoss += 0;
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
