@@ -357,9 +357,9 @@ public class Util {
         }
         it.options.add(new Item.ItemOption(209, 1));//đồ rơi từ boss
         if (Util.isTrue(80, 100)) {
-            it.options.add(new Item.ItemOption(107, new Random().nextInt(1,2) +3));
+            it.options.add(new Item.ItemOption(107, new Random().nextInt(3) +3));
         } else {
-            it.options.add(new Item.ItemOption(107, new Random().nextInt(1,3) + 4));
+            it.options.add(new Item.ItemOption(107, new Random().nextInt(4) + 4));
         }
         return it;
     }
@@ -464,8 +464,8 @@ public class Util {
         it.options.add(new Item.ItemOption(209, 1));//đồ rơi từ boss
         if(Util.isTrue(1, 100)){
             it.options.add(new Item.ItemOption(107, 7));
-        }else if (Util.isTrue(80, 100)) {
-            it.options.add(new Item.ItemOption(107, new Random().nextInt(1,2) + 4));
+        }else if (Util.isTrue(60, 100)) {
+            it.options.add(new Item.ItemOption(107, new Random().nextInt(3) + 4));
         }
         it.options.add(new Item.ItemOption(209, 1));
         it.options.add(new Item.ItemOption(21, 15));
