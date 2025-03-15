@@ -43,7 +43,7 @@ public class BuiBui extends Boss {
 
         } else {
             Service.gI().dropItemMap(this.zone,
-                    new ItemMap(zone, Manager.itemIds_NR_SB[randomNR], 1, this.location.x, this.location.y, plKill.id));
+                    new ItemMap(zone, (byte) 16, 1, this.location.x, this.location.y, plKill.id));
         }
         plKill.pointBoss += 0;
         plKill.fightMabu.changePoint(10);
