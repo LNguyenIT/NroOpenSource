@@ -842,130 +842,96 @@ public class NPoint {
         setDameTrainArmor();
         setBasePoint();
     }
-public void increasePointDT(byte type, short point) {
+    public void increasePointDT(byte type, short point) {
         if (point <= 0 || point > 100) {
             return;
         }
-        long tiemNangUse = 0;
-        if (type == 0) { // type = 0 đại diện cho nâng HP
-            long tiemNangUse1, tiemNangUse1To10, tiemNangUse1To100, tiemNangUse1To1000, tiemNangUse1To10000;
 
-            // Công thức tổng quát để tính tổng tiềm năng cần thiết
-            tiemNangUse1 = this.hpg + 1000;
-            tiemNangUse1To10 = 10 * (2 * this.hpg + 2000 + 20 * 9) / 2;
-            tiemNangUse1To100 = 100 * (2 * this.hpg + 2000 + 20 * 99) / 2;
-            tiemNangUse1To1000 = 1000 * (2 * this.hpg + 2000 + 20 * 999) / 2;
-            tiemNangUse1To10000 = 10000 * (2 * this.hpg + 2000 + 20 * 9999) / 2;
-            // Kiểm tra điều kiện nâng cấp HP
-            if ((this.hpg + 200000) <= getHpMpLimit() && doUseTiemNang(tiemNangUse1To10000)) {
-                this.hpg += 200000;
-            }else if ((this.hpg + 20000) <= getHpMpLimit() && doUseTiemNang(tiemNangUse1To1000)) {
-                this.hpg += 20000;
-            } else if ((this.hpg + 2000) <= getHpMpLimit() && doUseTiemNang(tiemNangUse1To100)) {
-                this.hpg += 2000;
-            } else if ((this.hpg + 200) <= getHpMpLimit() && doUseTiemNang(tiemNangUse1To10)) {
-                this.hpg += 200;
-            } else if ((this.hpg + 20) <= getHpMpLimit() && doUseTiemNang(tiemNangUse1)) {
-                this.hpg += 20;
-            } else {
-                Service.gI().sendThongBaoOK(player, "Vui lòng mở giới hạn HP");
-            }
-        }
+        long tiemNangUse;
 
-        if (type == 1) {
-            long tiemNangUse1, tiemNangUse1To10, tiemNangUse1To100, tiemNangUse1To1000,tiemNangUse1To10000;
+        if (type == 0) { // Nâng HP
+            long[] tiemNangUseArr = {
+                this.hpg + 1000,
+                10 * (2 * this.hpg + 2000 + 20 * 9) / 2,
+                100 * (2 * this.hpg + 2000 + 20 * 99) / 2,
+                1000 * (2 * this.hpg + 2000 + 20 * 999) / 2,
+                10000 * (2 * this.hpg + 2000 + 20 * 9999) / 2
+            };
+            int[] hpIncrease = {20, 200, 2000, 20000, 200000};
 
-            // Công thức tổng quát để tính tổng tiềm năng cần thiết
-            tiemNangUse1 = this.mpg + 1000;
-            tiemNangUse1To10 = 10 * (2 * this.mpg + 2000 + 20 * 9) / 2;
-            tiemNangUse1To100 = 100 * (2 * this.mpg + 2000 + 20 * 99) / 2;
-            tiemNangUse1To1000 = 1000 * (2 * this.mpg + 2000 + 20 * 999) / 2;
-            tiemNangUse1To10000 = 10000 * (2 * this.mpg + 2000 + 20 * 9999) / 2;
-            // Kiểm tra điều kiện nâng cấp HP
-            if ((this.mpg + 200000) <= getHpMpLimit() && doUseTiemNang(tiemNangUse1To10000)) {
-                this.mpg += 200000;
-            }else if ((this.mpg + 20000) <= getHpMpLimit() && doUseTiemNang(tiemNangUse1To1000)) {
-                this.mpg += 20000;
-            } else if ((this.mpg + 2000) <= getHpMpLimit() && doUseTiemNang(tiemNangUse1To100)) {
-                this.mpg += 2000;
-            } else if ((this.mpg + 200) <= getHpMpLimit() && doUseTiemNang(tiemNangUse1To10)) {
-                this.mpg += 200;
-            } else if ((this.mpg + 20) <= getHpMpLimit() && doUseTiemNang(tiemNangUse1)) {
-                this.mpg += 20;
-            } else {
-                Service.gI().sendThongBaoOK(player, "Vui lòng mở giới hạn MP");
-            }
-        }
-        if (type == 2) {
-            long tiemNangUse1 = (long) this.dameg * 100;
-            long tiemNangUse10 = 0;
-            long tiemNangUse100 = 0;
-            long tiemNangUse1000 = 0;
-
-            int dameTemp = this.dameg;
-
-            // Tính tiềm năng để tăng 10 sức đánh
-            for (int i = 0; i < 10; i++) {
-                tiemNangUse10 += (long) dameTemp * 100;
-                dameTemp++;
-            }
-
-            // Tính tiềm năng để tăng 100 sức đánh
-            dameTemp = this.dameg;
-            for (int i = 0; i < 100; i++) {
-                tiemNangUse100 += (long) dameTemp * 100;
-                dameTemp++;
-            }
-
-            // Tính tiềm năng để tăng 1000 sức đánh
-            dameTemp = this.dameg;
-            for (int i = 0; i < 1000; i++) {
-                tiemNangUse1000 += (long) dameTemp * 100;
-                dameTemp++;
-            }
-
-            // Kiểm tra và thực hiện tăng dameg
-            if ((this.dameg + 1000) <= getDameLimit() && doUseTiemNang(tiemNangUse1000)) {
-                this.dameg += 1000;
-            } else if ((this.dameg + 100) <= getDameLimit() && doUseTiemNang(tiemNangUse100)) {
-                this.dameg += 100;
-            } else if ((this.dameg + 10) <= getDameLimit() && doUseTiemNang(tiemNangUse10)) {
-                this.dameg += 10;
-            } else if ((this.dameg + point) <= getDameLimit() && doUseTiemNang(tiemNangUse1)) {
-                this.dameg += point;
-            } else {
-                Service.gI().sendThongBaoOK(player, "Vui lòng mở giới hạn sức mạnh");
-                return;
-            }
-        }
-
-        if (type == 3) {
-            tiemNangUse = 2 * (this.defg + 5) / 2 * 100000;
-            if ((this.defg + point) <= getDefLimit()) {
-                if (doUseTiemNang(tiemNangUse)) {
-                    defg += point;
+            for (int i = 4; i >= 0; i--) {
+                if ((this.hpg + hpIncrease[i]) <= getHpMpLimit() && doUseTiemNang(tiemNangUseArr[i])) {
+                    this.hpg += hpIncrease[i];
+                    return;
                 }
-            } else {
-                Service.gI().sendThongBaoOK(player, "Vui lòng mở giới hạn sức mạnh");
+            }
+        }
+
+        if (type == 1) { // Nâng KI
+            long[] tiemNangUseArr = {
+                this.mpg + 1000,
+                10 * (2 * this.mpg + 2000 + 20 * 9) / 2,
+                100 * (2 * this.mpg + 2000 + 20 * 99) / 2,
+                1000 * (2 * this.mpg + 2000 + 20 * 999) / 2,
+                10000 * (2 * this.mpg + 2000 + 20 * 9999) / 2
+            };
+            int[] mpIncrease = {20, 200, 2000, 20000, 200000};
+
+            for (int i = 4; i >= 0; i--) {
+                if ((this.mpg + mpIncrease[i]) <= getHpMpLimit() && doUseTiemNang(tiemNangUseArr[i])) {
+                    this.mpg += mpIncrease[i];
+                    return;
+                }
+            }
+        }
+
+        if (type == 2) { // Nâng sức đánh (Dame)
+            long tiemNangUse1 = (long) this.dameg * 100;
+            long[] tiemNangUseArr = new long[3];
+            int[] dameIncrease = {10, 100, 1000};
+
+            for (int i = 0; i < 3; i++) {
+                int dameTemp = this.dameg;
+                for (int j = 0; j < dameIncrease[i]; j++) {
+                    tiemNangUseArr[i] += (long) dameTemp * 100;
+                    dameTemp++;
+                    return;
+                }
+            }
+            for (int i = 2; i >= 0; i--) {
+                if ((this.dameg + dameIncrease[i]) <= getDameLimit() && doUseTiemNang(tiemNangUseArr[i])) {
+                    this.dameg += dameIncrease[i];
+                    return;
+                }
+            }
+            if ((this.dameg + point) <= getDameLimit() && doUseTiemNang(tiemNangUse1)) {
+                this.dameg += point;
                 return;
             }
         }
-        if (type == 4) {
+
+        if (type == 3) { // Nâng giáp (Def)
+            tiemNangUse = 2 * (this.defg + 5) / 2 * 100000;
+            if ((this.defg + point) <= getDefLimit() && doUseTiemNang(tiemNangUse)) {
+                this.defg += point;
+                return;
+            }
+        }
+
+        if (type == 4) { // Nâng chí mạng (Crit)
             tiemNangUse = 50000000L;
             for (int i = 0; i < this.critg; i++) {
                 tiemNangUse *= 5L;
             }
-            if ((this.critg + point) <= getCritLimit()) {
-                if (doUseTiemNang(tiemNangUse)) {
-                    critg += point;
-                }
-            } else {
-                Service.gI().sendThongBaoOK(player, "Vui lòng mở giới hạn sức mạnh");
+            if ((this.critg + point) <= getCritLimit() && doUseTiemNang(tiemNangUse)) {
+                this.critg += point;
                 return;
             }
         }
+
         Service.gI().point(player);
     }
+
     private void setDameTrainArmor() {
         if (!this.player.isPet && !this.player.isBoss) {
             if (this.player.inventory.itemsBody.size() < 7) {
@@ -1155,15 +1121,15 @@ public void increasePointDT(byte type, short point) {
         // pet mabư
         if (this.player.isPet && ((Pet) this.player).typePet == 1
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA) {
-            this.hpMax += ((long) this.hpMax * 4 / 100);
+            this.hpMax += ((long) this.hpMax * 10 / 100);
         }
         if (this.player.isPet && ((Pet) this.player).typePet == 1
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA2) {
-            this.hpMax += ((long) this.hpMax * 6 / 100);
+            this.hpMax += ((long) this.hpMax * 10 / 100);
         }
         if (this.player.isPet && ((Pet) this.player).typePet == 1
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA3) {
-            this.hpMax += ((long) this.hpMax * 8 / 100);
+            this.hpMax += ((long) this.hpMax * 10 / 100);
         }
         if (this.player.isPet && ((Pet) this.player).typePet == 1
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA4) {
@@ -1172,71 +1138,71 @@ public void increasePointDT(byte type, short point) {
         // pet berus
         if (this.player.isPet && ((Pet) this.player).typePet == 2// chi so lam sao bac tu cho dj
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA) {
-            this.hpMax += ((long) this.hpMax * 40 / 100);// chi so hp
+            this.hpMax += ((long) this.hpMax * 20 / 100);// chi so hp
         }
 //        Service.gI().sendThongBao(this.player,"Thứ tự đệ mày là "+((Pet) this.player).typePet);
         if (this.player.isPet && ((Pet) this.player).typePet == 2// chi so lam sao bac tu cho dj
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA2) {
-             this.hpMax += ((long) this.hpMax * 400 / 100);// chi so hp
+             this.hpMax += ((long) this.hpMax * 20 / 100);// chi so hp
         }
         if (this.player.isPet && ((Pet) this.player).typePet == 2// chi so lam sao bac tu cho dj
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA3) {
-             this.hpMax += ((long) this.hpMax * 400 / 100);// chi so hp
+             this.hpMax += ((long) this.hpMax * 20 / 100);// chi so hp
         }
         if (this.player.isPet && ((Pet) this.player).typePet == 2// chi so lam sao bac tu cho dj
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA4) {
-             this.hpMax += ((long) this.hpMax * 400 / 100);// chi so hp
+            this.hpMax += ((long) this.hpMax * 20 / 100);// chi so hp
         }
         // goku
         if (this.player.isPet && ((Pet) this.player).typePet == 3
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA) {
-            this.hpMax += ((long) this.hpMax * 4 / 100);
+            this.hpMax += ((long) this.hpMax * 30 / 100);
         }
         if (this.player.isPet && ((Pet) this.player).typePet == 3
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA2) {
-            this.hpMax += ((long) this.hpMax * 6 / 100);
+            this.hpMax += ((long) this.hpMax * 30 / 100);
         }
         if (this.player.isPet && ((Pet) this.player).typePet == 3
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA3) {
-            this.hpMax += ((long) this.hpMax * 8 / 100);
+            this.hpMax += ((long) this.hpMax * 30 / 100);
         }
         if (this.player.isPet && ((Pet) this.player).typePet == 3
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA4) {
-            this.hpMax += ((long) this.hpMax * 10 / 100);
+            this.hpMax += ((long) this.hpMax * 30 / 100);
         }
         // pet ngokhong
         if (this.player.isPet && ((Pet) this.player).typePet == 4
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA) {
-            this.hpMax += ((long) this.hpMax * 4 / 100);
+            this.hpMax += ((long) this.hpMax * 40 / 100);
         }
         if (this.player.isPet && ((Pet) this.player).typePet == 4
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA2) {
-            this.hpMax += ((long) this.hpMax * 6 / 100);
+            this.hpMax += ((long) this.hpMax * 40 / 100);
         }
         if (this.player.isPet && ((Pet) this.player).typePet == 4
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA3) {
-            this.hpMax += ((long) this.hpMax * 8 / 100);
+            this.hpMax += ((long) this.hpMax * 40 / 100);
         }
         if (this.player.isPet && ((Pet) this.player).typePet == 4
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA4) {
-            this.hpMax += ((long) this.hpMax * 10 / 100);
+            this.hpMax += ((long) this.hpMax * 40 / 100);
         }
         // pet ngokhong
         if (this.player.isPet && ((Pet) this.player).typePet == 4
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA) {
-            this.hpMax += ((long) this.hpMax * 4 / 100);
+            this.hpMax += ((long) this.hpMax * 50 / 100);
         }
         if (this.player.isPet && ((Pet) this.player).typePet == 4
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA2) {
-            this.hpMax += ((long) this.hpMax * 6 / 100);
+            this.hpMax += ((long) this.hpMax * 50 / 100);
         }
         if (this.player.isPet && ((Pet) this.player).typePet == 4
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA3) {
-            this.hpMax += ((long) this.hpMax * 8 / 100);
+            this.hpMax += ((long) this.hpMax * 50 / 100);
         }
         if (this.player.isPet && ((Pet) this.player).typePet == 4
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA4) {
-            this.hpMax += ((long) this.hpMax * 10 / 100);
+            this.hpMax += ((long) this.hpMax * 50 / 100);
         }
         // pet ngokhong
         if (this.player.isPet && ((Pet) this.player).typePet == 5
@@ -1384,15 +1350,15 @@ public void increasePointDT(byte type, short point) {
         // pet mabư
         if (this.player.isPet && ((Pet) this.player).typePet == 1
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA) {
-            this.mpMax += ((long) this.mpMax * 4 / 100);
+            this.mpMax += ((long) this.mpMax * 10 / 100);
         }
         if (this.player.isPet && ((Pet) this.player).typePet == 1
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA2) {
-            this.mpMax += ((long) this.mpMax * 6 / 100);
+            this.mpMax += ((long) this.mpMax * 10 / 100);
         }
         if (this.player.isPet && ((Pet) this.player).typePet == 1
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA3) {
-            this.mpMax += ((long) this.mpMax * 8 / 100);
+            this.mpMax += ((long) this.mpMax * 10 / 100);
         }
         if (this.player.isPet && ((Pet) this.player).typePet == 1
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA4) {
@@ -1401,55 +1367,54 @@ public void increasePointDT(byte type, short point) {
         // pet berus
         if (this.player.isPet && ((Pet) this.player).typePet == 2// chi so lam sao bac tu cho dj
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA) {
-            this.mpMax += ((long) this.mpMax * 4 / 100);// chi so hp
+            this.mpMax += ((long) this.mpMax * 20 / 100);// chi so hp
         }
         if (this.player.isPet && ((Pet) this.player).typePet == 2// chi so lam sao bac tu cho dj
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA2) {
-            this.mpMax += ((long) this.mpMax * 6 / 100);// chi so hp
+            this.mpMax += ((long) this.mpMax * 20 / 100);// chi so hp
         }
         if (this.player.isPet && ((Pet) this.player).typePet == 2// chi so lam sao bac tu cho dj
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA3) {
-            this.mpMax += ((long) this.mpMax * 8 / 100);// chi so hp
+            this.mpMax += ((long) this.mpMax * 20 / 100);// chi so hp
         }
         if (this.player.isPet && ((Pet) this.player).typePet == 2// chi so lam sao bac tu cho dj
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA4) {
-            this.mpMax += ((long) this.mpMax * 10 / 100);// chi so hp
+            this.mpMax += ((long) this.mpMax * 20 / 100);// chi so hp
         }
         // goku
         if (this.player.isPet && ((Pet) this.player).typePet == 3
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA) {
-            this.mpMax += ((long) this.mpMax * 4 / 100);
+            this.mpMax += ((long) this.mpMax * 30 / 100);
         }
         if (this.player.isPet && ((Pet) this.player).typePet == 3
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA2) {
-            this.mpMax += ((long) this.mpMax * 6 / 100);
+            this.mpMax += ((long) this.mpMax * 30 / 100);
         }
         if (this.player.isPet && ((Pet) this.player).typePet == 3
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA3) {
-            this.mpMax += ((long) this.mpMax * 8 / 100);
+            this.mpMax += ((long) this.mpMax * 30 / 100);
         }
         if (this.player.isPet && ((Pet) this.player).typePet == 3
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA4) {
-            this.mpMax += ((long) this.mpMax * 10 / 100);
+            this.mpMax += ((long) this.mpMax * 30 / 100);
         }
         // pet ngokhong
         if (this.player.isPet && ((Pet) this.player).typePet == 4
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA) {
-            this.mpMax += ((long) this.mpMax * 4 / 100);
+            this.mpMax += ((long) this.mpMax * 40 / 100);
         }
         if (this.player.isPet && ((Pet) this.player).typePet == 4
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA2) {
-            this.mpMax += ((long) this.mpMax * 6 / 100);
+            this.mpMax += ((long) this.mpMax * 40 / 100);
         }
         if (this.player.isPet && ((Pet) this.player).typePet == 4
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA3) {
-            this.mpMax += ((long) this.mpMax * 8 / 100);
+            this.mpMax += ((long) this.mpMax * 40 / 100);
         }
         if (this.player.isPet && ((Pet) this.player).typePet == 4
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA4) {
-            this.mpMax += ((long) this.mpMax * 10 / 100);
+            this.mpMax += ((long) this.mpMax * 40 / 100);
         }
-
         // pet ngokhong
         if (this.player.isPet && ((Pet) this.player).typePet == 5
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA) {
@@ -1563,70 +1528,70 @@ public void increasePointDT(byte type, short point) {
         // pet mabư
         if (this.player.isPet && ((Pet) this.player).typePet == 1
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA) {
-            this.dame += ((long) this.dame * 4 / 100);
+            this.dame += ((long) this.dame *  10 / 100);
         }
         if (this.player.isPet && ((Pet) this.player).typePet == 1
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA2) {
-            this.dame += ((long) this.dame * 6 / 100);
+            this.dame += ((long) this.dame *  10 / 100);
         }
         if (this.player.isPet && ((Pet) this.player).typePet == 1
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA3) {
-            this.dame += ((long) this.dame * 8 / 100);
+            this.dame += ((long) this.dame *  10 / 100);
         }
         if (this.player.isPet && ((Pet) this.player).typePet == 1
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA4) {
-            this.dame += ((long) this.dame * 10 / 100);
+            this.dame += ((long) this.dame *  10 / 100);
         }
         // pet berus
         if (this.player.isPet && ((Pet) this.player).typePet == 2// chi so lam sao bac tu cho dj
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA) {
-            this.dame += ((long) this.dame * 4 / 100);// chi so hp
+            this.dame += ((long) this.dame * 20 / 100);// chi so hp
         }
         if (this.player.isPet && ((Pet) this.player).typePet == 2// chi so lam sao bac tu cho dj
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA2) {
-            this.dame += ((long) this.dame * 5 / 100);// chi so hp
+            this.dame += ((long) this.dame * 20 / 100);// chi so hp
         }
         if (this.player.isPet && ((Pet) this.player).typePet == 2// chi so lam sao bac tu cho dj
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA3) {
-            this.dame += ((long) this.dame * 8 / 100);// chi so hp
+            this.dame += ((long) this.dame * 20 / 100);// chi so hp
         }
         if (this.player.isPet && ((Pet) this.player).typePet == 2// chi so lam sao bac tu cho dj
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA4) {
-            this.dame += ((long) this.dame * 10 / 100);// chi so hp
+            this.dame += ((long) this.dame * 20 / 100);// chi so hp
         }
         // goku
         if (this.player.isPet && ((Pet) this.player).typePet == 3
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA) {
-            this.dame += ((long) this.dame * 4 / 100);
+            this.dame += ((long) this.dame * 30 / 100);
         }
         if (this.player.isPet && ((Pet) this.player).typePet == 3
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA2) {
-            this.dame += ((long) this.dame * 6 / 100);
+            this.dame += ((long) this.dame * 30 / 100);
         }
         if (this.player.isPet && ((Pet) this.player).typePet == 3
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA3) {
-            this.dame += ((long) this.dame * 8 / 100);
+            this.dame += ((long) this.dame * 30 / 100);
         }
         if (this.player.isPet && ((Pet) this.player).typePet == 3
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA4) {
-            this.dame += ((long) this.dame * 10 / 100);
+            this.dame += ((long) this.dame * 30 / 100);
         }
         // pet ngokhong
         if (this.player.isPet && ((Pet) this.player).typePet == 4
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA) {
-            this.dame += ((long) this.dame * 4 / 100);
+            this.dame += ((long) this.dame * 40 / 100);
         }
         if (this.player.isPet && ((Pet) this.player).typePet == 4
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA2) {
-            this.dame += ((long) this.dame * 6 / 100);
+            this.dame += ((long) this.dame * 40 / 100);
         }
         if (this.player.isPet && ((Pet) this.player).typePet == 4
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA3) {
-            this.dame += ((long) this.dame * 8 / 100);
+            this.dame += ((long) this.dame * 40 / 100);
         }
         if (this.player.isPet && ((Pet) this.player).typePet == 4
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA4) {
-            this.dame += ((long) this.dame * 10 / 100);
+            this.dame += ((long) this.dame * 40 / 100);
         }
         // pet ngokhong
         if (this.player.isPet && ((Pet) this.player).typePet == 5
@@ -2759,11 +2724,15 @@ public void increasePointDT(byte type, short point) {
             Service.gI().sendThongBaoOK(player, "Bạn không đủ tiềm năng");
             return false;
         }
+//        System.out.println("Tiem nang co: " + this.tiemNang);
+//        System.out.println("Tiem nang can: " + tiemNang);
         if (this.tiemNang >= tiemNang && this.tiemNang - tiemNang >= 0) {
             this.tiemNang -= tiemNang;
+//            System.out.println("Hieu tiem nang: " + a);
             TaskService.gI().checkDoneTaskUseTiemNang(player);
             return true;
         }
+//        System.out.println("Sai");
         return false;
     }
 
