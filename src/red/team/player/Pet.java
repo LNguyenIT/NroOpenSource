@@ -651,6 +651,7 @@ public class Pet extends Player {
                 this.nPoint.increasePointDT(tp, point);
             }
             lastTimeIncreasePoint = System.currentTimeMillis();
+            
         }
     }
 
