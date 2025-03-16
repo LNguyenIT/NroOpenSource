@@ -23,8 +23,8 @@ public class Chill extends Boss {
 
     @Override
     public void reward(Player plKill) {
-        byte randomDo = (byte) new Random().nextInt(Manager.itemIds_TL.length - 1);
-        byte randomNR = (byte) new Random().nextInt(Manager.itemIds_NR_SB.length);
+        short randomDo = (short) new Random().nextInt(Manager.itemIds_TL.length - 1);
+        short randomNR = (short) new Random().nextInt(Manager.itemIds_NR_SB.length);
         int[] itemDos = new int[]{555,556,557,558,559,560,561,562,563,564,565,566,567};
         int randomc12 = new Random().nextInt(itemDos.length);
         if (Util.isTrue(BossManager.ratioReward, 100)) {
@@ -32,7 +32,7 @@ public class Chill extends Boss {
                 Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 561, 1, this.location.x, this.location.y, plKill.id));
                 if (Util.isTrue(1, 10)) {
                     Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 344, 1, this.location.x+2, this.location.y, plKill.id));
-                    Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 2000+plKill.gender, 1, this.location.x, this.location.y, plKill.id));
+//                    Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 2000+plKill.gender, 1, this.location.x, this.location.y, plKill.id));
                 }
             }
             int[] manhthuong = new int[]{1066,1067,1068,1069,1070};
