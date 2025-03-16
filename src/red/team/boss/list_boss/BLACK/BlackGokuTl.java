@@ -24,8 +24,8 @@ public class BlackGokuTl extends Boss {
 
     @Override
     public void reward(Player plKill) {
-        byte randomDo = (byte) new Random().nextInt(Manager.itemIds_TL.length - 1);
-        byte randomNR = (byte) new Random().nextInt(Manager.itemIds_NR_SB.length -1);
+        short randomDo = (short) new Random().nextInt(Manager.itemIds_TL.length - 1);
+        short randomNR = (short) new Random().nextInt(Manager.itemIds_NR_SB.length -1);
 
         if (Util.isTrue(15, 20)) {
 //                int[] manhthuong = new int[] { 1066, 1067, 1068, 1069, 1070 };  
@@ -38,7 +38,7 @@ public class BlackGokuTl extends Boss {
 //                    Service.gI().dropItemMap(this.zone,
 //                            Util.manhTS(zone, manhthuong[randomAWJ], 1, this.location.x, this.location.y, plKill.id));
                 Service.gI().dropItemMap(this.zone,
-                        Util.ratiItem(zone, (byte) 15, 1, this.location.x + 2, this.location.y, plKill.id));
+                        Util.ratiItem(zone, (short) 15, 1, this.location.x + 2, this.location.y, plKill.id));
             } else {
                 Service.gI().dropItemMap(this.zone,
                         Util.manhTS(zone, manhhiem[randomGR], 3, this.location.x, this.location.y, plKill.id));
