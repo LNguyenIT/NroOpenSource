@@ -40,10 +40,10 @@ public class Cumber extends Boss {
                 Service.gI().dropItemMap(this.zone,
                         Util.ratiItem(zone, 561, 1, this.location.x, this.location.y, plKill.id));
             }
-            if (Util.isTrue(1, 10)) {
-                Service.gI().dropItemMap(this.zone,
-                        Util.ratiItem(zone, 2000 + plKill.gender, 1, this.location.x, this.location.y, plKill.id));
-            }
+//            if (Util.isTrue(1, 10)) {
+//                Service.gI().dropItemMap(this.zone,
+//                        Util.ratiItem(zone, 2000 + plKill.gender, 1, this.location.x, this.location.y, plKill.id));
+//            }
             if (Util.isTrue(1, 3)) {
                 Service.gI().dropItemMap(this.zone,
                         Util.ratiItem(zone, 344, 1, this.location.x + 2, this.location.y, plKill.id));
