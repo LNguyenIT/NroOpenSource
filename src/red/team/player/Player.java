@@ -377,7 +377,7 @@ public class Player {
                             Service.gI().sendTitle(this, it1.template.part);
                             
                         }
-                        if (it2 != null && it.isNotNullItem() && it2.template.type == 100) {                           
+                        if (it2 != null && it2.isNotNullItem() && it2.template.type == 100) {                           
                             Service.gI().sendTitle(this, it2.template.part);
                             
                         }
