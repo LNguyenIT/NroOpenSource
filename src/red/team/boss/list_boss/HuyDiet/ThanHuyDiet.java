@@ -30,8 +30,8 @@ public class ThanHuyDiet extends Boss {
     }
 @Override
     public void reward(Player plKill) {
-        byte randomDo = (byte) new Random().nextInt(Manager.itemIds_TL.length - 1);
-        byte randomNR = (byte) new Random().nextInt(Manager.itemIds_NR_SB.length);
+        int randomDo = (int) new Random().nextInt(Manager.itemIds_TL.length - 1);
+        int randomNR = (int) new Random().nextInt(Manager.itemIds_NR_SB.length);
         ItemMap itemMap;
         if (Util.isTrue(50, 100)) {
             if (Util.isTrue(1, 50)) {
@@ -40,13 +40,13 @@ public class ThanHuyDiet extends Boss {
                 itemMap = Util.ratiItem(zone, Manager.itemIds_TL[randomDo], 1, this.location.x, this.location.y, plKill.id);
             }
         } else {
-            itemMap = Util.ratiItem(zone, Manager.itemIds_NR_SB[randomNR], 1, this.location.x, this.location.y, plKill.id);
+            itemMap = Util.ratiItem(zone, 14, 1, this.location.x, this.location.y, plKill.id);
         }
         if (Util.isTrue(10, 10)) {
             Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 457, 2, this.location.x+2, this.location.y, plKill.id));
             Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 2000+plKill.gender, 1, this.location.x, this.location.y, plKill.id));
         }
-                               if (Util.isTrue(40, 100)) {
+        if (Util.isTrue(40, 100)) {
 
            Item item = ItemService.gI().createNewItem((short) 1108);
            item.itemOptions.add(new Item.ItemOption(30, 0));
