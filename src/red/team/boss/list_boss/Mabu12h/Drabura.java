@@ -22,7 +22,7 @@ public class Drabura extends Boss {
 
     @Override
     public void reward(Player plKill) {
-        byte randomDo = (byte) new Random().nextInt(Manager.itemIds_TL.length - 1);
+        short randomDo = (short) new Random().nextInt(Manager.itemIds_TL.length - 1);
 //        byte randomNR = (byte) new Random().nextInt(Manager.itemIds_NR_SB.length);
         int[] itemDos = new int[]{555, 556, 557, 558, 559, 560, 561, 562, 563, 564, 565, 566, 567};
         int randomc12 = new Random().nextInt(itemDos.length);
@@ -40,7 +40,7 @@ public class Drabura extends Boss {
 
         } else {
             Service.gI().dropItemMap(this.zone,
-                    new ItemMap(zone, (byte) 16, 1, this.location.x, this.location.y, plKill.id));
+                    new ItemMap(zone, (short) 16, 1, this.location.x, this.location.y, plKill.id));
         }
         plKill.pointBoss += 0;
         plKill.fightMabu.changePoint(10);
