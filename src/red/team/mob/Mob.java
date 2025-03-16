@@ -30,6 +30,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import red.services.InventoryServiceNew;
 import red.services.ItemService;
+import red.team.player.NPoint;
 import static red.team.server.Manager.docui;
 import static red.utils.Util.docui;
 
@@ -202,7 +203,7 @@ public class Mob {
         }
         tiemNang = (int) pl.nPoint.calSucManhTiemNang(tiemNang);
         if (pl.zone.map.mapId == 122 || pl.zone.map.mapId == 123 || pl.zone.map.mapId == 124) {
-            tiemNang += tiemNang ;
+            tiemNang += tiemNang/2 ;
         }
         if (pl.zone.map.mapId == 135 || pl.zone.map.mapId == 136 || pl.zone.map.mapId == 137 || pl.zone.map.mapId == 138) {
             tiemNang *= 2;
@@ -216,6 +217,14 @@ public class Mob {
             }
             if (pl.capCS > 20) {
                 tiemNang = tiemNang / 16;
+            }
+        }
+        if(player.isPet){
+            if(((Pet) this.player).master.itemTime.isCand4){
+                tiemNang *= 20/100; 
+            }
+            if(((Pet) this.player).master.itemTime.isBuaDTv2){
+                tiemNang *= 50/100; 
             }
         }
         return tiemNang;
