@@ -219,7 +219,7 @@ public class ItemTimeService {
                     (int) ((TIME_TRB - (System.currentTimeMillis() - player.itemTime.lastTimeCand4)) / 1000));
         }
         if (player.itemTime.isBuaDTv2) {
-            sendItemTime(player, 11048,
+            sendItemTime(player, 1142,
                     (int) ((TIME_TRB - (System.currentTimeMillis() - player.itemTime.lastTimeBuaDTv2)) / 1000));
         }
     }
