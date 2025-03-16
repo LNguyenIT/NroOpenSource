@@ -42,10 +42,10 @@ public class Mabu13h extends Boss {
                 Service.gI().dropItemMap(this.zone,
                         Util.ratiItem(zone, 561, 1, this.location.x, this.location.y, plKill.id));
             }
-            if (Util.isTrue(2, 10)) {
-                Service.gI().dropItemMap(this.zone,
-                        Util.ratiItem(zone, 2000 + plKill.gender, 1, this.location.x, this.location.y, plKill.id));
-            }
+//            if (Util.isTrue(2, 10)) {
+//                Service.gI().dropItemMap(this.zone,
+//                        Util.ratiItem(zone, 2000 + plKill.gender, 1, this.location.x, this.location.y, plKill.id));
+//            }
             Service.gI().dropItemMap(this.zone,
                     Util.ratiItem(zone, Manager.itemIds_TL[randomDo], 1, this.location.x, this.location.y, plKill.id));
         } else if (Util.isTrue(2, 5)) {

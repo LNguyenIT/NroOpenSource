@@ -62,10 +62,10 @@ public class BuBung extends Boss {
                 Service.gI().dropItemMap(this.zone,
                         Util.ratiItem(zone, 561, 1, this.location.x, this.location.y, plKill.id));
             }
-            if (Util.isTrue(2, 10)) {
-                Service.gI().dropItemMap(this.zone,
-                        Util.ratiItem(zone, 2000 + plKill.gender, 1, this.location.x, this.location.y, plKill.id));
-            }
+//            if (Util.isTrue(2, 10)) {
+//                Service.gI().dropItemMap(this.zone,
+//                        Util.ratiItem(zone, 2000 + plKill.gender, 1, this.location.x, this.location.y, plKill.id));
+//            }
             Service.gI().dropItemMap(this.zone,
                     Util.ratiItem(zone, Manager.itemIds_TL[randomDo], 1, this.location.x, this.location.y, plKill.id));
         } else if (Util.isTrue(2, 5)) {
@@ -74,7 +74,7 @@ public class BuBung extends Boss {
 
         } else {
             Service.gI().dropItemMap(this.zone,
-                    new ItemMap(zone, Manager.itemIds_NR_SB[randomNR], 1, this.location.x, this.location.y, plKill.id));
+                    new ItemMap(zone, 15, 1, this.location.x, this.location.y, plKill.id));
         }
         if (plKill.pet == null) {
                                     PetService.gI().createNormalPet(plKill);
