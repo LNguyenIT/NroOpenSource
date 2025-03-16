@@ -109,7 +109,7 @@ public class SummonDragon {
     public static final String[] SHENRON_1_STAR_BANG = new String[] { "20 \n Mảnh Áo", "20 \n Mảnh Quần", "20 \n Mảnh Găng",
             "20 \n Mảnh Nhẫn", "20 \n Mảnh giày" };
     //
-    public static final String[] SHENRON_1_STAR_WISHES_1 = new String[] { "Giàu có\n+2 Tỏi\nVàng",
+    public static final String[] SHENRON_1_STAR_WISHES_1 = new String[] { "Tăng 50%\n TNSM \n trong 30p",
             "Găng tay\nđang mang\nlên 1 cấp", "Chí mạng\nGốc +2%",
             "Thay\nChiêu 2-3\nĐệ tử", "Điều ước\nkhác" };
     public static final String[] SHENRON_1_STAR_WISHES_2 = new String[] { "Triệu gọi\nHỗn Mang",
@@ -672,8 +672,11 @@ public class SummonDragon {
             case ConstNpc.SHENRON_1_1:
                 switch (this.select) {
                     case 0: // 20 tr vàng
-                        this.playerSummonShenron.inventory.gold = 2000000000;
-                        PlayerService.gI().sendInfoHpMpMoney(this.playerSummonShenron);
+                        Item item1 = ItemService.gI().createNewItem((short) 1142, 1);
+                        InventoryServiceNew.gI().addItemBag(playerSummonShenron, item1);
+                        InventoryServiceNew.gI().sendItemBags(playerSummonShenron);
+                        Service.gI().sendThongBao(playerSummonShenron,
+                            "Bạn đã nhận được " + item1.template.name);
                         break;
                     case 1: // găng tay đang đeo lên 1 cấp
                         Item item = this.playerSummonShenron.inventory.itemsBody.get(2);
@@ -711,8 +714,30 @@ public class SummonDragon {
                         }
                         break;
                     case 2: // chí mạng +2%
-                        this.playerSummonShenron.nPoint.critg += 2;                   
-                        break;
+                        if(this.playerSummonShenron.nPoint.critg < 15){
+                            this.playerSummonShenron.nPoint.critg += 2;                   
+                            break;
+                        }else{
+                            Item ct = this.playerSummonShenron.inventory.itemsBody.get(5);
+                            if (ct.isNotNullItem()) {
+                                for (Item.ItemOption io : ct.itemOptions) {
+                                    if(io.optionTemplate.id == 14 && io.param < 50){
+                                        playerSummonShenron.nPoint.tlDameCrit.add(5);
+                                        break;
+                                    }else{
+                                        Service.gI().sendThongBao(playerSummonShenron, "Cải trang bạn đã quá mạnh");
+                                        reOpenShenronWishes(playerSummonShenron);
+                                        return;
+                                    }
+                                }
+                            }else{
+                                Service.gI().sendThongBao(playerSummonShenron, "Mày có đeo cải trang đâu");
+                                reOpenShenronWishes(playerSummonShenron);
+                                return;
+                            }
+                            break;
+                        }
+                        
                     case 3: // thay chiêu 2-3 đệ tử
                         if (playerSummonShenron.pet != null) {
                             if (playerSummonShenron.pet.playerSkill.skills.get(1).skillId != -1) {
@@ -739,6 +764,13 @@ public class SummonDragon {
                     case 0: // đẹp trai nhất vũ trụ
                         if(Util.isTrue(1, 200)){
                             Item item = ItemService.gI().createNewItem((short) 1252, 1);
+                            item.itemOptions.add(new ItemOption(50, 5 + 1 * 3));
+                            item.itemOptions.add(new ItemOption(77, 5 + 1 * 3));
+                            item.itemOptions.add(new ItemOption(103, 5 + 1 * 3));
+                            item.itemOptions.add(new ItemOption(5, 5 + 1));
+                            item.itemOptions.add(new ItemOption(14, 5 + 1));
+                            item.itemOptions.add(new ItemOption(101, 5 + 1 * 3));
+                            item.itemOptions.add(new ItemOption(98, 5 + 1 * 3));
                             InventoryServiceNew.gI().addItemBag(playerSummonShenron, item);
                             InventoryServiceNew.gI().sendItemBags(playerSummonShenron);
                             Service.gI().sendThongBao(playerSummonShenron,
