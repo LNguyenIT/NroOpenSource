@@ -21,8 +21,8 @@ public class Baconsoi extends Boss {
 
     @Override
     public void reward(Player plKill) {
-        byte randomDo = (byte) new Random().nextInt(Manager.itemIds_TL.length - 1);
-        byte randomNR = (byte) new Random().nextInt(Manager.itemIds_NR_SB.length);
+        short randomDo = (short) new Random().nextInt(Manager.itemIds_TL.length - 1);
+        short randomNR = (short) new Random().nextInt(Manager.itemIds_NR_SB.length);
         int[] itemDos = new int[]{555,556,557,558,559,560,561,562,563,564,565,566,567};
         int randomc12 = new Random().nextInt(itemDos.length);
         if (Util.isTrue(BossManager.ratioReward, 100)) {
@@ -37,7 +37,7 @@ public class Baconsoi extends Boss {
             Service.gI().dropItemMap(this.zone, Util.RaitiDoc12(zone, itemDos[randomc12], 1, this.location.x, this.location.y, plKill.id));
             
         } else {
-            Service.gI().dropItemMap(this.zone, new ItemMap(zone, (byte) 15, 1, this.location.x, this.location.y, plKill.id));
+            Service.gI().dropItemMap(this.zone, new ItemMap(zone, (short) 15, 1, this.location.x, this.location.y, plKill.id));
         }
         for(Integer i =0;i<3;i++){
             Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 344, 1, this.location.x+2, this.location.y, plKill.id));
