@@ -5,9 +5,11 @@
  */
 package red.team.boss.list_boss.kami;
 
+import java.util.Random;
 import red.consts.ConstPlayer;
 import red.s1.boss.Boss;
 import red.s1.boss.BossID;
+import red.s1.boss.BossManager;
 import red.s1.boss.BossStatus;
 import red.s1.boss.BossesData;
 import red.team.map.ItemMap;
@@ -17,6 +19,7 @@ import red.services.EffectSkillService;
 import red.services.PlayerService;
 import red.services.Service;
 import red.services.TaskService;
+import red.team.server.Manager;
 import red.utils.Util;
 
 public class cumberBlack extends Boss {
@@ -30,12 +33,30 @@ public class cumberBlack extends Boss {
         ItemMap it = new ItemMap(this.zone, 457, 1, this.location.x, this.zone.map.yPhysicInTop(this.location.x,
                 this.location.y - 24), plKill.id);
         Service.gI().dropItemMap(this.zone, it);
-        if (Util.isTrue(10, 100)) {
-            Service.gI().dropItemMap(this.zone,
-                    Util.ratiItem(zone, 344, 1, this.location.x + 2, this.location.y, plKill.id));
-            Service.gI().dropItemMap(this.zone,
-                    Util.ratiItem(zone, 2000 + plKill.gender, 1, this.location.x, this.location.y, plKill.id));
+        short randomDo = (short) new Random().nextInt(Manager.itemIds_TL.length - 1);
+
+        int[] itemDos = new int[]{555, 556, 557, 558, 559, 560, 561, 562, 563, 564, 565, 566, 567};
+        int randomc12 = new Random().nextInt(itemDos.length);
+        if (Util.isTrue(BossManager.ratioReward, 100)) {
+            if (Util.isTrue(3, 5)) {
+                Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 561, 1, this.location.x, this.location.y, plKill.id));
+            }
+//            if (Util.isTrue(5, 10)) {
+//                Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 344, 1, this.location.x + 2, this.location.y, plKill.id));
+////                Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 2000 + plKill.gender, 1, this.location.x, this.location.y, plKill.id));
+//            }
+            Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, Manager.itemIds_TL[randomDo], 1, this.location.x, this.location.y, plKill.id));
+        } else if (Util.isTrue(2, 5)) {
+            Service.gI().dropItemMap(this.zone, Util.RaitiDoc12(zone, itemDos[randomc12], 1, this.location.x, this.location.y, plKill.id));
+
+        } else {
+            Service.gI().dropItemMap(this.zone, new ItemMap(zone, Util.nextInt(925, 931), 1, this.location.x, this.location.y, plKill.id));
         }
+        Service.gI().dropItemMap(this.zone,
+                Util.ratiItem(zone, 722, 1, this.location.x, this.location.y, plKill.id));
+        Service.gI().sendThongBaoAllPlayer("Chết rồi GOKU đã rơi vào tay "+plKill.name);
+        plKill.pointBoss += 0;
+        TaskService.gI().checkDoneTaskKillBoss(plKill, this);
         plKill.pointBoss += 2;
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
     }
