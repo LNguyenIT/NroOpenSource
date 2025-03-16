@@ -29,9 +29,9 @@ public class Gokufake extends Boss {
         int randomNR = new Random().nextInt(NRs.length);
         if (Util.isTrue(30, 100)) {
             
-                if (Util.isTrue(3, 10)) {
-                    Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 2000+plKill.gender, 1, this.location.x, this.location.y, plKill.id));
-                }
+//                if (Util.isTrue(3, 10)) {
+//                    Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 2000+plKill.gender, 1, this.location.x, this.location.y, plKill.id));
+//                }
             
             if (Util.isTrue(1, 3)) {
                 Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 344, 1, this.location.x+2, this.location.y, plKill.id));
