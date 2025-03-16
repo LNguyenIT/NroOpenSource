@@ -30,7 +30,7 @@ public class SieuBoHung extends Boss {
     private long st;
 
    public void reward(Player plKill) {
-       int[] itemDos = new int[]{457,555,556,557,558,559,560,561,562,563,564,565,566,567};
+        int[] itemDos = new int[]{457,555,556,557,558,559,560,561,562,563,564,565,566,567};
         int[] NRs = new int[]{15,16,16,16,16,16,16,16,16,16,16,16,16};
         int randomDo = new Random().nextInt(itemDos.length);
         int randomNR = new Random().nextInt(NRs.length);
