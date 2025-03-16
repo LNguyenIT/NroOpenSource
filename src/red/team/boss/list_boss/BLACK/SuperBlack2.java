@@ -62,13 +62,12 @@ public class SuperBlack2 extends Boss {
             Service.gI().dropItemMap(this.zone,
                     Util.RaitiDoc12(zone, itemDos[randomc12], 1, this.location.x, this.location.y, plKill.id));
             return;
+        } else {
+            Service.gI().dropItemMap(this.zone,
+                    new ItemMap(zone, 15, 1, this.location.x, this.location.y, plKill.id));
         }
-//        } else {
-//            Service.gI().dropItemMap(this.zone,
-//                    new ItemMap(zone, Manager.itemIds_NR_SB[randomNR], 1, this.location.x, this.location.y, plKill.id));
-//        }
         Service.gI().dropItemMap(this.zone,
-                    new ItemMap(zone, (byte) 2119, 1, this.location.x, this.location.y, plKill.id));
+                    new ItemMap(zone, (short) 1108, 1, this.location.x, this.location.y, plKill.id));
         Service.gI().sendThongBaoAllPlayer("Trứng huỷ diệt đã rơi vào tay "+plKill.name);
         plKill.pointBoss += 3;
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
