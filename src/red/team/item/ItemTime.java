@@ -19,18 +19,19 @@ public class ItemTime {
     public static final byte MI_NUONG = 3;
     public static final byte DIA_NGUC = 12;
     public static final int TIME_ITEM = 600000;
+    public static final int BUADTV2_ITEM = 1800000;
     public static final int TIME_OPEN_POWER = 86400000;
     public static final int TIME_MAY_DO = 1200000;
     public static final int TIME_MAY_DO2 = 1200000;
     public static final int TIME_MAY_DO3 = 1200000;
     public static final int TIME_EAT_MEAL = 600000;
     public static final int TIME_EAT_POTENTIAL = 3600000;
-    public static final int TIME_EAT_BANH = 600000;
+    public static final int TIME_EAT_BANH = 1800000;
     public static final int TIME_Cua_Rang_Me = 600000;
     public static final byte CAU_CA = 60;
     private Player player;
     
-    
+    //Kẹo thêm vào
     public boolean isCand1;
     public long lastTimeCand1;
     public boolean isCand2;
@@ -43,6 +44,11 @@ public class ItemTime {
     public short iconCand2;
     public short iconCand3;
     public short iconCand4;
+    
+    //Bùa đệ ước rồng thêm vào
+    public boolean isBuaDTv2;
+    public long lastTimeBuaDTv2;
+    public short iconBuaDTv2;
     
     public boolean isUseBoHuyet;
     public boolean isUseBoKhi;
@@ -445,6 +451,7 @@ public class ItemTime {
                 isUseAnDanhSC = false;
             }
         }
+        //Kẹo
         if (isCand1) {
             if (Util.canDoWithTime(lastTimeCand1, TIME_ITEM)) {
                 isCand1 = false;
@@ -463,6 +470,12 @@ public class ItemTime {
         if (isCand4) {
             if (Util.canDoWithTime(lastTimeCand4, TIME_ITEM)) {
                 isCand4 = false;
+            }
+        }
+        // bùa đệ ước rồng
+        if (isBuaDTv2) {
+            if (Util.canDoWithTime(lastTimeBuaDTv2, BUADTV2_ITEM)) {
+                isBuaDTv2 = false;
             }
         }
         if (isOpenPower) {
