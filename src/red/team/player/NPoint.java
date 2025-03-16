@@ -1744,10 +1744,10 @@ public class NPoint {
             this.dame += dameg * 3 / 2;
 
         }
+        
         // bánh ngọt
         if (this.player.itemTime != null && this.player.itemTime.isCand3) {
             this.dame += dame / 10;
-
         }
         
         // giảm dame
