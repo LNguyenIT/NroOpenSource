@@ -221,10 +221,10 @@ public class Mob {
         }
         if(player.isPet){
             if(((Pet) this.player).master.itemTime.isCand4){
-                tiemNang *= 20/100; 
+                tiemNang *= 120/100; 
             }
             if(((Pet) this.player).master.itemTime.isBuaDTv2){
-                tiemNang *= 50/100; 
+                tiemNang *= 150/100; 
             }
         }
         return tiemNang;
