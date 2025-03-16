@@ -33,7 +33,7 @@ public class NGOKHONG extends Boss {
             Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, Manager.itemIds_TL[randomDo], 1,
                         this.location.x, this.location.y, plKill.id));
         }
-        if (Util.isTrue(10, 100)) {
+        if (Util.isTrue(70, 100)) {
 
             Item item = ItemService.gI().createNewItem((short) 1205);
 
