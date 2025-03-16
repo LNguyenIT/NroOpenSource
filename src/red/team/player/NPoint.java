@@ -150,6 +150,8 @@ public class NPoint {
      * Tỉ lệ tiềm năng sức mạnh
      */
     public List<Integer> tlTNSM;
+    public int tlTNSMdt;
+    
 
     /**
      * Tỉ lệ vàng cộng thêm
@@ -234,18 +236,18 @@ public class NPoint {
 
         ////
         if (this.player.isPl() || this.player.isPet) {
-            if (this.player.setClothes.setGod()) {
-                tlDame.add(5);
-                tlHp.add(5);
-                tlMp.add(5);
-                critAdd += 5;
-            }
-            if (this.player.setClothes.setHuyDiet()) {
-                tlDame.add(10);
-                tlHp.add(10);
-                tlMp.add(10);
-                tlDameCrit.add(10);
-            }
+//            if (this.player.setClothes.setGod()) {
+//                tlDame.add(5);
+//                tlHp.add(5);
+//                tlMp.add(5);
+//                critAdd += 5;
+//            }
+//            if (this.player.setClothes.setHuyDiet()) {
+//                tlDame.add(10);
+//                tlHp.add(10);
+//                tlMp.add(10);
+//                tlDameCrit.add(10);
+//            }
 //            if (this.player.setClothes.setThienSu()) {
 //                tlDame.add(15);
 //                tlHp.add(15);
@@ -349,6 +351,7 @@ public class NPoint {
                 if (item.template.id >= 592 && item.template.id <= 594) {
                     teleport = true;
                 }
+                // Thẻ
                 Card card = player.Cards.stream().filter(r -> r != null && r.Used == 1).findFirst().orElse(null);
                 if (card != null) {
                     for (OptionCard io : card.Options) {
@@ -513,6 +516,8 @@ public class NPoint {
                         }
                     }
                 }
+                
+                //option đồ
                 for (Item.ItemOption io : item.itemOptions) {
                     switch (io.optionTemplate.id) {
                         case 0: // Tấn công +#
@@ -706,6 +711,9 @@ public class NPoint {
                         case 254:
                             this.isSSJ4 = true;
                             break;
+                        case 160:
+                            this.tlTNSMdt += io.param;
+                            break;
                     }
                 }
             }
@@ -846,91 +854,149 @@ public class NPoint {
         if (point <= 0 || point > 100) {
             return;
         }
-
-        long tiemNangUse;
-
-        if (type == 0) { // Nâng HP
-            long[] tiemNangUseArr = {
-                this.hpg + 1000,
-                10 * (2 * this.hpg + 2000 + 20 * 9) / 2,
-                100 * (2 * this.hpg + 2000 + 20 * 99) / 2,
-                1000 * (2 * this.hpg + 2000 + 20 * 999) / 2,
-                10000 * (2 * this.hpg + 2000 + 20 * 9999) / 2
-            };
-            int[] hpIncrease = {20, 200, 2000, 20000, 200000};
-
-            for (int i = 4; i >= 0; i--) {
-                if ((this.hpg + hpIncrease[i]) <= getHpMpLimit() && doUseTiemNang(tiemNangUseArr[i])) {
-                    this.hpg += hpIncrease[i];
+        long tiemNangUse = 0;
+        if (type == 0) { // type = 0 Ä‘áº¡i diá»‡n cho nÃ¢ng HP
+//            System.out.println("Nang HP");
+         
+            long tiemNangUse1, tiemNangUse1To10, tiemNangUse1To100, tiemNangUse1To1000, tiemNangUse1To10000;
+//            System.out.println("ÄÃ£ chá»n HP");
+            // CÃ´ng thá»©c tá»•ng quÃ¡t Ä‘á»ƒ tÃ­nh tá»•ng tiá»m nÄƒng cáº§n thiáº¿t
+            tiemNangUse1 = this.hpg + 1000;
+            tiemNangUse1To10 = 10 * (2 * this.hpg + 2000 + 20 * 9) / 2;
+            tiemNangUse1To100 = 100 * (2 * this.hpg + 2000 + 20 * 99) / 2;
+            tiemNangUse1To1000 = 1000 * (2 * this.hpg + 2000 + 20 * 999) / 2;
+            tiemNangUse1To10000 = 10000 * (2 * this.hpg + 2000 + 20 * 9999) / 2;
+            // Kiá»ƒm tra Ä‘iá»u kiá»‡n nÃ¢ng cáº¥p HP
+            if ((this.hpg + 200000) <= getHpMpLimit() && doUseTiemNang(tiemNangUse1To10000)) {
+//                System.out.println(" 1");
+                this.hpg += 200000;
+            }else if ((this.hpg + 20000) <= getHpMpLimit() && doUseTiemNang(tiemNangUse1To1000)) {
+                this.hpg += 20000;
+//                System.out.println(" 2");
+            } else if ((this.hpg + 2000) <= getHpMpLimit() && doUseTiemNang(tiemNangUse1To100)) {
+                this.hpg += 2000;
+//                System.out.println(" 3");
+            } else if ((this.hpg + 200) <= getHpMpLimit() && doUseTiemNang(tiemNangUse1To10)) {
+                this.hpg += 200;
+//                System.out.println(" 4");
+            } else if ((this.hpg + 20) <= getHpMpLimit() && doUseTiemNang(tiemNangUse1)) {
+                this.hpg += 20;
+//                System.out.println(" 5");
+            } else {
+//                Service.gI().sendThongBaoOK(player, "Vui lÃ²ng má»Ÿ giá»›i háº¡n HP");
                     return;
-                }
             }
         }
 
-        if (type == 1) { // Nâng KI
-            long[] tiemNangUseArr = {
-                this.mpg + 1000,
-                10 * (2 * this.mpg + 2000 + 20 * 9) / 2,
-                100 * (2 * this.mpg + 2000 + 20 * 99) / 2,
-                1000 * (2 * this.mpg + 2000 + 20 * 999) / 2,
-                10000 * (2 * this.mpg + 2000 + 20 * 9999) / 2
-            };
-            int[] mpIncrease = {20, 200, 2000, 20000, 200000};
+        if (type == 1) {
+//            System.out.println("Nang KI");
+            
+//            int pointMp = point * 20;
+//            tiemNangUse = point * (2 * (this.mpg + 1000) + pointMp - 20) / 2;
+//            if ((this.mpg + pointMp) <= getHpMpLimit()) {
+//                if (doUseTiemNang(tiemNangUse)) {
+//                    mpg += pointMp;
+//                }
+//            } else {
+//                Service.gI().sendThongBao(player, "Vui lÃ²ng má»Ÿ giá»›i háº¡n sá»©c máº¡nh");
+//                return;
+//            }
+//            System.out.println("ÄÃ£ chá»n KI");
+            long tiemNangUse1, tiemNangUse1To10, tiemNangUse1To100, tiemNangUse1To1000,tiemNangUse1To10000;
 
-            for (int i = 4; i >= 0; i--) {
-                if ((this.mpg + mpIncrease[i]) <= getHpMpLimit() && doUseTiemNang(tiemNangUseArr[i])) {
-                    this.mpg += mpIncrease[i];
-                    return;
-                }
+            // CÃ´ng thá»©c tá»•ng quÃ¡t Ä‘á»ƒ tÃ­nh tá»•ng tiá»m nÄƒng cáº§n thiáº¿t
+            tiemNangUse1 = this.mpg + 1000;
+            tiemNangUse1To10 = 10 * (2 * this.mpg + 2000 + 20 * 9) / 2;
+            tiemNangUse1To100 = 100 * (2 * this.mpg + 2000 + 20 * 99) / 2;
+            tiemNangUse1To1000 = 1000 * (2 * this.mpg + 2000 + 20 * 999) / 2;
+            tiemNangUse1To10000 = 10000 * (2 * this.mpg + 2000 + 20 * 9999) / 2;
+            // Kiá»ƒm tra Ä‘iá»u kiá»‡n nÃ¢ng cáº¥p HP
+            if ((this.mpg + 200000) <= getHpMpLimit() && doUseTiemNang(tiemNangUse1To10000)) {
+                this.mpg += 200000;
+            }else if ((this.mpg + 20000) <= getHpMpLimit() && doUseTiemNang(tiemNangUse1To1000)) {
+                this.mpg += 20000;
+            } else if ((this.mpg + 2000) <= getHpMpLimit() && doUseTiemNang(tiemNangUse1To100)) {
+                this.mpg += 2000;
+            } else if ((this.mpg + 200) <= getHpMpLimit() && doUseTiemNang(tiemNangUse1To10)) {
+                this.mpg += 200;
+            } else if ((this.mpg + 20) <= getHpMpLimit() && doUseTiemNang(tiemNangUse1)) {
+                this.mpg += 20;
+            } else {
+//                Service.gI().sendThongBaoOK(player, "Vui lÃ²ng má»Ÿ giá»›i háº¡n MP");
+                return;
             }
         }
-
-        if (type == 2) { // Nâng sức đánh (Dame)
+        if (type == 2) {
+//            System.out.println("Nang SD");
             long tiemNangUse1 = (long) this.dameg * 100;
-            long[] tiemNangUseArr = new long[3];
-            int[] dameIncrease = {10, 100, 1000};
+            long tiemNangUse10 = 0;
+            long tiemNangUse100 = 0;
+            long tiemNangUse1000 = 0;
 
-            for (int i = 0; i < 3; i++) {
-                int dameTemp = this.dameg;
-                for (int j = 0; j < dameIncrease[i]; j++) {
-                    tiemNangUseArr[i] += (long) dameTemp * 100;
-                    dameTemp++;
-                    return;
-                }
+            int dameTemp = this.dameg;
+
+            // TÃ­nh tiá»m nÄƒng Ä‘á»ƒ tÄƒng 10 sá»©c Ä‘Ã¡nh
+            for (int i = 0; i < 10; i++) {
+                tiemNangUse10 += (long) dameTemp * 100;
+                dameTemp++;
             }
-            for (int i = 2; i >= 0; i--) {
-                if ((this.dameg + dameIncrease[i]) <= getDameLimit() && doUseTiemNang(tiemNangUseArr[i])) {
-                    this.dameg += dameIncrease[i];
-                    return;
-                }
+
+            // TÃ­nh tiá»m nÄƒng Ä‘á»ƒ tÄƒng 100 sá»©c Ä‘Ã¡nh
+            dameTemp = this.dameg;
+            for (int i = 0; i < 100; i++) {
+                tiemNangUse100 += (long) dameTemp * 100;
+                dameTemp++;
             }
-            if ((this.dameg + point) <= getDameLimit() && doUseTiemNang(tiemNangUse1)) {
-                this.dameg += point;
+
+            // TÃ­nh tiá»m nÄƒng Ä‘á»ƒ tÄƒng 1000 sá»©c Ä‘Ã¡nh
+            dameTemp = this.dameg;
+            for (int i = 0; i < 1000; i++) {
+                tiemNangUse1000 += (long) dameTemp * 100;
+                dameTemp++;
+            }
+
+            // Kiá»ƒm tra vÃ  thá»±c hiá»‡n tÄƒng dameg
+            if ((this.dameg + 1000) <= getDameLimit() && doUseTiemNang(tiemNangUse1000)) {
+                this.dameg += 1000;
+            } else if ((this.dameg + 100) <= getDameLimit() && doUseTiemNang(tiemNangUse100)) {
+                this.dameg += 100;
+            } else if ((this.dameg + 10) <= getDameLimit() && doUseTiemNang(tiemNangUse10)) {
+                this.dameg += 10;
+            } else if ((this.dameg + 1) <= getDameLimit() && doUseTiemNang(tiemNangUse1)) {
+                this.dameg += 1;
+            } else {
+//                Service.gI().sendThongBaoOK(player, "Vui lÃ²ng má»Ÿ giá»›i háº¡n sá»©c máº¡nh");
                 return;
             }
         }
 
-        if (type == 3) { // Nâng giáp (Def)
+        if (type == 3) {
             tiemNangUse = 2 * (this.defg + 5) / 2 * 100000;
-            if ((this.defg + point) <= getDefLimit() && doUseTiemNang(tiemNangUse)) {
-                this.defg += point;
+            if ((this.defg + point) <= getDefLimit()) {
+                if (doUseTiemNang(tiemNangUse)) {
+                    defg += point;
+                }
+            } else {
+                Service.gI().sendThongBaoOK(player, "Nâng GHSM");
                 return;
             }
         }
-
-        if (type == 4) { // Nâng chí mạng (Crit)
+        if (type == 4) {
             tiemNangUse = 50000000L;
             for (int i = 0; i < this.critg; i++) {
                 tiemNangUse *= 5L;
             }
-            if ((this.critg + point) <= getCritLimit() && doUseTiemNang(tiemNangUse)) {
-                this.critg += point;
+            if ((this.critg + point) <= getCritLimit()) {
+                if (doUseTiemNang(tiemNangUse)) {
+                    critg += point;
+                }
+            } else {
+                Service.gI().sendThongBaoOK(player, "Vui lòng mở giới hạn");
                 return;
             }
         }
-
         Service.gI().point(player);
-    }
+    } 
 
     private void setDameTrainArmor() {
         if (!this.player.isPet && !this.player.isBoss) {
@@ -1935,6 +2001,7 @@ public class NPoint {
     }
 
     private void resetPoint() {
+        this.tlTNSMdt = 0;
         this.voHieuChuong = 0;
         this.hpAdd = 0;
         this.mpAdd = 0;
@@ -2301,6 +2368,12 @@ public class NPoint {
                 tiemNang += ((long) tiemNang * this.intrinsic.param1 / 100);
             }
 
+//            if (this.player.isPet) {
+//                if (((Pet) this.player). > System.currentTimeMillis()) {
+//                    tiemNang = tiemNang * 2;
+//                }
+//            }
+            
             if (this.player.isPet) {
                 if (((Pet) this.player).master.charms.tdDeTu > System.currentTimeMillis()) {
                     tiemNang = tiemNang * 2;
