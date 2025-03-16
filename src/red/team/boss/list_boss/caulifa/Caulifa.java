@@ -21,8 +21,8 @@ public class Caulifa extends Boss {
 
     @Override
     public void reward(Player plKill) {
-        byte randomDo = (byte) new Random().nextInt(Manager.itemIds_TL.length - 1);
-        byte randomNR = (byte) new Random().nextInt(Manager.itemIds_NR_SB.length -1);
+        short randomDo = (short) new Random().nextInt(Manager.itemIds_TL.length - 1);
+        short randomNR = (short) new Random().nextInt(Manager.itemIds_NR_SB.length -1);
 
         if (Util.isTrue(15, 20)) {
 //                int[] manhthuong = new int[] { 1066, 1067, 1068, 1069, 1070 };  
