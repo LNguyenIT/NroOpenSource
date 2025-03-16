@@ -351,6 +351,7 @@ public class UseItem {
                         case 1101:
                         case 1102:
                         case 1103:
+                        case 1142:
                         case 1193: // bánh pudding
                         case 1194: // xúc xíc
                         case 1195:
@@ -1853,8 +1854,8 @@ public class UseItem {
                 }
                 pl.itemTime.lastTimeCand1 = System.currentTimeMillis();
                 pl.itemTime.isCand1 = true;
-                ItemTimeService.gI().removeItemTime(pl, 8244);
-                pl.itemTime.iconCand1 = 8244;
+                ItemTimeService.gI().removeItemTime(pl, 899);
+                pl.itemTime.iconCand1 = 899;
                 break;
             case 900:   
                 if (pl.itemTime.isCand2 == true) {
@@ -1863,8 +1864,8 @@ public class UseItem {
                 }
                 pl.itemTime.lastTimeCand2 = System.currentTimeMillis();
                 pl.itemTime.isCand2 = true;
-                ItemTimeService.gI().removeItemTime(pl, 8245);
-                pl.itemTime.iconCand2 = 8245;
+                ItemTimeService.gI().removeItemTime(pl, 900);
+                pl.itemTime.iconCand2 = 900;
                 break;
             case 901:   
                 if (pl.itemTime.isCand3 == true) {
@@ -1873,8 +1874,8 @@ public class UseItem {
                 }
                 pl.itemTime.lastTimeCand3 = System.currentTimeMillis();
                 pl.itemTime.isCand3 = true;
-                ItemTimeService.gI().removeItemTime(pl, 8246);
-                pl.itemTime.iconCand3 = 8246;
+                ItemTimeService.gI().removeItemTime(pl, 901);
+                pl.itemTime.iconCand3 = 901;
                 break;
             case 902:   
                 if (pl.itemTime.isCand4 == true) {
@@ -1883,8 +1884,18 @@ public class UseItem {
                 }
                 pl.itemTime.lastTimeCand4 = System.currentTimeMillis();
                 pl.itemTime.isCand4 = true;
-                ItemTimeService.gI().removeItemTime(pl, 8247);
-                pl.itemTime.iconCand4 = 8247;
+                ItemTimeService.gI().removeItemTime(pl, 901);
+                pl.itemTime.iconCand4 = 901;
+                break;
+            case 1142:   
+                if (pl.itemTime.isBuaDTv2 == true) {
+                        Service.getInstance().sendThongBao(pl, "Bạn đã sử dụng bùa đệ ver 2");
+                    return;
+                }
+                pl.itemTime.lastTimeBuaDTv2 = System.currentTimeMillis();
+                pl.itemTime.isBuaDTv2 = true;
+                ItemTimeService.gI().removeItemTime(pl, 1142);
+                pl.itemTime.iconBuaDTv2 = 1142;
                 break;
                 
         }
