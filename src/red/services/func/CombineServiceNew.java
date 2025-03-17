@@ -2329,7 +2329,7 @@ public class CombineServiceNew {
                         && player.inventory.ruby >= COST_DAP_DO_KICH_HOAT) {
                     player.inventory.ruby -= COST_DAP_DO_KICH_HOAT;
                     int tiLe = 35; // tỉ lệ
-                    if (Util.isTrue(tiLe, 40)) {
+                    if (Util.isTrue(0, 40)) {
                         sendEffectSuccessCombine(player);
                         ItemService.gI().OpenDHD2(player, player.gender, dtl.template.type);
                         InventoryServiceNew.gI().subQuantityItemsBag(player, dtl, 1);
