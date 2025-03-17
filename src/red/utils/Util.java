@@ -503,7 +503,7 @@ public class Util {
             it.options.add(new Item.ItemOption(14, new Random().nextInt(3) + 15));
         }
         it.options.add(new Item.ItemOption(209, 1));
-        it.options.add(new Item.ItemOption(21, 15));
+//        it.options.add(new Item.ItemOption(21, 0));
         if (Util.isTrue(90, 100)) {// tỉ lệ ra spl
             it.options.add(new Item.ItemOption(107, new Random().nextInt(3) + 2));
         } else if (Util.isTrue(80, 100)) {
