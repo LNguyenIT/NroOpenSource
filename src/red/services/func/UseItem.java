@@ -218,9 +218,9 @@ public class UseItem {
                 case 7: // sách học, nâng skill
                     learnSkill(pl, item);
                     break;
-                case 33:
-                    UseCard(pl, item);
-                    break;
+//                case 33:
+//                    UseCard(pl, item);
+//                    break;
                 case 6: // đậu thần
                     this.eatPea(pl);
                     break;
