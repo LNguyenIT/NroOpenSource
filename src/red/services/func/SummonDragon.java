@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.girlkun.network.io.Message;
+import java.util.ArrayList;
 import red.consts.ConstNpc;
 import red.consts.ConstPlayer;
 import red.jdbc.daos.GodGK;
@@ -714,29 +715,44 @@ public class SummonDragon {
                         }
                         break;
                     case 2: // chí mạng +2%
-                        if(this.playerSummonShenron.nPoint.critg < 15){
-                            this.playerSummonShenron.nPoint.critg += 2;                   
+                        if (this.playerSummonShenron.nPoint.critg < 15) {
+                            this.playerSummonShenron.nPoint.critg += 2;
                             break;
-                        }else{
-                            Item ct = this.playerSummonShenron.inventory.itemsBody.get(5);
+                        } else {
+                            int tldamecrit = 0;
+                            List<Item.ItemOption> ioCopy = new ArrayList<>();
+                            Item ct = this.playerSummonShenron.inventory.itemsBody.get(7);
                             if (ct.isNotNullItem()) {
                                 for (Item.ItemOption io : ct.itemOptions) {
-                                    if(io.optionTemplate.id == 14 && io.param < 50){
-                                        playerSummonShenron.nPoint.tlDameCrit.add(5);
-                                        break;
-                                    }else{
-                                        Service.gI().sendThongBao(playerSummonShenron, "Cải trang bạn đã quá mạnh");
-                                        reOpenShenronWishes(playerSummonShenron);
-                                        return;
+                                    if (io.optionTemplate.id == 5) {
+                                        if (io.param < 50) {                                           
+                                            tldamecrit = io.param;
+                                        } else {
+                                            Service.gI().sendThongBao(playerSummonShenron, "Cải trang bạn đã quá mạnh");
+                                            reOpenShenronWishes(playerSummonShenron);
+                                            return;
+                                        }
+                                    } else {
+                                        ioCopy.add(io);
                                     }
                                 }
-                            }else{
+
+                                ct.itemOptions.clear();
+                                tldamecrit += 5;
+                                for (Item.ItemOption io : ioCopy) {
+                                    System.out.println("Chỉ số: " + io);
+                                    ct.itemOptions.add(io);
+                                }
+                                ct.itemOptions.add(new ItemOption(5, tldamecrit));
+                                InventoryServiceNew.gI().sendItemBags(playerSummonShenron);
+                            } else {
                                 Service.gI().sendThongBao(playerSummonShenron, "Mày có đeo cải trang đâu");
                                 reOpenShenronWishes(playerSummonShenron);
                                 return;
                             }
                             break;
                         }
+
                         
                     case 3: // thay chiêu 2-3 đệ tử
                         if (playerSummonShenron.pet != null) {
