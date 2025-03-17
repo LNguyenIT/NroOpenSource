@@ -11,12 +11,12 @@ import red.utils.Util;
 
 public class MapMaBu13h {
 
-    public static final byte HOUR_OPEN_MAP_MABU_13H = 12;
+    public static final byte HOUR_OPEN_MAP_MABU_13H = 0;
     public static final byte MIN_OPEN_MAP_MABU_13H = 0;
     public static final byte SECOND_OPEN_MAP_MABU_13H = 0;
 
-    public static final byte HOUR_CLOSE_MAP_MABU_13H = 23;
-    public static final byte MIN_CLOSE_MAP_MABU_13H = 59;
+    public static final byte HOUR_CLOSE_MAP_MABU_13H = 0;
+    public static final byte MIN_CLOSE_MAP_MABU_13H = 1;
     public static final byte SECOND_CLOSE_MAP_MABU_13H = 0;
 
     public static final int AVAILABLE = 9;
