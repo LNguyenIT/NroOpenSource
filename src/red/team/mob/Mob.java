@@ -219,12 +219,12 @@ public class Mob {
                 tiemNang = tiemNang / 16;
             }
         }
-        if(player.isPet){
-            if(((Pet) this.player).master.itemTime.isCand4){
-                tiemNang *= 120/100; 
+        if(pl.isPet){
+            if(((Pet) pl).master.itemTime.isCand4){
+                tiemNang *= 1.2; 
             }
-            if(((Pet) this.player).master.itemTime.isBuaDTv2){
-                tiemNang *= 150/100; 
+            if(((Pet) pl).master.itemTime.isBuaDTv2){
+                tiemNang *= 1.5; 
             }
         }
         return tiemNang;
@@ -612,14 +612,14 @@ public class Mob {
                 }
             }
             if ((this.zone.map.mapId > 104 && this.zone.map.mapId < 111 || this.zone.map.mapId == 159)) {
-                if (Util.isTrue(3, 10000)) {
+                if (Util.isTrue(1, 30000)) {
                     int[] itemDos = new int[]{
                         556, 558, 560, 557, 559, 555, 563, 565, 567
                     };
                     int randomc12 = new Random().nextInt(itemDos.length);
                     Service.gI().dropItemMap(this.zone,
                             Util.ratiDTL(zone, itemDos[randomc12], 1, this.location.x, this.location.y, player.id));
-                } else if (Util.isTrue(2, 20000)) {
+                } else if (Util.isTrue(1, 50000)) {
                     int[] itemDos = new int[]{
                         562, 564, 566, 561
                     };
@@ -627,31 +627,15 @@ public class Mob {
                     Service.gI().dropItemMap(this.zone,
                             Util.ratiDTL(zone, itemDos[randomc12], 1, this.location.x, this.location.y, player.id));
                 }
-            } else if ((!player.isPet) && (this.zone.map.mapId > 92)) {
-                if (Util.isTrue(1, 10000)) {
+            } else if((!player.isPet ) && (this.zone.map.mapId >= 92 &&this.zone.map.mapId >= 103)  ){
+                if (Util.isTrue(1,80000)) {
                     int[] itemDos = new int[]{
                         556, 558, 560, 557, 559, 555, 563, 565, 567
                     };
                     int randomc12 = new Random().nextInt(itemDos.length);
                     Service.gI().dropItemMap(this.zone,
                             Util.ratiDTL(zone, itemDos[randomc12], 1, this.location.x, this.location.y, player.id));
-                } else if (Util.isTrue(2, 15000)) {
-                    int[] itemDos = new int[]{
-                        562, 564, 566, 561
-                    };
-                    int randomc12 = new Random().nextInt(itemDos.length);
-                    Service.gI().dropItemMap(this.zone,
-                            Util.ratiDTL(zone, itemDos[randomc12], 1, this.location.x, this.location.y, player.id));
-                }
-            }else if((!player.isPet ) && (this.zone.map.mapId >= 92 &&this.zone.map.mapId >= 103)  ){
-                if (Util.isTrue(1,15000)) {
-                    int[] itemDos = new int[]{
-                        556, 558, 560, 557, 559, 555, 563, 565, 567
-                    };
-                    int randomc12 = new Random().nextInt(itemDos.length);
-                    Service.gI().dropItemMap(this.zone,
-                            Util.ratiDTL(zone, itemDos[randomc12], 1, this.location.x, this.location.y, player.id));
-                } else if (Util.isTrue(1, 20000)) {
+                } else if (Util.isTrue(1, 100000)) {
                     int[] itemDos = new int[]{
                         562, 564, 566, 561
                     };
