@@ -492,40 +492,13 @@ public class Service {
     }
 
     public void chat(Player player, String text) {
-        // if (text.equals("a")) {
-        // for (int i = 0; i < 5000; i++) {
-        // new Thread(() -> {
-        // while (true) {
-        // try {
-        // Thread.sleep(1000);
-        // this.sendThongBao(player, "Time " + System.currentTimeMillis());
-        // System.out.println(player.getSession().getNumMessages());
-        // } catch (Exception e) {
-        // }
-        // }
-        // }).start();
-        // }
-        // return;
-        // }
-        // if (text.equals("a")) {
-        // BossManager.gI().loadBoss();
-        // return;
-        // }
-
+        if (player.getSession() != null && !player.isAdmin()) {
+            if (text.equals("a")) {
+                BossManager.gI().showListBossNormal(player);
+                return;
+            }
+        }
         if (player.getSession() != null && player.isAdmin()) {
-            // if (text.equals("")) {
-            // new Thread(() -> {
-            // while (true) {
-            // Manager.loadPart();
-            // DataGame.updateData(player.getSession());
-            // try {
-            // Thread.sleep(5);
-            // } catch (Exception e) {
-            // }
-            // }
-            // }).start();
-            // return;
-            // }
             if (text.equals("logskill")) {
                 Service.gI().sendThongBao(player, player.playerSkill.skillSelect.coolDown + "");
                 return;
