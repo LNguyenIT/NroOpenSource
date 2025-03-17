@@ -736,7 +736,7 @@ public class BossManager implements Runnable {
                 if (boss.zone != null) {
                     msg.writer().writeUTF("Sống");
                     msg.writer().writeUTF(
-                             "Tự đi tìm đi");
+                            boss.zone.map.mapName + "(" + boss.zone.map.mapId + ") khu " + boss.zone.zoneId + "");
                 } else {
                     msg.writer().writeUTF("Chết");
                     msg.writer().writeUTF("Chết rồi");
