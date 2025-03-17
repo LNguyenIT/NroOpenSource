@@ -2292,7 +2292,7 @@ public class ItemService {
         if (nhd == itemId) {
             it.itemOptions.add(new Item.ItemOption(14, new Random().nextInt(3) + 17)); //chí mạng 17-19%
         }
-        it.itemOptions.add(new Item.ItemOption(21, 80));// yêu cầu sm 80 tỉ
+        it.itemOptions.add(new Item.ItemOption(21, 55));// yêu cầu sm 80 tỉ
         it.itemOptions.add(new Item.ItemOption(30, 1));// ko the gd
         return it;
     }
@@ -2720,7 +2720,7 @@ public void openBoxngocboi(Player player) {
         if (nhan.contains(itemId)) {
             dots.itemOptions.add(new Item.ItemOption(14, Util.highlightsItem(gender == 1, new Random().nextInt(3) + 18))); // nhẫn 18-20%
         }
-        dots.itemOptions.add(new Item.ItemOption(21, 120));
+        dots.itemOptions.add(new Item.ItemOption(21, 80));
         dots.itemOptions.add(new Item.ItemOption(30, 1));
         return dots;
     }
