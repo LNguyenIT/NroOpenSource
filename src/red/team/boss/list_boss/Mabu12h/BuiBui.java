@@ -22,7 +22,7 @@ public class BuiBui extends Boss {
 
     @Override
     public void reward(Player plKill) {
-        int randomDo = (int) new Random().nextInt(Manager.itemIds_TL.length - 1);
+        int randomDo = (int) new Random().nextInt(Manager.itemIds_TL.length);
 //        int randomNR = (byte) new Random().nextInt(Manager.itemIds_NR_SB.length);
         int[] itemDos = new int[]{555,556,557,558,559,560,561,562,563,564,565,566,567};
         int randomc12 = new Random().nextInt(itemDos.length);
