@@ -1167,55 +1167,55 @@ public class UseItem {
             switch (item.template.id) {
                 case 1322:
                     Item qua20 = ItemService.gI().createNewItem((short) 1232);
-                    item.itemOptions.add(new Item.ItemOption(49, 30));
-                    item.itemOptions.add(new Item.ItemOption(77, 30));
-                    item.itemOptions.add(new Item.ItemOption(103, 30));
+                    qua20.itemOptions.add(new Item.ItemOption(49, 30));
+                    qua20.itemOptions.add(new Item.ItemOption(77, 30));
+                    qua20.itemOptions.add(new Item.ItemOption(103, 30));
 //                    item.itemOptions.add(new Item.ItemOption(14, Util.nextInt(10, 20)));
 //                    item.itemOptions.add(new Item.ItemOption(5, Util.nextInt(10, 30)));
 //                    item.itemOptions.add(new Item.ItemOption(117, Util.nextInt(40, 40)));
-                    item.itemOptions.add(new Item.ItemOption(200, 0));
-                    item.itemOptions.add(new Item.ItemOption(21, 80));
+                    qua20.itemOptions.add(new Item.ItemOption(200, 0));
+                    qua20.itemOptions.add(new Item.ItemOption(21, 80));
                     InventoryServiceNew.gI().addItemBag(pl, qua20);
                     break;
                 case 1323:
                     Item quatop2_1 = ItemService.gI().createNewItem((short) 1126);
-                    item.itemOptions.add(new Item.ItemOption(49, 35));
-                    item.itemOptions.add(new Item.ItemOption(77, 35));
-                    item.itemOptions.add(new Item.ItemOption(103, 35));
-                    item.itemOptions.add(new Item.ItemOption(14, 20));
-                    item.itemOptions.add(new Item.ItemOption(5, 30));
-                    item.itemOptions.add(new Item.ItemOption(117, Util.nextInt(40, 40)));
-                    item.itemOptions.add(new Item.ItemOption(200, 0));
-                    item.itemOptions.add(new Item.ItemOption(21, 80));
+                    quatop2_1.itemOptions.add(new Item.ItemOption(49, 35));
+                    quatop2_1.itemOptions.add(new Item.ItemOption(77, 35));
+                    quatop2_1.itemOptions.add(new Item.ItemOption(103, 35));
+                    quatop2_1.itemOptions.add(new Item.ItemOption(14, 20));
+                    quatop2_1.itemOptions.add(new Item.ItemOption(5, 30));
+                    quatop2_1.itemOptions.add(new Item.ItemOption(117, Util.nextInt(40, 40)));
+                    quatop2_1.itemOptions.add(new Item.ItemOption(200, 0));
+                    quatop2_1.itemOptions.add(new Item.ItemOption(21, 80));
                     InventoryServiceNew.gI().addItemBag(pl, quatop2_1);
 
                     Item quatop2_2 = ItemService.gI().createNewItem((short) 741);
-                    item.itemOptions.add(new Item.ItemOption(77, 15));
-                    item.itemOptions.add(new Item.ItemOption(103, 15));
-                    item.itemOptions.add(new Item.ItemOption(147,15));
-                    item.itemOptions.add(new Item.ItemOption(14, 15));
-                    item.itemOptions.add(new Item.ItemOption(5,  15));
+                    quatop2_2.itemOptions.add(new Item.ItemOption(77, 15));
+                    quatop2_2.itemOptions.add(new Item.ItemOption(103, 15));
+                    quatop2_2.itemOptions.add(new Item.ItemOption(147,15));
+                    quatop2_2.itemOptions.add(new Item.ItemOption(14, 15));
+                    quatop2_2.itemOptions.add(new Item.ItemOption(5,  15));
                     InventoryServiceNew.gI().addItemBag(pl, quatop2_2);
                     break;
                 case 1324:
                     Item quatop1_1 = ItemService.gI().createNewItem((short) 1205);
-                    item.itemOptions.add(new Item.ItemOption(49, 50));
-                    item.itemOptions.add(new Item.ItemOption(77, 50));
-                    item.itemOptions.add(new Item.ItemOption(103, 50));
-                    item.itemOptions.add(new Item.ItemOption(14, 25));
-                    item.itemOptions.add(new Item.ItemOption(5, 25));
-                    item.itemOptions.add(new Item.ItemOption(117, 50));
-                    item.itemOptions.add(new Item.ItemOption(101, 50));
-                    item.itemOptions.add(new Item.ItemOption(200, 0));
-                    item.itemOptions.add(new Item.ItemOption(21, 80));
+                    quatop1_1.itemOptions.add(new Item.ItemOption(49, 50));
+                    quatop1_1.itemOptions.add(new Item.ItemOption(77, 50));
+                    quatop1_1.itemOptions.add(new Item.ItemOption(103, 50));
+                    quatop1_1.itemOptions.add(new Item.ItemOption(14, 25));
+                    quatop1_1.itemOptions.add(new Item.ItemOption(5, 25));
+                    quatop1_1.itemOptions.add(new Item.ItemOption(117, 50));
+                    quatop1_1.itemOptions.add(new Item.ItemOption(101, 50));
+                    quatop1_1.itemOptions.add(new Item.ItemOption(200, 0));
+                    quatop1_1.itemOptions.add(new Item.ItemOption(21, 40));
                     InventoryServiceNew.gI().addItemBag(pl, quatop1_1);
 
                     Item quatop1_2 = ItemService.gI().createNewItem((short) 1145);
-                    item.itemOptions.add(new Item.ItemOption(77, 21));
-                    item.itemOptions.add(new Item.ItemOption(103, 21));
-                    item.itemOptions.add(new Item.ItemOption(147,21));
-                    item.itemOptions.add(new Item.ItemOption(14, 21));
-                    item.itemOptions.add(new Item.ItemOption(5,  21));
+                    quatop1_2.itemOptions.add(new Item.ItemOption(77, 21));
+                    quatop1_2.itemOptions.add(new Item.ItemOption(103, 21));
+                    quatop1_2.itemOptions.add(new Item.ItemOption(147,21));
+                    quatop1_2.itemOptions.add(new Item.ItemOption(14, 21));
+                    quatop1_2.itemOptions.add(new Item.ItemOption(5,  21));
                     InventoryServiceNew.gI().addItemBag(pl, quatop1_2);
                     break;
             }
