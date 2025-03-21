@@ -61,6 +61,11 @@ public class SuperBlack2 extends Boss {
         } else if (Util.isTrue(2, 5)) {
             Service.gI().dropItemMap(this.zone,
                     Util.RaitiDoc12(zone, itemDos[randomc12], 1, this.location.x, this.location.y, plKill.id));
+            if (Util.isTrue(5, 100)) {
+            Service.gI().dropItemMap(this.zone,
+                    new ItemMap(zone, 992, 1, this.location.x, this.location.y, plKill.id));
+        
+            }
             return;
         } else {
             Service.gI().dropItemMap(this.zone,

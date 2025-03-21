@@ -48,6 +48,11 @@ public class ZamasMax extends Boss {
                 Service.gI().dropItemMap(this.zone,
                         Util.ratiItem(zone, gang[randomG], 1, this.location.x, this.location.y, plKill.id));
             }
+            if (Util.isTrue(5, 100)) {
+            Service.gI().dropItemMap(this.zone,
+                    new ItemMap(zone, 992, 1, this.location.x, this.location.y, plKill.id));
+        
+            }
         } else {
             Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, Manager.itemIds_TL[randomDo], 1,
                     this.location.x, this.location.y, plKill.id));
