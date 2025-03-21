@@ -31,7 +31,7 @@ public class DUONGTANG extends Boss {
  @Override
     public void reward(Player plKill) {
 
-                byte randomDo = (byte) new Random().nextInt(Manager.itemIds_TL.length - 1);
+                byte randomDo = (byte) new Random().nextInt(Manager.itemIds_TL.length );
         if (Util.isTrue(2, 100)) {
             Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, Manager.itemIds_TL[randomDo], 1,
                         this.location.x, this.location.y, plKill.id));

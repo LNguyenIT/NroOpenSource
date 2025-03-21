@@ -28,12 +28,12 @@ public class NGOKHONG extends Boss {
     @Override
     public void reward(Player plKill) {
 
-                byte randomDo = (byte) new Random().nextInt(Manager.itemIds_TL.length - 1);
+                byte randomDo = (byte) new Random().nextInt(Manager.itemIds_TL.length);
         if (Util.isTrue(2, 100)) {
             Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, Manager.itemIds_TL[randomDo], 1,
                         this.location.x, this.location.y, plKill.id));
         }
-        if (Util.isTrue(70, 100)) {
+        if (Util.isTrue(40, 100)) {
 
             Item item = ItemService.gI().createNewItem((short) 1205);
 
