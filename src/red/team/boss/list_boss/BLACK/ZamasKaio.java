@@ -43,8 +43,10 @@ public class ZamasKaio extends Boss {
                 Service.gI().dropItemMap(this.zone,
                         Util.manhTS(zone, manhhiem[randomGR], 3, this.location.x, this.location.y, plKill.id));
             }
+            if (Util.isTrue(5, 100)) {
             Service.gI().dropItemMap(this.zone,
                     new ItemMap(zone, 992, 1, this.location.x, this.location.y, plKill.id));
+            }
             if (Util.isTrue(5, 100)) {
                 Service.gI().dropItemMap(this.zone,
                         Util.ratiItem(zone, gang[randomG], 1, this.location.x, this.location.y, plKill.id));

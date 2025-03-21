@@ -30,9 +30,9 @@ public class Black extends Boss {
 //                int[] manhthuong = new int[] { 1066, 1067, 1068, 1069, 1070 };  
             int[] manhhiem = new int[]{561};
             int[] gang = new int[]{562, 564, 566};
-            int randomG = new Random().nextInt(gang.length - 1);
+            int randomG = new Random().nextInt(gang.length);
 //                int randomAWJ = new Random().nextInt(manhthuong.length-1);
-            int randomGR = new Random().nextInt(manhhiem.length - 1);
+            int randomGR = new Random().nextInt(manhhiem.length);
             if (Util.isTrue(70, 100)) {
 //                    Service.gI().dropItemMap(this.zone,
 //                            Util.manhTS(zone, manhthuong[randomAWJ], 1, this.location.x, this.location.y, plKill.id));
