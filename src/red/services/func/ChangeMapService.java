@@ -1123,31 +1123,31 @@ public class ChangeMapService {
                     }
                     break;
                 // karin
-                case 45:
-                    if (player.pointKarin < 2) {
-                        return null;
-                    }
-                    break;
-                case 46:
-                    if (player.pointKarin < 1) {
-                        return null;
-                    }
-                    break;
-                case 48:
-                    if (player.pointKarin < 3) {
-                        return null;
-                    }
-                    break;
-                case 50:
-                    if (player.pointKarin < 4) {
-                        return null;
-                    }
-                    break;
-                case 154:
-                    if (player.pointKarin < 5) {
-                        return null;
-                    }
-                    break;
+//                case 45:
+//                    if (player.pointKarin < 2) {
+//                        return null;
+//                    }
+//                    break;
+//                case 46:
+//                    if (player.pointKarin < 1) {
+//                        return null;
+//                    }
+//                    break;
+//                case 48:
+//                    if (player.pointKarin < 3) {
+//                        return null;
+//                    }
+//                    break;
+//                case 50:
+//                    if (player.pointKarin < 4) {
+//                        return null;
+//                    }
+//                    break;
+//                case 154:
+//                    if (player.pointKarin < 5) {
+//                        return null;
+//                    }
+//                    break;
 
                 //
             }
