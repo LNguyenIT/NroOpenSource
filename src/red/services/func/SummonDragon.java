@@ -70,6 +70,8 @@ public class SummonDragon {
     public static final short NGOC_RONG_BANG_5_SAO = 929;
     public static final short NGOC_RONG_BANG_6_SAO = 930;
     public static final short NGOC_RONG_BANG_7_SAO = 931;
+    
+    public static final boolean DXH =false;
     //
 
     public static final String SUMMON_SHENRON_TUTORIAL = "Có 3 cách gọi rồng thần. Gọi từ ngọc 1 sao, gọi từ ngọc 2 sao, hoặc gọi từ ngọc 3 sao\n"
@@ -724,11 +726,11 @@ public class SummonDragon {
                             Item ct = this.playerSummonShenron.inventory.itemsBody.get(7);
                             if (ct.isNotNullItem()) {
                                 for (Item.ItemOption io : ct.itemOptions) {
-                                    if (io.optionTemplate.id == 5) {
-                                        if (io.param < 50) {                                           
+                                    if (io.optionTemplate.id == 5) {                                      
+                                        if (io.param < 50) {                                   
                                             tldamecrit = io.param;
                                         } else {
-                                            Service.gI().sendThongBao(playerSummonShenron, "Cải trang bạn đã quá mạnh");
+                                            Service.gI().sendThongBao(playerSummonShenron, "Linh thú bạn đã quá mạnh");
                                             reOpenShenronWishes(playerSummonShenron);
                                             return;
                                         }
@@ -738,9 +740,8 @@ public class SummonDragon {
                                 }
 
                                 ct.itemOptions.clear();
-                                tldamecrit += 5;
-                                for (Item.ItemOption io : ioCopy) {
-                                    System.out.println("Chỉ số: " + io);
+                                tldamecrit += 3;
+                                for (Item.ItemOption io : ioCopy) {                                   
                                     ct.itemOptions.add(io);
                                 }
                                 ct.itemOptions.add(new ItemOption(5, tldamecrit));
