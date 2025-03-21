@@ -55,23 +55,23 @@ public class UseItem {
     private static final byte ACCEPT_THROW_ITEM = 2;
     private static final byte ACCEPT_USE_ITEM = 3;
     public static final int[][][] LIST_ITEM_CLOTHES = {
-            // áo , quần , găng ,giày,rada
-            // td -> nm -> xd
-            { { 0, 33, 3, 34, 136, 137, 138, 139, 230, 231, 232, 233, 555 },
-                    { 6, 35, 9, 36, 140, 141, 142, 143, 242, 243, 244, 245, 556 },
-                    { 21, 24, 37, 38, 144, 145, 146, 147, 254, 255, 256, 257, 562 },
-                    { 27, 30, 39, 40, 148, 149, 150, 151, 266, 267, 268, 269, 563 },
-                    { 12, 57, 58, 59, 184, 185, 186, 187, 278, 279, 280, 281, 561 } },
-            { { 1, 41, 4, 42, 152, 153, 154, 155, 234, 235, 236, 237, 557 },
-                    { 7, 43, 10, 44, 156, 157, 158, 159, 246, 247, 248, 249, 558 },
-                    { 22, 46, 25, 45, 160, 161, 162, 163, 258, 259, 260, 261, 564 },
-                    { 28, 47, 31, 48, 164, 165, 166, 167, 270, 271, 272, 273, 565 },
-                    { 12, 57, 58, 59, 184, 185, 186, 187, 278, 279, 280, 281, 561 } },
-            { { 2, 49, 5, 50, 168, 169, 170, 171, 238, 239, 240, 241, 559 },
-                    { 8, 51, 11, 52, 172, 173, 174, 175, 250, 251, 252, 253, 560 },
-                    { 23, 53, 26, 54, 176, 177, 178, 179, 262, 263, 264, 265, 566 },
-                    { 29, 55, 32, 56, 180, 181, 182, 183, 274, 275, 276, 277, 567 },
-                    { 12, 57, 58, 59, 184, 185, 186, 187, 278, 279, 280, 281, 561 } }
+        // áo , quần , găng ,giày,rada
+        // td -> nm -> xd
+        {{0, 33, 3, 34, 136, 137, 138, 139, 230, 231, 232, 233, 555},
+        {6, 35, 9, 36, 140, 141, 142, 143, 242, 243, 244, 245, 556},
+        {21, 24, 37, 38, 144, 145, 146, 147, 254, 255, 256, 257, 562},
+        {27, 30, 39, 40, 148, 149, 150, 151, 266, 267, 268, 269, 563},
+        {12, 57, 58, 59, 184, 185, 186, 187, 278, 279, 280, 281, 561}},
+        {{1, 41, 4, 42, 152, 153, 154, 155, 234, 235, 236, 237, 557},
+        {7, 43, 10, 44, 156, 157, 158, 159, 246, 247, 248, 249, 558},
+        {22, 46, 25, 45, 160, 161, 162, 163, 258, 259, 260, 261, 564},
+        {28, 47, 31, 48, 164, 165, 166, 167, 270, 271, 272, 273, 565},
+        {12, 57, 58, 59, 184, 185, 186, 187, 278, 279, 280, 281, 561}},
+        {{2, 49, 5, 50, 168, 169, 170, 171, 238, 239, 240, 241, 559},
+        {8, 51, 11, 52, 172, 173, 174, 175, 250, 251, 252, 253, 560},
+        {23, 53, 26, 54, 176, 177, 178, 179, 262, 263, 264, 265, 566},
+        {29, 55, 32, 56, 180, 181, 182, 183, 274, 275, 276, 277, 567},
+        {12, 57, 58, 59, 184, 185, 186, 187, 278, 279, 280, 281, 561}}
     };
 
     private static UseItem instance;
@@ -282,12 +282,12 @@ public class UseItem {
                             pl.idGo = (short) Util.nextInt(0, 6);
                             NpcService.gI().createMenuConMeo(pl, ConstNpc.CONFIRM_TELE_NAMEC, -1,
                                     "1 Sao (" + NgocRongNamecService.gI().getDis(pl, 0, (short) 353) + " m)\n2 Sao ("
-                                            + NgocRongNamecService.gI().getDis(pl, 1, (short) 354) + " m)\n3 Sao ("
-                                            + NgocRongNamecService.gI().getDis(pl, 2, (short) 355) + " m)\n4 Sao ("
-                                            + NgocRongNamecService.gI().getDis(pl, 3, (short) 356) + " m)\n5 Sao ("
-                                            + NgocRongNamecService.gI().getDis(pl, 4, (short) 357) + " m)\n6 Sao ("
-                                            + NgocRongNamecService.gI().getDis(pl, 5, (short) 358) + " m)\n7 Sao ("
-                                            + NgocRongNamecService.gI().getDis(pl, 6, (short) 359) + " m)",
+                                    + NgocRongNamecService.gI().getDis(pl, 1, (short) 354) + " m)\n3 Sao ("
+                                    + NgocRongNamecService.gI().getDis(pl, 2, (short) 355) + " m)\n4 Sao ("
+                                    + NgocRongNamecService.gI().getDis(pl, 3, (short) 356) + " m)\n5 Sao ("
+                                    + NgocRongNamecService.gI().getDis(pl, 4, (short) 357) + " m)\n6 Sao ("
+                                    + NgocRongNamecService.gI().getDis(pl, 5, (short) 358) + " m)\n7 Sao ("
+                                    + NgocRongNamecService.gI().getDis(pl, 6, (short) 359) + " m)",
                                     "Đến ngay\nViên " + (pl.idGo + 1) + " Sao\n50 ngọc", "Kết thức");
                             InventoryServiceNew.gI().subQuantityItemsBag(pl, item, 1);
                             InventoryServiceNew.gI().sendItemBags(pl);
@@ -335,7 +335,7 @@ public class UseItem {
                         case 665: // kem dâu
                         case 666: // mì ly
                         case 667: // sushi
-                            // banhtrungthu
+                        // banhtrungthu
                         case 465:
                         case 466:
                         case 890:
@@ -345,7 +345,7 @@ public class UseItem {
                         case 1348:
                         case 1349:
 
-                            //
+                        //
                         case 1099:
                         case 1100:
                         case 1101:
@@ -365,7 +365,7 @@ public class UseItem {
                         case 1300:
                         case 1301:
                         case 1302:
-                            // case 1262: kiem go
+                        // case 1262: kiem go
                         case 1221:
                         case 1222:
                         case 1238:
@@ -374,7 +374,7 @@ public class UseItem {
                         case 899:
                         case 900:
                         case 901:
-                        case 902:  
+                        case 902:
                             useItemTime(pl, item);
                             break;
                         case 521: // tdlt
@@ -571,21 +571,21 @@ public class UseItem {
             Item itemReward = null;
             int param = item.itemOptions.size();
             int gold = 0;
-            int[] listItem = { 441, 442, 443, 444, 445, 446, 447, 220, 221, 222, 223, 224, 225, 16, 17, 18, 457 };
+            int[] listItem = {441, 442, 443, 444, 445, 446, 447, 220, 221, 222, 223, 224, 225, 16, 17, 18, 457};
             int[] listClothesReward;
             int[] listItemReward;
             String text = "Bạn nhận được\n";
             if (param < 8) {
                 gold = 100000 * param;
-                listClothesReward = new int[] { randClothes(param) };
+                listClothesReward = new int[]{randClothes(param)};
                 listItemReward = Util.pickNRandInArr(listItem, 3);
             } else if (param < 10) {
                 gold = 250000 * param;
-                listClothesReward = new int[] { randClothes(param), randClothes(param) };
+                listClothesReward = new int[]{randClothes(param), randClothes(param)};
                 listItemReward = Util.pickNRandInArr(listItem, 4);
             } else {
                 gold = 500000 * param;
-                listClothesReward = new int[] { randClothes(param), randClothes(param), randClothes(param) };
+                listClothesReward = new int[]{randClothes(param), randClothes(param), randClothes(param)};
                 listItemReward = Util.pickNRandInArr(listItem, 6);
                 int ruby = Util.nextInt(10, 50);
                 pl.inventory.ruby += ruby;
@@ -595,9 +595,9 @@ public class UseItem {
                 itemReward = ItemService.gI().createNewItem((short) i);
                 RewardService.gI().initBaseOptionClothes(itemReward.template.id, itemReward.template.type,
                         itemReward.itemOptions);
-                RewardService.gI().initStarOption(itemReward, new RewardService.RatioStar[] {
-                        new RewardService.RatioStar((byte) 1, 1, 2), new RewardService.RatioStar((byte) 2, 1, 3),
-                        new RewardService.RatioStar((byte) 3, 1, 4), new RewardService.RatioStar((byte) 4, 1, 5), });
+                RewardService.gI().initStarOption(itemReward, new RewardService.RatioStar[]{
+                    new RewardService.RatioStar((byte) 1, 1, 2), new RewardService.RatioStar((byte) 2, 1, 3),
+                    new RewardService.RatioStar((byte) 3, 1, 4), new RewardService.RatioStar((byte) 4, 1, 5),});
                 InventoryServiceNew.gI().addItemBag(pl, itemReward);
                 pl.textRuongGo.add(text + itemReward.getInfoItem());
             }
@@ -632,13 +632,15 @@ public class UseItem {
     public void UseCard(Player pl, Item item) {
         RadarCard radarTemplate = RadarService.gI().RADAR_TEMPLATE.stream().filter(c -> c.Id == item.template.id)
                 .findFirst().orElse(null);
-        if (radarTemplate == null)
+        if (radarTemplate == null) {
             return;
+        }
         if (radarTemplate.Require != -1) {
             RadarCard radarRequireTemplate = RadarService.gI().RADAR_TEMPLATE.stream()
                     .filter(r -> r.Id == radarTemplate.Require).findFirst().orElse(null);
-            if (radarRequireTemplate == null)
+            if (radarRequireTemplate == null) {
                 return;
+            }
             Card cardRequire = pl.Cards.stream().filter(r -> r.Id == radarRequireTemplate.Id).findFirst().orElse(null);
             if (cardRequire == null || cardRequire.Level < radarTemplate.RequireLevel) {
                 Service.gI().sendThongBao(pl, "Bạn cần sưu tầm " + radarRequireTemplate.Name + " ở cấp độ "
@@ -877,8 +879,8 @@ public class UseItem {
                 pl.pointSukien++;
                 //
                 if (Util.isTrue(5, 100)) {
-                    int[] itemDos = new int[] { 463, 525, 578, 577, 591, 606, 711, 2045, 632, 609,
-                            623, 1091, 1093, 575, 724, 576, 458, 461, 455 };
+                    int[] itemDos = new int[]{463, 525, 578, 577, 591, 606, 711, 2045, 632, 609,
+                        623, 1091, 1093, 575, 724, 576, 458, 461, 455};
                     int randomDo = new Random().nextInt(itemDos.length);
                     Item ct = ItemService.gI().createNewItem((short) itemDos[randomDo]);
                     ct.itemOptions.add(new ItemOption(22, 20));
@@ -954,10 +956,10 @@ public class UseItem {
                     InventoryServiceNew.gI().sendItemBags(pl);
                     Service.gI().sendThongBao(pl, "|7|Bạn nhận được cải trang");
                 } else if (Util.isTrue(5, 100)) {
-                    int[] itemDos = new int[] { 1028, 1030, 1031, 800, 801, 803, 804, 805, 814, 822,
-                            823, 852, 865, 1129, 1130, 1151, 1152, 954, 955, 966, 467, 468, 469,
-                            470, 982, 471, 740, 741, 966, 996, 997, 998, 999, 1000, 745, 1001, 1007,
-                            1013, 1021, 1022, 1023 };
+                    int[] itemDos = new int[]{1028, 1030, 1031, 800, 801, 803, 804, 805, 814, 822,
+                        823, 852, 865, 1129, 1130, 1151, 1152, 954, 955, 966, 467, 468, 469,
+                        470, 982, 471, 740, 741, 966, 996, 997, 998, 999, 1000, 745, 1001, 1007,
+                        1013, 1021, 1022, 1023};
                     int randomDo = new Random().nextInt(itemDos.length);
                     Item ct = ItemService.gI().createNewItem((short) itemDos[randomDo]);
                     ct.itemOptions.add(new ItemOption(50, 20));
@@ -973,8 +975,8 @@ public class UseItem {
                     InventoryServiceNew.gI().sendItemBags(pl);
                     Service.gI().sendThongBao(pl, "|8|Bạn nhận được cánh");
                 } else if (Util.isTrue(5, 100)) {
-                    int[] itemDos = new int[] { 2095, 2090, 2089, 2088, 1046, 1191, 2087, 2086,
-                            2085, 942, 943, 944, 967, 1107, 1307, 1306 };
+                    int[] itemDos = new int[]{2095, 2090, 2089, 2088, 1046, 1191, 2087, 2086,
+                        2085, 942, 943, 944, 967, 1107, 1307, 1306};
                     int randomDo = new Random().nextInt(itemDos.length);
                     Item ct = ItemService.gI().createNewItem((short) itemDos[randomDo]);
                     ct.itemOptions.add(new ItemOption(5, 5));
@@ -992,12 +994,12 @@ public class UseItem {
                     Service.gI().sendThongBao(pl, "|2|Bạn nhận được pet");
 
                 } else {
-                    int[] itemDos = new int[] { 663, 664, 665, 666, 667, 465, 466, 890, 891, 14, 15,
-                            16, 1066, 1067, 1068, 1069, 1070, 1076, 1077, 1078,
-                            1082,
-                            1083, 1084, 1085, 1086, 1100, 1101, 1102, 1103, 1082, 1083, 1084, 1085,
-                            1086, 1131, 2122, 925, 926, 927, 928, 929, 930, 931, 2091, 2092, 2093,
-                            807, 808, 809, 810, 811, 812, 813, 1183, 1184, 2030, 457, 344, 674 };
+                    int[] itemDos = new int[]{663, 664, 665, 666, 667, 465, 466, 890, 891, 14, 15,
+                        16, 1066, 1067, 1068, 1069, 1070, 1076, 1077, 1078,
+                        1082,
+                        1083, 1084, 1085, 1086, 1100, 1101, 1102, 1103, 1082, 1083, 1084, 1085,
+                        1086, 1131, 2122, 925, 926, 927, 928, 929, 930, 931, 2091, 2092, 2093,
+                        807, 808, 809, 810, 811, 812, 813, 1183, 1184, 2030, 457, 344, 674};
                     int randomDo = new Random().nextInt(itemDos.length);
                     Item ct = ItemService.gI().createNewItem((short) itemDos[randomDo]);
                     InventoryServiceNew.gI().addItemBag(pl, ct);
@@ -1023,8 +1025,8 @@ public class UseItem {
             pl.pointSukien++;
             //
             if (Util.isTrue(5, 100)) {
-                int[] itemDos = new int[] { 463, 525, 578, 577, 591, 606, 711, 2045, 632, 609,
-                        623, 1091, 1093, 575, 724, 576, 458, 461, 455 };
+                int[] itemDos = new int[]{463, 525, 578, 577, 591, 606, 711, 2045, 632, 609,
+                    623, 1091, 1093, 575, 724, 576, 458, 461, 455};
                 int randomDo = new Random().nextInt(itemDos.length);
                 Item ct = ItemService.gI().createNewItem((short) itemDos[randomDo]);
                 ct.itemOptions.add(new ItemOption(22, 20));
@@ -1100,10 +1102,10 @@ public class UseItem {
                 InventoryServiceNew.gI().sendItemBags(pl);
                 Service.gI().sendThongBao(pl, "|7|Bạn nhận được cải trang");
             } else if (Util.isTrue(5, 100)) {
-                int[] itemDos = new int[] { 1028, 1030, 1031, 800, 801, 803, 804, 805, 814, 822,
-                        823, 852, 865, 1129, 1130, 1151, 1152, 954, 955, 966, 467, 468, 469,
-                        470, 982, 471, 740, 741, 966, 996, 997, 998, 999, 1000, 745, 1001, 1007,
-                        1013, 1021, 1022, 1023 };
+                int[] itemDos = new int[]{1028, 1030, 1031, 800, 801, 803, 804, 805, 814, 822,
+                    823, 852, 865, 1129, 1130, 1151, 1152, 954, 955, 966, 467, 468, 469,
+                    470, 982, 471, 740, 741, 966, 996, 997, 998, 999, 1000, 745, 1001, 1007,
+                    1013, 1021, 1022, 1023};
                 int randomDo = new Random().nextInt(itemDos.length);
                 Item ct = ItemService.gI().createNewItem((short) itemDos[randomDo]);
                 ct.itemOptions.add(new ItemOption(50, 20));
@@ -1119,8 +1121,8 @@ public class UseItem {
                 InventoryServiceNew.gI().sendItemBags(pl);
                 Service.gI().sendThongBao(pl, "|8|Bạn nhận được cánh");
             } else if (Util.isTrue(5, 100)) {
-                int[] itemDos = new int[] { 2095, 2090, 2089, 2088, 1046, 1191, 2087, 2086,
-                        2085, 942, 943, 944, 967, 1107, 1307, 1306 };
+                int[] itemDos = new int[]{2095, 2090, 2089, 2088, 1046, 1191, 2087, 2086,
+                    2085, 942, 943, 944, 967, 1107, 1307, 1306};
                 int randomDo = new Random().nextInt(itemDos.length);
                 Item ct = ItemService.gI().createNewItem((short) itemDos[randomDo]);
                 ct.itemOptions.add(new ItemOption(5, 10));
@@ -1138,12 +1140,12 @@ public class UseItem {
                 Service.gI().sendThongBao(pl, "|2|Bạn nhận được pet");
 
             } else {
-                int[] itemDos = new int[] { 663, 664, 665, 666, 667, 465, 466, 890, 891, 14, 15,
-                        16, 1066, 1067, 1068, 1069, 1070, 1076, 1077, 1078,
-                        1082,
-                        1083, 1084, 1085, 1086, 1100, 1101, 1102, 1103, 1082, 1083, 1084, 1085,
-                        1086, 1131, 2122, 925, 926, 927, 928, 929, 930, 931, 2091, 2092, 2093,
-                        807, 808, 809, 810, 811, 812, 813, 1183, 1184, 2030, 457, 344, 674 };
+                int[] itemDos = new int[]{663, 664, 665, 666, 667, 465, 466, 890, 891, 14, 15,
+                    16, 1066, 1067, 1068, 1069, 1070, 1076, 1077, 1078,
+                    1082,
+                    1083, 1084, 1085, 1086, 1100, 1101, 1102, 1103, 1082, 1083, 1084, 1085,
+                    1086, 1131, 2122, 925, 926, 927, 928, 929, 930, 931, 2091, 2092, 2093,
+                    807, 808, 809, 810, 811, 812, 813, 1183, 1184, 2030, 457, 344, 674};
 
                 int randomDo = new Random().nextInt(itemDos.length);
                 Item ct = ItemService.gI().createNewItem((short) itemDos[randomDo]);
@@ -1161,52 +1163,63 @@ public class UseItem {
     }
 
     private void openQuaMocNap(Player pl, Item item) {
-        if (InventoryServiceNew.gI().getCountEmptyBag(pl) > 0) {
+        if (InventoryServiceNew.gI().getCountEmptyBag(pl) > 1) {
             switch (item.template.id) {
                 case 1322:
-                    int[] itemDos20 = new int[] {};// them id item vo day
-                    int randomDo20 = new Random().nextInt(itemDos20.length);
-                    Item qua20 = ItemService.gI().createNewItem((short) itemDos20[randomDo20]);
-                    qua20.itemOptions.add(new ItemOption(50, 15));
-                    qua20.itemOptions.add(new ItemOption(5, 10));
-                    qua20.itemOptions.add(new ItemOption(77, 15));
-                    qua20.itemOptions.add(new ItemOption(103, 15));
-                    qua20.itemOptions.add(new ItemOption(101, 50));
-                    qua20.itemOptions.add(new ItemOption(22, 10));
-                    qua20.itemOptions.add(new ItemOption(23, 10));
-                    qua20.itemOptions.add(new ItemOption(30, 0));
+                    Item qua20 = ItemService.gI().createNewItem((short) 1232);
+                    item.itemOptions.add(new Item.ItemOption(49, 30));
+                    item.itemOptions.add(new Item.ItemOption(77, 30));
+                    item.itemOptions.add(new Item.ItemOption(103, 30));
+//                    item.itemOptions.add(new Item.ItemOption(14, Util.nextInt(10, 20)));
+//                    item.itemOptions.add(new Item.ItemOption(5, Util.nextInt(10, 30)));
+//                    item.itemOptions.add(new Item.ItemOption(117, Util.nextInt(40, 40)));
+                    item.itemOptions.add(new Item.ItemOption(200, 0));
+                    item.itemOptions.add(new Item.ItemOption(21, 80));
                     InventoryServiceNew.gI().addItemBag(pl, qua20);
                     break;
                 case 1323:
-                    int[] itemDos50 = new int[] {};
-                    int randomDo50 = new Random().nextInt(itemDos50.length);
-                    Item qua50 = ItemService.gI().createNewItem((short) itemDos50[randomDo50]);
-                    qua50.itemOptions.add(new ItemOption(50, 15));
-                    qua50.itemOptions.add(new ItemOption(5, 10));
-                    qua50.itemOptions.add(new ItemOption(77, 15));
-                    qua50.itemOptions.add(new ItemOption(103, 15));
-                    qua50.itemOptions.add(new ItemOption(101, 50));
-                    qua50.itemOptions.add(new ItemOption(22, 10));
-                    qua50.itemOptions.add(new ItemOption(23, 10));
-                    qua50.itemOptions.add(new ItemOption(30, 0));
-                    InventoryServiceNew.gI().addItemBag(pl, qua50);
+                    Item quatop2_1 = ItemService.gI().createNewItem((short) 1126);
+                    item.itemOptions.add(new Item.ItemOption(49, 35));
+                    item.itemOptions.add(new Item.ItemOption(77, 35));
+                    item.itemOptions.add(new Item.ItemOption(103, 35));
+                    item.itemOptions.add(new Item.ItemOption(14, 20));
+                    item.itemOptions.add(new Item.ItemOption(5, 30));
+                    item.itemOptions.add(new Item.ItemOption(117, Util.nextInt(40, 40)));
+                    item.itemOptions.add(new Item.ItemOption(200, 0));
+                    item.itemOptions.add(new Item.ItemOption(21, 80));
+                    InventoryServiceNew.gI().addItemBag(pl, quatop2_1);
+
+                    Item quatop2_2 = ItemService.gI().createNewItem((short) 741);
+                    item.itemOptions.add(new Item.ItemOption(77, 15));
+                    item.itemOptions.add(new Item.ItemOption(103, 15));
+                    item.itemOptions.add(new Item.ItemOption(147,15));
+                    item.itemOptions.add(new Item.ItemOption(14, 15));
+                    item.itemOptions.add(new Item.ItemOption(5,  15));
+                    InventoryServiceNew.gI().addItemBag(pl, quatop2_2);
                     break;
                 case 1324:
-                    int[] itemDos100 = new int[] {};
-                    int randomDo100 = new Random().nextInt(itemDos100.length);
-                    Item qua100 = ItemService.gI().createNewItem((short) itemDos100[randomDo100]);
-                    qua100.itemOptions.add(new ItemOption(50, 15));
-                    qua100.itemOptions.add(new ItemOption(5, 10));
-                    qua100.itemOptions.add(new ItemOption(77, 15));
-                    qua100.itemOptions.add(new ItemOption(103, 15));
-                    qua100.itemOptions.add(new ItemOption(101, 50));
-                    qua100.itemOptions.add(new ItemOption(22, 10));
-                    qua100.itemOptions.add(new ItemOption(23, 10));
-                    qua100.itemOptions.add(new ItemOption(30, 0));
-                    InventoryServiceNew.gI().addItemBag(pl, qua100);
+                    Item quatop1_1 = ItemService.gI().createNewItem((short) 1205);
+                    item.itemOptions.add(new Item.ItemOption(49, 50));
+                    item.itemOptions.add(new Item.ItemOption(77, 50));
+                    item.itemOptions.add(new Item.ItemOption(103, 50));
+                    item.itemOptions.add(new Item.ItemOption(14, 25));
+                    item.itemOptions.add(new Item.ItemOption(5, 25));
+                    item.itemOptions.add(new Item.ItemOption(117, 50));
+                    item.itemOptions.add(new Item.ItemOption(101, 50));
+                    item.itemOptions.add(new Item.ItemOption(200, 0));
+                    item.itemOptions.add(new Item.ItemOption(21, 80));
+                    InventoryServiceNew.gI().addItemBag(pl, quatop1_1);
+
+                    Item quatop1_2 = ItemService.gI().createNewItem((short) 1145);
+                    item.itemOptions.add(new Item.ItemOption(77, 21));
+                    item.itemOptions.add(new Item.ItemOption(103, 21));
+                    item.itemOptions.add(new Item.ItemOption(147,21));
+                    item.itemOptions.add(new Item.ItemOption(14, 21));
+                    item.itemOptions.add(new Item.ItemOption(5,  21));
+                    InventoryServiceNew.gI().addItemBag(pl, quatop1_2);
                     break;
             }
-            Service.gI().sendThongBao(pl, "Bạn vừa sử dụng quà mốc nạp !");
+            Service.gI().sendThongBao(pl, "Bạn vừa sử dụng quà top !");
             InventoryServiceNew.gI().subQuantityItemsBag(pl, item, 1);
             InventoryServiceNew.gI().sendItemBags(pl);
             Service.getInstance().sendMoney(pl);
@@ -1325,7 +1338,7 @@ public class UseItem {
 
     private void openPhieuCaiTrangVothuat(Player pl, Item item) {
         if (InventoryServiceNew.gI().getCountEmptyBag(pl) > 0) {
-            short[] itemDos = new short[] { 461, 455, 458, 607, 608 };
+            short[] itemDos = new short[]{461, 455, 458, 607, 608};
             int randomDo = new Random().nextInt(itemDos.length);
             Item ct = ItemService.gI().createNewItem(itemDos[randomDo]);
             ct.itemOptions.add(new ItemOption(147, Util.nextInt(10, 30)));
@@ -1393,14 +1406,13 @@ public class UseItem {
     private void openCSKB(Player pl, Item item) {
         if (InventoryServiceNew.gI().getCountEmptyBag(pl) > 0) {
             short[] temp = {381, 382, 383, 384};
-            int[][] gold = {{1, 2,3}};
+            int[][] gold = {{1, 2, 3}};
             byte index = (byte) Util.nextInt(0, temp.length - 1);
 //            short[] icon = new short[2];
 
-            
-            int tv = Util.nextInt(1,4);
-             int itemc2 = new Random().nextInt(Manager.itc2.length - 1);
-            if (Util.isTrue(4  , 100)) {
+            int tv = Util.nextInt(1, 4);
+            int itemc2 = new Random().nextInt(Manager.itc2.length - 1);
+            if (Util.isTrue(4, 100)) {
                 Item it = ItemService.gI().createNewItem((short) (457), tv);
                 InventoryServiceNew.gI().addItemBag(pl, it);
 
@@ -1414,11 +1426,11 @@ public class UseItem {
 //                icon[1] = 930;
             } else if (Util.isTrue(5, 100)) {
 
-                Item it = ItemService.gI().createNewItem((short)Manager.itc2[itemc2], 1);
+                Item it = ItemService.gI().createNewItem((short) Manager.itc2[itemc2], 1);
                 InventoryServiceNew.gI().addItemBag(pl, it);
                 Service.gI().sendThongBao(pl, "Bạn vừa mở ra item cấp 2!");
             } else {
-                Item it = ItemService.gI().createNewItem(temp[index],1);
+                Item it = ItemService.gI().createNewItem(temp[index], 1);
 //                Item it = ItemService.gI().createNewItem((short)Manager.itc2[itemc2], 1);
                 InventoryServiceNew.gI().addItemBag(pl, it);
             }
@@ -1433,8 +1445,8 @@ public class UseItem {
 
     private void useItemHopQuaTanThu(Player pl, Item item) {
         if (InventoryServiceNew.gI().getCountEmptyBag(pl) > 0) {
-            short[] temp = { 14, 16, 17, 18, 19, 20, 21, 22 };
-            int[][] gold = { { 100, 200 } };
+            short[] temp = {14, 16, 17, 18, 19, 20, 21, 22};
+            int[][] gold = {{100, 200}};
             byte index = (byte) Util.nextInt(0, temp.length - 1);
             short[] icon = new short[2];
             icon[0] = item.template.iconID;
@@ -1487,7 +1499,9 @@ public class UseItem {
             InventoryServiceNew.gI().sendItemBags(pl);
             InventoryServiceNew.gI().sendItemBody(pl);
         }
-    };
+    }
+
+    ;
 
     private void useItemQuaDua(Player pl, Item item) {
 //        if (InventoryServiceNew.gI().getCountEmptyBag(pl) > 0) {
@@ -1515,7 +1529,7 @@ public class UseItem {
 //
 //            CombineServiceNew.gI().sendEffectOpenItem(pl, icon[0], icon[1]);
 //        } else {
-            Service.gI().sendThongBao(pl, "Chức năng chưa mở");
+        Service.gI().sendThongBao(pl, "Chức năng chưa mở");
 //        }
     }
 
@@ -1847,9 +1861,9 @@ public class UseItem {
                 pl.itemTime.lastTimeUseMayDo3 = System.currentTimeMillis();
                 pl.itemTime.isUseMayDo3 = true;
                 break;
-            case 899:   
+            case 899:
                 if (pl.itemTime.isCand1 == true) {
-                        Service.getInstance().sendThongBao(pl, "Bạn đã cắn kẹo HP");
+                    Service.getInstance().sendThongBao(pl, "Bạn đã cắn kẹo HP");
                     return;
                 }
                 pl.itemTime.lastTimeCand1 = System.currentTimeMillis();
@@ -1857,9 +1871,9 @@ public class UseItem {
                 ItemTimeService.gI().removeItemTime(pl, 899);
                 pl.itemTime.iconCand1 = 899;
                 break;
-            case 900:   
+            case 900:
                 if (pl.itemTime.isCand2 == true) {
-                        Service.getInstance().sendThongBao(pl, "Bạn đã cắn kẹo KI");
+                    Service.getInstance().sendThongBao(pl, "Bạn đã cắn kẹo KI");
                     return;
                 }
                 pl.itemTime.lastTimeCand2 = System.currentTimeMillis();
@@ -1867,9 +1881,9 @@ public class UseItem {
                 ItemTimeService.gI().removeItemTime(pl, 900);
                 pl.itemTime.iconCand2 = 900;
                 break;
-            case 901:   
+            case 901:
                 if (pl.itemTime.isCand3 == true) {
-                        Service.getInstance().sendThongBao(pl, "Bạn đã cắn kẹo SD");
+                    Service.getInstance().sendThongBao(pl, "Bạn đã cắn kẹo SD");
                     return;
                 }
                 pl.itemTime.lastTimeCand3 = System.currentTimeMillis();
@@ -1877,9 +1891,9 @@ public class UseItem {
                 ItemTimeService.gI().removeItemTime(pl, 901);
                 pl.itemTime.iconCand3 = 901;
                 break;
-            case 902:   
+            case 902:
                 if (pl.itemTime.isCand4 == true) {
-                        Service.getInstance().sendThongBao(pl, "Bạn đã cắn kẹo TNSM");
+                    Service.getInstance().sendThongBao(pl, "Bạn đã cắn kẹo TNSM");
                     return;
                 }
                 pl.itemTime.lastTimeCand4 = System.currentTimeMillis();
@@ -1887,9 +1901,9 @@ public class UseItem {
                 ItemTimeService.gI().removeItemTime(pl, 901);
                 pl.itemTime.iconCand4 = 901;
                 break;
-            case 1142:   
+            case 1142:
                 if (pl.itemTime.isBuaDTv2 == true) {
-                        Service.getInstance().sendThongBao(pl, "Bạn đã sử dụng bùa đệ ver 2");
+                    Service.getInstance().sendThongBao(pl, "Bạn đã sử dụng bùa đệ ver 2");
                     return;
                 }
                 pl.itemTime.lastTimeBuaDTv2 = System.currentTimeMillis();
@@ -1897,7 +1911,7 @@ public class UseItem {
                 ItemTimeService.gI().removeItemTime(pl, 1142);
                 pl.itemTime.iconBuaDTv2 = 1142;
                 break;
-                
+
         }
         Service.gI().point(pl);
         ItemTimeService.gI().sendAllItemTime(pl);
@@ -2221,7 +2235,8 @@ public class UseItem {
         NpcService.gI().createMenuConMeo(pl, item.template.id, -1, "Chọn hành tinh của mày đi", "Set trái đất",
                 "Set namec", "Set xayda", "Từ chổi");
     }
-      private void Hoptl(Player pl, Item item) {//hop qua do tl top
+
+    private void Hoptl(Player pl, Item item) {//hop qua do tl top
         NpcService.gI().createMenuConMeo(pl, item.template.id, -1, "Chọn hành tinh của mày đi", "Set trái đất", "Set namec", "Set xayda", "Từ chổi");
     }
 
