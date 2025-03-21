@@ -394,12 +394,12 @@ public class InventoryServiceNew {
             case 99:
                 index = 13;
                 break;
-            case 100:
+            case 20:
                 index = 14;
                 break;
-            case 101:
-                index = 15;
-                break;
+//            case 101:
+//                index = 15;
+//                break;
         }
         sItem = player.inventory.itemsBody.get(index);
         player.inventory.itemsBody.set(index, item);
