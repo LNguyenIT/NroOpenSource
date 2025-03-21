@@ -2433,7 +2433,7 @@ public class BossesData {
                         new String[] {
                         }, // text chat 2
                         new String[] { "|-1|serizawa.store" }, // text chat 3
-                        REST_1_H, // second rest
+                        REST_1_M, // second rest
                         new int[] { BossID.NGOKHONG, BossID.CHUBATGIOI, BossID.XA_TANG } // boss join map together
         );
         public static final BossData NGOKHONG = new BossData(
