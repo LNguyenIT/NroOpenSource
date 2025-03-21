@@ -1,4 +1,3 @@
-
 package red.team.player;
 
 import com.girlkun.network.io.Message;
@@ -643,10 +642,11 @@ public class Pet extends Player {
 
     private void increasePoint() {
         if (this.nPoint != null && Util.canDoWithTime(lastTimeIncreasePoint, 1)) {
-            if (Util.isTrue(40, 100)) {
+            if (Util.isTrue(30, 100)) {
                 this.nPoint.increasePointDT((byte) 2, (short) 1);
             } else {
-                byte tp = (byte) Util.nextInt(0, 1);
+                byte tp = (byte) Util.nextInt(0, 3);
+//                System.out.println("Chon so: " + tp);
                 short point = (short) 1;
                 this.nPoint.increasePointDT(tp, point);
             }
