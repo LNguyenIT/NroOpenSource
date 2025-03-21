@@ -1393,14 +1393,14 @@ public class UseItem {
     private void openCSKB(Player pl, Item item) {
         if (InventoryServiceNew.gI().getCountEmptyBag(pl) > 0) {
             short[] temp = {381, 382, 383, 384};
-            int[][] gold = {{1, 2}};
+            int[][] gold = {{1, 2,3}};
             byte index = (byte) Util.nextInt(0, temp.length - 1);
 //            short[] icon = new short[2];
 
             
-            int tv = Util.nextInt(gold[0][0], gold[0][1]);
+            int tv = Util.nextInt(1,4);
              int itemc2 = new Random().nextInt(Manager.itc2.length - 1);
-            if (Util.isTrue(10  , 100)) {
+            if (Util.isTrue(4  , 100)) {
                 Item it = ItemService.gI().createNewItem((short) (457), tv);
                 InventoryServiceNew.gI().addItemBag(pl, it);
 
@@ -1412,7 +1412,7 @@ public class UseItem {
 //                }
 //                PlayerService.gI().sendInfoHpMpMoney(pl);
 //                icon[1] = 930;
-            } else if (Util.isTrue(1, 100)) {
+            } else if (Util.isTrue(5, 100)) {
 
                 Item it = ItemService.gI().createNewItem((short)Manager.itc2[itemc2], 1);
                 InventoryServiceNew.gI().addItemBag(pl, it);
