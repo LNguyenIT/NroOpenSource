@@ -29,7 +29,7 @@ public class Champa extends Boss {
 
     @Override
     public void reward(Player plKill) {
-        int randomDo = (int) new Random().nextInt(Manager.itemIds_TL.length - 1);
+        int randomDo = (int) new Random().nextInt(Manager.itemIds_TL.length);
         int randomNR = (int) new Random().nextInt(Manager.itemIds_NR_SB.length);
         ItemMap itemMap;
         if (Util.isTrue(50, 100)) {
