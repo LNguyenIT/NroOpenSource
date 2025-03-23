@@ -1173,7 +1173,7 @@ public class UseItem {
 //                    item.itemOptions.add(new Item.ItemOption(14, Util.nextInt(10, 20)));
 //                    item.itemOptions.add(new Item.ItemOption(5, Util.nextInt(10, 30)));
 //                    item.itemOptions.add(new Item.ItemOption(117, Util.nextInt(40, 40)));
-                    qua20.itemOptions.add(new Item.ItemOption(200, 0));
+                    qua20.itemOptions.add(new Item.ItemOption(200, 1));
                     qua20.itemOptions.add(new Item.ItemOption(21, 80));
                     InventoryServiceNew.gI().addItemBag(pl, qua20);
                     break;
@@ -1185,11 +1185,11 @@ public class UseItem {
                     quatop2_1.itemOptions.add(new Item.ItemOption(14, 20));
                     quatop2_1.itemOptions.add(new Item.ItemOption(5, 30));
                     quatop2_1.itemOptions.add(new Item.ItemOption(117, Util.nextInt(40, 40)));
-                    quatop2_1.itemOptions.add(new Item.ItemOption(200, 0));
+                    quatop2_1.itemOptions.add(new Item.ItemOption(200, 1));
                     quatop2_1.itemOptions.add(new Item.ItemOption(21, 80));
                     InventoryServiceNew.gI().addItemBag(pl, quatop2_1);
 
-                    Item quatop2_2 = ItemService.gI().createNewItem((short) 741);
+                    Item quatop2_2 = ItemService.gI().createNewItem((short) 1149);
                     quatop2_2.itemOptions.add(new Item.ItemOption(77, 15));
                     quatop2_2.itemOptions.add(new Item.ItemOption(103, 15));
                     quatop2_2.itemOptions.add(new Item.ItemOption(147,15));
@@ -1206,7 +1206,7 @@ public class UseItem {
                     quatop1_1.itemOptions.add(new Item.ItemOption(5, 25));
                     quatop1_1.itemOptions.add(new Item.ItemOption(117, 50));
                     quatop1_1.itemOptions.add(new Item.ItemOption(101, 50));
-                    quatop1_1.itemOptions.add(new Item.ItemOption(200, 0));
+                    quatop1_1.itemOptions.add(new Item.ItemOption(200, 1));
                     quatop1_1.itemOptions.add(new Item.ItemOption(21, 40));
                     InventoryServiceNew.gI().addItemBag(pl, quatop1_1);
 
