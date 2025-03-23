@@ -602,7 +602,15 @@ public class Mob {
                     InventoryServiceNew.gI().sendItemBags(player);
                 }
             }
-
+            if (!player.isPet  && (this.zone.map.mapId == 161 )) {
+                if (Util.isTrue(10, 200)) {
+                    Item linhThu = ItemService.gI().createNewItem((byte) 934);
+                    Service.getInstance().sendThongBao(player, "Bạn vừa nhận được  " + linhThu.template.name);
+                    InventoryServiceNew.gI().addItemBag(player, linhThu);        
+                    InventoryServiceNew.gI().sendItemBags(player);
+                }
+            }
+            
             if ((!player.isPet ) && (this.zone.map.mapId >= 92 && this.zone.map.mapId < 104)) {
                 if (Util.isTrue(20, 200)) {
                     Item linhThu = ItemService.gI().createNewItem((short) 533);
