@@ -2331,26 +2331,26 @@ public class ItemService {
     //phukien1
     public Item phuKien(int itemId) {
         Item item = createItemSetKichHoat(itemId, 1);
-        if(Util.isTrue(1, 300)){
-            item.itemOptions.add(new Item.ItemOption(77, new Random().nextInt(7) + 15));
-            item.itemOptions.add(new Item.ItemOption(103, new Random().nextInt(7) + 15));
-            item.itemOptions.add(new Item.ItemOption(147, new Random().nextInt(7) + 15));
-        }else if(Util.isTrue(20, 100)){
-            item.itemOptions.add(new Item.ItemOption(77, new Random().nextInt(7) + 10));
-            item.itemOptions.add(new Item.ItemOption(103, new Random().nextInt(7) + 10));
-            item.itemOptions.add(new Item.ItemOption(147, new Random().nextInt(7) + 10));
+        if(Util.isTrue(3, 300)){
+            item.itemOptions.add(new Item.ItemOption(77, new Random().nextInt(7) + 8));
+            item.itemOptions.add(new Item.ItemOption(103, new Random().nextInt(7) + 8));
+            item.itemOptions.add(new Item.ItemOption(147, new Random().nextInt(7) + 8));
+        }else if(Util.isTrue(10, 100)){
+            item.itemOptions.add(new Item.ItemOption(77, 5 + 5));
+            item.itemOptions.add(new Item.ItemOption(103,5 + 5));
+            item.itemOptions.add(new Item.ItemOption(147, 5 + 5));
         }else{
-            item.itemOptions.add(new Item.ItemOption(77, new Random().nextInt(4)+6));
-            item.itemOptions.add(new Item.ItemOption(103, new Random().nextInt(4)+6));
-            item.itemOptions.add(new Item.ItemOption(147, new Random().nextInt(4)+6));
+            item.itemOptions.add(new Item.ItemOption(77, new Random().nextInt(5)+3));
+            item.itemOptions.add(new Item.ItemOption(103, new Random().nextInt(5)+3));
+            item.itemOptions.add(new Item.ItemOption(147, new Random().nextInt(5)+3));
         }
         
 //        if (Util.isTrue(1, 100)) {
 //            item.itemOptions.get(Util.nextInt(item.itemOptions.size() - 1)).param = 10;
 //        }
-        if (Util.isTrue(30, 100)) {
-            item.itemOptions.add(new Item.ItemOption(14, Util.nextInt(0, 5)));
-            item.itemOptions.add(new Item.ItemOption(5, Util.nextInt(0, 5)));
+        if (Util.isTrue(90, 100)) {
+            item.itemOptions.add(new Item.ItemOption(14, Util.nextInt(0, 5)+3));
+            item.itemOptions.add(new Item.ItemOption(5, Util.nextInt(0, 5)+3));
         }else{
             item.itemOptions.add(new Item.ItemOption(14, Util.nextInt(5, 10)+5));
             item.itemOptions.add(new Item.ItemOption(5, Util.nextInt(5, 10)+5));
