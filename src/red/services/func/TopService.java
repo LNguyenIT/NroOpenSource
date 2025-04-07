@@ -20,7 +20,7 @@ import red.utils.Util;
 
 
 public class TopService {
-
+//implements Runnable
     private static final String QUERY_TOP_POWER = "select player.id, player.name,"
             + "player.power, player.head, player.gender, player.have_tennis_space_ship,"
             + "player.clan_id_sv" + Manager.SERVER + ", player.data_inventory,"
@@ -33,7 +33,7 @@ public class TopService {
             + "account on player.account_id = account.id where account.is_admin = 0 order by "
             + "player.power desc limit 20";
 
-    private static final int TIME_TARGET_GET_TOP_POWER = 1800000;
+    private static final int TIME_TARGET_GET_TOP_POWER = 180000;
 
     private static TopService i;
 
@@ -278,7 +278,6 @@ public class TopService {
     }
 
     public void updateTop() {
-        if (Manager.timeRealTop + (30 * 60 * 1000) < System.currentTimeMillis()) {
             Manager.timeRealTop = System.currentTimeMillis();
             try (Connection con = GirlkunDB.getConnection()) {
                 Manager.topNV = Manager.realTop(Manager.queryTopNV, con);
@@ -288,7 +287,21 @@ public class TopService {
             } catch (Exception ignored) {
                 Logger.error("Lỗi đọc top");
             }
-        }
     }
+//    @Override
+//    public void run() {
+//        while (true) {
+//            try {
+//                long now = System.currentTimeMillis();
+//                if (now - lastTimeGetTopPower > TIME_TARGET_GET_TOP_POWER) {
+//                    this.loadTopPower();
+//                    lastTimeGetTopPower = now;
+//                }
+//                Thread.sleep(10000); // nghỉ 10 giây mỗi lần lặp
+//            } catch (Exception e) {
+//                Logger.logException(TopService.class, e, "Lỗi trong luồng cập nhật TOP");
+//            }
+//        }
+//    }
 
 }
