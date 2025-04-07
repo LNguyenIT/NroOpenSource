@@ -4631,21 +4631,21 @@ public class CombineServiceNew {
             case 0:
                 return 5000000;
             case 1:
-                return 20000000;
+                return 25000000;
             case 2:
-                return 35000000;
-            case 3:
                 return 50000000;
-            case 4:
+            case 3:
                 return 75000000;
+            case 4:
+                return 100000000;
             case 5:
-                return 90000000;
-            case 6:
-                return 115000000;
-            case 7:
                 return 150000000;
-            case 8:
+            case 6:
                 return 200000000;
+            case 7:
+                return 300000000;
+            case 8:
+                return 500000000;
             case 9:
                 return 300000000;
             case 10:
@@ -4673,9 +4673,9 @@ public class CombineServiceNew {
             case 5:
                 return 1f;
             case 6:
-                return 0.4321f;
+                return 0.21f;
             case 7:
-                return 0.2091f;
+                return 0.098f;
             case 8:
                 return 0.1111f;
             case 9:

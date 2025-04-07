@@ -781,13 +781,13 @@ public class SummonDragon {
                     case 0: // đẹp trai nhất vũ trụ
                         if(Util.isTrue(1, 200)){
                             Item item = ItemService.gI().createNewItem((short) 1252, 1);
-                            item.itemOptions.add(new ItemOption(50, 5 + 1 * 3));
-                            item.itemOptions.add(new ItemOption(77, 5 + 1 * 3));
-                            item.itemOptions.add(new ItemOption(103, 5 + 1 * 3));
+                            item.itemOptions.add(new ItemOption(50, 5 ));
+                            item.itemOptions.add(new ItemOption(77, 5 ));
+                            item.itemOptions.add(new ItemOption(103, 5 ));
                             item.itemOptions.add(new ItemOption(5, 5 + 1));
                             item.itemOptions.add(new ItemOption(14, 5 + 1));
-                            item.itemOptions.add(new ItemOption(101, 5 + 1 * 3));
-                            item.itemOptions.add(new ItemOption(98, 5 + 1 * 3));
+                            item.itemOptions.add(new ItemOption(101, 5 ));
+                            item.itemOptions.add(new ItemOption(98, 5 ));
                             InventoryServiceNew.gI().addItemBag(playerSummonShenron, item);
                             InventoryServiceNew.gI().sendItemBags(playerSummonShenron);
                             Service.gI().sendThongBao(playerSummonShenron,
