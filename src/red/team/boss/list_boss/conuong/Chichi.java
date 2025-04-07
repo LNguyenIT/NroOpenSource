@@ -46,11 +46,11 @@ public class Chichi extends Boss {
 
            Item item = ItemService.gI().createNewItem((short) 464);
 
-           item.itemOptions.add(new Item.ItemOption(49, Util.nextInt(15, 25)+10));
-            item.itemOptions.add(new Item.ItemOption(77, Util.nextInt(15, 25)+10));
+            item.itemOptions.add(new Item.ItemOption(49, Util.nextInt(10, 25)+10));
+            item.itemOptions.add(new Item.ItemOption(77, Util.nextInt(10, 25)+10));
             item.itemOptions.add(new Item.ItemOption(103, Util.nextInt(10, 20)+15));
-            item.itemOptions.add(new Item.ItemOption(14, Util.nextInt(10, 20)));
-            item.itemOptions.add(new Item.ItemOption(5, Util.nextInt(10, 30)));
+            item.itemOptions.add(new Item.ItemOption(14, Util.nextInt(3, 10)));
+            item.itemOptions.add(new Item.ItemOption(5, Util.nextInt(10, 20)));
             item.itemOptions.add(new Item.ItemOption(117, Util.nextInt(40, 40)));
             item.itemOptions.add(new Item.ItemOption(211, 0));
             //
