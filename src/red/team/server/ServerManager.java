@@ -81,26 +81,22 @@ public int threadMap;
         activeGame();
         activeServerSocket();
         MaQuaTangManager.gI().init();
-        new Thread(DaiHoiVoThuat.gI(), "Thread DHVT").start();
 
-        ChonAiDay.gI().lastTimeEnd = System.currentTimeMillis() + 300000;
-        new Thread(ChonAiDay.gI(), "Thread CAD").start();
+//        new Thread(DaiHoiVoThuat.gI(), "Thread DHVT").start();
+//        ChonAiDay.gI().lastTimeEnd = System.currentTimeMillis() + 300000;
+//        new Thread(ChonAiDay.gI(), "Thread CAD").start();
 
-        NgocRongNamecService.gI().initNgocRongNamec((byte) 0);
+//        NgocRongNamecService.gI().initNgocRongNamec((byte) 0);
 
-        new Thread(NgocRongNamecService.gI(), "Thread NRNM").start();
+//        new Thread(PlayerService.gI(), "Thread Player").start();
 
-//        new Thread(TopService.gI(), "Thread TOP").start();
+         
 
         new Thread(() -> {
             while (isRunning) {
                 try {
-                    long start = System.currentTimeMillis();
                     MartialCongressManager.gI().update();
-                    long timeUpdate = System.currentTimeMillis() - start;
-                    if (timeUpdate < delay) {
-                        Thread.sleep(delay - timeUpdate);
-                    }
+                    Thread.sleep(30*1000);
                 } catch (Exception e) {
                     e.printStackTrace();
                     Logger.logException(Manager.class, e, "Lỗi running sever");
@@ -108,6 +104,31 @@ public int threadMap;
             }
         }, "Update dai hoi vo thuat").start();
 
+        new Thread(() -> {
+            while (isRunning) {
+                try {
+                    Service.gI().AutoSavePlayerData();
+                    Thread.sleep(30*1000);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Logger.logException(Manager.class, e, "Có lỗi update player");
+                }
+            }
+        }, "Update player").start();
+        
+        
+        new Thread(() -> {
+            while (isRunning) {
+                try {
+                    TopService.gI().updateTop();
+                    Thread.sleep(30*1000);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Logger.logException(Manager.class, e, "Có lỗi update top");
+                }
+            }
+        }, "Update top").start();
+        
         try {
             Thread.sleep(1000);
             BossManager.gI().loadBoss();
@@ -230,7 +251,7 @@ public int threadMap;
                         Logger.error("Save " + Manager.CLANS.size() + " bang");
                     }).start();
                     Maintenance.gI().start(30);
-  if (line.equals("savedata")) {
+                if (line.equals("savedata")) {
 //                    ClanService.gI().saveclan();
                     Service.gI().AutoSavePlayerData();
 //                    ShopKyGuiManager.gI().save();
