@@ -59,6 +59,9 @@ public class ZamasKaio extends Boss {
         } else {
             Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, Manager.itemIds_TL[randomDo], 1,
                     this.location.x, this.location.y, plKill.id));
+            Service.gI().dropItemMap(this.zone,
+                    new ItemMap(zone, 874, 1, this.location.x, this.location.y, plKill.id));
+            TaskService.gI().checkDoneTaskKillBoss(plKill, this);
         }
         plKill.pointBoss += 2;
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);

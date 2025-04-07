@@ -55,6 +55,9 @@ public class ZamasMax extends Boss {
         } else {
             Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, Manager.itemIds_TL[randomDo], 1,
                     this.location.x, this.location.y, plKill.id));
+            Service.gI().dropItemMap(this.zone,
+                    new ItemMap(zone, 725, 1, this.location.x, this.location.y, plKill.id));
+            
         }
         plKill.pointBoss += 2;
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
