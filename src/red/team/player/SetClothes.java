@@ -213,7 +213,7 @@ public class SetClothes {
     // Duyệt qua tất cả 5 món đồ
     for (int i = 0; i < 5; i++) {
         Item item = this.player.inventory.itemsBody.get(i);
-        
+
         // Kiểm tra nếu món đồ hợp lệ (không phải null) và thuộc loại đồ thần linh (id từ 555 đến 567)
         if (item.isNotNullItem()) {
             if (item.template.id < 555 || item.template.id > 567) {
@@ -235,7 +235,7 @@ public class SetClothes {
 
 
 // check set huy diet
-public boolean setHuyDiet() {
+    public boolean setHuyDiet() {
     for (int i = 0; i < 5; i++) {
         Item item = this.player.inventory.itemsBody.get(i);
         

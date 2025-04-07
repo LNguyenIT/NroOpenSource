@@ -2411,7 +2411,7 @@ public class NPoint {
             }
             if (!this.player.isPet && this.player.itemTime.isEatPotential
                     || this.player.isPet && ((Pet) this.player).master.itemTime.isEatPotential) {
-                tiemNang += tiemNang * 0.5;
+                tiemNang += tiemNang * 0.25;
             }
             if (!this.player.isPet && this.player.itemTime.isEatHuyHieu
                     || this.player.isPet && ((Pet) this.player).master.itemTime.isEatHuyHieu) {
