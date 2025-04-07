@@ -1251,22 +1251,39 @@ public class Service {
         return 21;
     }
 
-      public void AutoSavePlayerData() {
-        try {
-            System.gc();
-            Runtime.getRuntime().freeMemory();
-            Player player = null;
-            for (int i = 0; i < Client.gI().getPlayers().size(); ++i) {
-                if (Client.gI().getPlayers().get(i) != null) {
-                    player = (Client.gI().getPlayers().get(i));
-                    PlayerDAO.updatePlayer(player);
-                }
+//      public void AutoSavePlayerData() {
+//        try {
+//            System.gc();
+//            Runtime.getRuntime().freeMemory();
+//            System.out.println("Có gọi hàm auto update");
+//            Player player = null;
+//            for (int i = 0; i < Client.gI().getPlayers().size(); ++i) {
+//                if (Client.gI().getPlayers().get(i) != null) {
+//                    player = (Client.gI().getPlayers().get(i));
+//                    PlayerDAO.updatePlayer(player);
+////                    System.out.println("Update player: "+player);
+//                }
+//            }
+//            Thread.sleep(30000);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }\
+    public void AutoSavePlayerData() {
+    try {
+        System.gc();
+        Runtime.getRuntime().freeMemory();
+        System.out.println("Có gọi hàm auto update");
+        for (Player player : Client.gI().getPlayers()) {
+            if (player != null) {
+                PlayerDAO.updatePlayer(player);
             }
-            Thread.sleep(30000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
         }
+    } catch (Exception e) {
+        Logger.error("Lỗi khi update player");
     }
+}
+
     public void hsChar(Player pl, int hp, int mp) {
         Message msg;
         try {
