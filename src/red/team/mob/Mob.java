@@ -541,7 +541,7 @@ public class Mob {
                             Util.docui(zone, Manager.docui[randomG], 1, this.location.x + 2, this.location.y, player.id));
             }
             //Rơi ngọc
-            if (Util.isTrue(35, 100)) {
+            if (Util.isTrue(25, 100)) {
                 byte random = 2;
                 if (Util.isTrue(5, 100)) {
                     random = 3;
@@ -552,12 +552,28 @@ public class Mob {
                 InventoryServiceNew.gI().sendItemBags(player);
             }
             //Rơi nro
-            if (Util.isTrue(4, 100)) {
-                    Item linhThu = ItemService.gI().createNewItem(Manager.itemIds_NR_SB[(Util.nextInt(0, 3))]);
+            if (Util.isTrue(5, 100)) {
+                    Item linhThu = ItemService.gI().createNewItem((byte) 20);
+                    Service.getInstance().sendThongBao(player, "bạn vừa nhận được " + linhThu.template.name);
+                    InventoryServiceNew.gI().addItemBag(player, linhThu);
+                    InventoryServiceNew.gI().sendItemBags(player);                 
+            }else if (Util.isTrue(4, 100)) {
+                    Item linhThu = ItemService.gI().createNewItem((byte) 19);
+                    Service.getInstance().sendThongBao(player, "bạn vừa nhận được " + linhThu.template.name);
+                    InventoryServiceNew.gI().addItemBag(player, linhThu);
+                    InventoryServiceNew.gI().sendItemBags(player);                 
+            } else if (Util.isTrue(3, 100)) {
+                    Item linhThu = ItemService.gI().createNewItem((byte) 18);
+                    Service.getInstance().sendThongBao(player, "bạn vừa nhận được " + linhThu.template.name);
+                    InventoryServiceNew.gI().addItemBag(player, linhThu);
+                    InventoryServiceNew.gI().sendItemBags(player);                 
+            }if (Util.isTrue(2, 100)) {
+                    Item linhThu = ItemService.gI().createNewItem((byte) 17);
                     Service.getInstance().sendThongBao(player, "bạn vừa nhận được " + linhThu.template.name);
                     InventoryServiceNew.gI().addItemBag(player, linhThu);
                     InventoryServiceNew.gI().sendItemBags(player);                 
             }
+            // Nếu có đồ thần thì rơi thức ăn
             if ((!player.isPet && player.setClothes.setGod() == true
                     && (this.zone.map.mapId > 104 && this.zone.map.mapId < 111 || this.zone.map.mapId == 159))) {
                 if (Util.isTrue(2, 200)) {
@@ -567,27 +583,28 @@ public class Mob {
                     InventoryServiceNew.gI().sendItemBags(player);
                 }
             }
-
+            // Nếu có đồ huỷ diệt thì rơi mts
             if ((!player.isPet  && player.setClothes.setHuyDiet() == true
                     && (this.zone.map.mapId == 155))) {
-                if (Util.isTrue(5, 200)) {
+                if (Util.isTrue(2, 300)) {
                     Item linhThu = ItemService.gI().createNewItem(Manager.manhts[(Util.nextInt(0, 4))]);
                     Service.getInstance().sendThongBao(player, "Bạn vừa nhận được  " + linhThu.template.name);
                     InventoryServiceNew.gI().addItemBag(player, linhThu);
                     InventoryServiceNew.gI().sendItemBags(player);
                 }
             }
-
-            if (!player.isPet  && (this.zone.map.mapId > 159 && this.zone.map.mapId < 164)) {
-                if (Util.isTrue(10, 200)) {
+            //MVBT
+            if (!player.isPet  && this.zone.map.mapId == 160 ) {
+                if (Util.isTrue(5, 200)) {
                     Item linhThu = ItemService.gI().createNewItem(Manager.mvbt[0]);
                     Service.getInstance().sendThongBao(player, "Bạn vừa nhận được  " + linhThu.template.name);
                     InventoryServiceNew.gI().addItemBag(player, linhThu);
                     InventoryServiceNew.gI().sendItemBags(player);
                 }
             }
+            
             if (!player.isPet  && this.zone.map.mapId == 161 ) {
-                if (Util.isTrue(5, 200)) {
+                if (Util.isTrue(4, 200)) {
                     Item linhThu = ItemService.gI().createNewItem((short) 934);
                     Service.getInstance().sendThongBao(player, "Bạn vừa nhận được  " + linhThu.template.name);
                     InventoryServiceNew.gI().addItemBag(player, linhThu);        
@@ -687,7 +704,7 @@ public class Mob {
                 list.add(itemMap);
             }
         }
-        if (player.itemTime.isUseMayDo && Util.isTrue(25, 100) && this.tempId > 57 && this.tempId < 66) {
+        if (player.itemTime.isUseMayDo && this.zone.map.mapId >= 92 && Util.isTrue((this.zone.map.mapId - 92)*2 + 15, 100) && this.tempId > 57 && this.tempId < 66) {
             list.add(new ItemMap(zone, 380, 1, x, player.location.y, player.id));
         }
         if (Util.isTrue(1, 100) && this.tempId > 57 && this.tempId < 66) {
