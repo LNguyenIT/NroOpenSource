@@ -132,23 +132,23 @@ public class MySession extends Session {
             al = new AntiLogin();
             ANTILOGIN.put(this.ipAddress, al);
         }
-        if (!al.canLogin()) {
-            Service.gI().sendThongBaoOK(this, al.getNotifyCannotLogin());
-            return;
-        }
-        if (Manager.LOCAL) {
-            Service.gI().sendThongBaoOK(this, "Server này chỉ để lưu dữ liệu\nVui lòng qua server khác");
-            return;
-        }
-        if (Maintenance.isRuning) {
-            Service.gI().sendThongBaoOK(this, "Server đang trong thời gian bảo trì, vui lòng quay lại sau");
-            return;
-        }
-        if (!this.isAdmin && Client.gI().getPlayers().size() >= Manager.MAX_PLAYER) {
-            Service.gI().sendThongBaoOK(this, "Máy chủ hiện đang quá tải, "
-                    + "cư dân vui lòng di chuyển sang máy chủ khác.");
-            return;
-        }
+//        if (!al.canLogin()) {
+//            Service.gI().sendThongBaoOK(this, al.getNotifyCannotLogin());
+//            return;
+//        }
+//        if (Manager.LOCAL) {
+//            Service.gI().sendThongBaoOK(this, "Server này chỉ để lưu dữ liệu\nVui lòng qua server khác");
+//            return;
+//        }
+//        if (Maintenance.isRuning) {
+//            Service.gI().sendThongBaoOK(this, "Server đang trong thời gian bảo trì, vui lòng quay lại sau");
+//            return;
+//        }
+//        if (!this.isAdmin && Client.gI().getPlayers().size() >= Manager.MAX_PLAYER) {
+//            Service.gI().sendThongBaoOK(this, "Máy chủ hiện đang quá tải, "
+//                    + "cư dân vui lòng di chuyển sang máy chủ khác.");
+//            return;
+//        }
         if (this.player != null) {
             return;
         } else {
@@ -183,10 +183,7 @@ public class MySession extends Session {
                     DataGame.sendVersionGame(this);
                     //-31 data item background
                     DataGame.sendDataItemBG(this);
-                    Controller.getInstance().sendInfo(this);
-   
-                    Logger.log(Logger.BLUE,"Login " + this.player.name);
-                    
+                    Controller.getInstance().sendInfo(this);                  
                 }
             } catch (Exception e) {
                 if (player != null) {
