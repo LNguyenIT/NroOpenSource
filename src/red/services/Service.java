@@ -1293,7 +1293,7 @@ public class Service {
     try {
         System.gc();
         Runtime.getRuntime().freeMemory();
-        System.out.println("Có gọi hàm auto update");
+//        System.out.println("Có gọi hàm auto update");
         for (Player player : Client.gI().getPlayers()) {
             if (player != null) {
                 PlayerDAO.updatePlayer(player);
