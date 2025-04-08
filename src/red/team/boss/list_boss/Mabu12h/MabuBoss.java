@@ -26,13 +26,13 @@ public class MabuBoss extends Boss {
         int[] itemDos = new int[]{555, 556, 557, 558, 559, 560, 561, 562, 563, 564, 565, 566, 567};
         int randomc12 = new Random().nextInt(itemDos.length);
         if (Util.isTrue(70, 100)) {
-            if (Util.isTrue(1, 20)) {
+            if (Util.isTrue(2, 100)) {
                 Service.gI().dropItemMap(this.zone,
                         Util.ratiItem(zone, 561, 1, this.location.x, this.location.y, plKill.id));
             }
-            if (Util.isTrue(1, 40)) {
+            if (Util.isTrue(1, 200)) {
                 Service.gI().dropItemMap(this.zone,
-                        Util.ratiItem(zone, 2000 + plKill.gender, 10, this.location.x, this.location.y, plKill.id));
+                        Util.ratiItem(zone, 2000 + plKill.gender, 1, this.location.x, this.location.y, plKill.id));
             }
             Service.gI().dropItemMap(this.zone,
                     Util.ratiItem(zone, Manager.itemIds_TL[randomDo], 1, this.location.x, this.location.y, plKill.id));
