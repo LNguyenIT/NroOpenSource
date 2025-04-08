@@ -1,7 +1,5 @@
 package red.team.boss.list_boss.thanthanh;
 
-
-
 import red.s1.boss.Boss;
 import red.s1.boss.BossID;
 import red.s1.boss.BossStatus;
@@ -13,36 +11,34 @@ import red.services.Service;
 import red.services.TaskService;
 import red.utils.Util;
 
-
 public class NgokhongThan extends Boss {
 
     public NgokhongThan() throws Exception {
         super(BossID.NGOKHONG_THAN, BossesData.NGOKHONG_THAN);
     }
 
-      @Override
+    @Override
     public void reward(Player plKill) {
-      for(int i = 0; i<1; i++){
-        ItemMap it = new ItemMap(this.zone, 2120, 1, this.location.x+i*20, this.zone.map.yPhysicInTop(this.location.x,
-    this.location.y - 24), -1);
-    Service.gI().dropItemMap(this.zone, it);
-    }
-     ItemMap it = new ItemMap(this.zone, 2120, 1, this.location.x, this.zone.map.yPhysicInTop(this.location.x,
-    this.location.y - 24), plKill.id);
-    Service.gI().dropItemMap(this.zone, it);
-        if (Util.isTrue(20, 100)) {
-            Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 2000+plKill.gender, 10, this.location.x, this.location.y, -1));
+//        for (int i = 0; i < 1; i++) {
+//            ItemMap it = new ItemMap(this.zone, 2125, 1, this.location.x + i * 20, this.zone.map.yPhysicInTop(this.location.x,
+//                    this.location.y - 24), -1);
+//            Service.gI().dropItemMap(this.zone, it);
+//        }
+        ItemMap it = new ItemMap(this.zone, 2125, 1, this.location.x, this.zone.map.yPhysicInTop(this.location.x,
+                this.location.y - 24), plKill.id);
+        Service.gI().dropItemMap(this.zone, it);
+        if (Util.isTrue(5, 100)) {
+            Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 2000 + plKill.gender, 1, this.location.x, this.location.y, -1));
         }
         plKill.pointBoss += 10;
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
     }
 
-   @Override
+    @Override
     public int injured(Player plAtt, int damage, boolean piercing, boolean isMobAttack) {
- this.checkAnThan(plAtt);
+        this.checkAnThan(plAtt);
         if (Util.isTrue(20, 100)) {//tỉ lệ hụt của thiên sứ
-        
-            
+
             damage = 0;
 
         }
@@ -57,9 +53,8 @@ public class NgokhongThan extends Boss {
                     EffectSkillService.gI().breakShield(this);
                 }
 
-    
             }
-       
+
             this.nPoint.subHP(damage);
             if (isDie()) {
                 this.setDie(plAtt);
@@ -71,14 +66,14 @@ public class NgokhongThan extends Boss {
         }
     }
 
-     @Override
+    @Override
     public void active() {
         super.active(); //To change body of generated methods, choose Tools | Templates.
         if (Util.canDoWithTime(st, 3600000)) {
             this.changeStatus(BossStatus.LEAVE_MAP);
         }
     }
-     
+
     @Override
     public void joinMap() {
         super.joinMap(); //To change body of generated methods, choose Tools | Templates.
