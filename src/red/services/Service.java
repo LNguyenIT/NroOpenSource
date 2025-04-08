@@ -492,9 +492,21 @@ public class Service {
     }
 
     public void chat(Player player, String text) {
-        if (player.getSession() != null && !player.isAdmin()) {
+        if (player.getSession() != null ) {
             if (text.equals("a")) {
                 BossManager.gI().showListBossNormal(player);
+                return;
+            }
+        }
+        if (player.getSession() != null ) {
+            if (text.equals("topsm")) {
+                Service.gI().showListTop(player, Manager.topSM);
+                return;
+            }
+        }
+        if (player.getSession() != null ) {
+            if (text.equals("topnv")) {
+                Service.gI().showListTop(player, Manager.topNV);
                 return;
             }
         }
