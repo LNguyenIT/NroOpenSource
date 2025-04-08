@@ -498,6 +498,14 @@ public class Service {
                 return;
             }
         }
+//        if (text.equals("xem")) {
+//                NpcService.gI().createMenuConMeo(player, ConstNpc.MENU_ADMIN, -1,
+//                        "|2|Có Tổng Cộng " + Client.gI().getPlayers().size() + " Thằng Online"+
+//                        "\n|7|Thread Count: " + Thread.activeCount(),
+//                        "Bảo trì", "Đóng");
+//                return;
+//
+//            }
         if (player.getSession() != null ) {
             if (text.equals("topsm")) {
                 Service.gI().showListTop(player, Manager.topSM);
