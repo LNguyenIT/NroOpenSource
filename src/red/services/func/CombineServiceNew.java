@@ -2556,14 +2556,14 @@ public class CombineServiceNew {
             player.inventory.gold -= 1000000000;
 
             int tilemacdinh = 35;
-            int tileLucky = 10;
+            int tileLucky = 45;
             if (daNC != null) {
                 tilemacdinh += 2 * 10;
             } else {
                 tilemacdinh = tilemacdinh;
             }
             if (daMM != null) {
-                tileLucky += tileLucky * (daMM.template.id - 1078) * 10 / 100;
+                tileLucky += (daMM.template.id - 1078) * 10 / 100;
             } else {
                 tileLucky = tileLucky;
             }
