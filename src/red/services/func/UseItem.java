@@ -1025,16 +1025,13 @@ public class UseItem {
             pl.pointSukien++;
             //
             if (Util.isTrue(5, 100)) {
-                int[] itemDos = new int[]{463, 525, 578, 577, 591, 606, 711, 2045, 632, 609,
-                    623, 1091, 1093, 575, 724, 576, 458, 461, 455};
-                int randomDo = new Random().nextInt(itemDos.length);
-                Item ct = ItemService.gI().createNewItem((short) itemDos[randomDo]);
-                ct.itemOptions.add(new ItemOption(22, 20));
-                ct.itemOptions.add(new ItemOption(23, 20));
-                ct.itemOptions.add(new ItemOption(77, 10));
-                ct.itemOptions.add(new ItemOption(103, 10));
-                ct.itemOptions.add(new ItemOption(50, 25));
-                if (Util.isTrue(95, 100)) {
+                short linhthu = 1363;
+                Item ct = ItemService.gI().createNewItem((short) linhthu);
+                ct.itemOptions.add(new ItemOption(49, 20));
+                ct.itemOptions.add(new ItemOption(103, 20));
+                ct.itemOptions.add(new ItemOption(77, 20));
+                ct.itemOptions.add(new ItemOption(14, 10));
+                if (Util.isTrue(98, 100)) {
                     ct.itemOptions.add(new ItemOption(93, Util.nextInt(1, 2)));
                 }
                 switch (ct.template.id) {
@@ -1120,26 +1117,13 @@ public class UseItem {
                 InventoryServiceNew.gI().addItemBag(pl, ct);
                 InventoryServiceNew.gI().sendItemBags(pl);
                 Service.gI().sendThongBao(pl, "|8|Bạn nhận được cánh");
-            } else if (Util.isTrue(5, 100)) {
-                int[] itemDos = new int[]{2095, 2090, 2089, 2088, 1046, 1191, 2087, 2086,
-                    2085, 942, 943, 944, 967, 1107, 1307, 1306};
-                int randomDo = new Random().nextInt(itemDos.length);
-                Item ct = ItemService.gI().createNewItem((short) itemDos[randomDo]);
-                ct.itemOptions.add(new ItemOption(5, 10));
-                ct.itemOptions.add(new ItemOption(22, 10));
-                ct.itemOptions.add(new ItemOption(23, 10));
-                ct.itemOptions.add(new ItemOption(50, 20));
-                ct.itemOptions.add(new ItemOption(77, 10));
-                ct.itemOptions.add(new ItemOption(103, 14));
-                if (Util.isTrue(90, 100)) {
-                    ct.itemOptions.add(new ItemOption(93, Util.nextInt(1, 2)));
-                }
-
+            } else if (Util.isTrue(90, 100)) {            
+                Item ct = ItemService.gI().createNewItem((short) 20,999);
                 InventoryServiceNew.gI().addItemBag(pl, ct);
                 InventoryServiceNew.gI().sendItemBags(pl);
-                Service.gI().sendThongBao(pl, "|2|Bạn nhận được pet");
+                Service.gI().sendThongBao(pl, "|2|Bạn nhận được 7 sao");
 
-            } else {
+            } else if (Util.isTrue(5, 100)){
                 int[] itemDos = new int[]{663, 664, 665, 666, 667, 465, 466, 890, 891, 14, 15,
                     16, 1066, 1067, 1068, 1069, 1070, 1076, 1077, 1078,
                     1082,
@@ -1152,6 +1136,11 @@ public class UseItem {
                 InventoryServiceNew.gI().addItemBag(pl, ct);
                 InventoryServiceNew.gI().sendItemBags(pl);
                 Service.gI().sendThongBao(pl, "|1|Bạn nhận được item");
+            }else{
+                Item ct = ItemService.gI().createNewItem((short) 673);
+                InventoryServiceNew.gI().addItemBag(pl, ct);
+                InventoryServiceNew.gI().sendItemBags(pl);
+                Service.gI().sendThongBao(pl, "|1|Bạn nhận cái nịt");
             }
             //
             InventoryServiceNew.gI().subQuantityItemsBag(pl, item, 1);
