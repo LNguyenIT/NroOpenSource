@@ -37,10 +37,10 @@ public class NGOKHONG extends Boss {
 
             Item item = ItemService.gI().createNewItem((short) 1205);
 
-            item.itemOptions.add(new Item.ItemOption(49, Util.nextInt(20, 40)+10));
-            item.itemOptions.add(new Item.ItemOption(77, Util.nextInt(10, 40)+10));
+            item.itemOptions.add(new Item.ItemOption(49, Util.nextInt(10, 20)+20));
+            item.itemOptions.add(new Item.ItemOption(77, Util.nextInt(10, 20)+20));
             item.itemOptions.add(new Item.ItemOption(103, Util.nextInt(10, 40)));
-            item.itemOptions.add(new Item.ItemOption(101, Util.nextInt(15, 50)));
+            item.itemOptions.add(new Item.ItemOption(101, Util.nextInt(15, 30)));
             item.itemOptions.add(new Item.ItemOption(211, 0));
             //
             InventoryServiceNew.gI().addItemBag(plKill, item);
