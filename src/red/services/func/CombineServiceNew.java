@@ -2558,7 +2558,7 @@ public class CombineServiceNew {
             int tilemacdinh = 35;
             int tileLucky = 10;
             if (daNC != null) {
-                tilemacdinh += (daNC.template.id - 1073) * 10;
+                tilemacdinh += 2 * 10;
             } else {
                 tilemacdinh = tilemacdinh;
             }
