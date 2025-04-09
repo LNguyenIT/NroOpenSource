@@ -49,6 +49,10 @@ public class Thodaica extends Boss {
                     Util.ratiItem(zone, 472, 1, this.location.x + 10 * i, this.location.y, plKill.id));
 
         }
+        if (Util.isTrue(30, 100)) {
+            Service.gI().dropItemMap(this.zone,
+                    Util.ratiItem(zone, 1346, 1, this.location.x + 10 , this.location.y, plKill.id));
+        }
         plKill.pointBoss += 0;
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
     }
