@@ -2378,7 +2378,7 @@ public class NpcFactory {
                                 "Nâng Cấp SKH Thường",
                                 "Nâng Cấp Đồ HD",
                                 "Chân Mệnh",
-                                "Mừng Quà Tết");
+                                "Thu hồi đồ hôi lông");
                     } else if (this.mapId == 121) {
                         this.createOtherMenu(player, ConstNpc.BASE_MENU,
                                 "Ngươi tìm ta có việc gì?",
@@ -2420,30 +2420,12 @@ public class NpcFactory {
                                     CombineServiceNew.gI().openTabCombine(player, CombineServiceNew.NANG_CAP_CHAN_MENH);
                                     break;
                                 case 6:
-                                    this.npcChat(player, "Con Muốn Tặng Quà Tết Cho Ta Sao?");
-                                    Item hopquamungtet = null;
-
-                                    try {
-                                        hopquamungtet = InventoryServiceNew.gI().findItemBag(player, 1449);
-                                    } catch (Exception e) {
-                                    }
-                                    if (hopquamungtet == null || hopquamungtet.quantity < 2) {
-                                        this.npcChat(player, "Con Làm Gì Có Hộp Quà Nào");
-                                    } else if (InventoryServiceNew.gI().getCountEmptyBag(player) == 0) {
-                                        this.npcChat(player, "Hành Trang Của Con Không Đủ Chỗ Trống");
-                                    } else {
-                                        InventoryServiceNew.gI().subQuantityItemsBag(player, hopquamungtet, 2);
-                                        Item ct = ItemService.gI().createNewItem((short) 1447);
-                                        ct.itemOptions.add(new ItemOption(93, 5));
-                                        InventoryServiceNew.gI().addItemBag(player, ct);
-                                        InventoryServiceNew.gI().sendItemBags(player);
-                                        Service.gI().sendThongBao(player, "Bạn nhận được 1 Bao Lì Xì");
-                                        this.npcChat(player, "Cảm Ơn Con! Chúc Con Năm Mới Vui Vẻ");
-                                    }
+                                    CombineServiceNew.gI().openTabCombine(player, CombineServiceNew.PHAN_RA_DO_HOI_LONG);
                                     break;
                             }
                         } else if (player.iDMark.getIndexMenu() == ConstNpc.MENU_START_COMBINE) {
                             switch (player.combineNew.typeCombine) {
+                                case CombineServiceNew.PHAN_RA_DO_HOI_LONG:
                                 case CombineServiceNew.EP_SAO_TRANG_BI:
                                 case CombineServiceNew.PHA_LE_HOA_TRANG_BI:
                                 case CombineServiceNew.CHUYEN_HOA_TRANG_BI:
