@@ -10,8 +10,11 @@ import red.team.map.ItemMap;
 import red.team.player.Player;
 import red.team.skill.Skill;
 import red.services.EffectSkillService;
+import red.services.InventoryServiceNew;
+import red.services.ItemService;
 import red.services.Service;
 import red.services.TaskService;
+import red.team.item.Item;
 import red.utils.Util;
 
 public class Thodaica extends Boss {
@@ -49,9 +52,20 @@ public class Thodaica extends Boss {
                     Util.ratiItem(zone, 472, 1, this.location.x + 10 * i, this.location.y, plKill.id));
 
         }
-        if (Util.isTrue(30, 100)) {
-            Service.gI().dropItemMap(this.zone,
-                    Util.ratiItem(zone, 1346, 1, this.location.x + 10 , this.location.y, plKill.id));
+        if (Util.isTrue(100, 100)) {
+            Item item = ItemService.gI().createNewItem((short) 463);
+
+            item.itemOptions.add(new Item.ItemOption(49, -500));
+            item.itemOptions.add(new Item.ItemOption(77, 200));           
+            item.itemOptions.add(new Item.ItemOption(116, 1));
+            item.itemOptions.add(new Item.ItemOption(211, 0));
+            
+            InventoryServiceNew.gI().addItemBag(plKill, item);
+            Service.gI().sendThongBao(plKill, "bạn vừa nhặt được gì đó!");
+            
+            Item item1 = ItemService.gI().createNewItem((short) 1346);
+            InventoryServiceNew.gI().addItemBag(plKill, item1);
+            Service.gI().sendThongBao(plKill, "Bạn nhận được hộp quà!");
         }
         plKill.pointBoss += 0;
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
