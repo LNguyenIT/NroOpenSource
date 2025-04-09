@@ -536,12 +536,12 @@ public class Mob {
         try {
             //Rơi đồ sao
             if (Util.isTrue(1, 1000)) {
-                int randomG = new Random().nextInt(docui.length-1);
+                int randomG = new Random().nextInt(docui.length);
                                     Service.gI().dropItemMap(this.zone,
                             Util.docui(zone, Manager.docui[randomG], 1, this.location.x + 2, this.location.y, player.id));
             }
             //Rơi ngọc
-            if (Util.isTrue(40, 100)) {
+            if (Util.isTrue(50, 100)) {
                 byte random = 2;
                 if (Util.isTrue(5, 100)) {
                     random = 5;
@@ -564,11 +564,6 @@ public class Mob {
                     InventoryServiceNew.gI().sendItemBags(player);                 
             } else if (Util.isTrue(3, 100)) {
                     Item linhThu = ItemService.gI().createNewItem((byte) 18);
-                    Service.getInstance().sendThongBao(player, "bạn vừa nhận được " + linhThu.template.name);
-                    InventoryServiceNew.gI().addItemBag(player, linhThu);
-                    InventoryServiceNew.gI().sendItemBags(player);                 
-            }if (Util.isTrue(2, 100)) {
-                    Item linhThu = ItemService.gI().createNewItem((byte) 17);
                     Service.getInstance().sendThongBao(player, "bạn vừa nhận được " + linhThu.template.name);
                     InventoryServiceNew.gI().addItemBag(player, linhThu);
                     InventoryServiceNew.gI().sendItemBags(player);                 
