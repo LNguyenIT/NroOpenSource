@@ -3079,7 +3079,7 @@ public class CombineServiceNew {
         sendEffectSuccessCombine(player);
         Service.gI().sendMoney(player);
         player.combineNew.itemsCombine.clear();
-        Item rewardItem = ItemService.gI().createNewItem((short) 457, totalStar);
+        Item rewardItem = ItemService.gI().createNewItem((short) 457, totalStar - totalItem*2);
         InventoryServiceNew.gI().addItemBag(player, rewardItem);
         InventoryServiceNew.gI().sendItemBags(player);
         reOpenItemCombine(player);
