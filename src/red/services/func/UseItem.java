@@ -903,6 +903,9 @@ public class UseItem {
                 InventoryServiceNew.gI().sendItemBags(pl);
                 Service.gI().sendThongBao(pl, "|1|Bạn nhận được cái nịt");
             }
+            InventoryServiceNew.gI().subQuantityItemsBag(pl, item, 1);
+            InventoryServiceNew.gI().sendItemBags(pl);
+            Service.getInstance().sendMoney(pl);
         } else {
             Service.gI().sendThongBao(pl, "Hàng trang đã đầy");
         }
