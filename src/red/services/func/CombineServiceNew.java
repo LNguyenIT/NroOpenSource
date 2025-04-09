@@ -3056,7 +3056,7 @@ public class CombineServiceNew {
 
             for (Item.ItemOption io : item.itemOptions) {
                 if (io.optionTemplate.id == 107) {
-                    totalStar = io.param; // chỉ lấy param của 1 item có option 107
+                    totalStar += io.param; // chỉ lấy param của 1 item có option 107
                 } else if (io.optionTemplate.id == 205) {
                     hasOption205 = true;
                 }
@@ -3074,7 +3074,8 @@ public class CombineServiceNew {
         }
 
         Service.gI().sendThongBao(player, "|5|Bạn nhận được 1 mớ vàng");
-
+        System.out.println("Số lượng sao là "+totalStar);
+        System.out.println("Đầu vào là "+totalItem);
         listItem.forEach(item -> InventoryServiceNew.gI().removeItemBag(player, item));
         sendEffectSuccessCombine(player);
         Service.gI().sendMoney(player);
