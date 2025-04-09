@@ -3133,7 +3133,7 @@ public class BossesData {
                         ConstPlayer.XAYDA,
                         new short[] { 403, 404, 405, -1, -1, -1 },
                         90000,
-                        new int[] { 150 },
+                        new int[] { 200 },
                         new int[] { 42, 43, 44, 0, 1, 2, 3, 4, 5, 7, 8, 9, 11, 12, 13, 14, 15, 16, 17, 18, 20 },
                         new int[][] {
                                         { Skill.LIEN_HOAN, 7, 300 },
@@ -3148,7 +3148,7 @@ public class BossesData {
                         }, // text chat 2
                         new String[] { "|-1|Yametekudasai",
                         }, // text chat 3
-                        REST_1_M);
+                        REST_10_M);
         /// vo dai hat mit
         // giang ho
         public static final BossData DRACULA = new BossData(
