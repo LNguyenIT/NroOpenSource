@@ -611,7 +611,7 @@ public class Mob {
                     InventoryServiceNew.gI().sendItemBags(player);
                 }
             }
-            
+            // đồ tương lai
             if ((!player.isPet ) && (this.zone.map.mapId >= 92 && this.zone.map.mapId < 104)) {
                 if (Util.isTrue(10, 200)) {
                     Item linhThu = ItemService.gI().createNewItem((short) 533);
@@ -620,6 +620,7 @@ public class Mob {
                     InventoryServiceNew.gI().sendItemBags(player);
                 }
             }
+            // đồ coler
             if ((this.zone.map.mapId > 104 && this.zone.map.mapId < 111 || this.zone.map.mapId == 159)) {
                 if (Util.isTrue(1, 40000)) {
                     int[] itemDos = new int[]{
@@ -653,7 +654,15 @@ public class Mob {
                             Util.ratiDTL(zone, itemDos[randomc12], 1, this.location.x, this.location.y, player.id));
                 }
             }
-
+            // phần quà 
+            if ((!player.isPet ) && (this.zone.map.mapId >= 92 && this.zone.map.mapId < 111)) {
+                if (Util.isTrue(1, 200)) {
+                    Item linhThu = ItemService.gI().createNewItem((short) 1345);
+                    Service.getInstance().sendThongBao(player, "Bạn vừa nhận được  " + linhThu.template.name);
+                    InventoryServiceNew.gI().addItemBag(player, linhThu);
+                    InventoryServiceNew.gI().sendItemBags(player);
+                }
+            }
             itemReward = this.getItemMobReward(player, this.location.x + Util.nextInt(-10, 10),
                     this.zone.map.yPhysicInTop(this.location.x, this.location.y));
             if (itemTask != null) {
