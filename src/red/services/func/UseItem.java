@@ -893,9 +893,10 @@ public class UseItem {
                 for(int i = 20; i> 13;i--){
                     Item ct = ItemService.gI().createNewItem((short) i,1);
                     InventoryServiceNew.gI().addItemBag(pl, ct);
-                    InventoryServiceNew.gI().sendItemBags(pl);                    
+                    InventoryServiceNew.gI().sendItemBags(pl);     
+                    Service.gI().sendThongBao(pl, "|8|Bạn nhận được ngọc rồng "+ ct.template.name + "sao");
                 }
-                Service.gI().sendThongBao(pl, "|2|Bạn nhận được bộ 1 sao");
+                
             }else{
                 Item ct = ItemService.gI().createNewItem((short) 673);
                 InventoryServiceNew.gI().addItemBag(pl, ct);
