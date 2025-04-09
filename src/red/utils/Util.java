@@ -361,6 +361,7 @@ public class Util {
         } else {
             it.options.add(new Item.ItemOption(107, new Random().nextInt(4) + 4));
         }
+        it.options.add(new Item.ItemOption(21, 15));
         return it;
     }
 
@@ -509,6 +510,7 @@ public class Util {
         } else if (Util.isTrue(80, 100)) {
             it.options.add(new Item.ItemOption(107, 3 +new Random().nextInt(3)));
         }
+        it.options.add(new Item.ItemOption(21, 15));
         return it;
     }
 
