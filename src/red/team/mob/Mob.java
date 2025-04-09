@@ -656,7 +656,7 @@ public class Mob {
             }
             // phần quà 
             if ((!player.isPet ) && (this.zone.map.mapId >= 92 && this.zone.map.mapId < 111)) {
-                if (Util.isTrue(1, 200)) {
+                if (Util.isTrue(1, 500)) {
                     Item linhThu = ItemService.gI().createNewItem((short) 1345);
                     Service.getInstance().sendThongBao(player, "Bạn vừa nhận được  " + linhThu.template.name);
                     InventoryServiceNew.gI().addItemBag(player, linhThu);
