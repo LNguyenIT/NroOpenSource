@@ -3074,8 +3074,8 @@ public class CombineServiceNew {
         }
 
         Service.gI().sendThongBao(player, "|5|Bạn nhận được 1 mớ vàng");
-        System.out.println("Số lượng sao là "+totalStar);
-        System.out.println("Đầu vào là "+totalItem);
+//        System.out.println("Số lượng sao là "+totalStar);
+//        System.out.println("Đầu vào là "+totalItem);
         listItem.forEach(item -> InventoryServiceNew.gI().removeItemBag(player, item));
         sendEffectSuccessCombine(player);
         Service.gI().sendMoney(player);
