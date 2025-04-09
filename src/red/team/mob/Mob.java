@@ -541,10 +541,10 @@ public class Mob {
                             Util.docui(zone, Manager.docui[randomG], 1, this.location.x + 2, this.location.y, player.id));
             }
             //Rơi ngọc
-            if (Util.isTrue(25, 100)) {
+            if (Util.isTrue(40, 100)) {
                 byte random = 2;
                 if (Util.isTrue(5, 100)) {
-                    random = 3;
+                    random = 5;
                 }
                 Item i = Manager.RUBY_REWARDS.get(Util.nextInt(0, Manager.RUBY_REWARDS.size() - 1));
                 i.quantity = random;
