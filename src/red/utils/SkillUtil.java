@@ -61,7 +61,7 @@ public class SkillUtil {
     }
 
     public static int getTimeMonkey(int level) { //thời gian tồn tại khỉ v
-        return (level + 5) * 10000;
+        return (level + 23) * 10000;
     }
 
     public static int getPercentHpMonkey(int level) { //tỉ lệ máu khỉ cộng thêm v
@@ -69,7 +69,7 @@ public class SkillUtil {
     }
     
     public static int getPercentDameMonkey(int level) { //tỉ lệ dam khỉ cộng thêm v
-        return (level + 3);
+        return (level + 23);
     }
 
     public static int getTimeStun(int level) { //thời gian choáng thái dương hạ san v
