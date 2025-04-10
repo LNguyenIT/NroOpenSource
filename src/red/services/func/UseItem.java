@@ -880,13 +880,13 @@ public class UseItem {
                 InventoryServiceNew.gI().sendItemBags(pl);
                 Service.gI().sendThongBao(pl, "|1|Bạn nhận được hồng ngọc");
             }else if(Util.isTrue(20, 100)){
-                Item hn = ItemService.gI().createNewItem((short) 457 ,Util.nextInt(10));
+                Item hn = ItemService.gI().createNewItem((short) 457 ,Util.nextInt(5));
                 InventoryServiceNew.gI().addItemBag(pl, hn);
                 InventoryServiceNew.gI().sendItemBags(pl);
                 Service.gI().sendThongBao(pl, "|1|Bạn nhận được thỏi vèng");
             }else if(Util.isTrue(20, 100)){
-                if(Util.isTrue(80, 100)){
-                    Item ct = ItemService.gI().createNewItem((short) Util.nextInt(18,20),999);
+                if(Util.isTrue(99, 100)){
+                    Item ct = ItemService.gI().createNewItem((short) Util.nextInt(19,20),999);
                     InventoryServiceNew.gI().addItemBag(pl, ct);
                     InventoryServiceNew.gI().sendItemBags(pl);
                 }else{
@@ -902,8 +902,8 @@ public class UseItem {
                     InventoryServiceNew.gI().sendItemBags(pl);     
                     Service.gI().sendThongBao(pl, "|8|Bạn nhận được ngọc rồng "+ ct.template.name + "sao");
                 }               
-            }else if(Util.isTrue(20, 100)){
-                Item hn = ItemService.gI().createNewItem((short) 457 ,Util.nextInt(10)+5);
+            }else if(Util.isTrue(5, 100)){
+                Item hn = ItemService.gI().createNewItem((short) 457 ,Util.nextInt(5)+5);
                 InventoryServiceNew.gI().addItemBag(pl, hn);
                 InventoryServiceNew.gI().sendItemBags(pl);
                 Service.gI().sendThongBao(pl, "|1|Bạn nhận được thỏi vèng");
@@ -969,7 +969,7 @@ public class UseItem {
                 InventoryServiceNew.gI().sendItemBags(pl);
                 Service.gI().sendThongBao(pl, "|8|Bạn nhận được cánh");
             }
-            else if (Util.isTrue(25, 100)) {
+            else if (Util.isTrue(1, 100)) {
                 for(int i = 20; i> 13; i--){
                     Item ct = ItemService.gI().createNewItem((short) i,15);
                     InventoryServiceNew.gI().addItemBag(pl, ct);
@@ -1260,11 +1260,11 @@ public class UseItem {
         if (InventoryServiceNew.gI().getCountEmptyBag(pl) > 0) {
             short[] temp = {381, 382, 383, 384};
             int[][] gold = {{1, 2, 3}};
-            byte index = (byte) Util.nextInt(0, temp.length - 1);
+            byte index = (byte) Util.nextInt(0, temp.length);
 //            short[] icon = new short[2];
 
             int tv = Util.nextInt(1, 4);
-            int itemc2 = new Random().nextInt(Manager.itc2.length - 1);
+            int itemc2 = new Random().nextInt(Manager.itc2.length);
             if (Util.isTrue(15, 1000)) {
                 Item it = ItemService.gI().createNewItem((short) (457), tv);
                 InventoryServiceNew.gI().addItemBag(pl, it);
