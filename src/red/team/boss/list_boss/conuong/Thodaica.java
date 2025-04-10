@@ -52,7 +52,7 @@ public class Thodaica extends Boss {
                     Util.ratiItem(zone, 472, 1, this.location.x + 10 * i, this.location.y, plKill.id));
 
         }
-        if (Util.isTrue(100, 100)) {
+        if (Util.isTrue(50, 100)) {
             Item item = ItemService.gI().createNewItem((short) 463);
 
             item.itemOptions.add(new Item.ItemOption(49, -500));
@@ -62,7 +62,8 @@ public class Thodaica extends Boss {
             
             InventoryServiceNew.gI().addItemBag(plKill, item);
             Service.gI().sendThongBao(plKill, "bạn vừa nhặt được gì đó!");
-            
+        }
+        if (Util.isTrue(50, 100)) {
             Item item1 = ItemService.gI().createNewItem((short) 1346);
             InventoryServiceNew.gI().addItemBag(plKill, item1);
             Service.gI().sendThongBao(plKill, "Bạn nhận được hộp quà!");
