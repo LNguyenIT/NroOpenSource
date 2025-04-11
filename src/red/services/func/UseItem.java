@@ -875,7 +875,7 @@ public class UseItem {
     private void openQuaThuong(Player pl, Item item) {
         if (InventoryServiceNew.gI().getCountEmptyBag(pl) > 0) {
             if(Util.isTrue(40, 100)){
-                Item hn = ItemService.gI().createNewItem((short) 861 ,Util.nextInt(50));
+                Item hn = ItemService.gI().createNewItem((short) 861 ,Util.nextInt(100));
                 InventoryServiceNew.gI().addItemBag(pl, hn);
                 InventoryServiceNew.gI().sendItemBags(pl);
                 Service.gI().sendThongBao(pl, "|1|Bạn nhận được hồng ngọc");
@@ -976,6 +976,11 @@ public class UseItem {
                     InventoryServiceNew.gI().sendItemBags(pl);
                     Service.gI().sendThongBao(pl, "|8|Bạn nhận được ngọc rồng "+ ct.template.name + "sao");
                 }              
+            }else if(Util.isTrue(40, 100)){
+                Item hn = ItemService.gI().createNewItem((short) 861 ,Util.nextInt(200));
+                InventoryServiceNew.gI().addItemBag(pl, hn);
+                InventoryServiceNew.gI().sendItemBags(pl);
+                Service.gI().sendThongBao(pl, "|1|Bạn nhận được hồng ngọc");
             }else if (Util.isTrue(40, 100)) {            
                
                 Item ct = ItemService.gI().createNewItem((short) 673);
@@ -1265,7 +1270,7 @@ public class UseItem {
 
             int tv = Util.nextInt(1, 4);
             int itemc2 = new Random().nextInt(Manager.itc2.length);
-            if (Util.isTrue(15, 1000)) {
+            if (Util.isTrue(9, 1000)) {
                 Item it = ItemService.gI().createNewItem((short) (457), tv);
                 InventoryServiceNew.gI().addItemBag(pl, it);
 
