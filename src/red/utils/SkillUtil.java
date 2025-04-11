@@ -49,7 +49,11 @@ public class SkillUtil {
     }
 
     public static boolean isUseSkillDam(Player player) {
-        int skillId = player.playerSkill.skillSelect.template.id;
+//        int skillId = player.playerSkill.skillSelect.template.id;
+//        return (skillId == Skill.DRAGON || skillId == Skill.DEMON
+//                || skillId == Skill.GALICK || skillId == Skill.KAIOKEN
+//                || skillId == Skill.LIEN_HOAN);
+int skillId = player.playerSkill.skillSelect.template.id;
         return (skillId == Skill.DRAGON || skillId == Skill.DEMON
                 || skillId == Skill.GALICK || skillId == Skill.KAIOKEN
                 || skillId == Skill.LIEN_HOAN);
@@ -65,7 +69,7 @@ public class SkillUtil {
     }
 
     public static int getPercentHpMonkey(int level) { //tỉ lệ máu khỉ cộng thêm v
-        return (level + 3) * 10;
+        return (level + 13) * 10;
     }
     
     public static int getPercentDameMonkey(int level) { //tỉ lệ dam khỉ cộng thêm v
