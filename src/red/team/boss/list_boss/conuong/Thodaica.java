@@ -33,9 +33,10 @@ public class Thodaica extends Boss {
             if (Util.isTrue(1, 3)) {
                 Service.gI().dropItemMap(this.zone,
                         Util.ratiItem(zone, 457, 1, this.location.x + 2, this.location.y, plKill.id));
-            }
+            }if (Util.isTrue(1, 5)) {
             Service.gI().dropItemMap(this.zone,
                     Util.ratiItem(zone, itemDos[randomDo], 1, this.location.x, this.location.y, plKill.id));
+            }
         } else {
             // Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 1179, 1,
             // this.location.x, this.location.y, plKill.id));
@@ -55,8 +56,9 @@ public class Thodaica extends Boss {
         if (Util.isTrue(50, 100)) {
             Item item = ItemService.gI().createNewItem((short) 463);
 
-            item.itemOptions.add(new Item.ItemOption(49, -500));
-            item.itemOptions.add(new Item.ItemOption(77, 200));           
+            item.itemOptions.add(new Item.ItemOption(49, 0));
+            item.itemOptions.add(new Item.ItemOption(77, 100));   
+            item.itemOptions.add(new Item.ItemOption(80, 200));
             item.itemOptions.add(new Item.ItemOption(116, 1));
             item.itemOptions.add(new Item.ItemOption(211, 0));
             
