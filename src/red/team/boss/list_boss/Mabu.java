@@ -47,7 +47,7 @@ public class Mabu extends Boss {
                             { Skill.KAMEJOKO, 7, 100 },
                             { Skill.TAI_TAO_NANG_LUONG, 5, 15000 } },
                     new String[] {}, // text chat 1
-                    new String[] { "|-1|serizawa.store" }, // text chat 2
+                    new String[] { "Tao sẽ đè chết mày" }, // text chat 2
                     new String[] { "|-1|Lần khác ta sẽ xử đẹp ngươi" }, // text chat 3
                     60);
 

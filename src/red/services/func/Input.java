@@ -738,7 +738,8 @@ public class Input {
         createForm(pl, SEND_ITEM_OP, "SEND Vật Phẩm Option",
                 new SubInput("Tên người chơi", ANY),
                 new SubInput("ID Trang Bị", NUMERIC),
-                new SubInput("String OptioniParamvOption2iParam2", NUMERIC),
+                new SubInput("String Option", NUMERIC),
+                new SubInput("Param", NUMERIC),
                 new SubInput("Số lượng", NUMERIC));
     }
 

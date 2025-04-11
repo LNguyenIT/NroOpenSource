@@ -765,6 +765,7 @@ public class Controller implements IMessageHandler {
 
     public void sendInfo(MySession session) {
         Player player = session.player;
+       
 
         // -82 set tile map
         DataGame.sendTileSetInfo(session);

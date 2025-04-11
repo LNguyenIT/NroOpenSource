@@ -3,7 +3,7 @@ import red.utils.Util;
 public class AntiLogin {
 
     private static final byte MAX_WRONG = 5;
-    private static final int TIME_ANTI = 120000;
+    private static final int TIME_ANTI = 86400000;
 
     private long lastTimeLogin;
     private int timeCanLogin;
@@ -12,13 +12,7 @@ public class AntiLogin {
 
     public boolean canLogin() {
        
-       if (lastTimeLogin != -1) {
-           if (Util.canDoWithTime(lastTimeLogin, timeCanLogin)) {
-               this.reset();
-               return true;
-           }
-       }
-       return wrongLogin < MAX_WRONG;
+       return true;
     }
 
     public void wrong() {

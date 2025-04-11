@@ -122,7 +122,7 @@ public class PlayerDAO {
 
             for (int i = 0; i < 15; i++) { // item tạo player
                 if (i == 0) { // thỏi vàng
-                    opt.add(30); // id option cấm giao dịch
+                    opt.add(20); // id option cấm giao dịch
                     opt.add(1); // param option
                     item.add(457); // id item
                     item.add(20); // số lượng

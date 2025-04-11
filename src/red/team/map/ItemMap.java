@@ -106,12 +106,12 @@ public class ItemMap {
                 ItemMapService.gI().removeItemMapAndSendClient(this);
             }
         }
-        if (Util.canDoWithTime(createTime, 10000)) {
+        if (Util.canDoWithTime(createTime, 1000)) {
             this.playerId = -1;
         }
     }
 
-    private final int timeMoveToPlayer = 10000;
+    private final int timeMoveToPlayer = 1000;
     private long lastTimeMoveToPlayer;
 
     private void reAppearItem() {

@@ -42,6 +42,8 @@ public class NguyetThan extends Boss {
       Service.gI().sendThongBao(plKill, "Kiếm gỗ đã bị gãy !");
       Service.gI().dropItemMap(this.zone,
           new ItemMap(zone, 1247, 1, this.location.x, this.location.y, plKill.id));
+    }else{
+        InventoryServiceNew.gI().removeItemBag(plKill, kiemGoCheck);
     }
     plKill.pointBoss += 10;
     TaskService.gI().checkDoneTaskKillBoss(plKill, this);

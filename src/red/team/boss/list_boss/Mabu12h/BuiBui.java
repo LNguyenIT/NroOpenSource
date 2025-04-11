@@ -37,15 +37,13 @@ public class BuiBui extends Boss {
                 Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, Manager.itemIds_TL[randomDo], 1, this.location.x, this.location.y, plKill.id));
             }
         } else if (Util.isTrue(5, 20)) {
-            Service.gI().dropItemMap(this.zone, Util.RaitiDoc12(zone, itemDos[randomc12], 1, this.location.x, this.location.y, plKill.id));
-            
+            Service.gI().dropItemMap(this.zone, Util.RaitiDoc12(zone, itemDos[randomc12], 1, this.location.x, this.location.y, plKill.id));          
         } else {
             Service.gI().dropItemMap(this.zone,
                     new ItemMap(zone, (int) 16, 1, this.location.x, this.location.y, plKill.id));
         }
         plKill.pointBoss += 0;
         plKill.fightMabu.changePoint(10);
-
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
     }
 

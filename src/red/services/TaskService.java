@@ -338,16 +338,16 @@ public class TaskService {
                 // doneTask(player, ConstTask.TASK_28_3);
                 // Service.gI().sendFlagBag(player);
                 // break;
-                case 992: // em bé
+                case 992: // NHẪN
                     doneTask(player, ConstTask.TASK_31_0);
                     break;
-                case 865: // em bé
+                case 865: // kiếm Z
                     doneTask(player, ConstTask.TASK_31_1);
                     break;
-                case 874: // em bé
+                case 874: // rùa con
                     doneTask(player, ConstTask.TASK_31_2);
                     break;
-                case 725: // em bé
+                case 725: // siêu thần thuỷ
                     doneTask(player, ConstTask.TASK_31_3);
                     break;
                 case 1443:

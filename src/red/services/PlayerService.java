@@ -9,7 +9,7 @@ import red.utils.Logger;
 import red.utils.Util;
 
 
-public class PlayerService {
+public class PlayerService{
 
     private static PlayerService i;
 
@@ -321,5 +321,4 @@ public class PlayerService {
             }
         }
     }
-
 }

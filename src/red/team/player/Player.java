@@ -818,7 +818,7 @@ public class Player {
             }
 
             if (Util.isTrue(this.nPoint.tlNeDon, 100)) {
-                Service.gI().chat(this, "Xí hụt, tỉ lệ né của ta là " + this.nPoint.tlNeDon);
+                Service.gI().chat(this, "Ôi con gà ");
                 return 0;
 
             }

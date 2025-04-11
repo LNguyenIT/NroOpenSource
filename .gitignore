@@ -1,0 +1,14 @@
+# Ignore IntelliJ IDEA project files
+.idea/
+
+# Ignore build and output directories
+/out/
+build/
+target/
+
+# Ignore NetBeans specific files
+nbproject/private/
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db

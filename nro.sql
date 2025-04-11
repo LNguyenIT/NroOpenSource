@@ -913,6 +913,7 @@ CREATE TABLE `giftcode`  (
 -- Records of giftcode
 -- ----------------------------
 INSERT INTO `giftcode` (`id`, `code`, `count_left`, `detail`, `datecreate`, `expired`, `itemoption`, `listIdPlayers`) VALUES
+(5, 'test', 999, '[{\"id\":1233,\"quantity\":1}]', '2025-01-09 04:07:43', '2025-05-15 10:00:00', '[{\"id\":30,\"param\":0}]', '[546,547,549,550,554]'),
 (1, 'nro', 999, '[{\"id\":16,\"quantity\":21},{\"id\":15,\"quantity\":1}{\"id\":14,\"quantity\":1}]', '2025-01-08 19:42:49', '2025-05-17 10:00:00', '[{\"id\":30,\"param\":0}]', '[546,548,549,550,551,553,554]'),
 (2, 'item', 999, '[{\"id\":1099,\"quantity\":10},{\"id\":1099,\"quantity\":10},{\"id\":1100,\"quantity\":10},{\"id\":1101,\"quantity\":10}]', '2025-01-08 06:46:11', '2025-05-15 10:00:00', '[{\"id\":30,\"param\":0}]', '[546,547,548,549,550,551,553,554]'),
 (3, 'cuong1', 999, '[{\"id\":457,\"quantity\":50},{\"id\":462,\"quantity\":15},{\"id\":861,\"quantity\":100000},{\"id\":16,\"quantity\":20}]', '2025-01-08 19:49:14', '2025-05-15 10:00:00', '[{\"id\":30,\"param\":0}]', '[546,548,549,551,552,553]'),
@@ -5154,7 +5155,7 @@ INSERT INTO `item_template` VALUES (1201, 29, 3, 'Đá ngục tù tím', 'Trong 
 INSERT INTO `item_template` VALUES (1202, 29, 3, 'Đá ngục tù xanh', 'Trong 10 phút tăng 10% sức đánh chí mạng cho đệ tử và sư phụ', 11275, -1, 1, 0, 0, 0, -1, -1, -1);
 INSERT INTO `item_template` VALUES (1203, 29, 3, 'Đá ngục tù đỏ', 'Trong 10 phút tăng 10% tỉ lệ chí mạng cho đệ tử và sư phụ', 11274, -1, 1, 0, 0, 0, -1, -1, -1);
 INSERT INTO `item_template` VALUES (1204, 5, 3, 'Cải trang Đường tăng', 'Đủ 3 cái trang thỉnh kinh: Tăng 50%smtn', 4521, -1, 0, 0, 0, 0, 467, 468, 469);
-INSERT INTO `item_template` VALUES (1205, 5, 2, 'Cải trang Ngộ Không', 'Đủ 3 cái trang thỉnh kinh: Tăng 50%smtn', 4468, -1, 0, 0, 0, 0, 462, 463, 464);
+INSERT INTO `item_template` VALUES (1205, 3, 3, 'Cải trang Ngộ Không', 'Đủ 3 cái trang thỉnh kinh: Tăng 50%smtn', 4468, -1, 0, 0, 0, 0, 462, 463, 464);
 INSERT INTO `item_template` VALUES (1206, 5, 1, 'Cải trang Bát Giới', 'Đủ 3 cái trang thỉnh kinh: Tăng 50%smtn', 4498, -1, 0, 0, 0, 0, 465, 466, 464);
 INSERT INTO `item_template` VALUES (1207, 21, 3, 'Voi 9 Ngà', 'Pet sự kiện giỗ tổ', 22973, 0, 0, 0, 0, 0, 1252, 1253, 1254);
 INSERT INTO `item_template` VALUES (1208, 21, 3, 'Gà 9 Cựa', 'Pet sự kiện giỗ tổ', 22974, 0, 0, 0, 0, 0, 1246, 1247, 1248);
