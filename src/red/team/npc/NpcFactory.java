@@ -1596,6 +1596,7 @@ public class NpcFactory {
                                 "Đổi mật khẩu", "Nhận Quà Tân Thủ", "Nhận Ngọc", "Hướng dẫn", "Hướng dẫn tân thủ",
                                 "Gíp Cốt", "Tặng bánh hộp bánh trung thu");
                     }
+                    
                 }
             }
 
@@ -7263,28 +7264,83 @@ public class NpcFactory {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
             @Override
             public void openBaseMenu(Player player) {
+
                 if (canOpenNpc(player)) {
-                    createOtherMenu(player, ConstNpc.BASE_MENU,
-                            "Muốn phê kẹo à?",
-                            "Xem shop", "Đóng");
+                    this.createOtherMenu(player, ConstNpc.BASE_MENU, "Ông già noel lấy carot thì\n kệ tao à ý kiến thì ăn ban",
+                            "Đổi quà BỊP Vip?",
+                            "Đổi quà BỊP",
+                            "Đổi cái nịt vip",
+                            "Đóng");
                 }
             }
 
             @Override
             public void confirmMenu(Player player, int select) {
+                if (canOpenNpc(player)) {
+                    if (this.mapId == 5) {
+                        if (player.iDMark.isBaseMenu()) {
+                            switch (select) {
+                                case 0: // shop
+                                    Item carrot = InventoryServiceNew.gI().findItemBag(player, 462);
+                                    if (carrot.quantity >= 99) {
+                                        if (Util.isTrue(9, 10)) {
+                                            Item item1 = ItemService.gI().createNewItem((short) 1346);
+                                            InventoryServiceNew.gI().addItemBag(player, item1);
+                                            Service.gI().sendThongBao(player, "Bạn nhận được hộp quà!");
+                                        } else {
+                                            Service.gI().sendThongBao(player, "eBi xin nhé hahaha");
+                                        }
+                                        InventoryServiceNew.gI().subQuantityItemsBag(player, carrot, 99);
+                                    }
+                                    break;
+                                case 1: // shop
+                                    Item carrot1 = InventoryServiceNew.gI().findItemBag(player, 462);
+                                    if (carrot1.quantity >= 99) {
+                                        if (Util.isTrue(9, 10)) {
+                                            for (int i = 0; i < 5; i++) {
+                                                Item item2 = ItemService.gI().createNewItem((short) 1345);
+                                                InventoryServiceNew.gI().addItemBag(player, item2);
+                                            }
+                                            InventoryServiceNew.gI().addItemBag(player, carrot1);
+                                            Service.gI().sendThongBao(player, "Bạn nhận được hộp quà!");
+                                        } else {
+                                            Service.gI().sendThongBao(player, "eBi xin nhé hahaha");
+                                        }
+                                        InventoryServiceNew.gI().subQuantityItemsBag(player, carrot1, 99);
+                                    }
+                                    Service.gI().sendThongBao(player, "Bạn nhận được hộp quà!");
+                                    break;
+                                case 2: // shop
+                                    Item cainit = InventoryServiceNew.gI().findItemBag(player, 673);
+                                    if (cainit.quantity >= 99) {
+                                        if (Util.isTrue(9, 10)) {
+                                            Item chanmenhFake = ItemService.gI().createNewItem((short) 1345);
+                                            chanmenhFake.itemOptions.add(new ItemOption(50, 5));
+                                            chanmenhFake.itemOptions.add(new ItemOption(77, 5));
+                                            chanmenhFake.itemOptions.add(new ItemOption(103, 5));
+                                            chanmenhFake.itemOptions.add(new ItemOption(5, 5 + 1));
+                                            chanmenhFake.itemOptions.add(new ItemOption(14, 5 + 1));
+                                            chanmenhFake.itemOptions.add(new ItemOption(101, 5));
+                                            chanmenhFake.itemOptions.add(new ItemOption(98, 5));
+                                            InventoryServiceNew.gI().addItemBag(player, chanmenhFake);
+                                            InventoryServiceNew.gI().sendItemBags(player);
+                                            Service.gI().sendThongBao(player,
+                                                    "Bạn đã nhận được cái nịt vip nhất mọi thời đại");
+                                            InventoryServiceNew.gI().addItemBag(player, cainit);
+                                        } else {
+                                            Service.gI().sendThongBao(player, "Mày đã bị bịp");
+                                        }
+                                        InventoryServiceNew.gI().subQuantityItemsBag(player, cainit, 99);
+                                    }
+                                    break;
+                                case 3:
+                                    break;
 
-                switch (player.iDMark.getIndexMenu()) {
-                    case ConstNpc.BASE_MENU:
-                        if (select == 0) {
-                            ShopServiceNew.gI().opendShop(player, "NOEL", true);
-                            break;
+                            }
                         }
-                        if (select == 1) {
-                            break;
-                        }
+                    }
                 }
             }
-
         };
     }
 
