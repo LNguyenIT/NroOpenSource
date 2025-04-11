@@ -7277,7 +7277,7 @@ public class NpcFactory {
             @Override
             public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
-                    if (this.mapId == 5) {
+                    if (this.mapId == 14) {
                         if (player.iDMark.isBaseMenu()) {
                             switch (select) {
                                 case 0: // shop
@@ -7291,6 +7291,8 @@ public class NpcFactory {
                                             Service.gI().sendThongBao(player, "eBi xin nhé hahaha");
                                         }
                                         InventoryServiceNew.gI().subQuantityItemsBag(player, carrot, 99);
+                                    }else{
+                                        Service.gI().sendThongBao(player, "Có đủ đâu mà đổi cút");
                                     }
                                     break;
                                 case 1: // shop
@@ -7307,8 +7309,11 @@ public class NpcFactory {
                                             Service.gI().sendThongBao(player, "eBi xin nhé hahaha");
                                         }
                                         InventoryServiceNew.gI().subQuantityItemsBag(player, carrot1, 99);
+                                        Service.gI().sendThongBao(player, "Bạn nhận được hộp quà!");
+                                    }else{
+                                        Service.gI().sendThongBao(player, "Có đủ đâu mà đổi cút");
                                     }
-                                    Service.gI().sendThongBao(player, "Bạn nhận được hộp quà!");
+                                    
                                     break;
                                 case 2: // shop
                                     Item cainit = InventoryServiceNew.gI().findItemBag(player, 673);
@@ -7331,6 +7336,8 @@ public class NpcFactory {
                                             Service.gI().sendThongBao(player, "Mày đã bị bịp");
                                         }
                                         InventoryServiceNew.gI().subQuantityItemsBag(player, cainit, 99);
+                                    }else{
+                                        Service.gI().sendThongBao(player, "Có đủ đâu mà đổi cút");
                                     }
                                     break;
                                 case 3:
