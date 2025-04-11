@@ -717,7 +717,7 @@ public class SummonDragon {
                         }
                         break;
                     case 2: // chí mạng +2%
-                        if (this.playerSummonShenron.nPoint.critg < 15) {
+                        if (this.playerSummonShenron.nPoint.critg < 12) {
                             this.playerSummonShenron.nPoint.critg += 2;
                             break;
                         } else {
@@ -727,7 +727,7 @@ public class SummonDragon {
                             if (ct.isNotNullItem()) {
                                 for (Item.ItemOption io : ct.itemOptions) {
                                     if (io.optionTemplate.id == 5) {                                      
-                                        if (io.param < 50) {                                   
+                                        if (io.param < 20) {                                   
                                             tldamecrit = io.param;
                                         } else {
                                             Service.gI().sendThongBao(playerSummonShenron, "Linh thú bạn đã quá mạnh");
@@ -780,7 +780,7 @@ public class SummonDragon {
                 switch (this.select) {
                     case 0: // đẹp trai nhất vũ trụ
                         if(Util.isTrue(1, 200)){
-                            Item item = ItemService.gI().createNewItem((short) 1252, 1);
+                            Item item = ItemService.gI().createNewItem((short) 673, 1);
                             item.itemOptions.add(new ItemOption(50, 5 ));
                             item.itemOptions.add(new ItemOption(77, 5 ));
                             item.itemOptions.add(new ItemOption(103, 5 ));
