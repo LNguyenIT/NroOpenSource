@@ -2316,9 +2316,11 @@ public class NpcFactory {
             public void openBaseMenu(Player player) {
 
                 if (canOpenNpc(player)) {
-                    createOtherMenu(player, ConstNpc.BASE_MENU,
-                            "Sàn đầu tư nhị phân hót nhất thị trường\nRủi ro cực thấp\nLợi nhuận cực cao\nTỉ lệ thành công lên đến 50%",
-                            "Tài", "Xỉu");
+                    this.createOtherMenu(player, ConstNpc.BASE_MENU, "Trả tao carot và mày sẽ có quà",
+                            "Đổi quà BỊP Vip?",
+                            "Đổi quà BỊP",
+                            "Đổi cái nịt vip",
+                            "Đóng");
                 }
             }
 
@@ -2326,16 +2328,62 @@ public class NpcFactory {
             public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 5) {
-                        // Service.gI().sendThongBao(player, "Tệ nạn? ");
-                        if (!player.getSession().actived) {
-                            Service.gI().sendThongBao(player, "Vui lòng kích hoạt tài khoản để sử dụng chức năng này");
-                        } else if (player.iDMark.isBaseMenu()) {
+                        if (player.iDMark.isBaseMenu()) {
                             switch (select) {
-                                case 0:
-                                    Input.gI().TAI(player);
+                                case 0: // shop
+                                    Item carrot = InventoryServiceNew.gI().findItemBag(player, 462);
+                                    if (carrot.quantity >= 99) {
+                                        if (Util.isTrue(9, 10)) {
+                                            Item item1 = ItemService.gI().createNewItem((short) 1346);
+                                            InventoryServiceNew.gI().addItemBag(player, item1);
+                                            Service.gI().sendThongBao(player, "Bạn nhận được hộp quà!");
+                                        } else {
+                                            Service.gI().sendThongBao(player, "eBi xin nhé hahaha");
+                                        }
+                                        InventoryServiceNew.gI().subQuantityItemsBag(player, carrot, 99);
+                                    }
                                     break;
-                                case 1:
-                                    Input.gI().XIU(player);
+                                case 1: // shop
+                                    Item carrot1 = InventoryServiceNew.gI().findItemBag(player, 462);
+                                    if (carrot1.quantity >= 99) {
+                                        if (Util.isTrue(9, 10)) {
+                                            for (int i = 0; i < 5; i++) {
+                                                Item item2 = ItemService.gI().createNewItem((short) 1345);
+                                                InventoryServiceNew.gI().addItemBag(player, item2);
+                                            }
+                                            InventoryServiceNew.gI().addItemBag(player, carrot1);
+                                            Service.gI().sendThongBao(player, "Bạn nhận được hộp quà!");
+                                        } else {
+                                            Service.gI().sendThongBao(player, "eBi xin nhé hahaha");
+                                        }
+                                        InventoryServiceNew.gI().subQuantityItemsBag(player, carrot1, 99);
+                                    }
+                                    Service.gI().sendThongBao(player, "Bạn nhận được hộp quà!");
+                                    break;
+                                case 2: // shop
+                                    Item cainit = InventoryServiceNew.gI().findItemBag(player, 673);
+                                    if (cainit.quantity >= 99) {
+                                        if (Util.isTrue(9, 10)) {
+                                            Item chanmenhFake = ItemService.gI().createNewItem((short) 1345);
+                                            chanmenhFake.itemOptions.add(new ItemOption(50, 5));
+                                            chanmenhFake.itemOptions.add(new ItemOption(77, 5));
+                                            chanmenhFake.itemOptions.add(new ItemOption(103, 5));
+                                            chanmenhFake.itemOptions.add(new ItemOption(5, 5 + 1));
+                                            chanmenhFake.itemOptions.add(new ItemOption(14, 5 + 1));
+                                            chanmenhFake.itemOptions.add(new ItemOption(101, 5));
+                                            chanmenhFake.itemOptions.add(new ItemOption(98, 5));
+                                            InventoryServiceNew.gI().addItemBag(player, chanmenhFake);
+                                            InventoryServiceNew.gI().sendItemBags(player);
+                                            Service.gI().sendThongBao(player,
+                                                    "Bạn đã nhận được cái nịt vip nhất mọi thời đại");
+                                            InventoryServiceNew.gI().addItemBag(player, cainit);
+                                        } else {
+                                            Service.gI().sendThongBao(player, "Mày đã bị bịp");
+                                        }
+                                        InventoryServiceNew.gI().subQuantityItemsBag(player, cainit, 99);
+                                    }
+                                    break;
+                                case 3:
                                     break;
 
                             }
@@ -3267,7 +3315,7 @@ public class NpcFactory {
                     if (this.mapId == 45) {
                         this.createOtherMenu(player, ConstNpc.BASE_MENU,
                                 "Con Đã Mạnh Hơn ta,Ta Sẽ Chỉ Đường Cho Con Đến Kaio\nĐể Gặp Thần Vũ Trụ Phương Bắc\nNgài Là Thần Cai Quản Vũ Trụ Này,Hãy Theo Ngài Ấy Học Võ Công",
-                                 "Đăng Ký\nTập\nTự Động", "Tập Luyện\nVới\nMr.PôPô", "Tập Luyện\nVới\nThượng Đế",
+                                "Đăng Ký\nTập\nTự Động", "Tập Luyện\nVới\nMr.PôPô", "Tập Luyện\nVới\nThượng Đế",
                                 "Đến Kaio", "Quay số\nmay mắn");
                     }
                     if (this.mapId == 49) {
