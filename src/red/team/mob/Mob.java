@@ -221,10 +221,10 @@ public class Mob {
         }
         if(pl.isPet){
             if(((Pet) pl).master.itemTime.isCand4){
-                tiemNang *= 1.2; 
+                tiemNang *= 1.1; 
             }
             if(((Pet) pl).master.itemTime.isBuaDTv2){
-                tiemNang *= 1.5; 
+                tiemNang *= 1.2; 
             }
         }
         return tiemNang;
