@@ -715,7 +715,7 @@ public class Service {
                 return;
             } else if (text.startsWith("i")) {
                 int itemId = Integer.parseInt(text.replace("i", ""));
-                Item item = ItemService.gI().createNewItem(((short) itemId));
+                Item item = ItemService.gI().createNewItem(((short) itemId),100);
                 ItemShop it = new Shop().getItemShop(itemId);
                 if (it != null && !it.options.isEmpty()) {
                     item.itemOptions.addAll(it.options);
