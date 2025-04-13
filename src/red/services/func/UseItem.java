@@ -976,7 +976,7 @@ public class UseItem {
                     InventoryServiceNew.gI().sendItemBags(pl);
                     Service.gI().sendThongBao(pl, "|8|Bạn nhận được ngọc rồng "+ ct.template.name + "sao");
                 }              
-            }else if (Util.isTrue(20, 100)) {      
+            }else if (Util.isTrue(5, 100)) {      
                     Item ct = ItemService.gI().createNewItem((short) 1131);
                     InventoryServiceNew.gI().addItemBag(pl, ct);
                     InventoryServiceNew.gI().sendItemBags(pl);
