@@ -93,8 +93,8 @@ public class BossesData {
                         new int[][] {
                                         { Skill.MA_PHONG_BA, 7, 300 },
                                         { Skill.ANTOMIC, 7, 1000 }, 
-                                        { Skill.HUYT_SAO, 1, 1000 }, 
-                                        { Skill.BIEN_KHI, 7, 1000 }, 
+                                        { Skill.HUYT_SAO, 1, 50000 }, 
+                                        { Skill.BIEN_KHI, 7, 100000 }, 
                         }, // skill //skill
                         new String[] {}, // text chat 1
                         new String[] { "|-1|Chết hết đi cho tao",
@@ -119,8 +119,8 @@ public class BossesData {
                         new int[][] {
                                         { Skill.MA_PHONG_BA, 7, 300 },
                                         { Skill.ANTOMIC, 7, 1000 }, 
-                                        { Skill.HUYT_SAO, 1, 1000 }, 
-                                        { Skill.BIEN_KHI, 6, 1000 },  }, // skill //skill
+                                        { Skill.HUYT_SAO, 1, 100000 }, 
+                                        { Skill.BIEN_KHI, 6, 100000 },  }, // skill //skill
                         new String[] {}, // text chat 1
                         new String[] { "|-1|Hahaha",
                                         "|-1|Ngạc nhiên thật, đúng là mày đã tiến bộ rất nhanh..",
@@ -148,7 +148,7 @@ public class BossesData {
                                         { Skill.MASENKO, 7, 1000 },
                                         { Skill.THOI_MIEN, 7, 100000 },
                                         { Skill.ANTOMIC, 7, 1000 }, 
-                                        { Skill.HUYT_SAO, 1, 1000 }, 
+                                        { Skill.HUYT_SAO, 1, 100000 }, 
 //                                        { Skill.BIEN_KHI, 7, 1000 }, 
                         }, // skill
                         new String[] {}, // text chat 1
@@ -177,7 +177,7 @@ public class BossesData {
                                         { Skill.MASENKO, 7, 1000 },
                                         { Skill.THOI_MIEN, 7, 100000 },
                                         { Skill.ANTOMIC, 7, 1000 }, 
-                                        { Skill.HUYT_SAO, 1, 1000 }, 
+                                        { Skill.HUYT_SAO, 1, 100000 }, 
 //                                        { Skill.BIEN_KHI, 7, 1000 }, 
                         }, // skill
                         new String[] {}, // text chat 1
@@ -271,7 +271,7 @@ public class BossesData {
         // **************************************************************************
         // Boss Fide đại ca
         public static final BossData FIDE_DAI_CA_1 = new BossData(
-                        "Fide đại ca 1", // name
+                        "Pongggggg đại ca", // name
                         ConstPlayer.XAYDA, // gender
                         new short[] { 183, 184, 185, -1, -1, -1 }, // outfit {head, body, leg, bag, aura, eff}
                         90000, // dame
@@ -3082,7 +3082,7 @@ public class BossesData {
                                         { Skill.KAMEJOKO, 7, 500 },
 
                                         { Skill.THAI_DUONG_HA_SAN, 7, 24000 },
-                                        { Skill.KHIEN_NANG_LUONG, 7, 60000 },{ Skill.BIEN_KHI, 6, 20010 },
+                                        { Skill.KHIEN_NANG_LUONG, 7, 60000 },{ Skill.BIEN_KHI, 6, 100010 },
                         },
                         new String[] {}, // text chat 1
                         new String[] { "|-1|Hế lô mấy cưng!",
@@ -3103,7 +3103,7 @@ public class BossesData {
                                         { Skill.KAMEJOKO, 7, 500 },
 
                                         { Skill.THAI_DUONG_HA_SAN, 7, 24000 },
-                                        { Skill.KHIEN_NANG_LUONG, 7, 60000 },{ Skill.BIEN_KHI, 6, 20010 },
+                                        { Skill.KHIEN_NANG_LUONG, 7, 60000 },{ Skill.BIEN_KHI, 6, 200010 },
 
                         },
                         new String[] {}, // text chat 1
@@ -3126,7 +3126,7 @@ public class BossesData {
                                         { Skill.KAMEJOKO, 7, 500 },
 
                                         { Skill.THAI_DUONG_HA_SAN, 7, 24000 },
-                                        { Skill.KHIEN_NANG_LUONG, 7, 60000 },{ Skill.BIEN_KHI, 6, 20010 },
+                                        { Skill.KHIEN_NANG_LUONG, 7, 60000 },{ Skill.BIEN_KHI, 6, 200010 },
                         },
                         new String[] {}, // text chat 1
                         new String[] { "|-1|Hế lô mấy cưng!",
@@ -3148,7 +3148,7 @@ public class BossesData {
                                         { Skill.KAMEJOKO, 7, 500 },
 
                                         { Skill.THAI_DUONG_HA_SAN, 7, 24000 },
-                                        { Skill.KHIEN_NANG_LUONG, 7, 60000 },{ Skill.BIEN_KHI, 6, 20010 },
+                                        { Skill.KHIEN_NANG_LUONG, 7, 60000 },{ Skill.BIEN_KHI, 6, 200010 },
                         },
                         new String[] {}, // text chat 1
                         new String[] { "|-1|Hế lô mấy cưng!",
@@ -3169,7 +3169,7 @@ public class BossesData {
                                         { Skill.KAMEJOKO, 7, 500 },
 
                                         { Skill.THAI_DUONG_HA_SAN, 7, 24000 },
-                                        { Skill.KHIEN_NANG_LUONG, 7, 60000 },{ Skill.BIEN_KHI, 6, 20010 },
+                                        { Skill.KHIEN_NANG_LUONG, 7, 60000 },{ Skill.BIEN_KHI, 6, 200010 },
                         },
                         new String[] {}, // text chat 1
                         new String[] { "|-1|Hế lô mấy cưng!",
