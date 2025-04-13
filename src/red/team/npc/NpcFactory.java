@@ -7282,11 +7282,15 @@ public class NpcFactory {
                             switch (select) {
                                 case 0: // shop
                                     Item carrot = InventoryServiceNew.gI().findItemBag(player, 462);
+                                    if(carrot == null){
+                                        Service.gI().sendThongBao(player, "Có gì mà đòi đổi, cút dùm");
+                                        return;
+                                    }
                                     if (carrot.quantity >= 99) {
                                         if (Util.isTrue(9, 10)) {
                                             Item item1 = ItemService.gI().createNewItem((short) 1346);
                                             InventoryServiceNew.gI().addItemBag(player, item1);
-                                            Service.gI().sendThongBao(player, "Bạn nhận được hộp quà!");
+                                            Service.gI().sendThongBao(player, "Bạn nhận được hộp quà!");                                         
                                         } else {
                                             Service.gI().sendThongBao(player, "eBi xin nhé hahaha");
                                         }
@@ -7297,17 +7301,21 @@ public class NpcFactory {
                                     break;
                                 case 1: // shop
                                     Item carrot1 = InventoryServiceNew.gI().findItemBag(player, 462);
+                                    if(carrot1  == null){
+                                        Service.gI().sendThongBao(player, "Có gì mà đòi đổi, cút dùm");
+                                        return;
+                                    }
                                     if (carrot1.quantity >= 99) {
                                         if (Util.isTrue(9, 10)) {
                                             for (int i = 0; i < 5; i++) {
                                                 Item item2 = ItemService.gI().createNewItem((short) 1345);
                                                 InventoryServiceNew.gI().addItemBag(player, item2);
                                             }
-                                            InventoryServiceNew.gI().addItemBag(player, carrot1);
                                             Service.gI().sendThongBao(player, "Bạn nhận được hộp quà!");
+                                            
                                         } else {
                                             Service.gI().sendThongBao(player, "eBi xin nhé hahaha");
-                                        }
+                                        }                                       
                                         InventoryServiceNew.gI().subQuantityItemsBag(player, carrot1, 99);
                                         Service.gI().sendThongBao(player, "Bạn nhận được hộp quà!");
                                     }else{
@@ -7317,9 +7325,13 @@ public class NpcFactory {
                                     break;
                                 case 2: // shop
                                     Item cainit = InventoryServiceNew.gI().findItemBag(player, 673);
+                                    if(cainit == null){
+                                        Service.gI().sendThongBao(player, "Có gì mà đòi đổi, cút dùm");
+                                        return;
+                                    }
                                     if (cainit.quantity >= 99) {
                                         if (Util.isTrue(9, 10)) {
-                                            Item chanmenhFake = ItemService.gI().createNewItem((short) 1345);
+                                            Item chanmenhFake = ItemService.gI().createNewItem((short) 673);
                                             chanmenhFake.itemOptions.add(new ItemOption(50, 5));
                                             chanmenhFake.itemOptions.add(new ItemOption(77, 5));
                                             chanmenhFake.itemOptions.add(new ItemOption(103, 5));
@@ -7331,7 +7343,6 @@ public class NpcFactory {
                                             InventoryServiceNew.gI().sendItemBags(player);
                                             Service.gI().sendThongBao(player,
                                                     "Bạn đã nhận được cái nịt vip nhất mọi thời đại");
-                                            InventoryServiceNew.gI().addItemBag(player, cainit);
                                         } else {
                                             Service.gI().sendThongBao(player, "Mày đã bị bịp");
                                         }
