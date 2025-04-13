@@ -356,10 +356,10 @@ public class Util {
             it.options.add(new Item.ItemOption(14, new Random().nextInt(3) + 10));//10-12cm
         }
         it.options.add(new Item.ItemOption(209, 1));//đồ rơi từ boss
-        if (Util.isTrue(80, 100)) {
-            it.options.add(new Item.ItemOption(107, new Random().nextInt(3) +3));
+        if (Util.isTrue(90, 100)) {
+            it.options.add(new Item.ItemOption(107, new Random().nextInt(3) ));
         } else {
-            it.options.add(new Item.ItemOption(107, new Random().nextInt(4) + 4));
+            it.options.add(new Item.ItemOption(107, new Random().nextInt(4) + 2));
         }
         it.options.add(new Item.ItemOption(21, 15));
         return it;
@@ -466,7 +466,7 @@ public class Util {
         if(Util.isTrue(1, 100)){
             it.options.add(new Item.ItemOption(107, 7));
         }else if (Util.isTrue(60, 100)) {
-            it.options.add(new Item.ItemOption(107, new Random().nextInt(3) + 4));
+            it.options.add(new Item.ItemOption(107, new Random().nextInt(5) ));
         }
         it.options.add(new Item.ItemOption(209, 1));
         it.options.add(new Item.ItemOption(21, 15));
@@ -506,7 +506,7 @@ public class Util {
         it.options.add(new Item.ItemOption(205, 1));
 //        it.options.add(new Item.ItemOption(21, 0));
         if (Util.isTrue(90, 100)) {// tỉ lệ ra spl
-            it.options.add(new Item.ItemOption(107, new Random().nextInt(3) + 2));
+            it.options.add(new Item.ItemOption(107, new Random().nextInt(5)));
         } else if (Util.isTrue(80, 100)) {
             it.options.add(new Item.ItemOption(107, 3 +new Random().nextInt(3)));
         }
