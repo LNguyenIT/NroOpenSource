@@ -535,7 +535,7 @@ public class Mob {
         List<ItemMap> itemReward = new ArrayList<>();
         try {
             //Rơi đồ sao
-            if (Util.isTrue(1, 1000)) {
+            if (Util.isTrue(1, 2000)) {
                 int randomG = new Random().nextInt(docui.length);
                                     Service.gI().dropItemMap(this.zone,
                             Util.docui(zone, Manager.docui[randomG], 1, this.location.x + 2, this.location.y, player.id));
@@ -552,17 +552,17 @@ public class Mob {
                 InventoryServiceNew.gI().sendItemBags(player);
             }
             //Rơi nro
-            if (Util.isTrue(5, 100)) {
+            if (Util.isTrue(5, 150)) {
                     Item linhThu = ItemService.gI().createNewItem((byte) 20);
                     Service.getInstance().sendThongBao(player, "bạn vừa nhận được " + linhThu.template.name);
                     InventoryServiceNew.gI().addItemBag(player, linhThu);
                     InventoryServiceNew.gI().sendItemBags(player);                 
-            }else if (Util.isTrue(4, 100)) {
+            }else if (Util.isTrue(4, 150)) {
                     Item linhThu = ItemService.gI().createNewItem((byte) 19);
                     Service.getInstance().sendThongBao(player, "bạn vừa nhận được " + linhThu.template.name);
                     InventoryServiceNew.gI().addItemBag(player, linhThu);
                     InventoryServiceNew.gI().sendItemBags(player);                 
-            } else if (Util.isTrue(3, 100)) {
+            } else if (Util.isTrue(3, 150)) {
                     Item linhThu = ItemService.gI().createNewItem((byte) 18);
                     Service.getInstance().sendThongBao(player, "bạn vừa nhận được " + linhThu.template.name);
                     InventoryServiceNew.gI().addItemBag(player, linhThu);
@@ -626,7 +626,7 @@ public class Mob {
                             Util.ratiDTL(zone, itemDos[randomc12], 1, this.location.x, this.location.y, player.id));
                 } else if (Util.isTrue(1, 60000)) {
                     int[] itemDos = new int[]{
-                        562, 564, 566, 561
+                        562, 564, 566
                     };
                     int randomc12 = new Random().nextInt(itemDos.length);
                     Service.gI().dropItemMap(this.zone,
