@@ -25,10 +25,11 @@ public class Adminthan extends Boss {
                             this.location.y - 24),
                     -1);
             Service.gI().dropItemMap(this.zone, it);
-        }
-        ItemMap it = new ItemMap(this.zone, 2121, 1, this.location.x, this.zone.map.yPhysicInTop(this.location.x,
+        }if(plKill.pet.typePet > 2  &&  Util.isTrue(25, 100)){
+             ItemMap it = new ItemMap(this.zone, 2121, 1, this.location.x, this.zone.map.yPhysicInTop(this.location.x,
                 this.location.y - 24), plKill.id);
-        Service.gI().dropItemMap(this.zone, it);
+            Service.gI().dropItemMap(this.zone, it);
+        }     
         if (Util.isTrue(10, 100)) {
             Service.gI().dropItemMap(this.zone,
                     Util.ratiItem(zone, 2000 + plKill.gender, 10, this.location.x, this.location.y, -1));
