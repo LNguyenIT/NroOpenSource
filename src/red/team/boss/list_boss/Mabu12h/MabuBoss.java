@@ -49,10 +49,13 @@ public class MabuBoss extends Boss {
             Service.getInstance().sendThongBao(plKill,
                     "   Mày vừa nhận được đệ tử! Hãy chăm sóc nó nhé");
         } else {
-            if (Util.isTrue(3, 10)) {
+            if (Util.isTrue(25, 100)) {
                 Service.gI().dropItemMap(this.zone,
                         Util.ratiItem(zone, 568, 1, this.location.x, this.location.y, plKill.id));
+                Service.getInstance().sendThongBao(plKill,
+                    "   Vừa nhặt trứng đấy nhé");
             }
+            
         }
 
         plKill.pointBoss += 0;
