@@ -1029,55 +1029,38 @@ public class UseItem {
                     quatop2_1.itemOptions.add(new Item.ItemOption(77, 35));
                     quatop2_1.itemOptions.add(new Item.ItemOption(103, 35));
                     quatop2_1.itemOptions.add(new Item.ItemOption(14, 10));
-                    quatop2_1.itemOptions.add(new Item.ItemOption(5, 30));
-                    quatop2_1.itemOptions.add(new Item.ItemOption(117, Util.nextInt(40, 40)));
+                    quatop2_1.itemOptions.add(new Item.ItemOption(5, 20));
                     quatop2_1.itemOptions.add(new Item.ItemOption(200, 1));
                     quatop2_1.itemOptions.add(new Item.ItemOption(21, 50));
                     InventoryServiceNew.gI().addItemBag(pl, quatop2_1);
 
                     Item quatop2_2 = ItemService.gI().createNewItem((short) 1149);
-                    quatop2_2.itemOptions.add(new Item.ItemOption(77, 15));
-                    quatop2_2.itemOptions.add(new Item.ItemOption(103, 15));
-                    quatop2_2.itemOptions.add(new Item.ItemOption(147,15));
-                    quatop2_2.itemOptions.add(new Item.ItemOption(14, 15));
-                    quatop2_2.itemOptions.add(new Item.ItemOption(5,  15));
+                    quatop2_2.itemOptions.add(new Item.ItemOption(77, 9));
+                    quatop2_2.itemOptions.add(new Item.ItemOption(103, 9));
+                    quatop2_2.itemOptions.add(new Item.ItemOption(147,9));
                     InventoryServiceNew.gI().addItemBag(pl, quatop2_2);
                     
-                    Item item1 = ItemService.gI().createNewItem((short) 1252, 1);
-                            item1.itemOptions.add(new ItemOption(50, 5 ));
-                            item1.itemOptions.add(new ItemOption(77, 5 ));
-                            item1.itemOptions.add(new ItemOption(103, 5 ));
-                            item1.itemOptions.add(new ItemOption(5, 5 + 1));
-                            item1.itemOptions.add(new ItemOption(14, 5 + 1));
-                            item1.itemOptions.add(new ItemOption(101, 5 ));
-                            item1.itemOptions.add(new ItemOption(98, 5 ));
-                            item1.itemOptions.add(new ItemOption(21, 80 ));
-                            InventoryServiceNew.gI().addItemBag(pl, item1);
-                            InventoryServiceNew.gI().sendItemBags(pl);
-                            Service.gI().sendThongBao(pl,
-                    "Bạn đã nhận được " + item.template.name);
-                            Service.gI().sendThongBaoAllPlayer("Chân mệnh"+ pl + " đã hiện thế");
+                    Item quatop2_3 = ItemService.gI().createNewItem((short) 1346,30);
+                    InventoryServiceNew.gI().addItemBag(pl, quatop2_3);
                     break;
                 case 1324:
-                    Item quatop1_1 = ItemService.gI().createNewItem((short) 1205);
-                    quatop1_1.itemOptions.add(new Item.ItemOption(49, 50));
-                    quatop1_1.itemOptions.add(new Item.ItemOption(77, 50));
-                    quatop1_1.itemOptions.add(new Item.ItemOption(103, 50));
-                    quatop1_1.itemOptions.add(new Item.ItemOption(14, 10));
-                    quatop1_1.itemOptions.add(new Item.ItemOption(5, 25));
-                    quatop1_1.itemOptions.add(new Item.ItemOption(117, 50));
-                    quatop1_1.itemOptions.add(new Item.ItemOption(101, 50));
+                    Item quatop1_1 = ItemService.gI().createNewItem((short) 742);
+                    quatop1_1.itemOptions.add(new Item.ItemOption(49, 1));
+                    quatop1_1.itemOptions.add(new Item.ItemOption(77, 1));
+                    quatop1_1.itemOptions.add(new Item.ItemOption(103, 1));
+                    quatop1_1.itemOptions.add(new Item.ItemOption(5, 90));
                     quatop1_1.itemOptions.add(new Item.ItemOption(200, 1));
                     quatop1_1.itemOptions.add(new Item.ItemOption(21, 50));
                     InventoryServiceNew.gI().addItemBag(pl, quatop1_1);
 
                     Item quatop1_2 = ItemService.gI().createNewItem((short) 1145);
-                    quatop1_2.itemOptions.add(new Item.ItemOption(77, 21));
-                    quatop1_2.itemOptions.add(new Item.ItemOption(103, 21));
-                    quatop1_2.itemOptions.add(new Item.ItemOption(147,21));
-                    quatop1_2.itemOptions.add(new Item.ItemOption(14, 15));
-                    quatop1_2.itemOptions.add(new Item.ItemOption(5,  15));
-                    InventoryServiceNew.gI().addItemBag(pl, quatop1_2);
+                    quatop1_2.itemOptions.add(new Item.ItemOption(77, 11));
+                    quatop1_2.itemOptions.add(new Item.ItemOption(103, 11));
+                    quatop1_2.itemOptions.add(new Item.ItemOption(147,11));          
+                    InventoryServiceNew.gI().addItemBag(pl, quatop1_2);         
+                    
+                    Item quatop1_3 = ItemService.gI().createNewItem((short) 1346,49);
+                    InventoryServiceNew.gI().addItemBag(pl, quatop1_3);
                     break;
             }
             Service.gI().sendThongBao(pl, "Bạn vừa sử dụng quà top !");
