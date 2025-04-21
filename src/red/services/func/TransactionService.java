@@ -173,17 +173,17 @@ public class TransactionService implements Runnable {
 
     @Override
     public void run() {
-//        while (true) {
-//            try {
-//                long st = System.currentTimeMillis();
-//                Set<Map.Entry<Player, Trade>> entrySet = PLAYER_TRADE.entrySet();
-//                for (Map.Entry entry : entrySet) {
-//                    ((Trade) entry.getValue()).update();
-//                }
-//                Thread.sleep(300 - (System.currentTimeMillis() - st));
-//            } catch (Exception e) {
-//            }
-//        }
+        while (true) {
+            try {
+                long st = System.currentTimeMillis();
+                Set<Map.Entry<Player, Trade>> entrySet = PLAYER_TRADE.entrySet();
+                for (Map.Entry entry : entrySet) {
+                    ((Trade) entry.getValue()).update();
+                }
+                Thread.sleep(300 - (System.currentTimeMillis() - st));
+            } catch (Exception e) {
+            }
+        }
     }
 }
 
