@@ -875,7 +875,7 @@ public class UseItem {
     private void openQuaThuong(Player pl, Item item) {
         if (InventoryServiceNew.gI().getCountEmptyBag(pl) > 0) {
             if(Util.isTrue(40, 100)){
-                Item hn = ItemService.gI().createNewItem((short) 861 ,Util.nextInt(100));
+                Item hn = ItemService.gI().createNewItem((short) 861 ,Util.nextInt(80)+20);
                 InventoryServiceNew.gI().addItemBag(pl, hn);
                 InventoryServiceNew.gI().sendItemBags(pl);
                 Service.gI().sendThongBao(pl, "|1|Bạn nhận được hồng ngọc");
@@ -895,13 +895,18 @@ public class UseItem {
                     InventoryServiceNew.gI().sendItemBags(pl);
                 }               
                 Service.gI().sendThongBao(pl, "|2|Bạn nhận được 1 lô ngọc rồng");
-            }else if(Util.isTrue(1, 100)){
+            }else if(Util.isTrue(1, 200)){
                 for(int i = 20; i> 13;i--){
                     Item ct = ItemService.gI().createNewItem((short) i,1);
                     InventoryServiceNew.gI().addItemBag(pl, ct);
                     InventoryServiceNew.gI().sendItemBags(pl);     
                     Service.gI().sendThongBao(pl, "|8|Bạn nhận được ngọc rồng "+ ct.template.name + "sao");
-                }               
+                }     
+            }else if(Util.isTrue(1, 1000)){
+                    Item ct = ItemService.gI().createNewItem((short) 2139,1);
+                    InventoryServiceNew.gI().addItemBag(pl, ct);
+                    InventoryServiceNew.gI().sendItemBags(pl);     
+                    Service.gI().sendThongBao(pl, "|8|Bạn nhận được cái gì đó siêu vip ");     
             }else if(Util.isTrue(5, 100)){
                 Item hn = ItemService.gI().createNewItem((short) 457 ,Util.nextInt(5)+5);
                 InventoryServiceNew.gI().addItemBag(pl, hn);
@@ -925,7 +930,7 @@ public class UseItem {
         if (InventoryServiceNew.gI().getCountEmptyBag(pl) > 0) {
             pl.pointSukien++;
             //
-            if (Util.isTrue(5, 100)) {
+            if (Util.isTrue(1, 100)) {
                 short linhthu = 1362;
                 Item ct = ItemService.gI().createNewItem((short) (linhthu  + Util.nextInt(26)));
                 
@@ -933,12 +938,12 @@ public class UseItem {
                     ct.itemOptions.add(new ItemOption(49, Util.nextInt(26)));
                     ct.itemOptions.add(new ItemOption(103, Util.nextInt(26)));
                     ct.itemOptions.add(new ItemOption(77, Util.nextInt(26)));
-                    ct.itemOptions.add(new ItemOption(14, Util.nextInt(12)));   
+                    ct.itemOptions.add(new ItemOption(14, Util.nextInt(7)));   
                 }else{
                     ct.itemOptions.add(new ItemOption(49, Util.nextInt(15)));
                     ct.itemOptions.add(new ItemOption(103, Util.nextInt(15)));
                     ct.itemOptions.add(new ItemOption(77, Util.nextInt(15)));
-                    ct.itemOptions.add(new ItemOption(14, Util.nextInt(5)));   
+                    ct.itemOptions.add(new ItemOption(14, Util.nextInt(3)));   
                 }
                            
      
@@ -971,8 +976,8 @@ public class UseItem {
                     ct.itemOptions.add(new ItemOption(49, Util.nextInt(26)));
                     ct.itemOptions.add(new ItemOption(103, Util.nextInt(26)));
                     ct.itemOptions.add(new ItemOption(77, Util.nextInt(26)));
-                    ct.itemOptions.add(new ItemOption(14, Util.nextInt(12))); 
-                    ct.itemOptions.add(new ItemOption(5, Util.nextInt(12)));  
+                    ct.itemOptions.add(new ItemOption(14, Util.nextInt(7))); 
+                    ct.itemOptions.add(new ItemOption(5, Util.nextInt(10)));  
                 }else{
                     ct.itemOptions.add(new ItemOption(49, Util.nextInt(15)));
                     ct.itemOptions.add(new ItemOption(103, Util.nextInt(15)));
@@ -984,7 +989,13 @@ public class UseItem {
                 InventoryServiceNew.gI().sendItemBags(pl);
                 Service.gI().sendThongBao(pl, "|8|Bạn nhận được cánh");
             }
-            else if (Util.isTrue(1, 100)) {
+            else if(Util.isTrue(1, 1000)){
+                    Item ct = ItemService.gI().createNewItem((short) 2139,1);
+                    InventoryServiceNew.gI().addItemBag(pl, ct);
+                    InventoryServiceNew.gI().sendItemBags(pl);     
+                    Service.gI().sendThongBao(pl, "|8|Bạn nhận được cái gì đó siêu vip ");     
+            }
+            else if (Util.isTrue(2, 100)) {
                 for(int i = 20; i> 13; i--){
                     Item ct = ItemService.gI().createNewItem((short) i,5);
                     InventoryServiceNew.gI().addItemBag(pl, ct);
@@ -997,7 +1008,7 @@ public class UseItem {
                     InventoryServiceNew.gI().sendItemBags(pl);
                     Service.gI().sendThongBao(pl, "|8|Bạn nhận được vé đổi skill");           
             }else if(Util.isTrue(40, 100)){
-                Item hn = ItemService.gI().createNewItem((short) 861 ,Util.nextInt(200)+100);
+                Item hn = ItemService.gI().createNewItem((short) 861 ,Util.nextInt(200)+200);
                 InventoryServiceNew.gI().addItemBag(pl, hn);
                 InventoryServiceNew.gI().sendItemBags(pl);
                 Service.gI().sendThongBao(pl, "|1|Bạn nhận được hồng ngọc");
