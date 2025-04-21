@@ -617,14 +617,14 @@ public class Mob {
             }
             // đồ coler
             if ((this.zone.map.mapId > 104 && this.zone.map.mapId < 111 || this.zone.map.mapId == 159)) {
-                if (Util.isTrue(1, 40000)) {
+                if (Util.isTrue(1, 60000)) {
                     int[] itemDos = new int[]{
                         556, 558, 560, 557, 559, 555, 563, 565, 567
                     };
                     int randomc12 = new Random().nextInt(itemDos.length);
                     Service.gI().dropItemMap(this.zone,
                             Util.ratiDTL(zone, itemDos[randomc12], 1, this.location.x, this.location.y, player.id));
-                } else if (Util.isTrue(1, 60000)) {
+                } else if (Util.isTrue(1, 80000)) {
                     int[] itemDos = new int[]{
                         562, 564, 566
                     };
@@ -651,7 +651,7 @@ public class Mob {
             }
             // phần quà 
             if ((!player.isPet ) && (this.zone.map.mapId >= 92 && this.zone.map.mapId < 111)) {
-                if (Util.isTrue(1, 500)) {
+                if (Util.isTrue(1, 400)) {
                     Item linhThu = ItemService.gI().createNewItem((short) 1345);
                     Service.getInstance().sendThongBao(player, "Bạn vừa nhận được  " + linhThu.template.name);
                     InventoryServiceNew.gI().addItemBag(player, linhThu);
