@@ -1596,7 +1596,7 @@ public class NpcFactory {
                                 "Đổi mật khẩu", "Nhận Quà Tân Thủ", "Nhận Ngọc", "Hướng dẫn", "Hướng dẫn tân thủ",
                                 "Gíp Cốt", "Tặng bánh hộp bánh trung thu");
                     }
-                    
+
                 }
             }
 
@@ -2432,7 +2432,10 @@ public class NpcFactory {
                         this.createOtherMenu(player, ConstNpc.BASE_MENU,
                                 "Ngươi tìm ta có việc gì?",
                                 "Về đảo\nrùa");
-
+                    } else if (this.mapId == 84) {
+                        this.createOtherMenu(player, ConstNpc.BASE_MENU,
+                                "Đổi SPL?",
+                                "đóng");
                     } else {
 
                         this.createOtherMenu(player, ConstNpc.BASE_MENU,
@@ -2502,60 +2505,101 @@ public class NpcFactory {
                                     CombineServiceNew.gI().startCombine(player);
                                     break;
                             }
-                        }
-                    } else if (this.mapId == 42 || this.mapId == 43 || this.mapId == 44 || this.mapId == 84) {
-                        if (player.iDMark.isBaseMenu()) {
-                            switch (select) {
-                                case 0: //shop bùa
-                                    createOtherMenu(player, ConstNpc.MENU_OPTION_SHOP_BUA,
-                                            "Bùa của ta rất lợi hại, nhìn ngươi yếu đuối thế này, chắc muốn mua bùa để "
-                                            + "mạnh mẽ à, mua không ta bán cho, xài rồi lại thích cho mà xem.",
-                                            "Bùa\n1 giờ", "Bùa\n8 giờ", "Bùa\n1 tháng", "Đóng");
-                                    break;
-                                case 1:
-                                    CombineServiceNew.gI().openTabCombine(player, CombineServiceNew.NANG_CAP_VAT_PHAM);
-                                    break;
-                                case 2:
-                                    CombineServiceNew.gI().openTabCombine(player, CombineServiceNew.NANG_CAP_BONG_TAI);
-                                    break;
-                                case 3:
-                                    CombineServiceNew.gI().openTabCombine(player, CombineServiceNew.MO_CHI_SO_BONG_TAI);
-                                    break;
-                                case 4:
-                                    CombineServiceNew.gI().openTabCombine(player, CombineServiceNew.NHAP_NGOC_RONG);
-                                    break;
-                                case 5:
-                                    CombineServiceNew.gI().openTabCombine(player, CombineServiceNew.NANG_CAP_DO_TS);
-                                    break;
-
-                            }
-                        } else if (player.iDMark.getIndexMenu() == ConstNpc.MENU_OPTION_SHOP_BUA) {
-                            switch (select) {
-                                case 0:
-                                    ShopServiceNew.gI().opendShop(player, "BUA_1H", true);
-                                    break;
-                                case 1:
-                                    ShopServiceNew.gI().opendShop(player, "BUA_8H", true);
-                                    break;
-                                case 2:
-                                    ShopServiceNew.gI().opendShop(player, "BUA_1M", true);
-                                    break;
-                            }
-                        } else if (player.iDMark.getIndexMenu() == ConstNpc.MENU_START_COMBINE) {
-                            switch (player.combineNew.typeCombine) {
-                                case CombineServiceNew.NANG_CAP_VAT_PHAM:
-                                case CombineServiceNew.NANG_CAP_BONG_TAI:
-                                case CombineServiceNew.MO_CHI_SO_BONG_TAI:
-                                case CombineServiceNew.NANG_CAP_BONG_TAI_CAP3:
-                                case CombineServiceNew.MO_CHI_SO_BONG_TAI_CAP3:
-                                case CombineServiceNew.NANG_CAP_BONG_TAI_CAP4:
-                                case CombineServiceNew.MO_CHI_SO_BONG_TAI_CAP4:
-                                case CombineServiceNew.NHAP_NGOC_RONG:
-                                case CombineServiceNew.NANG_CAP_DO_TS:
-                                    if (select == 0) {
+                        } else if (this.mapId == 84) {
+                            if (player.iDMark.isBaseMenu()) {
+                                switch (select) {
+                                    case 0:
+                                        CombineServiceNew.gI().openTabCombine(player, CombineServiceNew.DOI_SPL);
+                                        break;
+                                    case 1:
+                                        break;
+                                }
+                            } else if (player.iDMark.getIndexMenu() == ConstNpc.MENU_START_COMBINE) {
+                                switch (player.combineNew.typeCombine) {
+                                    case CombineServiceNew.PHAN_RA_DO_HOI_LONG:
+                                    case CombineServiceNew.EP_SAO_TRANG_BI:
+                                    case CombineServiceNew.PHA_LE_HOA_TRANG_BI:
+                                    case CombineServiceNew.CHUYEN_HOA_TRANG_BI:
+                                    case CombineServiceNew.NANG_HUY_DIET_LEN_SKH_VIP:
+                                    case CombineServiceNew.NANG_HUY_DIET_LEN_SKH:
+                                    case CombineServiceNew.NANG_TL_LEN_HUY_DIET:
+                                    case CombineServiceNew.NANG_CAP_CHAN_MENH:
+                                    case CombineServiceNew.DOI_SPL:
+                                        switch (select) {
+                                            case 0:
+                                                if (player.combineNew.typeCombine == CombineServiceNew.PHA_LE_HOA_TRANG_BI) {
+                                                    player.combineNew.quantities = 1;
+                                                }
+                                                break;
+                                            case 1:
+                                                if (player.combineNew.typeCombine == CombineServiceNew.PHA_LE_HOA_TRANG_BI) {
+                                                    player.combineNew.quantities = 10;
+                                                }
+                                                break;
+                                            case 2:
+                                                if (player.combineNew.typeCombine == CombineServiceNew.PHA_LE_HOA_TRANG_BI) {
+                                                    player.combineNew.quantities = 100;
+                                                }
+                                                break;
+                                        }
                                         CombineServiceNew.gI().startCombine(player);
-                                    }
-                                    break;
+                                        break;
+                                }
+                            }
+                        } else if (this.mapId == 42 || this.mapId == 43 || this.mapId == 44) {
+                            if (player.iDMark.isBaseMenu()) {
+                                switch (select) {
+                                    case 0: //shop bùa
+                                        createOtherMenu(player, ConstNpc.MENU_OPTION_SHOP_BUA,
+                                                "Bùa của ta rất lợi hại, nhìn ngươi yếu đuối thế này, chắc muốn mua bùa để "
+                                                + "mạnh mẽ à, mua không ta bán cho, xài rồi lại thích cho mà xem.",
+                                                "Bùa\n1 giờ", "Bùa\n8 giờ", "Bùa\n1 tháng", "Đóng");
+                                        break;
+                                    case 1:
+                                        CombineServiceNew.gI().openTabCombine(player, CombineServiceNew.NANG_CAP_VAT_PHAM);
+                                        break;
+                                    case 2:
+                                        CombineServiceNew.gI().openTabCombine(player, CombineServiceNew.NANG_CAP_BONG_TAI);
+                                        break;
+                                    case 3:
+                                        CombineServiceNew.gI().openTabCombine(player, CombineServiceNew.MO_CHI_SO_BONG_TAI);
+                                        break;
+                                    case 4:
+                                        CombineServiceNew.gI().openTabCombine(player, CombineServiceNew.NHAP_NGOC_RONG);
+                                        break;
+                                    case 5:
+                                        CombineServiceNew.gI().openTabCombine(player, CombineServiceNew.NANG_CAP_DO_TS);
+                                        break;
+
+                                }
+                            } else if (player.iDMark.getIndexMenu() == ConstNpc.MENU_OPTION_SHOP_BUA) {
+                                switch (select) {
+                                    case 0:
+                                        ShopServiceNew.gI().opendShop(player, "BUA_1H", true);
+                                        break;
+                                    case 1:
+                                        ShopServiceNew.gI().opendShop(player, "BUA_8H", true);
+                                        break;
+                                    case 2:
+                                        ShopServiceNew.gI().opendShop(player, "BUA_1M", true);
+                                        break;
+                                }
+                            } else if (player.iDMark.getIndexMenu() == ConstNpc.MENU_START_COMBINE) {
+                                switch (player.combineNew.typeCombine) {
+                                    case CombineServiceNew.NANG_CAP_VAT_PHAM:
+                                    case CombineServiceNew.NANG_CAP_BONG_TAI:
+                                    case CombineServiceNew.MO_CHI_SO_BONG_TAI:
+                                    case CombineServiceNew.NANG_CAP_BONG_TAI_CAP3:
+                                    case CombineServiceNew.MO_CHI_SO_BONG_TAI_CAP3:
+                                    case CombineServiceNew.NANG_CAP_BONG_TAI_CAP4:
+                                    case CombineServiceNew.MO_CHI_SO_BONG_TAI_CAP4:
+                                    case CombineServiceNew.NHAP_NGOC_RONG:
+                                    case CombineServiceNew.NANG_CAP_DO_TS:
+                                        if (select == 0) {
+                                            CombineServiceNew.gI().startCombine(player);
+                                        }
+                                        break;
+                                }
                             }
                         }
                     }
@@ -7269,7 +7313,9 @@ public class NpcFactory {
                     this.createOtherMenu(player, ConstNpc.BASE_MENU, "Ông già noel lấy carot thì\n kệ tao à ý kiến thì ăn ban",
                             "Đổi quà BỊP Vip?",
                             "Đổi quà BỊP",
-                            "Đổi cái nịt vip",
+                            "Mua hộp quà BỊP",
+                            "Mua hộp quà BỊP VIP",
+                            "Đổi spl lấy đá",
                             "Đóng");
                 }
             }
@@ -7282,7 +7328,7 @@ public class NpcFactory {
                             switch (select) {
                                 case 0: // shop
                                     Item carrot = InventoryServiceNew.gI().findItemBag(player, 462);
-                                    if(carrot == null){
+                                    if (carrot == null) {
                                         Service.gI().sendThongBao(player, "Có gì mà đòi đổi, cút dùm");
                                         return;
                                     }
@@ -7290,18 +7336,19 @@ public class NpcFactory {
                                         if (Util.isTrue(9, 10)) {
                                             Item item1 = ItemService.gI().createNewItem((short) 1346);
                                             InventoryServiceNew.gI().addItemBag(player, item1);
-                                            Service.gI().sendThongBao(player, "Bạn nhận được hộp quà!");                                         
+                                            Service.gI().sendThongBao(player, "Bạn nhận được hộp quà!");
                                         } else {
                                             Service.gI().sendThongBao(player, "eBi xin nhé hahaha");
                                         }
                                         InventoryServiceNew.gI().subQuantityItemsBag(player, carrot, 99);
-                                    }else{
+                                        Service.getInstance().sendMoney(player);
+                                    } else {
                                         Service.gI().sendThongBao(player, "Có đủ đâu mà đổi cút");
                                     }
                                     break;
                                 case 1: // shop
                                     Item carrot1 = InventoryServiceNew.gI().findItemBag(player, 462);
-                                    if(carrot1  == null){
+                                    if (carrot1 == null) {
                                         Service.gI().sendThongBao(player, "Có gì mà đòi đổi, cút dùm");
                                         return;
                                     }
@@ -7312,49 +7359,78 @@ public class NpcFactory {
                                                 InventoryServiceNew.gI().addItemBag(player, item2);
                                             }
                                             Service.gI().sendThongBao(player, "Bạn nhận được hộp quà!");
-                                            
+
                                         } else {
                                             Service.gI().sendThongBao(player, "eBi xin nhé hahaha");
-                                        }                                       
+                                        }
                                         InventoryServiceNew.gI().subQuantityItemsBag(player, carrot1, 99);
                                         Service.gI().sendThongBao(player, "Bạn nhận được hộp quà!");
-                                    }else{
+                                        Service.getInstance().sendMoney(player);
+                                    } else {
                                         Service.gI().sendThongBao(player, "Có đủ đâu mà đổi cút");
                                     }
-                                    
+
                                     break;
-                                case 2: // shop
-                                    Item cainit = InventoryServiceNew.gI().findItemBag(player, 673);
-                                    if(cainit == null){
+                                case 2:
+                                    Item tv = InventoryServiceNew.gI().findItemBag(player, 457);
+                                    if (tv == null) {
                                         Service.gI().sendThongBao(player, "Có gì mà đòi đổi, cút dùm");
                                         return;
                                     }
-                                    if (cainit.quantity >= 99) {
-                                        if (Util.isTrue(9, 10)) {
-                                            Item chanmenhFake = ItemService.gI().createNewItem((short) 673);
-                                            chanmenhFake.itemOptions.add(new ItemOption(50, 5));
-                                            chanmenhFake.itemOptions.add(new ItemOption(77, 5));
-                                            chanmenhFake.itemOptions.add(new ItemOption(103, 5));
-                                            chanmenhFake.itemOptions.add(new ItemOption(5, 5 + 1));
-                                            chanmenhFake.itemOptions.add(new ItemOption(14, 5 + 1));
-                                            chanmenhFake.itemOptions.add(new ItemOption(101, 5));
-                                            chanmenhFake.itemOptions.add(new ItemOption(98, 5));
-                                            InventoryServiceNew.gI().addItemBag(player, chanmenhFake);
-                                            InventoryServiceNew.gI().sendItemBags(player);
-                                            Service.gI().sendThongBao(player,
-                                                    "Bạn đã nhận được cái nịt vip nhất mọi thời đại");
-                                        } else {
-                                            Service.gI().sendThongBao(player, "Mày đã bị bịp");
-                                        }
-                                        InventoryServiceNew.gI().subQuantityItemsBag(player, cainit, 99);
-                                    }else{
-                                        Service.gI().sendThongBao(player, "Có đủ đâu mà đổi cút");
+                                    if (tv.quantity >= 50) {
+                                        Item item2 = ItemService.gI().createNewItem((short) 1345, 20);
+                                        InventoryServiceNew.gI().addItemBag(player, item2);
+                                        InventoryServiceNew.gI().subQuantityItemsBag(player, tv, 50);
+                                        Service.gI().sendThongBao(player, "Vừa mua thành công quà VIP");
+                                        Service.getInstance().sendMoney(player);
+                                    } else {
+                                        Service.gI().sendThongBao(player, "Có đủ đâu mà mua, cút dùm");
                                     }
                                     break;
                                 case 3:
+                                    Item tv_1 = InventoryServiceNew.gI().findItemBag(player, 457);
+                                    if (tv_1 == null) {
+                                        Service.gI().sendThongBao(player, "Có gì mà đòi đổi, cút dùm");
+                                        return;
+                                    }
+                                    if (tv_1.quantity >= 50) {
+                                        Item item2 = ItemService.gI().createNewItem((short) 1345, 10);
+                                        InventoryServiceNew.gI().addItemBag(player, item2);
+                                        InventoryServiceNew.gI().subQuantityItemsBag(player, tv_1, 50);
+                                        Service.gI().sendThongBao(player, "Vừa mua thành công quà thường");
+                                        Service.getInstance().sendMoney(player);
+                                    } else {
+                                        Service.gI().sendThongBao(player, "Có đủ đâu mà mua, cút dùm");
+                                    }
                                     break;
-
+                                case 4:
+                                    CombineServiceNew.gI().openTabCombine(player, CombineServiceNew.DOI_SPL);
+                                    break;
                             }
+                        }
+
+                    } else if (player.iDMark.getIndexMenu() == ConstNpc.MENU_START_COMBINE) {
+                        switch (player.combineNew.typeCombine) {
+                            case CombineServiceNew.DOI_SPL:
+                                switch (select) {
+                                    case 0:
+                                        if (player.combineNew.typeCombine == CombineServiceNew.PHA_LE_HOA_TRANG_BI) {
+                                            player.combineNew.quantities = 1;
+                                        }
+                                        break;
+                                    case 1:
+                                        if (player.combineNew.typeCombine == CombineServiceNew.PHA_LE_HOA_TRANG_BI) {
+                                            player.combineNew.quantities = 10;
+                                        }
+                                        break;
+                                    case 2:
+                                        if (player.combineNew.typeCombine == CombineServiceNew.PHA_LE_HOA_TRANG_BI) {
+                                            player.combineNew.quantities = 100;
+                                        }
+                                        break;
+                                }
+                                CombineServiceNew.gI().startCombine(player);
+                                break;
                         }
                     }
                 }
