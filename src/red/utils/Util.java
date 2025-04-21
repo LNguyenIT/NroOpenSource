@@ -36,24 +36,25 @@ public class Util {
     }
 
     public static String md5(String input) {
-       try {
-           MessageDigest md = MessageDigest.getInstance("MD5");
-           byte[] messageDigest = md.digest(input.getBytes());
-           BigInteger no = new BigInteger(1, messageDigest);
-           String hashtext = no.toString(16);
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] messageDigest = md.digest(input.getBytes());
+            BigInteger no = new BigInteger(1, messageDigest);
+            String hashtext = no.toString(16);
             while (hashtext.length() < 32) {
-               hashtext = "0" + hashtext;
+                hashtext = "0" + hashtext;
             }
-           return hashtext;
-       } catch (Exception e) {
-       }
-       return "";
+            return hashtext;
+        } catch (Exception e) {
+        }
+        return "";
     }
 //    private static final Random rand;
     private static final Locale locale = new Locale("vi", "VN");
     private static final NumberFormat num = NumberFormat.getInstance(locale);
+
     /**
-     * 
+     *
      * @param linhThu
      * @param linhThus
      * @return boolean
@@ -67,17 +68,18 @@ public class Util {
         }
         return false; // If not found, return false
     }
+
     public static int createIdBossClone(int idPlayer) {
         return -idPlayer - 100_000_000;
     }
     // public static MySession fakeSession() {
-        
+
     // }
     public static boolean contains(String[] arr, String key) {
         return Arrays.toString(arr).contains(key);
     }
-    
-       public static void setTimeout(Runnable runnable, int delay) {
+
+    public static void setTimeout(Runnable runnable, int delay) {
         new Thread(() -> {
             try {
                 Thread.sleep(delay);
@@ -87,6 +89,7 @@ public class Util {
             }
         }).start();
     }
+
     public static String msToTime(long ms) {
         ms = ms - System.currentTimeMillis();
         if (ms < 0) {
@@ -115,6 +118,7 @@ public class Util {
         }
         return time;
     }
+
     public static String numberToMoney(long power) {
         Locale locale = new Locale("vi", "VN");
         NumberFormat num = NumberFormat.getInstance(locale);
@@ -130,10 +134,11 @@ public class Util {
         }
     }
 
-        public static String getFormatNumber(float hp) {
+    public static String getFormatNumber(float hp) {
         // Telegram: @Tamkjll
         return Util.num.format(hp);
     }
+
     public static String powerToString(long power) {
         Locale locale = new Locale("vi", "VN");
         NumberFormat num = NumberFormat.getInstance(locale);
@@ -148,11 +153,11 @@ public class Util {
             return num.format(power);
         }
     }
-        public static String format(double power) {
+
+    public static String format(double power) {
         return num.format(power);
     }
 
-        
     public static int getDistance(int x1, int y1, int x2, int y2) {
         return (int) Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
     }
@@ -268,7 +273,7 @@ public class Util {
         }
         return sb.toString();
     }
-    
+
     public static String generateRandomText(int len) {
         String chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijk"
                 + "lmnopqrstuvwxyz!@#$%&";
@@ -298,7 +303,7 @@ public class Util {
         return new ItemMap(zone, tempId, quantity, x, y, playerId);
     }
 
-   public static ItemMap ratiDTL(Zone zone, int tempId, int quantity, int x, int y, long playerId) {
+    public static ItemMap ratiDTL(Zone zone, int tempId, int quantity, int x, int y, long playerId) {
         ItemMap it = new ItemMap(zone, tempId, quantity, x, zone.map.yPhysicInTop(x, y - 24), playerId);
         List<Integer> ao = Arrays.asList(555, 557, 559);
         List<Integer> quan = Arrays.asList(556, 558, 560);
@@ -326,7 +331,7 @@ public class Util {
         if (Util.isTrue(90, 100)) {// tỉ lệ ra spl
             it.options.add(new Item.ItemOption(107, new Random().nextInt(2)));
         } else if (Util.isTrue(80, 100)) {
-            it.options.add(new Item.ItemOption(107, new Random().nextInt(3)+1));
+            it.options.add(new Item.ItemOption(107, new Random().nextInt(3) + 1));
         } else {
             it.options.add(new Item.ItemOption(107, new Random().nextInt(3) + 2));
         }
@@ -335,7 +340,7 @@ public class Util {
 
     public static ItemMap RaitiDoc12(Zone zone, int tempId, int quantity, int x, int y, long playerId) {
         ItemMap it = new ItemMap(zone, tempId, quantity, x, y, playerId);
-        List<Integer> ao = Arrays.asList(555,557,559);
+        List<Integer> ao = Arrays.asList(555, 557, 559);
         List<Integer> quan = Arrays.asList(556, 558, 560);
         List<Integer> gang = Arrays.asList(562, 564, 566);
         List<Integer> giay = Arrays.asList(563, 565, 567);
@@ -357,7 +362,7 @@ public class Util {
         }
         it.options.add(new Item.ItemOption(209, 1));//đồ rơi từ boss
         if (Util.isTrue(98, 100)) {
-            it.options.add(new Item.ItemOption(107, new Random().nextInt(3) ));
+            it.options.add(new Item.ItemOption(107, new Random().nextInt(3)));
         } else {
             it.options.add(new Item.ItemOption(107, new Random().nextInt(4) + 3));
         }
@@ -388,14 +393,14 @@ public class Util {
             it.itemOptions.add(new Item.ItemOption(14, new Random().nextInt(3) + 15));
         }
         if (Util.isTrue(98, 100)) {
-            it.itemOptions.add(new Item.ItemOption(107, new Random().nextInt(3) ));
+            it.itemOptions.add(new Item.ItemOption(107, new Random().nextInt(3)));
         } else {
             it.itemOptions.add(new Item.ItemOption(107, new Random().nextInt(4) + 3));
         }
         it.itemOptions.add(new Item.ItemOption(21, 15));
         return it;
     }
-    
+
 //    public static Item docui(Zone zone, int tempId, int quantity, int x, int y, long playerId) {
 //        ItemMap it = new ItemMap(zone, tempId, quantity, x, y, playerId);
 //// Áo
@@ -431,20 +436,20 @@ public class Util {
 //        it.itemOptions.add(new Item.ItemOption(21, 15));
 //        return it;
 //    }
-    
-     public static ItemMap useItem(Zone zone, int tempId, int quantity, int x, int y, long playerId) {
+    public static ItemMap useItem(Zone zone, int tempId, int quantity, int x, int y, long playerId) {
         ItemMap it = new ItemMap(zone, tempId, quantity, x, zone.map.yPhysicInTop(x, y - 24), playerId);
-        List<Integer> tanjiro = Arrays.asList(1087,1088,1091,1090);
-            if (tanjiro.contains(tempId)) {               
-               it.options.add(new Item.ItemOption(77, highlightsItem(it.itemTemplate.gender == 3, new Random().nextInt(30) + 1)));
-               it.options.add(new Item.ItemOption(103,highlightsItem(it.itemTemplate.gender == 3, new Random().nextInt(30) + 1)));
-               it.options.add(new Item.ItemOption(50,highlightsItem(it.itemTemplate.gender == 3, new Random().nextInt(30) + 1)));
-            }          
-            it.options.add(new Item.ItemOption(209, 1)); // đồ rơi từ boss
-            it.options.add(new Item.ItemOption(30, 1)); // ko thể gd
-            
+        List<Integer> tanjiro = Arrays.asList(1087, 1088, 1091, 1090);
+        if (tanjiro.contains(tempId)) {
+            it.options.add(new Item.ItemOption(77, highlightsItem(it.itemTemplate.gender == 3, new Random().nextInt(30) + 1)));
+            it.options.add(new Item.ItemOption(103, highlightsItem(it.itemTemplate.gender == 3, new Random().nextInt(30) + 1)));
+            it.options.add(new Item.ItemOption(50, highlightsItem(it.itemTemplate.gender == 3, new Random().nextInt(30) + 1)));
+        }
+        it.options.add(new Item.ItemOption(209, 1)); // đồ rơi từ boss
+        it.options.add(new Item.ItemOption(30, 1)); // ko thể gd
+
         return it;
     }
+
     public static ItemMap ratiItem(Zone zone, int tempId, int quantity, int x, int y, long playerId) {
         ItemMap it = new ItemMap(zone, tempId, quantity, x, y, playerId);
         List<Integer> ao = Arrays.asList(555, 557, 559);
@@ -468,15 +473,16 @@ public class Util {
             it.options.add(new Item.ItemOption(14, new Random().nextInt(3) + 15));
         }
         it.options.add(new Item.ItemOption(209, 1));//đồ rơi từ boss
-        if(Util.isTrue(1, 300)){
+        if (Util.isTrue(1, 300)) {
             it.options.add(new Item.ItemOption(107, 7));
-        }else if (Util.isTrue(60, 100)) {
-            it.options.add(new Item.ItemOption(107, new Random().nextInt(5) ));
+        } else if (Util.isTrue(60, 100)) {
+            it.options.add(new Item.ItemOption(107, new Random().nextInt(5)));
         }
         it.options.add(new Item.ItemOption(209, 1));
         it.options.add(new Item.ItemOption(21, 15));
         return it;
     }
+
     public static ItemMap docui(Zone zone, int tempId, int quantity, int x, int y, long playerId) {
         ItemMap it = new ItemMap(zone, tempId, quantity, x, y, playerId);
         //Áo
@@ -494,7 +500,7 @@ public class Util {
 // Rada
         List<Integer> rada = Arrays.asList(12, 13, 14, 15, 16, 17, 18, 19, 20, 57, 58, 59);
         if (ao.contains(tempId)) {
-            it.options.add(new Item.ItemOption(47, highlightsItem(it.itemTemplate.gender == 2,   100)));
+            it.options.add(new Item.ItemOption(47, highlightsItem(it.itemTemplate.gender == 2, 100)));
         }
         if (quan.contains(tempId)) {
             it.options.add(new Item.ItemOption(22, highlightsItem(it.itemTemplate.gender == 0, new Random().nextInt(11) + 5)));
@@ -513,7 +519,7 @@ public class Util {
         if (Util.isTrue(90, 100)) {// tỉ lệ ra spl
             it.options.add(new Item.ItemOption(107, new Random().nextInt(4)));
         } else if (Util.isTrue(80, 100)) {
-            it.options.add(new Item.ItemOption(107, 3 +new Random().nextInt(2)));
+            it.options.add(new Item.ItemOption(107, 3 + new Random().nextInt(2)));
         }
         it.options.add(new Item.ItemOption(21, 15));
         return it;
@@ -615,13 +621,13 @@ public class Util {
                 return "100k";
         }
     }
-    
+
     public static int randomBossId() {
         int bossId = Util.nextInt(9999999);
         while (BossManager.gI().getBossById(bossId) != null) {
             bossId = Util.nextInt(9999999);
         }
-        if(bossId > 0){
+        if (bossId > 0) {
             bossId *= -1;
         }
         return bossId;
@@ -648,12 +654,14 @@ public class Util {
 
     public static int[] pickNRandInArr(int[] array, int n) {
         List<Integer> list = new ArrayList<Integer>(array.length);
-        for (int i : array)
+        for (int i : array) {
             list.add(i);
+        }
         Collections.shuffle(list);
         int[] answer = new int[n];
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < n; i++) {
             answer[i] = list.get(i);
+        }
         Arrays.sort(answer);
         return answer;
     }
