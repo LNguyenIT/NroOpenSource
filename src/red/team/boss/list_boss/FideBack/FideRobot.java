@@ -31,7 +31,7 @@ public class FideRobot extends Boss {
         if (Util.isTrue(30, 100)) {
             if (Util.isTrue(2, 5)) {
                 Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 561, 1, this.location.x, this.location.y, plKill.id));
-                if (Util.isTrue(7, 10)) {
+                if (Util.isTrue(2, 10)) {
                     Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 2000+plKill.gender, 1, this.location.x, this.location.y, plKill.id));
                 }
             }
