@@ -34,9 +34,11 @@ public class MabuBoss extends Boss {
                 Service.gI().dropItemMap(this.zone,
                         Util.ratiItem(zone, 2000 + plKill.gender, 1, this.location.x, this.location.y, plKill.id));
             }
-            Service.gI().dropItemMap(this.zone,
-                    Util.ratiItem(zone, Manager.itemIds_TL[randomDo], 1, this.location.x, this.location.y, plKill.id));
-        } else if (Util.isTrue(2, 5)) {
+            if (Util.isTrue(40, 200)) {
+                Service.gI().dropItemMap(this.zone,
+                        Util.ratiItem(zone, Manager.itemIds_TL[randomDo], 1, this.location.x, this.location.y, plKill.id));
+            }
+        } else if (Util.isTrue(3, 5)) {
             Service.gI().dropItemMap(this.zone,
                     Util.RaitiDoc12(zone, itemDos[randomc12], 1, this.location.x, this.location.y, plKill.id));
 

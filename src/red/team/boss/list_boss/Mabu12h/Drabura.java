@@ -32,7 +32,7 @@ public class Drabura extends Boss {
             } //            if (Util.isTrue(2, 10)) {
             //                Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 2000+plKill.gender, 1, this.location.x, this.location.y, plKill.id));
             //            }
-            else if (Util.isTrue(1, 40)) {
+            else if (Util.isTrue(20, 40)) {
                 Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, Manager.itemIds_TL[randomDo], 1, this.location.x, this.location.y, plKill.id));
             }
         } else if (Util.isTrue(5, 20)) {

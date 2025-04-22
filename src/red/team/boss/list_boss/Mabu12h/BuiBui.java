@@ -36,7 +36,7 @@ public class BuiBui extends Boss {
             else if(Util.isTrue(1, 40)){
                 Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, Manager.itemIds_TL[randomDo], 1, this.location.x, this.location.y, plKill.id));
             }
-        } else if (Util.isTrue(5, 20)) {
+        } else if (Util.isTrue(10, 20)) {
             Service.gI().dropItemMap(this.zone, Util.RaitiDoc12(zone, itemDos[randomc12], 1, this.location.x, this.location.y, plKill.id));          
         } else {
             Service.gI().dropItemMap(this.zone,
