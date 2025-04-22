@@ -1,3 +1,12 @@
+
+
+
+
+
+
+
+
+
 package red.team.boss.list_boss.zeno;
 
 import java.util.Random;
@@ -31,10 +40,10 @@ public class Zeno extends Boss {
             if (Util.isTrue(3, 5)) {
                 Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 561, 1, this.location.x, this.location.y, plKill.id));
             }
-//            if (Util.isTrue(5, 10)) {
-//                Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 344, 1, this.location.x + 2, this.location.y, plKill.id));
-////                Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 2000 + plKill.gender, 1, this.location.x, this.location.y, plKill.id));
-//            }
+            if (Util.isTrue(5, 10)) {
+                Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 344, 1, this.location.x + 2, this.location.y, plKill.id));
+                Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 2000 + plKill.gender, 1, this.location.x, this.location.y, plKill.id));
+            }
             Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, Manager.itemIds_TL[randomDo], 1, this.location.x, this.location.y, plKill.id));
         } else if (Util.isTrue(2, 5)) {
             Service.gI().dropItemMap(this.zone, Util.RaitiDoc12(zone, itemDos[randomc12], 1, this.location.x, this.location.y, plKill.id));
@@ -44,7 +53,8 @@ public class Zeno extends Boss {
         }
         Service.gI().dropItemMap(this.zone,
                 Util.ratiItem(zone, 722, 1, this.location.x, this.location.y, plKill.id));
-        Service.gI().sendThongBaoAllPlayer("Chết rồi GOKU đã rơi vào tay "+plKill.name);
+        Service.gI().sendThongBaoAllPlayer("Gokuuuuuuu "+plKill.name);
+        Service.gI().sendThongBaoAllPlayer("aaaaa "+plKill.name);
         plKill.pointBoss += 0;
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
     }
