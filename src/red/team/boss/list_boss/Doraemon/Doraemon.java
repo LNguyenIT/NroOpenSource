@@ -27,9 +27,9 @@ public class Doraemon extends Boss {
         int randomDo = new Random().nextInt(itemDos.length);
         int randomNR = new Random().nextInt(NRs.length);
 
-        if (Util.isTrue(1, 10)) {
+        if (Util.isTrue(2, 10)) {
             Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 457, 1, this.location.x + 2, this.location.y, plKill.id));
-        } else if (Util.isTrue(1, 20)) {
+        } else if (Util.isTrue(3, 20)) {
             Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, itemDos[randomDo], 1, this.location.x, this.location.y, plKill.id));
         } else {
             Service.gI().dropItemMap(this.zone, new ItemMap(zone, NRs[randomNR], 1, this.location.x, zone.map.yPhysicInTop(this.location.x, this.location.y - 24), plKill.id));
