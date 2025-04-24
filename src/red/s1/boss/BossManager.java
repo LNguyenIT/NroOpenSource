@@ -217,9 +217,9 @@ public class BossManager implements Runnable {
             this.createBoss(BossID.SO18);
             this.createBoss(BossID.THODAICA);
 
-            // this.createBoss(BossID.KAMIRIN);
-            // this.createBoss(BossID.KAMILOC);
-            // this.createBoss(BossID.KAMI_SOOME);
+             this.createBoss(BossID.KAMIRIN);
+             this.createBoss(BossID.KAMILOC);
+             this.createBoss(BossID.KAMI_SOOME);
 
             this.createBoss(BossID.CUMBERBLACK);
             this.createBoss(BossID.CUMBERYELLOW);
@@ -242,10 +242,10 @@ public class BossManager implements Runnable {
             this.createBoss(BossID.SIEU_BO_HUNG);
 
             this.createBoss(BossID.XEN_CON_1);
-            // this.createBoss(BossID.XEN_CON_1);
-            // this.createBoss(BossID.XEN_CON_1);
-            // this.createBoss(BossID.XEN_CON_1);
-            // this.createBoss(BossID.XEN_CON_1);
+             this.createBoss(BossID.XEN_CON_1);
+             this.createBoss(BossID.XEN_CON_1);
+             this.createBoss(BossID.XEN_CON_1);
+             this.createBoss(BossID.XEN_CON_1);
 
             // bojack
 
@@ -264,9 +264,9 @@ public class BossManager implements Runnable {
 
             this.createBoss(BossID.GIANGHO);
 
-            // this.createBoss(BossID.SANQUY_TEAM);
+            this.createBoss(BossID.SANQUY_TEAM);
 
-            // this.createBoss(BossID.LUFFY_TEAM);
+            this.createBoss(BossID.LUFFY_TEAM);
 
             this.createBoss(BossID.BLACK);
             this.createBoss(BossID.ZAMASZIN);
@@ -626,7 +626,6 @@ public class BossManager implements Runnable {
                             (int) bosses.stream()
                                     .filter(boss -> !MapService.gI().isMapMaBu(boss.data[0].getMapJoin()[0])
                                             && !MapService.gI().isMapSatan(boss.data[0].getMapJoin()[0])
-
                                             && !MapService.gI().isMapVodai(boss.data[0].getMapJoin()[0])
                                             && !MapService.gI().isMapBanDoKhoBau(boss.data[0].getMapJoin()[0])
                                             && !MapService.gI().isMapMabu13h(boss.data[0].getMapJoin()[0])
