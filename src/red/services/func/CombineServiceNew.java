@@ -32,8 +32,8 @@ public class CombineServiceNew {
 
     private static final int TIME_COMBINE = 1;
 
-    private static final byte MAX_STAR_ITEM = 8;
-    private static final byte MAX_LEVEL_ITEM = 8;
+    private static final byte MAX_STAR_ITEM = 13;
+    private static final byte MAX_LEVEL_ITEM = 13;
 
     private static final byte OPEN_TAB_COMBINE = 0;
     private static final byte REOPEN_TAB_COMBINE = 1;
@@ -149,7 +149,6 @@ public class CombineServiceNew {
         } catch (Exception e) {
         }
     }
-
     /**
      * Hiển thị thông tin đập đồ
      *
@@ -505,14 +504,14 @@ public class CombineServiceNew {
                 int totalQuantity = 0;
                 if (player.combineNew.itemsCombine.size() > 0) {
                     totalQuantity = player.combineNew.itemsCombine.stream()
-                    .filter(item -> item.isNotNullItem()
-                                 && item.template.id >= 441
-                                 && item.template.id <= 447)
-                    .mapToInt(item -> item.quantity)
-                    .sum();                
+                            .filter(item -> item.isNotNullItem()
+                            && item.template.id >= 441
+                            && item.template.id <= 447)
+                            .mapToInt(item -> item.quantity)
+                            .sum();
                     String npcSay = "|2|Màyy đủ đồ đổi chứ ?\n|7|";
-                    if(totalQuantity < 100){
-                        this.baHatMit.createOtherMenu(player, ConstNpc.IGNORE_MENU, "Ít nhất 100 = 1tv",
+                    if (totalQuantity < 100) {
+                        this.baHatMit.createOtherMenu(player, ConstNpc.IGNORE_MENU, "Ít nhất 50 = 1tv",
                                 "Đóng");
                     }
                     if (player.inventory.ruby < 0) {
@@ -524,7 +523,7 @@ public class CombineServiceNew {
                     baHatMit.createOtherMenu(player, ConstNpc.MENU_START_COMBINE,
                             npcSay, "Đổi", "Từ chối");
                 }
-                break;           
+                break;
             case NANG_CAP_GAY_THIEN_SU:
                 if (player.combineNew.itemsCombine.size() == 0) {
                     this.npsthiensu64.createOtherMenu(player, ConstNpc.IGNORE_MENU,
@@ -3117,35 +3116,51 @@ public class CombineServiceNew {
         sendEffectSuccessCombine(player);
         Service.gI().sendMoney(player);
         player.combineNew.itemsCombine.clear();
-        Item rewardItem = ItemService.gI().createNewItem((short) 457, totalStar - totalItem*2);
+        Item rewardItem = ItemService.gI().createNewItem((short) 457, totalStar - totalItem * 2);
         InventoryServiceNew.gI().addItemBag(player, rewardItem);
         InventoryServiceNew.gI().sendItemBags(player);
         reOpenItemCombine(player);
     }
-    
+
     public void Doi_SPL(Player player) {
-        if (player.combineNew.itemsCombine.size() == 0) {
-                    this.baHatMit.createOtherMenu(player, ConstNpc.IGNORE_MENU,
-                            "Bán ve chai à",
-                            "Đóng");
-                    return;
-                }
-                int totalQuantity = 0;
-                if (player.combineNew.itemsCombine.size() > 0) {
-                    totalQuantity = player.combineNew.itemsCombine.stream()
-                    .filter(item -> item.isNotNullItem()
-                                 && item.template.id >= 441
-                                 && item.template.id <= 447)
-                    .mapToInt(item -> item.quantity)
-                    .sum();     
-                }
-        Service.gI().sendThongBao(player, "|5|Bạn nhận được 1 mớ vàng");
+        // Lọc các item thỏa điều kiện (ID 441–447)
+        List<Item> itemsToSub = player.combineNew.itemsCombine.stream()
+                .filter(item -> item.isNotNullItem()
+                && item.template.id >= 441
+                && item.template.id <= 447)
+                .collect(Collectors.toList());
+
+        // Nếu không có nguyên liệu hợp lệ, hiển thị menu và kết thúc
+        if (itemsToSub.isEmpty()) {
+            this.baHatMit.createOtherMenu(player, ConstNpc.IGNORE_MENU,
+                    "Bán ve chai à",
+                    "Đóng");
+            return;
+        }
+
+        // Tính tổng số lượng và số phần thưởng
+        int totalQuantity = itemsToSub.stream()
+                .mapToInt(item -> item.quantity)
+                .sum();
+        int rewardCount = totalQuantity / 50;
+
+        // Thông báo, hiệu ứng và gửi tiền
+        Service.gI().sendThongBao(player, "|5|Bạn nhận được " + rewardCount + " mớ vàng");
         sendEffectSuccessCombine(player);
         Service.gI().sendMoney(player);
-        player.combineNew.itemsCombine.clear();
-        Item rewardItem = ItemService.gI().createNewItem((short) 457, (int) totalQuantity/50);
+
+        // Trừ từng nguyên liệu trong túi
+        for (Item item : itemsToSub) {
+            InventoryServiceNew.gI().subQuantityItemsBag(player, item, item.quantity);
+        }
+
+        // Tạo và thêm phần thưởng vào túi
+        Item rewardItem = ItemService.gI().createNewItem((short) 457, rewardCount);
         InventoryServiceNew.gI().addItemBag(player, rewardItem);
         InventoryServiceNew.gI().sendItemBags(player);
+
+        // Xóa sạch danh sách kết hợp và mở lại menu
+        player.combineNew.itemsCombine.clear();
         reOpenItemCombine(player);
     }
 
@@ -4811,13 +4826,13 @@ public class CombineServiceNew {
             case 7:
                 return 500000000;
             case 8:
-                return 500000000;
+                return 600000000;
             case 9:
-                return 300000000;
+                return 700000000;
             case 10:
-                return 450000000;
+                return 800000000;
             case 11:
-                return 500000000;
+                return 900000000;
             case 12:
                 return 1000000000;
         }
@@ -4843,17 +4858,16 @@ public class CombineServiceNew {
             case 7:
                 return 0.08888f;
             case 8:
-                return 0.1111f;
+                return 0.07777f;
             case 9:
-                return 0.05f;
+                return 0.06666f;
             case 10:
-                return 0.02f;
+                return 0.05555f;
             case 11:
-                return 0.01f;
+                return 0.04444f;
             case 12:
-                return 0.005f;
+                return 0.03333f;
         }
-
         return 0;
     }
 

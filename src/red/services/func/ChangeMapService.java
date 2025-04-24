@@ -310,7 +310,7 @@ public class ChangeMapService {
                 if (pl.haveTennisSpaceShip) {
                     Service.gI().hsChar(pl, pl.nPoint.hpMax, pl.nPoint.mpMax);
                 } else {
-                    Service.gI().hsChar(pl, 1, 1);
+                    Service.gI().hsChar(pl, (long) 1, (long) 1);
                 }
             } else {
                 if (pl.haveTennisSpaceShip) {
@@ -343,7 +343,7 @@ public class ChangeMapService {
             if (pl.haveTennisSpaceShip) {
                 Service.gI().hsChar(pl, pl.nPoint.hpMax, pl.nPoint.mpMax);
             } else {
-                Service.gI().hsChar(pl, 1, 1);
+                Service.gI().hsChar(pl, (long) 1,(long) 1);
             }
         } else {
             if (pl.haveTennisSpaceShip) {
@@ -704,7 +704,7 @@ public class ChangeMapService {
                 msg.writer().writeByte(0);// type
                 msg.writer().writeInt((int) player.id);
                 msg.writer().writeShort(player.mobMe.tempId);
-                msg.writer().writeInt(player.mobMe.point.gethp());// hp mob
+                msg.writer().writeLong(player.mobMe.point.gethp());// hp mob
                 Service.gI().sendMessAnotherNotMeInMap(player, msg);
                 msg.cleanup();
             }
@@ -713,7 +713,7 @@ public class ChangeMapService {
                 msg.writer().writeByte(0);// type
                 msg.writer().writeInt((int) player.pet.mobMe.id);
                 msg.writer().writeShort(player.pet.mobMe.tempId);
-                msg.writer().writeInt(player.pet.mobMe.point.gethp());// hp mob
+                msg.writer().writeLong(player.pet.mobMe.point.gethp());// hp mob
                 Service.gI().sendMessAnotherNotMeInMap(player, msg);
                 msg.cleanup();
             }
@@ -828,7 +828,7 @@ public class ChangeMapService {
                         msg.writer().writeByte(0);// type
                         msg.writer().writeInt((int) pl.id);
                         msg.writer().writeShort(pl.mobMe.tempId);
-                        msg.writer().writeInt(pl.mobMe.point.gethp());// hp mob
+                        msg.writer().writeLong(pl.mobMe.point.gethp());// hp mob
                         player.sendMessage(msg);
                         msg.cleanup();
                     }
