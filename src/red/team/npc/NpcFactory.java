@@ -2501,6 +2501,11 @@ public class NpcFactory {
                                                 player.combineNew.quantities = 100;
                                             }
                                             break;
+                                        case 3:
+                                            if (player.combineNew.typeCombine == CombineServiceNew.PHA_LE_HOA_TRANG_BI) {
+                                                player.combineNew.quantities = 1000;
+                                            }
+                                            break;
                                     }
                                     CombineServiceNew.gI().startCombine(player);
                                     break;
