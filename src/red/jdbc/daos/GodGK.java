@@ -743,7 +743,7 @@ public class GodGK {
                                 pet.nPoint.mpg = Integer.parseInt(String.valueOf(dataArray.get(6)));
                                 pet.nPoint.dameg = Integer.parseInt(String.valueOf(dataArray.get(7)));
                                 pet.nPoint.defg = Integer.parseInt(String.valueOf(dataArray.get(8)));
-                                pet.nPoint.critg = Integer.parseInt(String.valueOf(dataArray.get(9)));
+                                pet.nPoint.critg = Byte.parseByte(String.valueOf(dataArray.get(9)));
                                 int hp = Integer.parseInt(String.valueOf(dataArray.get(10)));
                                 int mp = Integer.parseInt(String.valueOf(dataArray.get(11)));
 
@@ -1014,7 +1014,7 @@ public class GodGK {
                     pet.nPoint.mpg = Integer.parseInt(String.valueOf(dataArray.get(6)));
                     pet.nPoint.dameg = Integer.parseInt(String.valueOf(dataArray.get(7)));
                     pet.nPoint.defg = Integer.parseInt(String.valueOf(dataArray.get(8)));
-                    pet.nPoint.critg = Integer.parseInt(String.valueOf(dataArray.get(9)));
+                    pet.nPoint.critg = Byte.parseByte(String.valueOf(dataArray.get(9)));
                     int hp = Integer.parseInt(String.valueOf(dataArray.get(10)));
                     int mp = Integer.parseInt(String.valueOf(dataArray.get(11)));
                     // data body
@@ -1671,7 +1671,7 @@ public class GodGK {
                     pet.nPoint.mpg = Integer.parseInt(String.valueOf(dataArray.get(6)));
                     pet.nPoint.dameg = Integer.parseInt(String.valueOf(dataArray.get(7)));
                     pet.nPoint.defg = Integer.parseInt(String.valueOf(dataArray.get(8)));
-                    pet.nPoint.critg = Integer.parseInt(String.valueOf(dataArray.get(9)));
+                    pet.nPoint.critg = Byte.parseByte(String.valueOf(dataArray.get(9)));
                     int hp = Integer.parseInt(String.valueOf(dataArray.get(10)));
                     int mp = Integer.parseInt(String.valueOf(dataArray.get(11)));
                     dataArray.clear();

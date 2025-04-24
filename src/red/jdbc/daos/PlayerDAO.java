@@ -348,8 +348,8 @@ public class PlayerDAO {
                 mapId = player.mapIdBeforeLogout;
                 int x = player.location.x;
                 int y = player.location.y;
-                int hp = player.nPoint.hp;
-                int mp = player.nPoint.mp;
+                long hp = player.nPoint.hp;
+                long mp = player.nPoint.mp;
                 if (player.isDie()) {
                     mapId = player.gender + 21;
                     x = 300;
