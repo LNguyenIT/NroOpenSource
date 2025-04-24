@@ -4,6 +4,7 @@ import red.s1.boss.Boss;
 import red.s1.boss.BossID;
 import red.s1.boss.BossStatus;
 import red.s1.boss.BossesData;
+import red.s1.boss.BossesData1;
 import red.team.map.ItemMap;
 import red.team.player.Player;
 import red.services.EffectSkillService;
@@ -15,7 +16,7 @@ import red.utils.Util;
 public class Adminthan extends Boss {
 
     public Adminthan() throws Exception {
-        super(BossID.ADMIN_THAN, BossesData.ADMIN_THAN);
+        super(BossID.ADMIN_THAN, BossesData1.ADMIN_THAN);
     }
 
     @Override

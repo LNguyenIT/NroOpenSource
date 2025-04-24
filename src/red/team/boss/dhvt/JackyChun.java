@@ -1,8 +1,7 @@
 package red.team.boss.dhvt;
 
-import red.s1.boss.BossData;
 import red.s1.boss.BossID;
-import red.s1.boss.BossesData;
+import red.s1.boss.BossesData1;
 import red.team.player.Player;
 
 /**
@@ -11,7 +10,7 @@ import red.team.player.Player;
 public class JackyChun extends BossDHVT {
 
     public JackyChun(Player player) throws Exception {
-        super(BossID.JACKY_CHUN, BossesData.JACKY_CHUN);
+        super(BossID.JACKY_CHUN, BossesData1.JACKY_CHUN);
         this.playerAtt = player;
     }
 }

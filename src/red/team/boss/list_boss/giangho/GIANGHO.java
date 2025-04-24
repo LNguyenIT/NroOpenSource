@@ -5,7 +5,7 @@ import java.util.Random;
 import red.s1.boss.Boss;
 import red.s1.boss.BossID;
 import red.s1.boss.BossStatus;
-import red.s1.boss.BossesData;
+import red.s1.boss.BossesData1;
 import red.team.map.ItemMap;
 import red.team.player.Player;
 import red.services.EffectSkillService;
@@ -16,7 +16,7 @@ import red.utils.Util;
 public class GIANGHO extends Boss {
 
     public GIANGHO() throws Exception {
-        super(BossID.GIANGHO, BossesData.SOI_GIANGHO, BossesData.ODO_GIANGHO, BossesData.XINBATO_GIANGHO, BossesData.CHACHA_GIANGHO, BossesData.PONPUT_GIANGHO, BossesData.CHANXU_GIANGHO, BossesData.TAUPAYPAY_GIANGHO, BossesData.YAMCHA_GIANGHO, BossesData.TAUPAYPAY_GIANGHO, BossesData.JACKYCHUN_GIANGHO, BossesData.THIENXINHANG_GIANGHO);
+        super(BossID.GIANGHO, BossesData1.SOI_GIANGHO, BossesData1.ODO_GIANGHO, BossesData1.XINBATO_GIANGHO, BossesData1.CHACHA_GIANGHO, BossesData1.PONPUT_GIANGHO, BossesData1.CHANXU_GIANGHO, BossesData1.TAUPAYPAY_GIANGHO, BossesData1.YAMCHA_GIANGHO, BossesData1.TAUPAYPAY_GIANGHO, BossesData1.JACKYCHUN_GIANGHO, BossesData1.THIENXINHANG_GIANGHO);
     }
 
     @Override

@@ -6,6 +6,7 @@ import java.util.List;
 
 import red.consts.ConstMap;
 import red.s1.boss.BossesData;
+import red.s1.boss.BossesData1;
 import red.team.boss.list_boss.nhanban.Namecnhanban;
 import red.team.boss.list_boss.nhanban.Traidatnhanban;
 import red.team.map.Map;
@@ -67,7 +68,7 @@ public class Namec extends Player {
       if (!plAtt.haveNhanBan) {
         try {
           Namecnhanban namecnhanban = new Namecnhanban(Util.randomBossId(),
-              BossesData.NAMEC, plAtt.zone, plAtt);
+              BossesData1.NAMEC, plAtt.zone, plAtt);
           plAtt.haveNhanBan = true;
         } catch (Exception e) {
 

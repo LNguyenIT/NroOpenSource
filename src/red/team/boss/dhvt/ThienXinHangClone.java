@@ -4,6 +4,7 @@ import red.consts.ConstPlayer;
 import red.consts.ConstRatio;
 import red.s1.boss.BossStatus;
 import red.s1.boss.BossesData;
+import red.s1.boss.BossesData1;
 import red.team.map.challenge.MartialCongressService;
 import red.team.player.Player;
 import red.team.server.Manager;
@@ -23,7 +24,7 @@ public class ThienXinHangClone extends BossDHVT {
 
 
     public ThienXinHangClone(byte id, Player player) throws Exception {
-        super(id, BossesData.THIEN_XIN_HANG_CLONE);
+        super(id, BossesData1.THIEN_XIN_HANG_CLONE);
         this.playerAtt = player;
         timeLive = 10;
 //        this.bossStatus = BossStatus.JOIN_MAP;

@@ -107,6 +107,7 @@ import kygui.ShopKyGuiManager;
 import java.util.logging.Level;
 
 import java.util.logging.Level;
+import red.s1.boss.BossesData1;
 
 public class NpcFactory {
 
@@ -2717,7 +2718,7 @@ public class NpcFactory {
                             } else {
                                 try {
                                     MiNuongHoTong ml = new MiNuongHoTong(BossID.MI_NUONG_HOTONG,
-                                            BossesData.MI_NUONG_HO_TONG, player.zone, player.location.x - 20,
+                                            BossesData1.MI_NUONG_HO_TONG, player.zone, player.location.x - 20,
                                             player.location.y);
                                     ml.playerTarger = player;
                                     int[] map = {183};
@@ -3395,7 +3396,7 @@ public class NpcFactory {
                                     if (!player.haveThuongDe) {
                                         try {
                                             ThuongDeKarin thuongDeKarin = new ThuongDeKarin(Util.randomBossId(),
-                                                    BossesData.THUONG_DE_KARIN, player.zone, player);
+                                                    BossesData1.THUONG_DE_KARIN, player.zone, player);
                                             player.haveThuongDe = true;
                                         } catch (Exception e) {
 
@@ -3497,7 +3498,7 @@ public class NpcFactory {
                                     if (!player.haveThanVuTru) {
                                         try {
                                             ThanVuTruKarin thanVuTruKarin = new ThanVuTruKarin(Util.randomBossId(),
-                                                    BossesData.THAN_VU_TRU_KARIN, player.zone, player);
+                                                    BossesData1.THAN_VU_TRU_KARIN, player.zone, player);
                                             player.haveThanVuTru = true;
                                         } catch (Exception e) {
 
@@ -5422,7 +5423,7 @@ public class NpcFactory {
                                             try {
                                                 ThanHuyDietKarin thanHuyDietKarin = new ThanHuyDietKarin(
                                                         Util.randomBossId(),
-                                                        BossesData.THAN_HUY_DIET_KARIN, player.zone, player);
+                                                        BossesData1.THAN_HUY_DIET_KARIN, player.zone, player);
                                                 player.haveThanHuyDiet = true;
                                             } catch (Exception e) {
 
@@ -5489,7 +5490,7 @@ public class NpcFactory {
                                     if (!player.haveTauPayPay) {
                                         try {
                                             YajirobeKarin tauPayPayKarin = new YajirobeKarin(Util.randomBossId(),
-                                                    BossesData.TAU_PAY_PAY_KARIN, player.zone, player);
+                                                    BossesData1.TAU_PAY_PAY_KARIN, player.zone, player);
                                             player.haveTauPayPay = true;
                                         } catch (Exception e) {
 
@@ -5721,7 +5722,7 @@ public class NpcFactory {
 
                                     try {
                                         KiLan kl = new KiLan(BossID.KI_LAN_HOTONG + this.mapId,
-                                                BossesData.KI_LAN_HO_TONG, player.zone, player.location.x - 20,
+                                                BossesData1.KI_LAN_HO_TONG, player.zone, player.location.x - 20,
                                                 player.location.y);
                                         kl.playerTarger = player;
 
@@ -5788,7 +5789,7 @@ public class NpcFactory {
                                 if (!player.haveToSuKaio) {
                                     try {
                                         ToSuKaioKarin toSuKaioKarin = new ToSuKaioKarin(Util.randomBossId(),
-                                                BossesData.TO_SU_KARIN, player.zone, player);
+                                                BossesData1.TO_SU_KARIN, player.zone, player);
                                         player.haveToSuKaio = true;
                                     } catch (Exception e) {
 
@@ -6009,7 +6010,7 @@ public class NpcFactory {
                                 if (!player.haveThanMeo) {
                                     try {
                                         ThanMeoKarin thanMeoKarin = new ThanMeoKarin(Util.randomBossId(),
-                                                BossesData.THAN_MEO_KARIN, player.zone, player);
+                                                BossesData1.THAN_MEO_KARIN, player.zone, player);
                                         player.haveThanMeo = true;
                                     } catch (Exception e) {
 
@@ -6022,7 +6023,7 @@ public class NpcFactory {
                                 if (!player.haveTauPayPay) {
                                     try {
                                         YajirobeKarin YajirobeKarin = new YajirobeKarin(Util.randomBossId(),
-                                                BossesData.YAJIROBE_KARIN, player.zone, player);
+                                                BossesData1.YAJIROBE_KARIN, player.zone, player);
                                         player.haveTauPayPay = true;
                                     } catch (Exception e) {
 

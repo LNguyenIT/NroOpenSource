@@ -5,7 +5,7 @@ import java.util.Random;
 import red.s1.boss.Boss;
 import red.s1.boss.BossID;
 import red.s1.boss.BossStatus;
-import red.s1.boss.BossesData;
+import red.s1.boss.BossesData1;
 import red.team.map.ItemMap;
 import red.team.player.Player;
 import red.team.skill.Skill;
@@ -21,7 +21,7 @@ import red.utils.Util;
 public class GaChinCua extends Boss {
 
     public GaChinCua() throws Exception {
-        super(BossID.GA_9_CUA, BossesData.GA_9_CUA);
+        super(BossID.GA_9_CUA, BossesData1.GA_9_CUA);
     }
 
     @Override

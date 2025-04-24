@@ -6,6 +6,7 @@ import red.s1.boss.Boss;
 import red.s1.boss.BossID;
 import red.s1.boss.BossStatus;
 import red.s1.boss.BossesData;
+import red.s1.boss.BossesData1;
 import red.team.map.ItemMap;
 import red.team.player.Player;
 import red.team.skill.Skill;
@@ -21,7 +22,7 @@ import red.utils.Util;
 public class TauPayPayRobot extends Boss {
 
     public TauPayPayRobot() throws Exception {
-        super(BossID.TAU_PAY_PAY_ROBOT, BossesData.TAU_PAY_PAY_ROBOT);
+        super(BossID.TAU_PAY_PAY_ROBOT, BossesData1.TAU_PAY_PAY_ROBOT);
     }
 
     @Override

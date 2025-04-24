@@ -6,6 +6,7 @@ import red.s1.boss.Boss;
 import red.s1.boss.BossID;
 import red.s1.boss.BossStatus;
 import red.s1.boss.BossesData;
+import red.s1.boss.BossesData1;
 import red.team.map.ItemMap;
 import red.team.player.Player;
 import red.team.skill.Skill;
@@ -20,7 +21,7 @@ import red.utils.Util;
 public class Thodaica extends Boss {
 
     public Thodaica() throws Exception {
-        super(BossID.THODAICA, BossesData.THODAICA);
+        super(BossID.THODAICA, BossesData1.THODAICA);
     }
 
     @Override

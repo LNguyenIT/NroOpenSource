@@ -6,6 +6,7 @@ import red.s1.boss.BossData;
 import red.s1.boss.BossID;
 import red.s1.boss.BossManager;
 import red.s1.boss.BossesData;
+import red.s1.boss.BossesData1;
 import red.team.map.ItemMap;
 import red.team.map.Zone;
 import red.team.player.Player;
@@ -22,7 +23,7 @@ import red.utils.Util;
 public class ThanVuTruKarin extends Boss {
 
     public ThanVuTruKarin(int bossID, BossData bossData, Zone zone,Player plTarget) throws Exception {
-             super(BossID.THAN_VU_TRU, BossesData.THAN_VU_TRU);
+             super(BossID.THAN_VU_TRU, BossesData1.THAN_VU_TRU);
         this.zone = zone;
         this.lockPlayerTarget = plTarget;
     }

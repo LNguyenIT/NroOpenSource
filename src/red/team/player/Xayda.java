@@ -6,6 +6,7 @@ import java.util.List;
 
 import red.consts.ConstMap;
 import red.s1.boss.BossesData;
+import red.s1.boss.BossesData1;
 import red.team.boss.list_boss.nhanban.Traidatnhanban;
 import red.team.boss.list_boss.nhanban.Xaydanhanban;
 import red.team.map.Map;
@@ -62,7 +63,7 @@ public class Xayda extends Player {
       if (!plAtt.haveNhanBan) {
         try {
           Xaydanhanban xaydanhanban = new Xaydanhanban(Util.randomBossId(),
-              BossesData.XAYDA, plAtt.zone, plAtt);
+              BossesData1.XAYDA, plAtt.zone, plAtt);
           plAtt.haveNhanBan = true;
         } catch (Exception e) {
 

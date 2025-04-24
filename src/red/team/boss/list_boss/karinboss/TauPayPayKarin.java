@@ -6,6 +6,7 @@ import red.s1.boss.BossData;
 import red.s1.boss.BossID;
 import red.s1.boss.BossManager;
 import red.s1.boss.BossesData;
+import red.s1.boss.BossesData1;
 import red.team.map.ItemMap;
 import red.team.map.Zone;
 import red.team.player.Player;
@@ -22,7 +23,7 @@ public class TauPayPayKarin extends Boss {
 
     public TauPayPayKarin(int bossID, BossData bossData, Zone zone, Player plTarget) throws Exception {
 //        super(bossID, bossData);
-                super(BossID.TAU_PAY_PAY_KARIN, BossesData.TAU_PAY_PAY_KARIN);
+                super(BossID.TAU_PAY_PAY_KARIN, BossesData1.TAU_PAY_PAY_KARIN);
         this.zone = zone;
         this.lockPlayerTarget = plTarget;
     }

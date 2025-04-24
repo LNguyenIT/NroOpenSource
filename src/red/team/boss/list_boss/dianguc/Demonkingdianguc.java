@@ -7,6 +7,7 @@ import red.s1.boss.BossID;
 import red.s1.boss.BossManager;
 import red.s1.boss.BossStatus;
 import red.s1.boss.BossesData;
+import red.s1.boss.BossesData1;
 import red.team.map.ItemMap;
 import red.team.player.Player;
 import red.team.server.Manager;
@@ -18,7 +19,7 @@ import red.utils.Util;
 public class Demonkingdianguc extends Boss {
 
     public Demonkingdianguc() throws Exception {
-        super(BossID.DEMON_KING_DIA_NGUC, BossesData.DEMONKING);
+        super(BossID.DEMON_KING_DIA_NGUC, BossesData1.DEMONKING);
     }
 
     @Override

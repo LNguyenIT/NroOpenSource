@@ -6,6 +6,7 @@ import red.s1.boss.Boss;
 import red.s1.boss.BossID;
 import red.s1.boss.BossStatus;
 import red.s1.boss.BossesData;
+import red.s1.boss.BossesData1;
 import red.team.map.ItemMap;
 import red.team.player.Player;
 import red.team.skill.Skill;
@@ -19,7 +20,7 @@ import red.utils.Util;
 public class Luffy extends Boss {
 
     public Luffy() throws Exception {
-        super(BossID.LUFFY_TEAM, BossesData.ROBIN_GIANGHO,BossesData.USOP_GIANGHO,BossesData.FRANKY_GIANGHO,BossesData.NAMI_GIANGHO,BossesData.CHOPPER_GIANGHO,BossesData.BROOK_GIANGHO,BossesData.SANJI_GIANGHO,BossesData.ZORO_GIANGHO,BossesData.LUFFY_GIANGHO);
+        super(BossID.LUFFY_TEAM, BossesData1.ROBIN_GIANGHO,BossesData1.USOP_GIANGHO,BossesData1.FRANKY_GIANGHO,BossesData1.NAMI_GIANGHO,BossesData1.CHOPPER_GIANGHO,BossesData1.BROOK_GIANGHO,BossesData1.SANJI_GIANGHO,BossesData1.ZORO_GIANGHO,BossesData1.LUFFY_GIANGHO);
     }
     @Override
     public void reward(Player plKill) {

@@ -14,13 +14,14 @@ import red.services.EffectSkillService;
 import red.services.ItemService;
 import red.services.Service;
 import red.services.TaskService;
+import red.s1.boss.BossesData1;
 import red.utils.Util;
 
 
 public class Cadicfake extends Boss {
 
     public Cadicfake() throws Exception {
-        super(BossID.CADIC_FAKE, BossesData.CADIC_FAKE);
+        super(BossID.CADIC_FAKE, BossesData1.CADIC_FAKE);
     }
     @Override
     public void reward(Player plKill) {

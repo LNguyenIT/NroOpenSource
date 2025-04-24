@@ -16,6 +16,7 @@ import red.s1.boss.BossID;
 import red.s1.boss.BossManager;
 import red.s1.boss.BossStatus;
 import red.s1.boss.BossesData;
+import red.s1.boss.BossesData1;
 import red.team.map.ItemMap;
 import red.team.player.Player;
 import red.team.server.Manager;
@@ -28,7 +29,7 @@ import red.utils.Util;
 public class Zeno extends Boss {
 
     public Zeno() throws Exception {
-        super(BossID.ZENO,BossesData.ZENO_VANG, BossesData.ZENO_XANH,BossesData.ZENO_TIM);
+        super(BossID.ZENO,BossesData1.ZENO_VANG, BossesData1.ZENO_XANH,BossesData1.ZENO_TIM);
     }
 
     @Override

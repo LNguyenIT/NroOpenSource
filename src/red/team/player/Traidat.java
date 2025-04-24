@@ -7,6 +7,7 @@ import java.util.List;
 import red.consts.ConstMap;
 import red.consts.ConstPlayer;
 import red.s1.boss.BossesData;
+import red.s1.boss.BossesData1;
 import red.team.boss.list_boss.hotong.KiLan;
 import red.team.boss.list_boss.karinboss.ToSuKaioKarin;
 import red.team.boss.list_boss.nhanban.Traidatnhanban;
@@ -70,7 +71,7 @@ public class Traidat extends Player {
       if (!plAtt.haveNhanBan) {
         try {
           Traidatnhanban traidatnhanban = new Traidatnhanban(Util.randomBossId(),
-              BossesData.TRAI_DAT, plAtt.zone, plAtt);
+              BossesData1.TRAI_DAT, plAtt.zone, plAtt);
           plAtt.haveNhanBan = true;
         } catch (Exception e) {
 

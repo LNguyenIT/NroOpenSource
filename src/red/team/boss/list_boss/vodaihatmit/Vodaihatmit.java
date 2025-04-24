@@ -6,6 +6,7 @@ import red.s1.boss.Boss;
 import red.s1.boss.BossID;
 import red.s1.boss.BossStatus;
 import red.s1.boss.BossesData;
+import red.s1.boss.BossesData1;
 import red.team.map.ItemMap;
 import red.team.player.Player;
 import red.services.EffectSkillService;
@@ -17,7 +18,7 @@ import red.utils.Util;
 public class Vodaihatmit extends Boss {
 
     public Vodaihatmit() throws Exception {
-        super(BossID.Vodaihatmit, BossesData.DRACULA, BossesData.NGUOIVOHINH, BossesData.BONGBANG, BossesData.SATAN, BossesData.THODAUBAC);
+        super(BossID.Vodaihatmit, BossesData1.DRACULA, BossesData1.NGUOIVOHINH, BossesData1.BONGBANG, BossesData1.SATAN, BossesData1.THODAUBAC);
     }
 
 

@@ -12,6 +12,7 @@ import red.s1.boss.BossID;
 import red.s1.boss.BossManager;
 import red.s1.boss.BossStatus;
 import red.s1.boss.BossesData;
+import red.s1.boss.BossesData1;
 import red.team.map.ItemMap;
 import red.team.player.Player;
 import red.team.skill.Skill;
@@ -26,7 +27,7 @@ import red.utils.Util;
 public class cumberYellow extends Boss {
 
     public cumberYellow() throws Exception {
-        super(BossID.CUMBERYELLOW, BossesData.CUMBERYELLOW);
+        super(BossID.CUMBERYELLOW, BossesData1.CUMBERYELLOW);
     }
 
     @Override

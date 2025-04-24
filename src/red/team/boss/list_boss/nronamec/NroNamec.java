@@ -4,6 +4,7 @@ import java.util.Random;
 
 import red.s1.boss.Boss;
 import red.s1.boss.BossesData;
+import red.s1.boss.BossesData1;
 import red.team.map.ItemMap;
 import red.team.player.Player;
 import red.services.Service;
@@ -15,9 +16,9 @@ public class NroNamec extends Boss {
   private long lastTimeUpdate = System.currentTimeMillis();
   private byte lvl = 0;
   public NroNamec() throws Exception {
-    super(Util.randomBossId(), BossesData.KUKU_NRO, BossesData.MAP_DAU_DINH_NRO, BossesData.RAMBO_NRO,
-        BossesData.SO_4_NRO, BossesData.SO_3_NRO, BossesData.SO_2_NRO, BossesData.SO_1_NRO,
-        BossesData.TIEU_DOI_TRUONG_NRO);
+    super(Util.randomBossId(), BossesData1.KUKU_NRO, BossesData1.MAP_DAU_DINH_NRO, BossesData1.RAMBO_NRO,
+        BossesData1.SO_4_NRO, BossesData1.SO_3_NRO, BossesData1.SO_2_NRO, BossesData1.SO_1_NRO,
+        BossesData1.TIEU_DOI_TRUONG_NRO);
 
   }
 

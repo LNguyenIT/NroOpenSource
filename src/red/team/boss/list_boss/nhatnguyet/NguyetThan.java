@@ -8,6 +8,7 @@ import red.s1.boss.BossID;
 import red.s1.boss.BossManager;
 import red.s1.boss.BossStatus;
 import red.s1.boss.BossesData;
+import red.s1.boss.BossesData1;
 import red.team.item.Item;
 import red.team.map.ItemMap;
 import red.team.player.Player;
@@ -23,7 +24,7 @@ import red.utils.Util;
 public class NguyetThan extends Boss {
 
   public NguyetThan() throws Exception {
-    super(BossID.NGUYET_THAN, BossesData.NGUYET_THAN);
+    super(BossID.NGUYET_THAN, BossesData1.NGUYET_THAN);
     this.cFlag = 9;
     this.isNhatNguyet = true;
   }

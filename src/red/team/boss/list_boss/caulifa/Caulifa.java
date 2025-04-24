@@ -5,6 +5,7 @@ import java.util.Random;
 import red.s1.boss.Boss;
 import red.s1.boss.BossManager;
 import red.s1.boss.BossesData;
+import red.s1.boss.BossesData1;
 import red.team.map.ItemMap;
 import red.team.player.Player;
 import red.team.server.Manager;
@@ -17,7 +18,7 @@ import red.utils.Util;
 public class Caulifa extends Boss {
 
     public Caulifa() throws Exception {
-        super(Util.randomBossId(), BossesData.CAULIFA_1, BossesData.SUPER_CAULIFA);
+        super(Util.randomBossId(), BossesData1.CAULIFA_1, BossesData1.SUPER_CAULIFA);
     }
 
     @Override

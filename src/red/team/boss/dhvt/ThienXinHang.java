@@ -2,6 +2,7 @@ package red.team.boss.dhvt;
 
 import red.s1.boss.BossID;
 import red.s1.boss.BossesData;
+import red.s1.boss.BossesData1;
 import red.team.player.Player;
 import red.team.server.Manager;
 import red.services.EffectSkillService;
@@ -16,7 +17,7 @@ public class ThienXinHang extends BossDHVT {
     private long lastTimePhanThan = System.currentTimeMillis();
 
     public ThienXinHang(Player player) throws Exception {
-        super(BossID.THIEN_XIN_HANG, BossesData.THIEN_XIN_HANG);
+        super(BossID.THIEN_XIN_HANG, BossesData1.THIEN_XIN_HANG);
         this.playerAtt = player;
         phanThan();
     }

@@ -6,6 +6,7 @@ import red.s1.boss.BossData;
 import red.s1.boss.BossID;
 import red.s1.boss.BossManager;
 import red.s1.boss.BossesData;
+import red.s1.boss.BossesData1;
 import red.team.map.ItemMap;
 import red.team.map.Zone;
 import red.team.player.Player;
@@ -22,7 +23,7 @@ import red.utils.Util;
 public class ThuongDeKarin extends Boss {
 
     public ThuongDeKarin(int bossID, BossData bossData, Zone zone,Player plTarget) throws Exception {
-           super(BossID.THUONG_DE, BossesData.THUONG_DE);
+           super(BossID.THUONG_DE, BossesData1.THUONG_DE);
         this.zone = zone;
         this.lockPlayerTarget = plTarget;
     }

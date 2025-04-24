@@ -6,7 +6,7 @@ import red.s1.boss.Boss;
 import red.s1.boss.BossID;
 import red.s1.boss.BossManager;
 import red.s1.boss.BossStatus;
-import red.s1.boss.BossesData;
+import red.s1.boss.BossesData1;
 import red.team.map.ItemMap;
 import red.team.player.Player;
 import red.team.server.Manager;
@@ -19,7 +19,7 @@ import red.utils.Util;
 public class Paikuhandianguc extends Boss {
 
     public Paikuhandianguc() throws Exception {
-        super(BossID.PAIKUHAN_DIA_NGUC, BossesData.PAIKUHAN);
+        super(BossID.PAIKUHAN_DIA_NGUC, BossesData1.PAIKUHAN);
     }
 
     @Override

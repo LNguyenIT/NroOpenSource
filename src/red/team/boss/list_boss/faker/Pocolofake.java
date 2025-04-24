@@ -14,11 +14,12 @@ import red.services.ItemService;
 import red.services.Service;
 import red.services.TaskService;
 import red.utils.Util;
+import red.s1.boss.BossesData1;
 
 public class Pocolofake extends Boss {
 
     public Pocolofake() throws Exception {
-        super(BossID.POCOLO_FAKE, BossesData.POCOLO_FAKE);
+        super(BossID.POCOLO_FAKE, BossesData1.POCOLO_FAKE);
     }
 
     @Override

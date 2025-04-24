@@ -6,6 +6,7 @@ import red.s1.boss.Boss;
 import red.s1.boss.BossID;
 import red.s1.boss.BossStatus;
 import red.s1.boss.BossesData;
+import red.s1.boss.BossesData1;
 import red.team.map.ItemMap;
 import red.team.player.Player;
 import red.team.skill.Skill;
@@ -18,7 +19,7 @@ import red.utils.Util;
 public class Tanjiro extends Boss {
 
     public Tanjiro() throws Exception {
-        super(BossID.SANQUY_TEAM, BossesData.TANJIRO_GIANGHO,BossesData.ZENITSU_GIANGHO,BossesData.INOSUKE_GIANGHO,BossesData.NEZUKO_GIANGHO);
+        super(BossID.SANQUY_TEAM, BossesData1.TANJIRO_GIANGHO,BossesData1.ZENITSU_GIANGHO,BossesData1.INOSUKE_GIANGHO,BossesData1.NEZUKO_GIANGHO);
     }
     @Override
     public void reward(Player plKill) {

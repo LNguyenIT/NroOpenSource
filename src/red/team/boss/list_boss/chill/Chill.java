@@ -7,6 +7,7 @@ import red.s1.boss.BossID;
 import red.s1.boss.BossManager;
 import red.s1.boss.BossStatus;
 import red.s1.boss.BossesData;
+import red.s1.boss.BossesData1;
 import red.team.map.ItemMap;
 import red.team.player.Player;
 import red.team.server.Manager;
@@ -19,7 +20,7 @@ import red.utils.Util;
 public class Chill extends Boss {
 
     public Chill() throws Exception {
-        super(BossID.CHILL,BossesData.CHILL_1, BossesData.CHILL_2);
+        super(BossID.CHILL,BossesData1.CHILL_1, BossesData1.CHILL_2);
     }
 
     @Override

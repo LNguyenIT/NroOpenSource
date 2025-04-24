@@ -6,10 +6,9 @@ import java.util.Random;
 import red.s1.boss.Boss;
 import red.s1.boss.BossID;
 import red.s1.boss.BossStatus;
-import red.s1.boss.BossesData;
+import red.s1.boss.BossesData1;
 import red.team.map.ItemMap;
 import red.team.player.Player;
-import red.team.skill.Skill;
 import red.services.EffectSkillService;
 import red.services.InventoryServiceNew;
 import red.services.ItemService;
@@ -22,7 +21,7 @@ import red.utils.Util;
 public class So18 extends Boss {
 
     public So18() throws Exception {
-        super(BossID.SO18, BossesData.SO18);
+        super(BossID.SO18, BossesData1.SO18);
     }
     @Override
     public void reward(Player plKill) {

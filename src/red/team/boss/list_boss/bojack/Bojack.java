@@ -5,11 +5,9 @@ import java.util.Random;
 import red.s1.boss.Boss;
 import red.s1.boss.BossID;
 import red.s1.boss.BossStatus;
-import red.s1.boss.BossesData;
+import red.s1.boss.BossesData1;
 import red.team.map.ItemMap;
 import red.team.player.Player;
-import red.team.skill.Skill;
-import red.services.EffectSkillService;
 import red.services.ItemService;
 import red.services.Service;
 import red.services.TaskService;
@@ -18,8 +16,8 @@ import red.utils.Util;
 public class Bojack extends Boss {
 
     public Bojack() throws Exception {
-        super(BossID.BOJACK_TEAM, BossesData.BUJIN_GIANGHO, BossesData.KOGU_GIANGHO, BossesData.ZANGYA_GIANGHO,
-                BossesData.BIDO_GIANGHO, BossesData.BOJACK_GIANGHO);
+        super(BossID.BOJACK_TEAM, BossesData1.BUJIN_GIANGHO, BossesData1.KOGU_GIANGHO, BossesData1.ZANGYA_GIANGHO,
+                BossesData1.BIDO_GIANGHO, BossesData1.BOJACK_GIANGHO);
     }
 
     @Override

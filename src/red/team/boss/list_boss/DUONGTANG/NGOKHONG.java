@@ -6,6 +6,7 @@ import red.s1.boss.Boss;
 import red.s1.boss.BossID;
 import red.s1.boss.BossStatus;
 import red.s1.boss.BossesData;
+import red.s1.boss.BossesData1;
 import red.team.map.ItemMap;
 import red.team.player.Player;
 import red.team.skill.Skill;
@@ -22,7 +23,7 @@ import red.utils.Util;
 public class NGOKHONG extends Boss {
 
     public NGOKHONG() throws Exception {
-        super(BossID.NGOKHONG, BossesData.NGOKHONG);
+        super(BossID.NGOKHONG, BossesData1.NGOKHONG);
     }
 
     @Override

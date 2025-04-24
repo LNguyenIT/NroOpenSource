@@ -14,13 +14,14 @@ import red.services.EffectSkillService;
 import red.services.ItemService;
 import red.services.Service;
 import red.services.TaskService;
+import red.s1.boss.BossesData1;
 import red.utils.Util;
 
 
 public class Gokufake extends Boss {
 
     public Gokufake() throws Exception {
-        super(BossID.GOKU_FAKE, BossesData.GOKU_FAKE);
+        super(BossID.GOKU_FAKE, BossesData1.GOKU_FAKE);
     }
     @Override
     public void reward(Player plKill) {

@@ -7,6 +7,7 @@ import red.s1.boss.Boss;
 import red.s1.boss.BossID;
 import red.s1.boss.BossStatus;
 import red.s1.boss.BossesData;
+import red.s1.boss.BossesData1;
 import red.team.map.ItemMap;
 import red.team.player.Player;
 import red.team.skill.Skill;
@@ -26,7 +27,7 @@ public class DUONGTANG extends Boss {
     int hour = rightNow.get(11);
 
     public DUONGTANG() throws Exception {
-        super(BossID.DUONGTANG, BossesData.DUONGTANG);
+        super(BossID.DUONGTANG, BossesData1.DUONGTANG);
     }
 
     @Override

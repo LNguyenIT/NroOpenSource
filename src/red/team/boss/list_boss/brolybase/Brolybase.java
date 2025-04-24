@@ -7,6 +7,7 @@ import red.s1.boss.BossID;
 import red.s1.boss.BossManager;
 import red.s1.boss.BossStatus;
 import red.s1.boss.BossesData;
+import red.s1.boss.BossesData1;
 import red.team.map.ItemMap;
 import red.team.player.Player;
 import red.team.server.Manager;
@@ -19,7 +20,7 @@ import red.utils.Util;
 public class Brolybase extends Boss {
 
     public Brolybase() throws Exception {
-        super(BossID.BROLY_BASE, BossesData.BROLY_BASE_1, BossesData.BROLY_BASE_2, BossesData.BROLY_BASE_3);
+        super(BossID.BROLY_BASE, BossesData1.BROLY_BASE_1, BossesData1.BROLY_BASE_2, BossesData1.BROLY_BASE_3);
     }
 
     @Override

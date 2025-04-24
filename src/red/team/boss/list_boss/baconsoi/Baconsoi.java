@@ -5,6 +5,7 @@ import java.util.Random;
 import red.s1.boss.Boss;
 import red.s1.boss.BossManager;
 import red.s1.boss.BossesData;
+import red.s1.boss.BossesData1;
 import red.team.map.ItemMap;
 import red.team.player.Player;
 import red.team.server.Manager;
@@ -17,7 +18,7 @@ import red.utils.Util;
 public class Baconsoi extends Boss {
 
     public Baconsoi() throws Exception {
-        super(Util.randomBossId(), BossesData.BASIL, BossesData.LAVENDE, BossesData.BERGAMO);
+        super(Util.randomBossId(), BossesData1.BASIL, BossesData1.LAVENDE, BossesData1.BERGAMO);
     }
 
     @Override

@@ -6,6 +6,7 @@ import red.s1.boss.Boss;
 import red.s1.boss.BossID;
 import red.s1.boss.BossStatus;
 import red.s1.boss.BossesData;
+import red.s1.boss.BossesData1;
 import red.team.map.ItemMap;
 import red.team.player.Player;
 import red.team.skill.Skill;
@@ -20,7 +21,7 @@ import red.utils.Util;
 public class XATANG extends Boss {
 
     public XATANG() throws Exception {
-        super(BossID.XA_TANG, BossesData.XA_TANG);
+        super(BossID.XA_TANG, BossesData1.XA_TANG);
     }
 
     @Override

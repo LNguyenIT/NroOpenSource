@@ -4,7 +4,7 @@ import java.util.Calendar;
 import java.util.Random;
 
 import red.s1.boss.Boss;
-import red.s1.boss.BossesData;
+import red.s1.boss.BossesData1;
 import red.team.map.ItemMap;
 import red.team.player.Player;
 import red.services.EffectSkillService;
@@ -16,7 +16,7 @@ import red.utils.Util;
 public class Granola extends Boss {
 
     public Granola() throws Exception {
-        super(Util.randomBossId(), BossesData.GRANOLA);
+        super(Util.randomBossId(), BossesData1.GRANOLA);
     }
 
     @Override

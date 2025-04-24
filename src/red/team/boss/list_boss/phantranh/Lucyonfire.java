@@ -7,6 +7,7 @@ import red.s1.boss.Boss;
 import red.s1.boss.BossID;
 import red.s1.boss.BossStatus;
 import red.s1.boss.BossesData;
+import red.s1.boss.BossesData1;
 import red.team.map.ItemMap;
 import red.team.player.Player;
 import red.team.skill.Skill;
@@ -23,7 +24,7 @@ import red.utils.Util;
 public class Lucyonfire extends Boss {
 
   public Lucyonfire() throws Exception {
-    super(BossID.LUCYONFIRE, BossesData.LUCYONFIRE);
+    super(BossID.LUCYONFIRE, BossesData1.LUCYONFIRE);
   }
 
   @Override

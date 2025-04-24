@@ -6,6 +6,7 @@ import red.s1.boss.BossData;
 import red.s1.boss.BossID;
 import red.s1.boss.BossManager;
 import red.s1.boss.BossesData;
+import red.s1.boss.BossesData1;
 import red.team.map.ItemMap;
 import red.team.map.Zone;
 import red.team.player.Player;
@@ -23,7 +24,7 @@ public class YajirobeKarin extends Boss {
 
     public YajirobeKarin(int bossID, BossData bossData, Zone zone, Player plTarget) throws Exception {
 //        super(bossID, bossData);
-                super(BossID.YAJIROBE_KARIN, BossesData.YAJIROBE_KARIN);
+                super(BossID.YAJIROBE_KARIN, BossesData1.YAJIROBE_KARIN);
         this.zone = zone;
         this.lockPlayerTarget = plTarget;
     }

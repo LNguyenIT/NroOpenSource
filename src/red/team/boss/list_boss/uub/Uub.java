@@ -6,6 +6,7 @@ import red.s1.boss.Boss;
 import red.s1.boss.BossID;
 import red.s1.boss.BossStatus;
 import red.s1.boss.BossesData;
+import red.s1.boss.BossesData1;
 import red.team.map.ItemMap;
 import red.team.player.Player;
 import red.team.skill.Skill;
@@ -17,7 +18,7 @@ import red.utils.Util;
 public class Uub extends Boss {
 
     public Uub() throws Exception {
-        super(BossID.UUB, BossesData.UUB);
+        super(BossID.UUB, BossesData1.UUB);
 
     }
 

@@ -7,6 +7,7 @@ import red.s1.boss.Boss;
 import red.s1.boss.BossID;
 import red.s1.boss.BossStatus;
 import red.s1.boss.BossesData;
+import red.s1.boss.BossesData1;
 import red.team.map.ItemMap;
 import red.team.player.Player;
 import red.team.skill.Skill;
@@ -20,7 +21,7 @@ import red.utils.Util;
 public class Thanvutru extends Boss {
 
     public Thanvutru() throws Exception {
-        super(BossID.THAN_VU_TRU, BossesData.THAN_VU_TRU);
+        super(BossID.THAN_VU_TRU, BossesData1.THAN_VU_TRU);
     }
     @Override
     public void reward(Player plKill) {
