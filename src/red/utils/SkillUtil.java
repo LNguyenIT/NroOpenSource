@@ -65,7 +65,7 @@ int skillId = player.playerSkill.skillSelect.template.id;
     }
 
     public static int getTimeMonkey(int level) { //thời gian tồn tại khỉ v
-        return (level + 23) * 10000;
+        return (level + 13) * 10000;
     }
 
     public static int getPercentHpMonkey(int level) { //tỉ lệ máu khỉ cộng thêm v
@@ -73,7 +73,7 @@ int skillId = player.playerSkill.skillSelect.template.id;
     }
     
     public static int getPercentDameMonkey(int level) { //tỉ lệ dam khỉ cộng thêm v
-        return (level + 23);
+        return (level + 13);
     }
 
     public static int getTimeStun(int level) { //thời gian choáng thái dương hạ san v
@@ -115,7 +115,7 @@ int skillId = player.playerSkill.skillSelect.template.id;
     }
 
     public static int getPercentHPHuytSao(int level) { //tỉ lệ máu huýt sáo cộng thêm v
-        return (level + 3) * 10;
+        return (level + 13) * 10;
     }
 
     public static int getPercentTriThuong(int level) { //tỉ lệ máu hồi phục trị thương v
@@ -135,8 +135,8 @@ int skillId = player.playerSkill.skillSelect.template.id;
         return getTimeMonkey(level) * 2;
     }
 
-    public static int getHPMobMe(int hpMaxPlayer, int level) { //lấy hp max của đệ trứng theo hp max player
-        int[] perHPs = {30, 40, 50, 60, 70, 80, 90};
+    public static long getHPMobMe(long hpMaxPlayer, int level) { //lấy hp max của đệ trứng theo hp max player
+        long[] perHPs = {30, 40, 50, 60, 70, 80, 90};
         return hpMaxPlayer * perHPs[level - 1] / 100;
     }
 

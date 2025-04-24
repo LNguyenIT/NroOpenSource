@@ -11,6 +11,7 @@ import red.team.map.ItemMap;
 import red.team.player.Player;
 import red.team.server.Manager;
 import red.services.EffectSkillService;
+import red.services.ItemService;
 import red.services.Service;
 import red.services.TaskService;
 import red.utils.Util;
@@ -45,11 +46,12 @@ public class Fidedianguc extends Boss {
         }
        
         plKill.pointBoss += 0;
+        ItemService.gI().CheckDoneVeTL(plKill);
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
     }
 
     @Override
-    public int injured(Player plAtt, int damage, boolean piercing, boolean isMobAttack) {
+    public long injured(Player plAtt, long damage, boolean piercing, boolean isMobAttack) {
         this.checkAnThan(plAtt);
         if (Util.isTrue(20, 100) && plAtt != null) {// tỉ lệ hụt của thiên sứ
             Util.isTrue(this.nPoint.tlNeDon, 100);

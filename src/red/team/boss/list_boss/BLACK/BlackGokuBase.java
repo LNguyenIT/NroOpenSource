@@ -11,6 +11,7 @@ import red.team.map.ItemMap;
 import red.team.player.Player;
 import red.team.server.Manager;
 import red.services.EffectSkillService;
+import red.services.ItemService;
 import red.services.Service;
 import red.services.TaskService;
 import red.utils.Util;
@@ -47,28 +48,30 @@ public class BlackGokuBase extends Boss {
                         Util.ratiItem(zone, gang[randomG], 1, this.location.x, this.location.y, plKill.id));
             }
             if (Util.isTrue(5, 100)) {
-            Service.gI().dropItemMap(this.zone,
-                    new ItemMap(zone, 992, 1, this.location.x, this.location.y, plKill.id));
-        
-            }} else {
+                Service.gI().dropItemMap(this.zone,
+                        new ItemMap(zone, 992, 1, this.location.x, this.location.y, plKill.id));
+
+            }
+        } else {
             Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, Manager.itemIds_TL[randomDo], 1,
                     this.location.x, this.location.y, plKill.id));
         }
         plKill.pointBoss += 2;
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
+        ItemService.gI().CheckDoneVeTL(plKill);
     }
 
-   @Override
-    public int injured(Player plAtt, int damage, boolean piercing, boolean isMobAttack) {
- this.checkAnThan(plAtt);
+    @Override
+    public long injured(Player plAtt, long damage, boolean piercing, boolean isMobAttack) {
+        this.checkAnThan(plAtt);
         if (!this.isDie()) {
             if (!piercing && Util.isTrue(this.nPoint.tlNeDon, 100)) {
                 this.chat("Xí hụt");
                 return 0;
             }
-           if(plAtt != null && plAtt.nPoint.isSieuThan){
+            if (plAtt != null && plAtt.nPoint.isSieuThan) {
                 damage = this.nPoint.subDameInjureWithDeff(damage);
-            }else{
+            } else {
                 damage = this.nPoint.subDameInjureWithDeff(damage / 2);
             }
             if (!piercing && effectSkill.isShielding) {

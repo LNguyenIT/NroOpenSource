@@ -11,15 +11,15 @@ import red.team.map.ItemMap;
 import red.team.player.Player;
 import red.team.server.Manager;
 import red.services.EffectSkillService;
+import red.services.ItemService;
 import red.services.Service;
 import red.services.TaskService;
 import red.utils.Util;
 
-
 public class ZamasKaio extends Boss {
 
     public ZamasKaio() throws Exception {
-       super(BossID.ZAMASZIN, BossesData.ZAMAS);
+        super(BossID.ZAMASZIN, BossesData.ZAMAS);
     }
 
     @Override
@@ -31,7 +31,7 @@ public class ZamasKaio extends Boss {
 //                int[] manhthuong = new int[] { 1066, 1067, 1068, 1069, 1070 };  
             int[] manhhiem = new int[]{561};
             int[] gang = new int[]{562, 564, 566};
-            int randomG = new Random().nextInt(gang.length );
+            int randomG = new Random().nextInt(gang.length);
 //                int randomAWJ = new Random().nextInt(manhthuong.length-1);
             int randomGR = new Random().nextInt(manhhiem.length);
             if (Util.isTrue(70, 100)) {
@@ -44,17 +44,17 @@ public class ZamasKaio extends Boss {
                         Util.manhTS(zone, manhhiem[randomGR], 3, this.location.x, this.location.y, plKill.id));
             }
             if (Util.isTrue(5, 100)) {
-            Service.gI().dropItemMap(this.zone,
-                    new ItemMap(zone, 992, 1, this.location.x, this.location.y, plKill.id));
+                Service.gI().dropItemMap(this.zone,
+                        new ItemMap(zone, 992, 1, this.location.x, this.location.y, plKill.id));
             }
             if (Util.isTrue(5, 100)) {
                 Service.gI().dropItemMap(this.zone,
                         Util.ratiItem(zone, gang[randomG], 1, this.location.x, this.location.y, plKill.id));
             }
             if (Util.isTrue(5, 100)) {
-            Service.gI().dropItemMap(this.zone,
-                    new ItemMap(zone, 992, 1, this.location.x, this.location.y, plKill.id));
-        
+                Service.gI().dropItemMap(this.zone,
+                        new ItemMap(zone, 992, 1, this.location.x, this.location.y, plKill.id));
+
             }
         } else {
             Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, Manager.itemIds_TL[randomDo], 1,
@@ -65,6 +65,7 @@ public class ZamasKaio extends Boss {
         }
         plKill.pointBoss += 2;
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
+        ItemService.gI().CheckDoneVeTL(plKill);
     }
 
     @Override
@@ -74,7 +75,7 @@ public class ZamasKaio extends Boss {
             this.changeStatus(BossStatus.LEAVE_MAP);
         }
     }
-   
+
     @Override
     public void joinMap() {
         super.joinMap(); //To change body of generated methods, choose Tools | Templates.
@@ -82,24 +83,25 @@ public class ZamasKaio extends Boss {
     }
 
     private long st;
-@Override
-    public int injured(Player plAtt, int damage, boolean piercing, boolean isMobAttack) {
- this.checkAnThan(plAtt);
+
+    @Override
+    public long injured(Player plAtt, long damage, boolean piercing, boolean isMobAttack) {
+        this.checkAnThan(plAtt);
         if (!this.isDie()) {
             if (!piercing && Util.isTrue(this.nPoint.tlNeDon, 100)) {
                 this.chat("Xí hụt");
                 return 0;
             }
-           if(plAtt != null && plAtt.nPoint.isSieuThan){
+            if (plAtt != null && plAtt.nPoint.isSieuThan) {
                 damage = this.nPoint.subDameInjureWithDeff(damage);
-            }else{
+            } else {
                 damage = this.nPoint.subDameInjureWithDeff(damage / 2);
             }
             if (!piercing && effectSkill.isShielding) {
                 if (damage > nPoint.hpMax) {
                     EffectSkillService.gI().breakShield(this);
                 }
-                damage = damage/1;
+                damage = damage / 1;
             }
             this.nPoint.subHP(damage);
             if (isDie()) {
@@ -111,13 +113,14 @@ public class ZamasKaio extends Boss {
             return 0;
         }
     }
-   @Override
-   public void moveTo(int x, int y) {
-       if(this.currentLevel == 1){
-           return;
-       }
-       super.moveTo(x, y);
-   }
+
+    @Override
+    public void moveTo(int x, int y) {
+        if (this.currentLevel == 1) {
+            return;
+        }
+        super.moveTo(x, y);
+    }
 //
 //    @Override
 //    public void reward(Player plKill) {
@@ -135,25 +138,3 @@ public class ZamasKaio extends Boss {
 //        super.notifyJoinMap();
 //    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

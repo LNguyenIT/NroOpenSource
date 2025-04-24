@@ -27,9 +27,15 @@ import java.util.logging.Level;
 public class NinjaAoTim extends TrungUyTrang {
 
     protected int numPhanThan;
+    private long dameClan;
+    private long hpClan;
 
-    public NinjaAoTim(int dame, int hp, Zone zone) throws Exception {
+    
+    public NinjaAoTim(long dame, long hp, Zone zone) throws Exception {
         super(dame, hp, zone, Util.randomBossId(), NINJA);
+        this.dameClan = dame;
+        this.hpClan = hp;
+        this.zoneFinal = zone;
         numPhanThan = 0;
     }
 
@@ -37,8 +43,8 @@ public class NinjaAoTim extends TrungUyTrang {
             "Ninja Áo Tím", //name
             ConstPlayer.TRAI_DAT, //gender
             new short[]{123, 124, 125, -1, -1, -1}, //outfit {head, body, leg, bag, aura, eff}
-            500, //dame
-            new int[]{500}, //hp
+            (long)500, //dame
+            new long[]{500}, //hp
             new int[]{1}, //map join
             new int[][]{
                 {Skill.LIEN_HOAN, 7, 1000},
@@ -87,7 +93,7 @@ public class NinjaAoTim extends TrungUyTrang {
     private long lastTimeBlame;
 
    @Override
-    public int injured(Player plAtt, int damage, boolean piercing, boolean isMobAttack) {
+    public long injured(Player plAtt, long damage, boolean piercing, boolean isMobAttack) {
  this.checkAnThan(plAtt);
         if (!this.isDie()) {
             if (!piercing && Util.isTrue(700, 1000)) {
@@ -139,6 +145,6 @@ public class NinjaAoTim extends TrungUyTrang {
     }
 
     private Boss createPhanThan(int idBoss) throws Exception {
-        return new NinjaClone(this, this.location.x, this.location.y, idBoss, this.nPoint.getDameAttack(false) / 4, this.nPoint.hpMax / 10, this.zone);
+        return new NinjaClone(this, this.location.x, this.location.y, idBoss,  (long) this.nPoint.getDameAttack(false) / 4,  (long)  this.nPoint.hpMax / 10, this.zone);
     }
 }

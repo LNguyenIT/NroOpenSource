@@ -24,7 +24,7 @@ public final class MobMe extends Mob {
         this.point.maxHp = SkillUtil.getHPMobMe(player.nPoint.hpMax, level);
         this.point.dame = SkillUtil.getHPMobMe(player.nPoint.getDameAttack(false), level);
         if (this.player.setClothes.pikkoroDaimao == 5) {
-            this.point.dame *= 2;
+            this.point.dame *= 7;
         }
         this.point.hp = this.point.maxHp;
         this.zone = player.zone;
@@ -46,14 +46,14 @@ public final class MobMe extends Mob {
         try {
             if (pl != null) {
                 if (pl.nPoint.hp > this.point.dame && pl.nPoint.hp > pl.nPoint.hpMax * 0.05) {
-                    int dameHit = pl.injured(null, this.point.dame, true, true);
+                    long dameHit = pl.injured(null, this.point.dame, true, true);
                     msg = new Message(-95);
                     msg.writer().writeByte(2);
 
                     msg.writer().writeInt(this.id);
                     msg.writer().writeInt((int) pl.id);
-                    msg.writer().writeInt(dameHit);
-                    msg.writer().writeInt(pl.nPoint.hp);
+                    msg.writer().writeLong(dameHit);
+                    msg.writer().writeLong(pl.nPoint.hp);
 
                     Service.gI().sendMessAllPlayerInMap(this.zone, msg);
                     msg.cleanup();
@@ -87,11 +87,11 @@ public final class MobMe extends Mob {
                         if (mob.tempId == 0) {
                             tnsm = 1;
                             mob.point.sethp(mob.point.gethp() - 10);
-                            msg.writer().writeInt(mob.point.gethp());
+                            msg.writer().writeLong(mob.point.gethp());
                             msg.writer().writeInt(10);
                         } else {
                             mob.point.sethp((int) (mob.point.gethp() - dame));
-                            msg.writer().writeInt(mob.point.gethp());
+                            msg.writer().writeLong(mob.point.gethp());
                             msg.writer().writeInt((int) dame);
                         }
                         Service.getInstance().sendMessAllPlayerInMap(this.zone, msg);
@@ -116,7 +116,7 @@ public final class MobMe extends Mob {
             msg.writer().writeByte(0);//type
             msg.writer().writeInt((int) player.id);
             msg.writer().writeShort(this.tempId);
-            msg.writer().writeInt(this.point.hp);// hp mob
+            msg.writer().writeLong(this.point.hp);// hp mob
             Service.gI().sendMessAllPlayerInMap(this.zone, msg);
             msg.cleanup();
         } catch (Exception e) {

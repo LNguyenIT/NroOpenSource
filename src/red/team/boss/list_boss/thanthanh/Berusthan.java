@@ -7,6 +7,7 @@ import red.s1.boss.BossesData;
 import red.team.map.ItemMap;
 import red.team.player.Player;
 import red.services.EffectSkillService;
+import red.services.ItemService;
 import red.services.Service;
 import red.services.TaskService;
 import red.utils.Util;
@@ -38,10 +39,11 @@ public class Berusthan extends Boss {
         plKill.pointBoss += 10;
 
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
+        ItemService.gI().CheckDoneVeTL(plKill);
     }
 
     @Override
-    public int injured(Player plAtt, int damage, boolean piercing, boolean isMobAttack) {
+    public long injured(Player plAtt, long damage, boolean piercing, boolean isMobAttack) {
         this.checkAnThan(plAtt);
         if (Util.isTrue(20, 100)) {// tỉ lệ hụt của thiên sứ
 

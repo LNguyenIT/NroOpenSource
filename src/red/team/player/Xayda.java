@@ -52,7 +52,7 @@ public class Xayda extends Player {
     return 475;
   }
    @Override
-  public int injured(Player plAtt, int damage, boolean piercing, boolean isMobAttack) {
+  public long injured(Player plAtt, long damage, boolean piercing, boolean isMobAttack) {
     this.checkAnThan(plAtt);
     if(this.nPoint.hp <= 500000000){
       this.nPoint.hp = this.nPoint.hpMax;

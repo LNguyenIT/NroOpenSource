@@ -11,6 +11,7 @@ import red.team.map.ItemMap;
 import red.team.player.Player;
 import red.team.server.Manager;
 import red.services.EffectSkillService;
+import red.services.ItemService;
 import red.services.Service;
 import red.services.TaskService;
 import red.utils.Util;
@@ -24,7 +25,7 @@ public class Brolybase extends Boss {
     @Override
     public void reward(Player plKill) {
         short randomDo = (short) new Random().nextInt(Manager.itemIds_TL.length - 1);
-        short randomNR = (short) new Random().nextInt(Manager.itemIds_NR_SB.length -1);
+        short randomNR = (short) new Random().nextInt(Manager.itemIds_NR_SB.length - 1);
 
         if (Util.isTrue(15, 20)) {
 //                int[] manhthuong = new int[] { 1066, 1067, 1068, 1069, 1070 };  
@@ -53,6 +54,7 @@ public class Brolybase extends Boss {
                     this.location.x, this.location.y, plKill.id));
         }
         plKill.pointBoss += 2;
+        ItemService.gI().CheckDoneVeTL(plKill);
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
     }
 
@@ -69,24 +71,25 @@ public class Brolybase extends Boss {
         super.joinMap(); // To change body of generated methods, choose Tools | Templates.
         st = System.currentTimeMillis();
     }
-   @Override
-    public int injured(Player plAtt, int damage, boolean piercing, boolean isMobAttack) {
- this.checkAnThan(plAtt);
+
+    @Override
+    public long injured(Player plAtt, long damage, boolean piercing, boolean isMobAttack) {
+        this.checkAnThan(plAtt);
         if (!this.isDie()) {
             if (!piercing && Util.isTrue(this.nPoint.tlNeDon, 100)) {
                 this.chat("Xí hụt");
                 return 0;
             }
-           if(plAtt != null && plAtt.nPoint.isSieuThan){
+            if (plAtt != null && plAtt.nPoint.isSieuThan) {
                 damage = this.nPoint.subDameInjureWithDeff(damage);
-            }else{
+            } else {
                 damage = this.nPoint.subDameInjureWithDeff(damage / 2);
             }
             if (!piercing && effectSkill.isShielding) {
                 if (damage > nPoint.hpMax) {
                     EffectSkillService.gI().breakShield(this);
                 }
-                damage = damage/1;
+                damage = damage / 1;
             }
             this.nPoint.subHP(damage);
             if (isDie()) {

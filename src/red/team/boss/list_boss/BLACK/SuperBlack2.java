@@ -10,6 +10,7 @@ import red.team.map.ItemMap;
 import red.team.player.Player;
 import red.team.server.Manager;
 import red.services.EffectSkillService;
+import red.services.ItemService;
 import red.services.Service;
 import red.services.TaskService;
 import red.utils.Util;
@@ -62,22 +63,24 @@ public class SuperBlack2 extends Boss {
             Service.gI().dropItemMap(this.zone,
                     Util.RaitiDoc12(zone, itemDos[randomc12], 1, this.location.x, this.location.y, plKill.id));
             if (Util.isTrue(5, 100)) {
-            Service.gI().dropItemMap(this.zone,
-                    new ItemMap(zone, 992, 1, this.location.x, this.location.y, plKill.id));
-        
+                Service.gI().dropItemMap(this.zone,
+                        new ItemMap(zone, 992, 1, this.location.x, this.location.y, plKill.id));
+
             }
             return;
         } else {
             Service.gI().dropItemMap(this.zone,
                     new ItemMap(zone, 15, 1, this.location.x, this.location.y, plKill.id));
-        }if(plKill.pet.typePet > 1  &&  Util.isTrue(25, 100)){
+        }
+        if (plKill.pet.typePet > 1 && Util.isTrue(25, 100)) {
             Service.gI().dropItemMap(this.zone,
                     new ItemMap(zone, (short) 1108, 1, this.location.x, this.location.y, plKill.id));
-            Service.gI().sendThongBaoAllPlayer("Trứng huỷ diệt đã rơi vào tay "+plKill.name);
+            Service.gI().sendThongBaoAllPlayer("Trứng huỷ diệt đã rơi vào tay " + plKill.name);
         }
-        
+
         plKill.pointBoss += 3;
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
+        ItemService.gI().CheckDoneVeTL(plKill);
     }
 
     @Override
@@ -96,17 +99,17 @@ public class SuperBlack2 extends Boss {
 
     private long st;
 
-   @Override
-    public int injured(Player plAtt, int damage, boolean piercing, boolean isMobAttack) {
- this.checkAnThan(plAtt);
+    @Override
+    public long injured(Player plAtt, long damage, boolean piercing, boolean isMobAttack) {
+        this.checkAnThan(plAtt);
         if (!this.isDie()) {
             if (!piercing && Util.isTrue(this.nPoint.tlNeDon, 100)) {
                 this.chat("Xí hụt");
                 return 0;
             }
-           if(plAtt != null && plAtt.nPoint.isSieuThan){
+            if (plAtt != null && plAtt.nPoint.isSieuThan) {
                 damage = this.nPoint.subDameInjureWithDeff(damage);
-            }else{
+            } else {
                 damage = this.nPoint.subDameInjureWithDeff(damage / 2);
             }
             if (!piercing && effectSkill.isShielding) {

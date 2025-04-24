@@ -33,31 +33,31 @@ public class Mabu extends Boss {
 
     @Override
     public void reward(Player plKill) {
-        if (Util.isTrue(33, 100)) {
-            BossData Super = new BossData(
-                    "Super Broly " + Util.nextInt(100),
-                    this.gender,
-                    new short[] { 294, 295, 296, -1, -1, -1 }, // outfit {head, body, leg, bag, aura, eff}
-                    Util.nextInt(100, 3000), // dame
-                    new int[] { Util.nextInt(1000000, 3000000) }, // hp
-                    new int[] { 3, 4, 5, 6, 10, 13, 19, 20, 18, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38 }, // map
-                                                                                                              // join
-                    new int[][] {
-                            { Skill.ANTOMIC, 7, 100 }, { Skill.MASENKO, 7, 100 },
-                            { Skill.KAMEJOKO, 7, 100 },
-                            { Skill.TAI_TAO_NANG_LUONG, 5, 15000 } },
-                    new String[] {}, // text chat 1
-                    new String[] { "Tao sẽ đè chết mày" }, // text chat 2
-                    new String[] { "|-1|Lần khác ta sẽ xử đẹp ngươi" }, // text chat 3
-                    60);
-
-            try {
-                new Super(Util.createIdBossClone((int) this.id), Super, this.zone);
-            } catch (Exception e) {
-                e.printStackTrace();
-                Logger.logException(Manager.class, e, "Lỗi super");
-            }
-        }
+//        if (Util.isTrue(33, 100)) {
+//            BossData Super = new BossData(
+//                    "Super Broly " + Util.nextInt(100),
+//                    this.gender,
+//                    new short[] { 294, 295, 296, -1, -1, -1 }, // outfit {head, body, leg, bag, aura, eff}
+//                    Util.nextInt(100, 3000), // dame
+//                    new long[] { Util.nextInt(1000000, 3000000) }, // hp
+//                    new int[] { 3, 4, 5, 6, 10, 13, 19, 20, 18, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38 }, // map
+//                                                                                                              // join
+//                    new int[][] {
+//                            { Skill.ANTOMIC, 7, 100 }, { Skill.MASENKO, 7, 100 },
+//                            { Skill.KAMEJOKO, 7, 100 },
+//                            { Skill.TAI_TAO_NANG_LUONG, 5, 15000 } },
+//                    new String[] {}, // text chat 1
+//                    new String[] { "Tao sẽ đè chết mày" }, // text chat 2
+//                    new String[] { "|-1|Lần khác ta sẽ xử đẹp ngươi" }, // text chat 3
+//                    60);
+//
+//            try {
+//                new Super(Util.createIdBossClone((int) this.id), Super, this.zone);
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//                Logger.logException(Manager.class, e, "Lỗi super");
+//            }
+//        }
     }
 
     @Override
@@ -76,39 +76,39 @@ public class Mabu extends Boss {
         super.active();
         this.nPoint.dame = this.nPoint.hpMax / 100;// To change body of generated methods, choose Tools | Templates.
         if (!player.isBoss) {
-            if (Util.canDoWithTime(st, 1800000)) {
-                this.changeStatus(BossStatus.LEAVE_MAP);
-                if (Util.isTrue(1, 100)) {
-                    BossData Super = new BossData(
-                            "Super Broly " + Util.nextInt(100),
-                            this.gender,
-                            new short[] { 294, 295, 296, -1, -1, -1 }, // outfit {head, body, leg, bag, aura, eff}
-                            Util.nextInt(100, 3000), // dame
-                            new int[] { Util.nextInt(1000000, 30000000) }, // hp
-                            new int[] { 6 }, // map join
-                            new int[][] {
-                                    { Skill.ANTOMIC, 7, 100 }, { Skill.MASENKO, 7, 100 },
-                                    { Skill.KAMEJOKO, 7, 100 },
-                                    { Skill.TAI_TAO_NANG_LUONG, 5, 15000 } },
-                            new String[] {}, // text chat 1
-                            new String[] { "|-1|serizawa.store" }, // text chat 2
-                            new String[] { "|-1|Lần khác ta sẽ xử đẹp ngươi" }, // text chat 3
-                            60);
-
-                    try {
-                        new Super(Util.createIdBossClone((int) this.id), Super, this.zone);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        Logger.logException(Manager.class, e, "Lỗi active super");
-                    }
-                }
-            }
+//            if (Util.canDoWithTime(st, 1800000)) {
+//                this.changeStatus(BossStatus.LEAVE_MAP);
+//                if (Util.isTrue(1, 100)) {
+//                    BossData Super = new BossData(
+//                            "Super Broly " + Util.nextInt(100),
+//                            this.gender,
+//                            new short[] { 294, 295, 296, -1, -1, -1 }, // outfit {head, body, leg, bag, aura, eff}
+//                            Util.nextInt(100, 3000), // dame
+//                            new int[] { Util.nextInt(1000000, 30000000) }, // hp
+//                            new int[] { 6 }, // map join
+//                            new int[][] {
+//                                    { Skill.ANTOMIC, 7, 100 }, { Skill.MASENKO, 7, 100 },
+//                                    { Skill.KAMEJOKO, 7, 100 },
+//                                    { Skill.TAI_TAO_NANG_LUONG, 5, 15000 } },
+//                            new String[] {}, // text chat 1
+//                            new String[] { "|-1|serizawa.store" }, // text chat 2
+//                            new String[] { "|-1|Lần khác ta sẽ xử đẹp ngươi" }, // text chat 3
+//                            60);
+//
+//                    try {
+//                        new Super(Util.createIdBossClone((int) this.id), Super, this.zone);
+//                    } catch (Exception e) {
+//                        e.printStackTrace();
+//                        Logger.logException(Manager.class, e, "Lỗi active super");
+//                    }
+//                }
+//            }
         }
 
     }
 
     @Override
-    public int injured(Player plAtt, int damage, boolean piercing, boolean isMobAttack) {
+    public long injured(Player plAtt, long damage, boolean piercing, boolean isMobAttack) {
         this.checkAnThan(plAtt);
 
         if (this != null) {

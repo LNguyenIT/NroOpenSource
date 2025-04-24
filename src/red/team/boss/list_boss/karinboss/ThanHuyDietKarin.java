@@ -9,6 +9,7 @@ import red.team.map.Zone;
 import red.team.player.Player;
 import red.team.server.Client;
 import red.services.EffectSkillService;
+import red.services.ItemService;
 import red.services.Service;
 import red.utils.Util;
 
@@ -31,6 +32,7 @@ public class ThanHuyDietKarin extends Boss {
             plKill.pointKarin = 6;
         }
         plKill.achievement.plusCount(16);
+        ItemService.gI().CheckDoneVeTL(plKill);
     }
 
     @Override
@@ -60,7 +62,7 @@ public class ThanHuyDietKarin extends Boss {
     }
 
    @Override
-    public int injured(Player plAtt, int damage, boolean piercing, boolean isMobAttack) {
+    public long injured(Player plAtt, long damage, boolean piercing, boolean isMobAttack) {
  this.checkAnThan(plAtt);
         if (!this.isDie()) {
             damage = this.nPoint.subDameInjureWithDeff(damage);

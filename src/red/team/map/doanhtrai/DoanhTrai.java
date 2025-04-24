@@ -67,7 +67,7 @@ public class DoanhTrai {
         player.clan.doanhTrai_playerOpen = player.name;
         player.clan.doanhTrai_lastTimeOpen = this.lastTimeOpen;
         //Khởi tạo quái, boss
-//        this.init();
+        this.init();
         //Đưa thành viên vào doanh trại
         for (Player pl : player.clan.membersInGame) {
             if (pl == null || pl.zone == null) {

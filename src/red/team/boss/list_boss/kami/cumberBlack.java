@@ -16,6 +16,7 @@ import red.team.map.ItemMap;
 import red.team.player.Player;
 import red.team.skill.Skill;
 import red.services.EffectSkillService;
+import red.services.ItemService;
 import red.services.PlayerService;
 import red.services.Service;
 import red.services.TaskService;
@@ -58,6 +59,7 @@ public class cumberBlack extends Boss {
         plKill.pointBoss += 0;
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
         plKill.pointBoss += 2;
+        ItemService.gI().CheckDoneVeTL(plKill);
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
     }
 
@@ -78,7 +80,7 @@ public class cumberBlack extends Boss {
     private long st;
 
     @Override
-    public int injured(Player plAtt, int damage, boolean piercing, boolean isMobAttack) {
+    public long injured(Player plAtt, long damage, boolean piercing, boolean isMobAttack) {
         this.checkAnThan(plAtt);
         if (Util.isTrue(20, 100) && plAtt != null) {// tỉ lệ hụt của thiên sứ
             Util.isTrue(this.nPoint.tlNeDon, 100);

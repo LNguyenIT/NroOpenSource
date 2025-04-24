@@ -20,46 +20,48 @@ import red.team.item.Item;
 import red.team.server.Manager;
 import red.utils.Util;
 
-
 public class DUONGTANG extends Boss {
+
     final Calendar rightNow = Calendar.getInstance();
     int hour = rightNow.get(11);
-    
+
     public DUONGTANG() throws Exception {
         super(BossID.DUONGTANG, BossesData.DUONGTANG);
     }
- @Override
+
+    @Override
     public void reward(Player plKill) {
 
-                byte randomDo = (byte) new Random().nextInt(Manager.itemIds_TL.length );
+        byte randomDo = (byte) new Random().nextInt(Manager.itemIds_TL.length);
         if (Util.isTrue(2, 100)) {
             Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, Manager.itemIds_TL[randomDo], 1,
-                        this.location.x, this.location.y, plKill.id));
+                    this.location.x, this.location.y, plKill.id));
         }
         if (Util.isTrue(40, 100)) {
 
-           Item item = ItemService.gI().createNewItem((short) 2120);
-           item.itemOptions.add(new Item.ItemOption(30, 0));
-           InventoryServiceNew.gI().addItemBag(plKill, item);
+            Item item = ItemService.gI().createNewItem((short) 2120);
+            item.itemOptions.add(new Item.ItemOption(30, 0));
+            InventoryServiceNew.gI().addItemBag(plKill, item);
         }
-        plKill.NguHanhSonPoint+=20;
-        Service.gI().sendThongBao(plKill,"Bạn nhận được 20 điểm ngũ hành sơn");
+        plKill.NguHanhSonPoint += 20;
+        Service.gI().sendThongBao(plKill, "Bạn nhận được 20 điểm ngũ hành sơn");
         plKill.pointBoss += 1;
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
+        ItemService.gI().CheckDoneVeTL(plKill);
     }
 
-  
-   @Override
+    @Override
     public void active() {
         super.active(); //To change body of generated methods, choose Tools | Templates.
-        if(Util.canDoWithTime(st,900000)){
-          this.changeStatus(BossStatus.LEAVE_MAP);
+        if (Util.canDoWithTime(st, 900000)) {
+            this.changeStatus(BossStatus.LEAVE_MAP);
         }
-        
+
     }
-   @Override
-    public int injured(Player plAtt, int damage, boolean piercing, boolean isMobAttack) {
- this.checkAnThan(plAtt);
+
+    @Override
+    public long injured(Player plAtt, long damage, boolean piercing, boolean isMobAttack) {
+        this.checkAnThan(plAtt);
 //        if (Util.isTrue(50, 100) && plAtt != null) {//tỉ lệ hụt của thiên sứ
 //            Util.isTrue(this.nPoint.tlNeDon, 100);
 //            if (Util.isTrue(1, 100)) {
@@ -95,18 +97,16 @@ public class DUONGTANG extends Boss {
 
     @Override
     public void joinMap() {
-        
-            super.joinMap(); //To change body of generated methods, choose Tools | Templates.
-            st = System.currentTimeMillis();
-        
+
+        super.joinMap(); //To change body of generated methods, choose Tools | Templates.
+        st = System.currentTimeMillis();
+
     }
 
-    
     private long st;
-    
+
 }
 /**
  * Vui lòng không sao chép mã nguồn này dưới mọi hình thức. Hãy tôn trọng tác
  * giả của mã nguồn này. Xin cảm ơn! - Lucy
  */
-    

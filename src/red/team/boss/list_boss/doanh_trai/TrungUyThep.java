@@ -31,22 +31,22 @@ public class TrungUyThep extends TrungUyTrang {
     private static final BossData TRUNG_UY_THEP = new BossData(
             "Trung úy thép", // name
             ConstPlayer.TRAI_DAT, // gender
-            new short[] { 129, 130, 131, -1, -1, -1 }, // outfit {head, body, leg, bag, aura, eff}
-            500, // dame
-            new int[] { 500 }, // hp
-            new int[] { 1 }, // map join
-            new int[][] {
-                    { Skill.LIEN_HOAN, 7, 1000 },
-                    { Skill.LIEN_HOAN, 6, 1000 } },
-            new String[] {}, // text chat 1
-            new String[] { "|-1|Tao hơn hẳn mày, mày nên cầu cho may mắn ở phía mày đi",
-                    "|-1|Ha ha ha! Mắt mày mù à? Nhìn máy đo chỉ số đi!!",
-                    "|-1|Định chạy trốn hả, hử",
-                    "|-1|Ta sẽ tàn sát khu này trong vòng 5 phút nữa",
-                    "|-1|Hahaha mày đây rồi",
-                    "|-1|Tao đã có lệnh từ đại ca rồi"
+            new short[]{129, 130, 131, -1, -1, -1}, // outfit {head, body, leg, bag, aura, eff}
+            (long) 500, // dame
+            new long[]{500}, // hp
+            new int[]{1}, // map join
+            new int[][]{
+                {Skill.LIEN_HOAN, 7, 1000},
+                {Skill.LIEN_HOAN, 6, 1000}},
+            new String[]{}, // text chat 1
+            new String[]{"|-1|Tao hơn hẳn mày, mày nên cầu cho may mắn ở phía mày đi",
+                "|-1|Ha ha ha! Mắt mày mù à? Nhìn máy đo chỉ số đi!!",
+                "|-1|Định chạy trốn hả, hử",
+                "|-1|Ta sẽ tàn sát khu này trong vòng 5 phút nữa",
+                "|-1|Hahaha mày đây rồi",
+                "|-1|Tao đã có lệnh từ đại ca rồi"
             }, // text chat 2
-            new String[] { "|-2|Đẹp trai nó phải thế" }, // text chat 3
+            new String[]{"|-2|Đẹp trai nó phải thế"}, // text chat 3
             5 // second rest
     );
 
@@ -65,7 +65,6 @@ public class TrungUyThep extends TrungUyTrang {
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
     }
 
-  
     @Override
     public void moveTo(int x, int y) {
         if (this.location.x >= 755 || this.location.x <= 925) {
@@ -85,9 +84,9 @@ public class TrungUyThep extends TrungUyTrang {
         }
     }
 
-   @Override
-    public int injured(Player plAtt, int damage, boolean piercing, boolean isMobAttack) {
- this.checkAnThan(plAtt);
+    @Override
+    public long injured(Player plAtt, long damage, boolean piercing, boolean isMobAttack) {
+        this.checkAnThan(plAtt);
         if (!this.isDie()) {
             if (!piercing && Util.isTrue(500, 1000)) {
                 this.chat("Xí hụt lêu lêu");

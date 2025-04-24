@@ -33,8 +33,8 @@ public class RobotVeSi extends TrungUyTrang {
             "Rôbốt vệ sĩ", //name
             ConstPlayer.TRAI_DAT, //gender
             new short[]{138, 139, 140, -1, -1, -1}, //outfit {head, body, leg, bag, aura, eff}
-            500, //dame
-            new int[]{500}, //hp
+            (long)500, //dame
+            new long[]{500}, //hp
             new int[]{1}, //map join
             new int[][]{
                 {Skill.LIEN_HOAN, 7, 1000},

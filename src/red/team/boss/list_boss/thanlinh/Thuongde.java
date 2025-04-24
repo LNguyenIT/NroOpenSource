@@ -11,6 +11,7 @@ import red.team.map.ItemMap;
 import red.team.player.Player;
 import red.team.skill.Skill;
 import red.services.EffectSkillService;
+import red.services.ItemService;
 import red.services.Service;
 import red.services.TaskService;
 import red.utils.Util;
@@ -42,6 +43,7 @@ public class Thuongde extends Boss {
         plKill.pointBoss += 0;
 
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
+        ItemService.gI().CheckDoneVeTL(plKill);
     }
 
   
@@ -54,7 +56,7 @@ public class Thuongde extends Boss {
     }
     
    @Override
-    public int injured(Player plAtt, int damage, boolean piercing, boolean isMobAttack) {
+    public long injured(Player plAtt, long damage, boolean piercing, boolean isMobAttack) {
  this.checkAnThan(plAtt);
         if (!this.isDie()) {
             if (!piercing && Util.isTrue(this.nPoint.tlNeDon, 100)) {

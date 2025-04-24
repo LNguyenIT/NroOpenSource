@@ -58,10 +58,11 @@ public class Bulma extends Boss {
             Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 472, 1, this.location.x+10*i, this.location.y, plKill.id));
         }
         plKill.pointBoss += 0;
+        ItemService.gI().CheckDoneVeTL(plKill);
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
     }
    @Override
-    public int injured(Player plAtt, int damage, boolean piercing, boolean isMobAttack) {
+    public long injured(Player plAtt, long damage, boolean piercing, boolean isMobAttack) {
  this.checkAnThan(plAtt);
         if (Util.isTrue(10, 100) && plAtt != null) {//tỉ lệ hụt của thiên sứ
             Util.isTrue(this.nPoint.tlNeDon, 100);

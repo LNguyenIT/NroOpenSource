@@ -11,6 +11,7 @@ import red.team.map.ItemMap;
 import red.team.player.Player;
 import red.team.skill.Skill;
 import red.services.EffectSkillService;
+import red.services.ItemService;
 import red.services.Service;
 import red.services.TaskService;
 import red.utils.Util;
@@ -42,11 +43,12 @@ public class Cadicfake extends Boss {
             Service.gI().dropItemMap(this.zone, new ItemMap(zone, NRs[randomNR], 1, this.location.x, zone.map.yPhysicInTop(this.location.x, this.location.y - 24), plKill.id));
         }
         plKill.pointBoss += 0;
+        ItemService.gI().CheckDoneVeTL(plKill);
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
     }
 
    @Override
-    public int injured(Player plAtt, int damage, boolean piercing, boolean isMobAttack) {
+    public long injured(Player plAtt, long damage, boolean piercing, boolean isMobAttack) {
  this.checkAnThan(plAtt);
         if (!this.isDie()) {
             if (!piercing && Util.isTrue(this.nPoint.tlNeDon, 100)) {

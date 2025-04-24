@@ -7,6 +7,7 @@ import red.s1.boss.BossStatus;
 import red.s1.boss.BossesData;
 import red.team.player.Player;
 import red.services.EffectSkillService;
+import red.services.ItemService;
 import red.services.Service;
 import red.services.TaskService;
 import red.utils.Util;
@@ -19,32 +20,33 @@ public class ThienSuWhis extends Boss {
 
     @Override
     public void reward(Player plKill) {
-        int[] manhthuong = new int[]{1066,1067,1068,1069,1070};
+        int[] manhthuong = new int[]{1066, 1067, 1068, 1069, 1070};
         int[] manhhiem = new int[]{561};
 
         int randomAWJ = new Random().nextInt(manhthuong.length);
         int randomGR = new Random().nextInt(manhhiem.length);
         if (Util.isTrue(95, 100)) {
-            for(Integer i =0; i<10;i++){
+            for (Integer i = 0; i < 10; i++) {
                 Service.gI().dropItemMap(this.zone, Util.manhTS(zone, manhthuong[randomAWJ], 1, this.location.x, this.location.y, -1));
             }
         } else {
-            for(Integer i =0; i<10;i++){
-            Service.gI().dropItemMap(this.zone, Util.manhTS(zone, manhhiem[randomGR], 1, this.location.x, this.location.y, -1));
+            for (Integer i = 0; i < 10; i++) {
+                Service.gI().dropItemMap(this.zone, Util.manhTS(zone, manhhiem[randomGR], 1, this.location.x, this.location.y, -1));
             }
         }
-        Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 457, 2, this.location.x+2, this.location.y, plKill.id));
+        Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 457, 2, this.location.x + 2, this.location.y, plKill.id));
         if (Util.isTrue(10, 10)) {
-            Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 2000+plKill.gender, 2, this.location.x, this.location.y, plKill.id));
+            Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 2000 + plKill.gender, 2, this.location.x, this.location.y, plKill.id));
             Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 1108, 2, this.location.x, this.location.y, plKill.id));
         }
         plKill.pointBoss += 10;
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
+        ItemService.gI().CheckDoneVeTL(plKill);
     }
 
-   @Override
-    public int injured(Player plAtt, int damage, boolean piercing, boolean isMobAttack) {
- this.checkAnThan(plAtt);
+    @Override
+    public long injured(Player plAtt, long damage, boolean piercing, boolean isMobAttack) {
+        this.checkAnThan(plAtt);
         if (Util.isTrue(99, 100) && plAtt != null) {//tỉ lệ hụt của thiên sứ
             Util.isTrue(this.nPoint.tlNeDon, 100);
             if (Util.isTrue(1, 100)) {
@@ -86,18 +88,18 @@ public class ThienSuWhis extends Boss {
         }
     }
 
-   @Override
-   public void active() {
-       super.active(); //To change body of generated methods, choose Tools | Templates.
-       if (Util.canDoWithTime(st, 1800000)) {
-           this.changeStatus(BossStatus.LEAVE_MAP);
-       }
-   }
+    @Override
+    public void active() {
+        super.active(); //To change body of generated methods, choose Tools | Templates.
+        if (Util.canDoWithTime(st, 1800000)) {
+            this.changeStatus(BossStatus.LEAVE_MAP);
+        }
+    }
 
-   @Override
-   public void joinMap() {
-       super.joinMap(); //To change body of generated methods, choose Tools | Templates.
-       st = System.currentTimeMillis();
-   }
-   private long st;
+    @Override
+    public void joinMap() {
+        super.joinMap(); //To change body of generated methods, choose Tools | Templates.
+        st = System.currentTimeMillis();
+    }
+    private long st;
 }

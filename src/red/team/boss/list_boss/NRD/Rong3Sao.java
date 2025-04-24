@@ -9,7 +9,6 @@ import red.services.Service;
 import red.services.TaskService;
 import red.utils.Util;
 
-
 public class Rong3Sao extends Boss {
 
     public Rong3Sao() throws Exception {
@@ -23,24 +22,25 @@ public class Rong3Sao extends Boss {
         plKill.pointBoss += 0;
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
     }
-@Override
-    public int injured(Player plAtt, int damage, boolean piercing, boolean isMobAttack) {
+
+    @Override
+    public long injured(Player plAtt, long damage, boolean piercing, boolean isMobAttack) {
         this.checkAnThan(plAtt);
         if (!this.isDie()) {
             if (!piercing && Util.isTrue(this.nPoint.tlNeDon, 100)) {
                 this.chat("Xí hụt");
                 return 0;
             }
-           if(plAtt != null && plAtt.nPoint.isSieuThan){
+            if (plAtt != null && plAtt.nPoint.isSieuThan) {
                 damage = this.nPoint.subDameInjureWithDeff(damage);
-            }else{
+            } else {
                 damage = this.nPoint.subDameInjureWithDeff(damage / 2);
             }
             if (!piercing && effectSkill.isShielding) {
                 if (damage > nPoint.hpMax) {
                     EffectSkillService.gI().breakShield(this);
                 }
-                  damage = damage/4;
+                damage = damage / 4;
             }
             this.nPoint.subHP(damage);
             if (isDie()) {
@@ -53,5 +53,3 @@ public class Rong3Sao extends Boss {
         }
     }
 }
-
-

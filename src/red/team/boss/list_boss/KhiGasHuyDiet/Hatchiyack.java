@@ -13,17 +13,18 @@ import red.services.Service;
 import red.services.TaskService;
 import red.utils.Util;
 import java.util.Random;
+import red.services.ItemService;
 
 public class Hatchiyack extends Boss {
     private static final int[][] FULL_DEMON = new int[][]{{Skill.DEMON, 1}, {Skill.DEMON, 2}, {Skill.DEMON, 3}, {Skill.DEMON, 4}, {Skill.DEMON, 5}, {Skill.DEMON, 6}, {Skill.DEMON, 7}};
 
-    public Hatchiyack(Zone zone , int level, int dame, int hp) throws Exception {
+    public Hatchiyack(Zone zone , int level, int dame, long hp) throws Exception {
         super(Util.randomBossId(), new BossData(
                 "Hatchiyack",
                 ConstPlayer.TRAI_DAT,
                 new short[]{639, 640, 641, -1, -1, -1},
-                ((10000 + dame) * level),
-                new int[]{((500000 + hp) * level)},
+                (int)((10000 + dame) * level),
+                new long[]{((500000 + hp) * level)},
                 new int[]{103},
                 (int[][]) Util.addArray(FULL_DEMON),
                 new String[]{},
@@ -52,7 +53,8 @@ public class Hatchiyack extends Boss {
         }
         plKill.pointBoss += 0;
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
-
+        
+        ItemService.gI().CheckDoneVeTL(plKill);
     }
     
     @Override

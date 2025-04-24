@@ -231,10 +231,10 @@ public class EffectSkin {
     // chichi
     private void updateChichi() {
         try {
-            int param = this.player.nPoint.mpHoiCute;
+            long param = this.player.nPoint.mpHoiCute;
             if (param > 0) {
                 if (!this.player.isDie() && Util.canDoWithTime(lastTimeChichi, 5000)) {
-                    int mpHut = 0;
+                    long mpHut = 0;
                     List<Player> players = new ArrayList<>();
                     List<Player> playersMap = this.player.zone.getNotBosses();
                     for (Player pl : playersMap) {
@@ -245,7 +245,7 @@ public class EffectSkin {
 
                     }
                     for (Player pl : players) {
-                        int subMp = pl.nPoint.mpMax * param / 100;
+                        long subMp = pl.nPoint.mpMax * param / 100;
                         if (subMp >= pl.nPoint.mp) {
                             subMp = pl.nPoint.mp - 1;
                         }
@@ -256,7 +256,7 @@ public class EffectSkin {
                         Service.gI().chat(pl, textChichi[Util.nextInt(0, textChichi.length - 1)]);
 
                     }
-                    int subMpPl = this.player.nPoint.mpMax * param / 100;
+                    long subMpPl = this.player.nPoint.mpMax * param / 100;
                     if (subMpPl >= this.player.nPoint.mp) {
                         subMpPl = this.player.nPoint.mp - 1;
                     }
@@ -483,8 +483,8 @@ public class EffectSkin {
             int param = this.player.nPoint.tlHutHpMpXQ;
             if (param > 0) {
                 if (!this.player.isDie() && Util.canDoWithTime(lastTimeXenHutHpKi, 5000)) {
-                    int hpHut = 0;
-                    int mpHut = 0;
+                    long hpHut = 0;
+                    long mpHut = 0;
                     List<Player> players = new ArrayList<>();
                     List<Player> playersMap = this.player.zone.getNotBosses();
                     for (Player pl : playersMap) {
@@ -497,7 +497,7 @@ public class EffectSkin {
                     for (Mob mob : this.player.zone.mobs) {
                         if (mob.point.gethp() > 1) {
                             if (Util.getDistance(this.player, mob) <= 200) {
-                                int subHp = mob.point.getHpFull() * param / 100;
+                                long subHp = mob.point.getHpFull() * param / 100;
                                 if (subHp >= mob.point.gethp()) {
                                     subHp = mob.point.gethp() - 1;
                                 }
@@ -508,8 +508,8 @@ public class EffectSkin {
                     }
                     if (players.size() > 0) {
                         for (Player pl : players) {
-                            int subHp = pl.nPoint.hpMax * param / 100;
-                            int subMp = pl.nPoint.mpMax * param / 100;
+                            long subHp = pl.nPoint.hpMax * param / 100;
+                            long subMp = pl.nPoint.mpMax * param / 100;
                             if (subHp >= pl.nPoint.hp) {
                                 subHp = pl.nPoint.hp - 1;
                             }
@@ -540,8 +540,8 @@ public class EffectSkin {
             int param = this.player.nPoint.tlHutHpMpXQ;
             if (param > 0) {
                 if (!this.player.isDie() && Util.canDoWithTime(lastTimeXenHutHpKi, 5000)) {
-                    int hpHut = 0;
-                    int mpHut = 0;
+                    long hpHut = 0;
+                    long mpHut = 0;
                     List<Player> players = new ArrayList<>();
                     List<Player> playersMap = this.player.zone.getNotBosses();
                     for (Player pl : playersMap) {
@@ -554,7 +554,7 @@ public class EffectSkin {
                     for (Mob mob : this.player.zone.mobs) {
                         if (mob.point.gethp() > 1) {
                             if (Util.getDistance(this.player, mob) <= 200) {
-                                int subHp = mob.point.getHpFull() * param / 100;
+                                long subHp = mob.point.getHpFull() * param / 100;
                                 if (subHp >= mob.point.gethp()) {
                                     subHp = mob.point.gethp() - 1;
 
@@ -567,8 +567,8 @@ public class EffectSkin {
                     if (players.size() > 0) {
 
                         for (Player pl : players) {
-                            int subHp = pl.nPoint.hpMax * param / 100;
-                            int subMp = pl.nPoint.mpMax * param / 100;
+                            long subHp = pl.nPoint.hpMax * param / 100;
+                            long subMp = pl.nPoint.mpMax * param / 100;
                             if (subHp >= pl.nPoint.hp) {
                                 subHp = pl.nPoint.hp - 1;
                                 Service.gI().chat(pl, seggs[Util.nextInt(0, seggs.length - 1)]);
@@ -614,7 +614,7 @@ public class EffectSkin {
 
                     }
                     for (Player pl : players) {
-                        int subHp = pl.nPoint.hpMax * param / 100;
+                        long subHp = pl.nPoint.hpMax * param / 100;
                         if (subHp >= pl.nPoint.hp) {
                             subHp = pl.nPoint.hp - 1;
                         }
@@ -636,7 +636,7 @@ public class EffectSkin {
             if (player.nPoint.isThieuDot) {
                 if (Util.canDoWithTime(lastTimeDiaNguc, 10000) && !this.player.isBoss && !this.player.isDie()) {
 
-                    int subHp = this.player.nPoint.hpMax * 20 / 100;
+                    long subHp = this.player.nPoint.hpMax * 20 / 100;
                     if (subHp >= this.player.nPoint.hp) {
                         subHp = this.player.nPoint.hp - 1;
                     }
@@ -666,7 +666,7 @@ public class EffectSkin {
                     List<Player> players = new ArrayList<>();
 
                     for (Player pl : players) {
-                        int subHp = pl.nPoint.hpMax * param * 100;
+                        long subHp = pl.nPoint.hpMax * param * 100;
                         if (subHp >= pl.nPoint.hp) {
                             subHp = pl.nPoint.hp + 1;
                         }

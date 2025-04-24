@@ -185,7 +185,7 @@ public class Util {
     public static int nextInt(int max) {
         return rand.nextInt(max);
     }
-
+    
     public static int nextInt(int[] percen) {
         int next = nextInt(1000), i;
         for (i = 0; i < percen.length; i++) {
@@ -195,6 +195,31 @@ public class Util {
             next -= percen[i];
         }
         return i;
+    }
+    
+    public static long nextLong(long from, long to) {
+        if (from > to) {
+            throw new IllegalArgumentException("`from` must be <= `to`");
+        }
+        return from + (long) (rand.nextDouble() * (to - from + 1));
+    }
+
+    public static long nextLong(long max) {
+        if (max <= 0) {
+            throw new IllegalArgumentException("`max` must be positive");
+        }
+        return (long) (rand.nextDouble() * max);
+    }
+
+    public static int nextLong(long[] percen) {
+        long next = nextLong(1000L);
+        for (int i = 0; i < percen.length; i++) {
+            if (next < percen[i]) {
+                return i;
+            }
+            next -= percen[i];
+        }
+        return percen.length;
     }
 
     public static int getOne(int n1, int n2) {
@@ -362,7 +387,7 @@ public class Util {
         }
         it.options.add(new Item.ItemOption(209, 1));//đồ rơi từ boss
         if (Util.isTrue(98, 100)) {
-            it.options.add(new Item.ItemOption(107, new Random().nextInt(3)));
+            it.options.add(new Item.ItemOption(107, new Random().nextInt(5)));
         } else {
             it.options.add(new Item.ItemOption(107, new Random().nextInt(4) + 3));
         }

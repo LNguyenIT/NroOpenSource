@@ -8,6 +8,7 @@ import red.s1.boss.BossesData;
 import red.team.map.ItemMap;
 import red.team.player.Player;
 import red.services.EffectSkillService;
+import red.services.ItemService;
 import red.services.Service;
 import red.services.TaskService;
 import red.utils.Util;
@@ -20,8 +21,8 @@ public class Granola extends Boss {
 
     @Override
     public void reward(Player plKill) {
-        int[] manhthuong = new int[] { 1066, 1067, 1068, 1069, 1070 };
-        int[] manhhiem = new int[] { 561 };
+        int[] manhthuong = new int[]{1066, 1067, 1068, 1069, 1070};
+        int[] manhhiem = new int[]{561};
 
         int randomAWJ = new Random().nextInt(manhthuong.length);
         int randomGR = new Random().nextInt(manhhiem.length);
@@ -47,14 +48,14 @@ public class Granola extends Boss {
         plKill.pointBoss += 10;
 
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
+        ItemService.gI().CheckDoneVeTL(plKill);
     }
 
     @Override
-    public int injured(Player plAtt, int damage, boolean piercing, boolean isMobAttack) {
+    public long injured(Player plAtt, long damage, boolean piercing, boolean isMobAttack) {
         this.checkAnThan(plAtt);
         if (Util.isTrue(20, 100) && plAtt != null) {// tỉ lệ hụt của thiên sứ
             Util.isTrue(this.nPoint.tlNeDon, 100);
-
             damage = 0;
 
         }

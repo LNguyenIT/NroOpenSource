@@ -7,6 +7,7 @@ import red.s1.boss.BossesData;
 import red.team.map.ItemMap;
 import red.team.player.Player;
 import red.services.EffectSkillService;
+import red.services.ItemService;
 import red.services.Service;
 import red.services.TaskService;
 import red.utils.Util;
@@ -30,7 +31,7 @@ public class Adminthan extends Boss {
                 this.location.y - 24), plKill.id);
             Service.gI().dropItemMap(this.zone, it);
         }     
-        if (Util.isTrue(10, 100)) {
+        if (Util.isTrue(6, 100)) {
             Service.gI().dropItemMap(this.zone,
                     Util.ratiItem(zone, 2000 + plKill.gender, 10, this.location.x, this.location.y, -1));
         }
@@ -38,10 +39,11 @@ public class Adminthan extends Boss {
         plKill.pointBoss += 10;
 
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
+        ItemService.gI().CheckDoneVeTL(plKill);
     }
 
     @Override
-    public int injured(Player plAtt, int damage, boolean piercing, boolean isMobAttack) {
+    public long injured(Player plAtt, long damage, boolean piercing, boolean isMobAttack) {
         this.checkAnThan(plAtt);
         if (Util.isTrue(20, 100) && plAtt != null) {// tỉ lệ hụt của thiên sứ
             damage = 0;

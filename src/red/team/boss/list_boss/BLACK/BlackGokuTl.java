@@ -60,9 +60,9 @@ public class BlackGokuTl extends Boss {
         plKill.pointBoss += 2;
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
     }
-   @Override
-    public int injured(Player plAtt, int damage, boolean piercing, boolean isMobAttack) {
- this.checkAnThan(plAtt);
+    @Override
+    public long injured(Player plAtt, long damage, boolean piercing, boolean isMobAttack) {
+        this.checkAnThan(plAtt);
         if (!this.isDie()) {
             if (!piercing && Util.isTrue(this.nPoint.tlNeDon, 100)) {
                 this.chat("Xí hụt");

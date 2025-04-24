@@ -11,6 +11,7 @@ import red.s1.boss.Boss;
 import red.s1.boss.BossID;
 import red.s1.boss.BossStatus;
 import red.s1.boss.BossesData;
+import red.services.ItemService;
 import red.team.map.ItemMap;
 import red.team.player.Player;
 import red.team.skill.Skill;
@@ -52,6 +53,7 @@ public class Kingcold extends Boss {
         plKill.pointBoss += 0;
 
          TaskService.gI().checkDoneTaskKillBoss(plKill, this);
+         ItemService.gI().CheckDoneVeTL(plKill);
     }
       @Override
     public void active() {

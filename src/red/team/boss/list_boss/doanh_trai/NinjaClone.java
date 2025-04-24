@@ -25,7 +25,7 @@ public class NinjaClone extends TrungUyTrang {
     private int x = 0;
     private int y = 0;
 
-    public NinjaClone(NinjaAoTim TrueNinja, int x, int y, int idBoss, int dame, int hp, Zone zone) throws Exception {
+    public NinjaClone(NinjaAoTim TrueNinja, int x, int y, int idBoss, long dame, long hp, Zone zone) throws Exception {
         super(dame, hp, zone, Util.randomBossId(), NINJA_CLONE);
         this.nPoint.khangTDHS = true;
         this.x = x;
@@ -37,8 +37,8 @@ public class NinjaClone extends TrungUyTrang {
             "Ninja Áo Tím", // name
             ConstPlayer.TRAI_DAT, // gender
             new short[] { 123, 124, 125, -1, -1, -1 }, // outfit {head, body, leg, bag, aura, eff}
-            500, // dame
-            new int[] { 500 }, // hp
+            (long)500, // dame
+            new long[] { 500 }, // hp
             new int[] { 1 }, // map join
             new int[][] {
                     { Skill.LIEN_HOAN, 7, 1000 },
@@ -86,7 +86,7 @@ public class NinjaClone extends TrungUyTrang {
     private long lastTimeBlame;
 
    @Override
-    public int injured(Player plAtt, int damage, boolean piercing, boolean isMobAttack) {
+    public long injured(Player plAtt, long damage, boolean piercing, boolean isMobAttack) {
  this.checkAnThan(plAtt);
         if (!this.isDie()) {
             if (!piercing && Util.isTrue(400, 1000)) {

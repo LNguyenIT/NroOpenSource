@@ -21,39 +21,39 @@ import red.utils.Util;
 
 public class BuBung extends Boss {
 
-  public BuBung() throws Exception {
-    super(Util.randomBossId(), BossesData.BU_BUNG);
-  }
-
-  @Override
-  public int injured(Player plAtt, int damage, boolean piercing, boolean isMobAttack) {
-    this.checkAnThan(plAtt);
-    if (!this.isDie()) {
-
-      damage = this.nPoint.subDameInjureWithDeff(damage);
-
-      if (!piercing && effectSkill.isShielding) {
-        if (damage > nPoint.hpMax) {
-          EffectSkillService.gI().breakShield(this);
-        }
-
-      }
-      this.nPoint.subHP(damage);
-      if (isDie()) {
-        this.setDie(plAtt);
-        die(plAtt);
-        this.non();
-      }
-
-      return damage;
-    } else {
-      return 0;
+    public BuBung() throws Exception {
+        super(Util.randomBossId(), BossesData.BU_BUNG);
     }
-  }
 
-  @Override
-  public void reward(Player plKill) {
-      short randomDo = (short) new Random().nextInt(Manager.itemIds_TL.length - 1);
+    @Override
+    public long injured(Player plAtt, long damage, boolean piercing, boolean isMobAttack) {
+        this.checkAnThan(plAtt);
+        if (!this.isDie()) {
+
+            damage = this.nPoint.subDameInjureWithDeff(damage);
+
+            if (!piercing && effectSkill.isShielding) {
+                if (damage > nPoint.hpMax) {
+                    EffectSkillService.gI().breakShield(this);
+                }
+
+            }
+            this.nPoint.subHP(damage);
+            if (isDie()) {
+                this.setDie(plAtt);
+                die(plAtt);
+                this.non();
+            }
+
+            return damage;
+        } else {
+            return 0;
+        }
+    }
+
+    @Override
+    public void reward(Player plKill) {
+        short randomDo = (short) new Random().nextInt(Manager.itemIds_TL.length - 1);
         short randomNR = (short) new Random().nextInt(Manager.itemIds_NR_SB.length);
         int[] itemDos = new int[]{555, 556, 557, 558, 559, 560, 561, 562, 563, 564, 565, 566, 567};
         int randomc12 = new Random().nextInt(itemDos.length);
@@ -77,40 +77,40 @@ public class BuBung extends Boss {
                     new ItemMap(zone, 15, 1, this.location.x, this.location.y, plKill.id));
         }
         if (plKill.pet == null) {
-                                    PetService.gI().createNormalPet(plKill);
-                                    Service.getInstance().sendThongBao(plKill,
-                                            "   Mày vừa nhận được đệ tử! Hãy chăm sóc nó nhé");
-                                }else{
+            PetService.gI().createNormalPet(plKill);
+            Service.getInstance().sendThongBao(plKill,
+                    "   Mày vừa nhận được đệ tử! Hãy chăm sóc nó nhé");
+        } else {
             if (Util.isTrue(1, 10)) {
-            Service.gI().dropItemMap(this.zone,
-                    Util.ratiItem(zone, 568, 1, this.location.x, this.location.y, plKill.id));
+                Service.gI().dropItemMap(this.zone,
+                        Util.ratiItem(zone, 568, 1, this.location.x, this.location.y, plKill.id));
             }
         }
-      if (plKill.pet == null) {
-                                    PetService.gI().createNormalPet(plKill);
-                                    Service.getInstance().sendThongBao(plKill,
-                                            "   Mày vừa nhận được đệ tử! Hãy chăm sóc nó nhé");
-                                }else{
+        if (plKill.pet == null) {
+            PetService.gI().createNormalPet(plKill);
+            Service.getInstance().sendThongBao(plKill,
+                    "   Mày vừa nhận được đệ tử! Hãy chăm sóc nó nhé");
+        } else {
             if (Util.isTrue(1, 10)) {
-            Service.gI().dropItemMap(this.zone,
-                    Util.ratiItem(zone, 568, 1, this.location.x, this.location.y, plKill.id));
+                Service.gI().dropItemMap(this.zone,
+                        Util.ratiItem(zone, 568, 1, this.location.x, this.location.y, plKill.id));
             }
         }
-    plKill.pointBoss += 0;
-    TaskService.gI().checkDoneTaskKillBoss(plKill, this);
-  }
-
-  private void non() {
-    List<Player> playersCopy = new ArrayList<>(this.zone.getPlayers());
-    for (Player pl : playersCopy) {
-      if (pl != null && pl.isPl()) {
-        int zoneLast = pl.lastZoneMabu;
-        if (zoneLast == 0) {
-          zoneLast = Util.nextInt(0, 8);
-        }
-        ChangeMapService.gI().changeMapInYard(pl, 144, zoneLast, 200);
-      }
+        plKill.pointBoss += 0;
+        TaskService.gI().checkDoneTaskKillBoss(plKill, this);
     }
 
-  }
+    private void non() {
+        List<Player> playersCopy = new ArrayList<>(this.zone.getPlayers());
+        for (Player pl : playersCopy) {
+            if (pl != null && pl.isPl()) {
+                int zoneLast = pl.lastZoneMabu;
+                if (zoneLast == 0) {
+                    zoneLast = Util.nextInt(0, 8);
+                }
+                ChangeMapService.gI().changeMapInYard(pl, 144, zoneLast, 200);
+            }
+        }
+
+    }
 }

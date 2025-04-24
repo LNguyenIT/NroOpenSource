@@ -56,7 +56,7 @@ public class Traidat extends Player {
   }
 
   @Override
-  public int injured(Player plAtt, int damage, boolean piercing, boolean isMobAttack) {
+  public long injured(Player plAtt, long damage, boolean piercing, boolean isMobAttack) {
     this.checkAnThan(plAtt);
     if (plAtt != null && plAtt.isPl() && (plAtt.playerTask.taskMain.id == 11 || plAtt.playerTask.taskMain.id == 27)) {
       TaskService.gI().sendNextTaskMain(plAtt);

@@ -9,6 +9,7 @@ import red.team.map.ItemMap;
 import red.team.mob.Mob;
 import red.team.player.Player;
 import red.services.EffectSkillService;
+import red.services.ItemService;
 import red.services.PetService;
 import red.services.Service;
 import red.services.TaskService;
@@ -38,11 +39,12 @@ public class SuperAndroid17 extends Boss {
 //                    Util.ratiItem(zone, 2000 + plKill.gender, 1, this.location.x, this.location.y, plKill.id));
         }
         plKill.pointBoss += 2;
+        ItemService.gI().CheckDoneVeTL(plKill);
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
     }
 
     @Override
-    public int injured(Player plAtt, int damage, boolean piercing, boolean isMobAttack) {
+    public long injured(Player plAtt, long damage, boolean piercing, boolean isMobAttack) {
         this.checkAnThan(plAtt);
         if (!this.isDie()) {
             if (!piercing && Util.isTrue(this.nPoint.tlNeDon, 100)) {

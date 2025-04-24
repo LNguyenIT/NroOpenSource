@@ -15,6 +15,7 @@ import red.team.map.ItemMap;
 import red.team.player.Player;
 import red.team.skill.Skill;
 import red.services.EffectSkillService;
+import red.services.ItemService;
 import red.services.PetService;
 import red.services.Service;
 import red.services.TaskService;
@@ -55,6 +56,7 @@ public class CoolerGold extends Boss {
                     zone.map.yPhysicInTop(this.location.x, this.location.y - 24), plKill.id));
         }
         plKill.pointBoss += 3;
+        ItemService.gI().CheckDoneVeTL(plKill);
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
     }
 
@@ -67,7 +69,7 @@ public class CoolerGold extends Boss {
     }
 
     @Override
-    public int injured(Player plAtt, int damage, boolean piercing, boolean isMobAttack) {
+    public long injured(Player plAtt, long damage, boolean piercing, boolean isMobAttack) {
         this.checkAnThan(plAtt);
         if (!this.isDie()) {
             if (!piercing && Util.isTrue(this.nPoint.tlNeDon, 100)) {

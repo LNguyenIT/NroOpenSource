@@ -52,7 +52,7 @@ public class Thuytinh extends Boss {
             ConstPlayer.TRAI_DAT, //gender
             new short[]{311, 312, 313, -1, -1, -1}, //outfit {head, body, leg, bag, aura, eff}
             500, //dame
-            new int[]{500}, //hp
+            new long[]{500}, //hp
             new int[]{1}, //map join
             new int[][]{
                 {Skill.KAMEJOKO, 3, 1000},
@@ -151,7 +151,7 @@ public class Thuytinh extends Boss {
     private long lastTimeBlame;
 
    //@Override
-    public int injured(Player plAtt, int damage, boolean piercing, boolean isMobAttack) {
+  public long injured(Player plAtt, long damage, boolean piercing, boolean isMobAttack) {
  this.checkAnThan(plAtt);
         if (!this.isDie()) {
             // if (this.zone.isbulon13Alive) {

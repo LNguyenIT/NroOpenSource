@@ -458,8 +458,8 @@ public class Zone {
             msg.writer().writeByte(plInfo.gender);
             msg.writer().writeShort(plInfo.getHead());
             msg.writer().writeUTF(name);
-            msg.writer().writeInt(plInfo.nPoint.hp);
-            msg.writer().writeInt(plInfo.nPoint.hpMax);
+            msg.writer().writeLong(plInfo.nPoint.hp);
+            msg.writer().writeLong(plInfo.nPoint.hpMax);
             msg.writer().writeShort(plInfo.getBody());
             msg.writer().writeShort(plInfo.getLeg());
             msg.writer().writeByte(plInfo.getFlagBag()); //bag
@@ -563,9 +563,9 @@ public class Zone {
                 msg.writer().writeBoolean(false); //is wind
                 msg.writer().writeByte(mob.tempId);
                 msg.writer().writeByte(0);
-                msg.writer().writeInt(mob.point.gethp());
+                msg.writer().writeLong(mob.point.gethp());
                 msg.writer().writeByte(mob.level);
-                msg.writer().writeInt((mob.point.getHpFull()));
+                msg.writer().writeLong((mob.point.getHpFull()));
                 msg.writer().writeShort(mob.location.x);
                 msg.writer().writeShort(mob.location.y);
                 msg.writer().writeByte(mob.status);

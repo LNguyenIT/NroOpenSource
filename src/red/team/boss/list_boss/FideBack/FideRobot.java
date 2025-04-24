@@ -10,6 +10,7 @@ import red.team.map.ItemMap;
 import red.team.player.Player;
 import red.team.skill.Skill;
 import red.services.EffectSkillService;
+import red.services.ItemService;
 import red.services.PetService;
 import red.services.PlayerService;
 import red.services.Service;
@@ -44,6 +45,7 @@ public class FideRobot extends Boss {
         }
         plKill.pointBoss += 0;
          TaskService.gI().checkDoneTaskKillBoss(plKill, this);
+         ItemService.gI().CheckDoneVeTL(plKill);
     }
 
       @Override
@@ -62,7 +64,7 @@ public class FideRobot extends Boss {
     private long st;
 
    @Override
-   public int injured(Player plAtt, int damage, boolean piercing, boolean isMobAttack) {
+   public long injured(Player plAtt, long damage, boolean piercing, boolean isMobAttack) {
     this.checkAnThan(plAtt);
        if (plAtt != null) {
            switch (plAtt.playerSkill.skillSelect.template.id) {

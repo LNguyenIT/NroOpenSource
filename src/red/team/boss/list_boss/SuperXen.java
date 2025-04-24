@@ -25,24 +25,27 @@ import red.utils.Util;
  * @@Stole By ASOOME
  */
 public class SuperXen extends Boss {
-private long lastTimeHapThu;
+
+    private long lastTimeHapThu;
     private int timeHapThu;
+
     public SuperXen() throws Exception {
-        
+
         super(BossID.SUPER_XEN, BossesData.SUPER_XEN);
     }
 
     @Override
     public void reward(Player plKill) {
-        if(Util.isTrue(95,100)){
-        ItemMap it = new ItemMap(this.zone, 15, 1, this.location.x, this.location.y, plKill.id);
-        Service.gI().dropItemMap(this.zone, it);
-        TaskService.gI().checkDoneTaskKillBoss(plKill, this);
-    }else {
-            Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 2000+plKill.gender, 1, this.location.x, this.location.y, plKill.id));
+        if (Util.isTrue(95, 100)) {
+            ItemMap it = new ItemMap(this.zone, 15, 1, this.location.x, this.location.y, plKill.id);
+            Service.gI().dropItemMap(this.zone, it);
+            TaskService.gI().checkDoneTaskKillBoss(plKill, this);
+        } else {
+            Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 2000 + plKill.gender, 1, this.location.x, this.location.y, plKill.id));
         }
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
     }
+
     @Override
     public void active() {
         if (this.typePk == ConstPlayer.NON_PK) {
@@ -50,16 +53,16 @@ private long lastTimeHapThu;
         }
         this.hapThu();
         this.attack();
-        if(Util.canDoWithTime(st,300000)){
+        if (Util.canDoWithTime(st, 300000)) {
             this.changeStatus(BossStatus.LEAVE_MAP);
         }
     }
-   
+
     private void hapThu() {
         if (!Util.canDoWithTime(this.lastTimeHapThu, this.timeHapThu) || !Util.isTrue(1, 100)) {
             return;
         }
-    
+
         Player pl = this.zone.getRandomPlayerInMap();
         if (pl == null || pl.isDie()) {
             return;
@@ -77,12 +80,13 @@ private long lastTimeHapThu;
         this.lastTimeHapThu = System.currentTimeMillis();
         this.timeHapThu = Util.nextInt(30000, 70000);
     }
-  @Override
-    public int injured(Player plAtt, int damage, boolean piercing, boolean isMobAttack) {
- this.checkAnThan(plAtt);
+
+    @Override
+    public long injured(Player plAtt, long damage, boolean piercing, boolean isMobAttack) {
+        this.checkAnThan(plAtt);
         if (Util.isTrue(70, 100) && plAtt != null) {//tỉ lệ hụt của thiên sứ
             Util.isTrue(this.nPoint.tlNeDon, 100);
-            
+
             damage = 0;
 
         }
@@ -111,19 +115,18 @@ private long lastTimeHapThu;
         }
     }
 
-     
     @Override
     public void joinMap() {
         super.joinMap(); //To change body of generated methods, choose Tools | Templates.
         st = System.currentTimeMillis();
     }
     private long st;
-    
+
     @Override
     public void leaveMap() {
         super.leaveMap();
         BossManager.gI().removeBoss(this);
         super.dispose();
-        
+
     }
 }

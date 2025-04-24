@@ -47,7 +47,7 @@ public class NPoint {
 
     private Intrinsic intrinsic;
     private int percentDameIntrinsic;
-    public int dameAfter;
+    public long dameAfter;
 
     /*-----------------------Chỉ số cơ bản------------------------------------*/
     public byte numAttack;
@@ -57,11 +57,11 @@ public class NPoint {
     public long power;
     public long tiemNang;
 
-    public int hp, hpMax, hpg;
-    public int mp, mpMax, mpg;
-    public int dame, dameg;
+    public long hp, hpMax, hpg;
+    public long mp, mpMax, mpg;
+    public long dame, dameg;
     public int def, defg;
-    public int crit, critg;
+    public byte crit, critg;
     public byte speed;
 
     public boolean teleport;
@@ -93,7 +93,7 @@ public class NPoint {
     /**
      * Chỉ số cộng thêm
      */
-    public int hpAdd, mpAdd, dameAdd, defAdd, critAdd, hpHoiAdd, mpHoiAdd;
+    public long hpAdd, mpAdd, dameAdd, defAdd, critAdd, hpHoiAdd, mpHoiAdd;
 
     /**
      * //+#% sức đánh chí mạng
@@ -118,7 +118,7 @@ public class NPoint {
     /**
      * Lượng hp, mp hồi mỗi 30s, mp hồi cho người khác
      */
-    public int hpHoi, mpHoi, mpHoiCute;
+    public long hpHoi, mpHoi, mpHoiCute;
 
     /**
      * Tỉ lệ hp, mp hồi cộng thêm
@@ -150,13 +150,13 @@ public class NPoint {
      * Tỉ lệ tiềm năng sức mạnh
      */
     public List<Integer> tlTNSM;
-    public int tlTNSMdt;
+    public long tlTNSMdt;
     
 
     /**
      * Tỉ lệ vàng cộng thêm
      */
-    public short tlGold;
+    public long tlGold;
 
     /**
      * Tỉ lệ né đòn
@@ -890,32 +890,11 @@ public class NPoint {
         }
 
         if (type == 1) {
-//            System.out.println("Nang KI");
-            
-//            int pointMp = point * 20;
-//            tiemNangUse = point * (2 * (this.mpg + 1000) + pointMp - 20) / 2;
-//            if ((this.mpg + pointMp) <= getHpMpLimit()) {
-//                if (doUseTiemNang(tiemNangUse)) {
-//                    mpg += pointMp;
-//                }
-//            } else {
-//                Service.gI().sendThongBao(player, "Vui lÃ²ng má»Ÿ giá»›i háº¡n sá»©c máº¡nh");
-//                return;
-//            }
-//            System.out.println("ÄÃ£ chá»n KI");
             long tiemNangUse1, tiemNangUse1To10, tiemNangUse1To100, tiemNangUse1To1000,tiemNangUse1To10000;
-
-            // CÃ´ng thá»©c tá»•ng quÃ¡t Ä‘á»ƒ tÃ­nh tá»•ng tiá»m nÄƒng cáº§n thiáº¿t
             tiemNangUse1 = this.mpg + 1000;
             tiemNangUse1To10 = 10 * (2 * this.mpg + 2000 + 20 * 9) / 2;
             tiemNangUse1To100 = 100 * (2 * this.mpg + 2000 + 20 * 99) / 2;
             tiemNangUse1To1000 = 1000 * (2 * this.mpg + 2000 + 20 * 999) / 2;
-//            tiemNangUse1To10000 = 10000 * (2 * this.mpg + 2000 + 20 * 9999) / 2;
-            // Kiá»ƒm tra Ä‘iá»u kiá»‡n nÃ¢ng cáº¥p HP
-//            if ((this.mpg + 200000) <= getHpMpLimit() && doUseTiemNang(tiemNangUse1To10000)) {
-//                this.mpg += 200000;
-//            }
-//            else
                 if ((this.mpg + 20000) <= getHpMpLimit() && doUseTiemNang(tiemNangUse1To1000)) {
                 this.mpg += 20000;
             } else if ((this.mpg + 2000) <= getHpMpLimit() && doUseTiemNang(tiemNangUse1To100)) {
@@ -925,43 +904,27 @@ public class NPoint {
             } else if ((this.mpg + 20) <= getHpMpLimit() && doUseTiemNang(tiemNangUse1)) {
                 this.mpg += 20;
             } else {
-//                Service.gI().sendThongBaoOK(player, "Vui lÃ²ng má»Ÿ giá»›i háº¡n MP");
                 return;
             }
         }
         if (type == 2) {
-//            System.out.println("Nang SD");
             long tiemNangUse1 = (long) this.dameg * 100;
             long tiemNangUse10 = 0;
             long tiemNangUse100 = 0;
             long tiemNangUse1000 = 0;
 
-            int dameTemp = this.dameg;
-
-            // TÃ­nh tiá»m nÄƒng Ä‘á»ƒ tÄƒng 10 sá»©c Ä‘Ã¡nh
+            long dameTemp = this.dameg;
+            
             for (int i = 0; i < 10; i++) {
                 tiemNangUse10 += (long) dameTemp * 100;
                 dameTemp++;
             }
 
-            // TÃ­nh tiá»m nÄƒng Ä‘á»ƒ tÄƒng 100 sá»©c Ä‘Ã¡nh
             dameTemp = this.dameg;
             for (int i = 0; i < 100; i++) {
                 tiemNangUse100 += (long) dameTemp * 100;
                 dameTemp++;
             }
-
-//            // TÃ­nh tiá»m nÄƒng Ä‘á»ƒ tÄƒng 1000 sá»©c Ä‘Ã¡nh
-//            dameTemp = this.dameg;
-//            for (int i = 0; i < 1000; i++) {
-//                tiemNangUse1000 += (long) dameTemp * 100;
-//                dameTemp++;
-//            }
-
-            // Kiá»ƒm tra vÃ  thá»±c hiá»‡n tÄƒng dameg
-//            if ((this.dameg + 1000) <= getDameLimit() && doUseTiemNang(tiemNangUse1000)) {
-//                this.dameg += 1000;
-//            } else
                 if ((this.dameg + 100) <= getDameLimit() && doUseTiemNang(tiemNangUse100)) {
                 this.dameg += 100;
             } else if ((this.dameg + 10) <= getDameLimit() && doUseTiemNang(tiemNangUse10)) {
@@ -969,7 +932,6 @@ public class NPoint {
             } else if ((this.dameg + 1) <= getDameLimit() && doUseTiemNang(tiemNangUse1)) {
                 this.dameg += 1;
             } else {
-//                Service.gI().sendThongBaoOK(player, "Vui lÃ²ng má»Ÿ giá»›i háº¡n sá»©c máº¡nh");
                 return;
             }
         }
@@ -1401,9 +1363,6 @@ public class NPoint {
         if (this.hp > this.hpMax) {
             this.hp = this.hpMax;
         }
-        if (this.hp > 2000000000) {
-            this.hp = 2000000000;
-        }
     }
 
     private void setMpMax() {
@@ -1586,9 +1545,6 @@ public class NPoint {
         }
         if (this.player.effectSkill.isHoaLanh && !this.isKhongLanh) {
             this.mpMax /= 2;
-        }
-        if (this.mpMax > 2000000000) {
-            this.mpMax = 2000000000;
         }
     }
 
@@ -2084,7 +2040,7 @@ public class NPoint {
         this.isXinBaTo = false;
     }
 
-    public void addHp(int hp) {
+    public void addHp(long hp) {
         if (hp < 1) {
             hp = 1;
         }
@@ -2097,7 +2053,7 @@ public class NPoint {
         }
     }
 
-    public void addMp(int mp) {
+    public void addMp(long mp) {
         if (mp < 1) {
             mp = 1;
         }
@@ -2138,7 +2094,7 @@ public class NPoint {
         }
     }
 
-    public int getDameAttack(boolean isAttackMob) {
+    public long getDameAttack(boolean isAttackMob) {
         setIsCrit();
         long dameAttack = this.dame;
         intrinsic = this.player.playerIntrinsic.intrinsic;
@@ -2259,25 +2215,25 @@ public class NPoint {
                 break;
             case Skill.DICH_CHUYEN_TUC_THOI:
                 dameAttack *= 2;
-                dameAttack = Util.nextInt((int) (dameAttack - (dameAttack * 5 / 100)),
-                        (int) (dameAttack + (dameAttack * 5 / 100)));
-                return (int) dameAttack;
+                dameAttack = Util.nextLong( (dameAttack - (dameAttack * 5 / 100)),
+                        (long) (dameAttack + (dameAttack * 5 / 100)));
+                return (long) dameAttack;
             case Skill.MAKANKOSAPPO:
                 percentDameSkill = skillSelect.damage;
-                int dameSkill = (int) ((long) this.mpMax * percentDameSkill / 100);
+                long dameSkill = ((long) this.mpMax * percentDameSkill / 100);
                 return dameSkill;
             case Skill.QUA_CAU_KENH_KHI:
-                int dame = this.dame * skillSelect.damage / 100;
+                long dame = this.dame * skillSelect.damage / 100;
                 for (Mob mob : player.zone.mobs) {
                     if (!mob.isDie()) {
-                        int dmgAddQCKK = mob.point.maxHp / 20;
+                        long dmgAddQCKK = mob.point.maxHp / 20;
                         mob.injured(player, dmgAddQCKK, false);
                         dame += dmgAddQCKK;
                     }
                 }
                 for (Player plZone : player.zone.getPlayers()) {
                     if (!plZone.isDie()) {
-                        int dmgAddQCKK = plZone.nPoint.hpMax / 20;
+                        long dmgAddQCKK = plZone.nPoint.hpMax / 20;
                         plZone.injured(player, dmgAddQCKK, true, false);
                         dame += dmgAddQCKK;
                     }
@@ -2325,18 +2281,18 @@ public class NPoint {
             }
         }
         // check activation set
-        return (int) dameAttack;
+        return dameAttack;
     }
 
-    public int getCurrPercentHP() {
+    public long getCurrPercentHP() {
         if (this.hpMax == 0) {
             return 100;
         }
-        return (int) ((long) this.hp * 100 / this.hpMax);
+        return ((long) this.hp * 100 / this.hpMax);
     }
 
-    public int getCurrPercentMP() {
-        return (int) ((long) this.mp * 100 / this.mpMax);
+    public long getCurrPercentMP() {
+        return ((long) this.mp * 100 / this.mpMax);
     }
 
     public void setFullHpMp() {
@@ -2345,14 +2301,14 @@ public class NPoint {
 
     }
 
-    public void subHP(int sub) {
+    public void subHP(long sub) {
         this.hp -= sub;
         if (this.hp < 0) {
             this.hp = 0;
         }
     }
 
-    public void subMP(int sub) {
+    public void subMP(long sub) {
         this.mp -= sub;
         if (this.mp < 0) {
             this.mp = 0;
@@ -2424,9 +2380,9 @@ public class NPoint {
             if (tiemNang <= 0) {
                 tiemNang = 1;
             }
-            if (tiemNang > 10000000) {
-                tiemNang = 10000000;
-            }
+//            if (tiemNang > 10000000) {
+//                tiemNang = 10000000;
+//            }
             tiemNang *= Manager.RATE_EXP_SERVER;
         } else {
             tiemNang = 1;
@@ -2470,8 +2426,8 @@ public class NPoint {
     }
 
     //
-    public int subDameInjureWithDeff(int dame, Player plAtt) {
-        int def = this.def;
+    public long subDameInjureWithDeff(long dame, Player plAtt) {
+        long def = this.def;
         if (this.player.isPet && ((Pet) this.player).master.charms.tdDeTu > System.currentTimeMillis()) {
             dame /= 3;
         }
@@ -2502,7 +2458,7 @@ public class NPoint {
             }
 
         } else {
-            dame -= def;
+            dame -= def*10;
         }
 
         if (dame < 0) {
@@ -2512,8 +2468,8 @@ public class NPoint {
         return dame;
     }
 
-    public int subDameInjureWithDeff(int dame) {
-        int def = this.def;
+    public long subDameInjureWithDeff(long dame) {
+        long def = this.def;
         dame -= def;
         if (this.player.isPet && ((Pet) this.player).master.charms.tdDeTu > System.currentTimeMillis()) {
             dame /= 4;

@@ -15,7 +15,6 @@ import red.services.Service;
 import red.services.TaskService;
 import red.utils.Util;
 
-
 public class Android21 extends Boss {
 
     public Android21() throws Exception {
@@ -24,8 +23,8 @@ public class Android21 extends Boss {
 
     @Override
     public void reward(Player plKill) {
-        int[] itemDos = new int[]{457,555,556,557,558,559,560,561,562,563,564,565,566,567};
-        int[] NRs = new int[]{15,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16};
+        int[] itemDos = new int[]{457, 555, 556, 557, 558, 559, 560, 561, 562, 563, 564, 565, 566, 567};
+        int[] NRs = new int[]{15, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16};
         int randomDo = new Random().nextInt(itemDos.length);
         int randomNR = new Random().nextInt(NRs.length);
         if (Util.isTrue(10, 100)) {
@@ -36,7 +35,7 @@ public class Android21 extends Boss {
 //                Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 2000+plKill.gender, 1, this.location.x, this.location.y, plKill.id));
 //            }
             if (Util.isTrue(1, 3)) {
-                Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 457, 1, this.location.x+2, this.location.y, plKill.id));
+                Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 457, 1, this.location.x + 2, this.location.y, plKill.id));
             }
             Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, itemDos[randomDo], 1, this.location.x, this.location.y, plKill.id));
         } else {
@@ -49,7 +48,7 @@ public class Android21 extends Boss {
     @Override
     public void active() {
         super.active(); //To change body of generated methods, choose Tools | Templates.
-        if(Util.canDoWithTime(st,1800000)){
+        if (Util.canDoWithTime(st, 1800000)) {
             this.changeStatus(BossStatus.LEAVE_MAP);
         }
     }
@@ -57,12 +56,13 @@ public class Android21 extends Boss {
     @Override
     public void joinMap() {
         super.joinMap(); //To change body of generated methods, choose Tools | Templates.
-        st= System.currentTimeMillis();
+        st = System.currentTimeMillis();
     }
     private long st;
-   @Override
-    public int injured(Player plAtt, int damage, boolean piercing, boolean isMobAttack) {
- this.checkAnThan(plAtt);
+
+    @Override
+    public long injured(Player plAtt, long damage, boolean piercing, boolean isMobAttack) {
+        this.checkAnThan(plAtt);
         if (plAtt != null) {
             switch (plAtt.playerSkill.skillSelect.template.id) {
                 case Skill.KAMEJOKO:
@@ -78,8 +78,6 @@ public class Android21 extends Boss {
         }
         return super.injured(plAtt, damage, piercing, isMobAttack);
     }
-
-   
 
 }
 

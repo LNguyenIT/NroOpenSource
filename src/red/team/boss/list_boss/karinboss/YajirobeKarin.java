@@ -11,6 +11,7 @@ import red.team.map.Zone;
 import red.team.player.Player;
 import red.team.server.Client;
 import red.services.EffectSkillService;
+import red.services.ItemService;
 import red.services.Service;
 import red.services.TaskService;
 import red.utils.Util;
@@ -34,6 +35,7 @@ public class YajirobeKarin extends Boss {
             plKill.pointKarin = 1;
                     TaskService.gI().checkDoneTaskKillBoss(plKill, this);
         }
+        ItemService.gI().CheckDoneVeTL(plKill);
 
     }
 
@@ -64,7 +66,7 @@ public class YajirobeKarin extends Boss {
     }
 
     @Override
-    public int injured(Player plAtt, int damage, boolean piercing, boolean isMobAttack) {
+    public long injured(Player plAtt, long damage, boolean piercing, boolean isMobAttack) {
         this.checkAnThan(plAtt);
         if (!this.isDie()) {
             damage = this.nPoint.subDameInjureWithDeff(damage);

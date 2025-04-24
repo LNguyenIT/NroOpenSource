@@ -110,10 +110,11 @@ public class DuongTank extends Boss {
                     "Đồ đệ ngoan hãy đưa ta đến " + MapService.gI().getMapById(this.mapCongDuc).mapName);
             this.lastTimeAttack = System.currentTimeMillis();
         }
+        
     }
 
     @Override
-    public int injured(Player plAtt, int damage, boolean piercing, boolean isMobAttack) {
+    public long injured(Player plAtt, long damage, boolean piercing, boolean isMobAttack) {
       this.checkAnThan(plAtt);
       if (!this.isDie()) {
   

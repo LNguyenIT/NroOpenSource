@@ -98,7 +98,7 @@ public class Mob {
             msg.writer().writeByte(mob.id);
             msg.writer().writeByte(mob.tempId);
             msg.writer().writeByte(0); //level mob
-            msg.writer().writeInt((mob.point.hp));
+            msg.writer().writeLong((mob.point.hp));
             Service.getInstance().sendMessAllPlayerInMap(mob.zone, msg);
             msg.cleanup();
         } catch (Exception e) {
@@ -115,7 +115,7 @@ public class Mob {
         return this.lvMob > 0;
     }
 
-    public synchronized void injured(Player plAtt, int damage, boolean dieWhenHpFull) {
+    public synchronized void injured(Player plAtt, long damage, boolean dieWhenHpFull) {
         if (!this.isDie()) {
             if (damage >= this.point.hp) {
                 damage = this.point.hp;
@@ -397,25 +397,25 @@ public class Mob {
 
     //**************************************************************************
     private void mobAttackPlayer(Player player) {
-        int dameMob = this.point.getDameAttack();
+        long dameMob = this.point.getDameAttack();
         if (player.charms.tdDaTrau > System.currentTimeMillis()) {
             dameMob /= 2;
         }
         if (this.isSieuQuai()) {
             dameMob = player.nPoint.hpMax / 10;
         }
-        int dame = player.injured(null, dameMob, false, true);
+        long dame = player.injured(null, dameMob, false, true);
         this.sendMobAttackMe(player, dame);
         this.sendMobAttackPlayer(player);
     }
 
-    private void sendMobAttackMe(Player player, int dame) {
+    private void sendMobAttackMe(Player player, long dame) {
         if (!player.isPet && !player.isNewPet) {
             Message msg;
             try {
                 msg = new Message(-11);
                 msg.writer().writeByte(this.id);
-                msg.writer().writeInt(dame); //dame
+                msg.writer().writeLong(dame); //dame
                 player.sendMessage(msg);
                 msg.cleanup();
             } catch (Exception e) {
@@ -429,7 +429,7 @@ public class Mob {
             msg = new Message(-10);
             msg.writer().writeByte(this.id);
             msg.writer().writeInt((int) player.id);
-            msg.writer().writeInt(player.nPoint.hp);
+            msg.writer().writeLong(player.nPoint.hp);
             Service.gI().sendMessAnotherNotMeInMap(player, msg);
             msg.cleanup();
         } catch (Exception e) {
@@ -454,7 +454,7 @@ public class Mob {
             msg.writer().writeByte(this.id);
             msg.writer().writeByte(this.tempId);
             msg.writer().writeByte(lvMob);
-            msg.writer().writeInt(this.point.hp);
+            msg.writer().writeLong(this.point.hp);
             Service.gI().sendMessAllPlayerInMap(this.zone, msg);
             msg.cleanup();
         } catch (Exception e) {
@@ -462,12 +462,12 @@ public class Mob {
     }
 
     //**************************************************************************
-    private void sendMobDieAffterAttacked(Player plKill, int dameHit) {
+    private void sendMobDieAffterAttacked(Player plKill, long dameHit) {
         Message msg;
         try {
             msg = new Message(-12);
             msg.writer().writeByte(this.id);
-            msg.writer().writeInt(dameHit);
+            msg.writer().writeLong(dameHit);
             msg.writer().writeBoolean(plKill.nPoint.isCrit); // crit
             List<ItemMap> items = mobReward(plKill, this.dropItemTask(plKill), msg);
             Service.gI().sendMessAllPlayerInMap(this.zone, msg);
@@ -874,13 +874,13 @@ public class Mob {
         return null;
     }
 
-    private void sendMobStillAliveAffterAttacked(int dameHit, boolean crit) {
+    private void sendMobStillAliveAffterAttacked(long dameHit, boolean crit) {
         Message msg;
         try {
             msg = new Message(-9);
             msg.writer().writeByte(this.id);
-            msg.writer().writeInt(this.point.gethp());
-            msg.writer().writeInt(dameHit);
+            msg.writer().writeLong(this.point.gethp());
+            msg.writer().writeLong(dameHit);
             msg.writer().writeBoolean(crit); // chí mạng
             msg.writer().writeInt(-1);
             Service.gI().sendMessAllPlayerInMap(this.zone, msg);

@@ -1044,58 +1044,58 @@ public class NpcFactory {
                         if (player.iDMark.isBaseMenu()) {
                             switch (select) {
                                 case 0: {
-                                    Boss oldBossClone = BossManager.gI()
-                                            .getBossById(Util.createIdBossClone((int) player.id));
-                                    if (oldBossClone != null) {
-                                        this.npcChat(player,
-                                                "Nhà ngươi hãy tiêu diệt Boss lúc trước gọi ra đã, con boss đó đang ở khu "
-                                                + oldBossClone.zone.zoneId);
-                                    } else if (player.inventory.gold < 200_000_000) {
-                                        this.npcChat(player, "Nhà ngươi không đủ 200 Triệu vàng ");
-                                    } else {
-                                        List<Skill> skillList = new ArrayList<>();
-                                        for (byte i = 0; i < player.playerSkill.skills.size(); i++) {
-                                            Skill skill = player.playerSkill.skills.get(i);
-                                            if (skill.point > 0) {
-                                                skillList.add(skill);
-                                            }
-                                        }
-                                        int[][] skillTemp = new int[skillList.size()][3];
-                                        for (byte i = 0; i < skillList.size(); i++) {
-                                            Skill skill = skillList.get(i);
-                                            if (skill.point > 0) {
-                                                skillTemp[i][0] = skill.template.id;
-                                                skillTemp[i][1] = skill.point;
-                                                skillTemp[i][2] = skill.coolDown;
-                                            }
-                                        }
-                                        BossData bossDataClone = new BossData(
-                                                "Nhân Bản " + player.name,
-                                                player.gender,
-                                                new short[]{player.getHead(), player.getBody(), player.getLeg(),
-                                                    player.getFlagBag(), player.idAura, player.getEffFront()},
-                                                player.nPoint.hpMax / 200,
-                                                new int[]{player.nPoint.dame * 1000},
-                                                new int[]{140},
-                                                skillTemp,
-                                                new String[]{"|-2|Boss nhân bản đã xuất hiện rồi"}, // text chat 1
-                                                new String[]{"|-1|Ta sẽ chiếm lấy thân xác của ngươi hahaha!"}, // text
-                                                // chat
-                                                // 2
-                                                new String[]{"|-1|Lần khác ta sẽ xử đẹp ngươi"}, // text chat 3
-                                                60);
-
-                                        try {
-                                            new NhanBan(Util.createIdBossClone((int) player.id), bossDataClone,
-                                                    player.zone);
-                                        } catch (Exception e) {
-                                            e.printStackTrace();
-                                            Logger.logException(Manager.class, e, "Lỗi tạo nhân bản");
-                                        }
-                                        // trừ vàng khi gọi boss
-                                        player.inventory.gold -= 200_000_000;
-                                        Service.gI().sendMoney(player);
-                                    }
+//                                    Boss oldBossClone = BossManager.gI()
+//                                            .getBossById(Util.createIdBossClone((int) player.id));
+//                                    if (oldBossClone != null) {
+//                                        this.npcChat(player,
+//                                                "Nhà ngươi hãy tiêu diệt Boss lúc trước gọi ra đã, con boss đó đang ở khu "
+//                                                + oldBossClone.zone.zoneId);
+//                                    } else if (player.inventory.gold < 200_000_000) {
+//                                        this.npcChat(player, "Nhà ngươi không đủ 200 Triệu vàng ");
+//                                    } else {
+//                                        List<Skill> skillList = new ArrayList<>();
+//                                        for (byte i = 0; i < player.playerSkill.skills.size(); i++) {
+//                                            Skill skill = player.playerSkill.skills.get(i);
+//                                            if (skill.point > 0) {
+//                                                skillList.add(skill);
+//                                            }
+//                                        }
+//                                        int[][] skillTemp = new int[skillList.size()][3];
+//                                        for (byte i = 0; i < skillList.size(); i++) {
+//                                            Skill skill = skillList.get(i);
+//                                            if (skill.point > 0) {
+//                                                skillTemp[i][0] = skill.template.id;
+//                                                skillTemp[i][1] = skill.point;
+//                                                skillTemp[i][2] = skill.coolDown;
+//                                            }
+//                                        }
+//                                        BossData bossDataClone = new BossData(
+//                                                "Nhân Bản " + player.name,
+//                                                player.gender,
+//                                                new short[]{player.getHead(), player.getBody(), player.getLeg(),
+//                                                    player.getFlagBag(), player.idAura, player.getEffFront()},
+//                                                player.nPoint.hpMax / 200,
+//                                                new long[]{ player.nPoint.dame * 1000L},
+//                                                new int[]{140},
+//                                                skillTemp,
+//                                                new String[]{"|-2|Boss nhân bản đã xuất hiện rồi"}, // text chat 1
+//                                                new String[]{"|-1|Ta sẽ chiếm lấy thân xác của ngươi hahaha!"}, // text
+//                                                // chat
+//                                                // 2
+//                                                new String[]{"|-1|Lần khác ta sẽ xử đẹp ngươi"}, // text chat 3
+//                                                60);
+//
+//                                        try {
+//                                            new NhanBan(Util.createIdBossClone((int) player.id), bossDataClone,
+//                                                    player.zone);
+//                                        } catch (Exception e) {
+//                                            e.printStackTrace();
+//                                            Logger.logException(Manager.class, e, "Lỗi tạo nhân bản");
+//                                        }
+//                                        // trừ vàng khi gọi boss
+//                                        player.inventory.gold -= 200_000_000;
+//                                        Service.gI().sendMoney(player);
+//                                    }
                                     break;
                                 }
                             }
@@ -2434,7 +2434,7 @@ public class NpcFactory {
                                 "Về đảo\nrùa");
                     } else if (this.mapId == 84) {
                         this.createOtherMenu(player, ConstNpc.BASE_MENU,
-                                "Đổi SPL?",
+                                "Mày cần gì","Đổi SPL?",
                                 "đóng");
                     } else {
 
@@ -2511,7 +2511,7 @@ public class NpcFactory {
                                     case 0:
                                         CombineServiceNew.gI().openTabCombine(player, CombineServiceNew.DOI_SPL);
                                         break;
-                                    case 1:
+                                    case 1: // đóng 
                                         break;
                                 }
                             } else if (player.iDMark.getIndexMenu() == ConstNpc.MENU_START_COMBINE) {
@@ -5217,34 +5217,33 @@ public class NpcFactory {
                             // }
                         }
                         if (select == 4) {
-                            if (!player.haveThienSu) {
-                                long hpCal = 200000000 + player.lvlThienSu * (2000000000L / 99);
-                                int dameCal = 50000 + player.lvlThienSu * (450000 / 99);
-                                try {
-                                    BossData THIEN_SU_KARIN = new BossData(
-                                            "Thiên sứ [LV" + player.lvlThienSu + "]", // name
-                                            ConstPlayer.XAYDA, // gender
-                                            new short[]{505, 506, 507, -1, 6, -1}, // outfit {head, body, leg, bag,
-                                            // aura, eff}
-                                            dameCal, // dame
-                                            new int[]{(int) hpCal}, // hp
-                                            new int[]{154}, // map join
-                                            new int[][]{
-                                                {Skill.KAMEJOKO, 7, 4000},
-                                                {Skill.LIEN_HOAN, 7, 300},}, // skill//skill
-                                            new String[]{}, // text chat 1
-                                            new String[]{"|-1|Ngươi làm ta nổi giận rồi!"
-                                            }, // text chat 2
-                                            new String[]{"|-1|Hự!"}, // text chat 3
-                                            (int) 60);
-                                    ThienSuKarin thienSuKarin = new ThienSuKarin(Util.randomBossId(),
-                                            THIEN_SU_KARIN, player.zone, player);
-                                    player.haveThienSu = true;
-                                } catch (Exception e) {
-
-                                }
-                            }
-
+//                            if (!player.haveThienSu) {
+//                                long hpCal = 200000000L + player.lvlThienSu * (2000000000L / 99);
+//                                long dameCal = 50000 + player.lvlThienSu * (450000 / 99);
+//                                try {
+//                                    BossData THIEN_SU_KARIN = new BossData(
+//                                            "Thiên sứ [LV" + player.lvlThienSu + "]", // name
+//                                            ConstPlayer.XAYDA, // gender
+//                                            new short[]{505, 506, 507, -1, 6, -1}, // outfit {head, body, leg, bag,
+//                                            // aura, eff}
+//                                            dameCal, // dame
+//                                            new long[]{ hpCal}, // hp
+//                                            new int[]{154}, // map join
+//                                            new int[][]{
+//                                                {Skill.KAMEJOKO, 7, 4000},
+//                                                {Skill.LIEN_HOAN, 7, 300},}, // skill//skill
+//                                            new String[]{}, // text chat 1
+//                                            new String[]{"|-1|Ngươi làm ta nổi giận rồi!"
+//                                            }, // text chat 2
+//                                            new String[]{"|-1|Hự!"}, // text chat 3
+//                                            (int) 60);
+//                                    ThienSuKarin thienSuKarin = new ThienSuKarin(Util.randomBossId(),
+//                                            THIEN_SU_KARIN, player.zone, player);
+//                                    player.haveThienSu = true;
+//                                } catch (Exception e) {
+//
+//                                }
+//                            }
                         }
 
                     } else if (player.iDMark.getIndexMenu() == ConstNpc.MENU_START_COMBINE) {

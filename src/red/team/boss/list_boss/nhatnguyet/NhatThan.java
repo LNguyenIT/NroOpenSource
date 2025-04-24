@@ -49,7 +49,7 @@ public class NhatThan extends Boss {
   }
 
   @Override
-  public int injured(Player plAtt, int damage, boolean piercing, boolean isMobAttack) {
+   public long injured(Player plAtt, long damage, boolean piercing, boolean isMobAttack) {
     this.checkAnThan(plAtt);
     Item kiemGoCheck = null;
     try {

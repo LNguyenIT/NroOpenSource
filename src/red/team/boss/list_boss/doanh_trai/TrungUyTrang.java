@@ -30,17 +30,17 @@ import red.utils.Util;
  */
 public class TrungUyTrang extends Boss {
 
-    private int dameClan;
-    private int hpClan;
+    private long dameClan;
+    private long hpClan;
 
-    public TrungUyTrang(int dame, int hp, Zone zone) throws Exception {
+    public TrungUyTrang(long dame, long hp, Zone zone) throws Exception {
         super(Util.randomBossId(), TrungUyTrang.TRUNG_UY_TRANG);
         this.dameClan = dame;
         this.hpClan = hp;
         this.zoneFinal = zone;
     }
 
-    public TrungUyTrang(int dame, int hp, Zone zone, int id, BossData... data) throws Exception {
+    public TrungUyTrang(long dame, long hp, Zone zone, int id, BossData... data) throws Exception {
         super(id, data);
         this.dameClan = dame;
         this.hpClan = hp;
@@ -52,7 +52,7 @@ public class TrungUyTrang extends Boss {
             ConstPlayer.TRAI_DAT, // gender
             new short[] { 141, 142, 143, -1, -1, -1 }, // outfit {head, body, leg, bag, aura, eff}
             500, // dame
-            new int[] { 500 }, // hp
+            new long[] { 500 }, // hp
             new int[] { 1 }, // map join
             new int[][] {
                     { Skill.MASENKO, 3, 1000 },
@@ -159,7 +159,7 @@ public class TrungUyTrang extends Boss {
     private long lastTimeBlame;
 
     // @Override
-    public int injured(Player plAtt, int damage, boolean piercing, boolean isMobAttack) {
+    public long injured(Player plAtt, long damage, boolean piercing, boolean isMobAttack) {
         this.checkAnThan(plAtt);
         if (!this.isDie()) {
             // if (this.zone.isbulon13Alive) {
