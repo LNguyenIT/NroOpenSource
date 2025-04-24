@@ -603,7 +603,7 @@ public class PetService {
         pet.nPoint.mpg = data[1];
         pet.nPoint.dameg = data[2];
         pet.nPoint.defg = data[3];
-        pet.nPoint.critg = data[4];
+        pet.nPoint.critg = (byte)data[4];
         for (int i = 0; i <= 12; i++) {
             pet.inventory.itemsBody.add(ItemService.gI().createItemNull());
         }

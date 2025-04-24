@@ -901,7 +901,7 @@ public class SkillService {
                     // ná»•
                     player.playerSkill.prepareTuSat = !player.playerSkill.prepareTuSat;
                     int rangeBom = SkillUtil.getRangeBom(player.playerSkill.skillSelect.point);
-                    int dame = player.nPoint.hpMax/2;
+                    long dame = player.nPoint.hpMax/2;
                     for (Mob mob : player.zone.mobs) {
                         if (Util.getDistance(player, mob) <= rangeBom) {
                             mob.injured(player, dame, true);
@@ -953,8 +953,8 @@ public class SkillService {
                     playerAttackPlayer(player, plTarget, false);
                     for (Player pl : players) {
                         boolean isDie = pl.isDie();
-                        int hpHoi = 1;
-                        int mpHoi = 1;
+                        long hpHoi = 1;
+                        long mpHoi = 1;
                         pl.nPoint.addHp(hpHoi);
                         pl.nPoint.addMp(mpHoi);
                         if (isDie) {
@@ -965,8 +965,7 @@ public class SkillService {
                             PlayerService.gI().sendInfoHpMp(pl);
                         }
                     }
-                    int hpHoiMe = player.nPoint.hp * percentTriThuong / 100;
-                    ;
+                    long hpHoiMe = player.nPoint.hp * percentTriThuong / 100;                   
                     player.nPoint.addHp(hpHoiMe);
                     PlayerService.gI().sendInfoHp(player);
                 }
@@ -978,12 +977,12 @@ public class SkillService {
         }
     }
 
-    private void phanSatThuong(Player plAtt, Player plTarget, int dame) {
+    private void phanSatThuong(Player plAtt, Player plTarget, long dame) {
         int percentPST = 0;
         if (plAtt != null && plTarget != null && plTarget.nPoint != null) {
             percentPST = plTarget.nPoint.tlPST;
         }
-        int damePST = 0;
+        long damePST = 0;
         if (percentPST != 0) {
             if (plAtt != null && plAtt.isPl()) {
                 damePST = dame * percentPST / 100;
@@ -998,8 +997,8 @@ public class SkillService {
                     damePST = plAtt.nPoint.hp - 1;
                 }
                 damePST = plAtt.injured(null, damePST, true, false);
-                msg.writer().writeInt(plAtt.nPoint.hp);
-                msg.writer().writeInt(damePST);
+                msg.writer().writeLong(plAtt.nPoint.hp);
+                msg.writer().writeLong(damePST);
                 msg.writer().writeBoolean(false);
                 msg.writer().writeByte(36);
                 Service.gI().sendMessAllPlayerInMap(plAtt, msg);
@@ -1010,11 +1009,11 @@ public class SkillService {
         }
     }
 
-    private void hutHPMP(Player player, int dame, boolean attackMob) {
+    private void hutHPMP(Player player, long dame, boolean attackMob) {
         int tiLeHutHp = player.nPoint.getTileHutHp(attackMob);
         int tiLeHutMp = player.nPoint.getTiLeHutMp();
-        int hpHoi = dame * tiLeHutHp / 100 > 500000 ? 500000 : dame * tiLeHutHp / 100;
-        int mpHoi = dame * tiLeHutMp / 100 > 500000 ? 500000 : dame * tiLeHutMp / 100;
+        long hpHoi = dame * tiLeHutHp / 100 > 500000 ? 500000 : dame * tiLeHutHp / 100;
+        long mpHoi = dame * tiLeHutMp / 100 > 500000 ? 500000 : dame * tiLeHutMp / 100;
         if (hpHoi > 0 || mpHoi > 0) {
             PlayerService.gI().hoiPhuc(player, hpHoi, mpHoi);
         }
@@ -1025,7 +1024,7 @@ public class SkillService {
         if (plInjure.effectSkill.anTroi) {
             plAtt.nPoint.isCrit100 = true;
         }
-        int dameHit = plInjure.injured(plAtt, miss ? 0 : plAtt.nPoint.getDameAttack(false), false, false);
+        long dameHit = plInjure.injured(plAtt, miss ? 0 : plAtt.nPoint.getDameAttack(false), false, false);
         phanSatThuong(plAtt, plInjure, dameHit);
         hutHPMP(plAtt, dameHit, false);
         Message msg;
@@ -1038,7 +1037,7 @@ public class SkillService {
             byte typeSkill = SkillUtil.getTyleSkillAttack(plAtt.playerSkill.skillSelect);
             msg.writer().writeByte(typeSkill == 2 ? 0 : 1); // read continue
             msg.writer().writeByte(typeSkill); // type skill
-            msg.writer().writeInt(dameHit); // dame Äƒn
+            msg.writer().writeLong(dameHit); // dame Äƒn
             msg.writer().writeBoolean(plInjure.isDie()); // is die
             msg.writer().writeBoolean(plAtt.nPoint.isCrit); // crit
             if (typeSkill != 1) {
@@ -1054,7 +1053,7 @@ public class SkillService {
                 msg.writer().writeInt((int) plInjure.id); // id Äƒn pem
                 msg.writer().writeByte(typeSkill == 2 ? 0 : 1); // read continue
                 msg.writer().writeByte(0); // type skill
-                msg.writer().writeInt(dameHit); // dame Äƒn
+                msg.writer().writeLong(dameHit); // dame Äƒn
                 msg.writer().writeBoolean(plInjure.isDie()); // is die
                 msg.writer().writeBoolean(plAtt.nPoint.isCrit); // crit
                 Service.gI().sendMessAnotherNotMeInMap(plInjure, msg);
@@ -1068,7 +1067,7 @@ public class SkillService {
 
     private void playerAttackMob(Player plAtt, Mob mob, boolean miss, boolean dieWhenHpFull) {
         if (!mob.isDie()) {
-            int dameHit = plAtt.nPoint.getDameAttack(true);
+            long dameHit = plAtt.nPoint.getDameAttack(true);
             if (plAtt.charms.tdBatTu > System.currentTimeMillis() && plAtt.nPoint.hp == 1) {
                 dameHit = 0;
             }

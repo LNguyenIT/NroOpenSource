@@ -60,7 +60,7 @@ public class PlayerService{
         Message msg;
         try {
             msg = Service.gI().messageSubCommand((byte) 5);
-            msg.writer().writeInt(player.nPoint.hp);
+            msg.writer().writeLong(player.nPoint.hp);
             player.sendMessage(msg);
             msg.cleanup();
         } catch (Exception e) {
@@ -72,7 +72,7 @@ public class PlayerService{
         Message msg;
         try {
             msg = Service.gI().messageSubCommand((byte) 6);
-            msg.writer().writeInt(player.nPoint.mp);
+            msg.writer().writeLong(player.nPoint.mp);
             player.sendMessage(msg);
             msg.cleanup();
         } catch (Exception e) {
@@ -85,7 +85,7 @@ public class PlayerService{
         sendInfoMp(player);
     }
 
-    public void hoiPhuc(Player player, int hp, int mp) {
+    public void hoiPhuc(Player player, long hp, long mp) {
         if (!player.isDie()) {
             player.nPoint.addHp(hp);
             player.nPoint.addMp(mp);
@@ -110,8 +110,8 @@ public class PlayerService{
                 msg.writer().writeInt((int) player.inventory.gold);
             }
             msg.writer().writeInt(player.inventory.gem);//luong
-            msg.writer().writeInt(player.nPoint.hp);//chp
-            msg.writer().writeInt(player.nPoint.mp);//cmp
+            msg.writer().writeLong(player.nPoint.hp);//chp
+            msg.writer().writeLong(player.nPoint.mp);//cmp
             msg.writer().writeInt(player.inventory.ruby);//ruby
             player.sendMessage(msg);
         } catch (Exception e) {
@@ -288,7 +288,7 @@ public class PlayerService{
             if (canHs) {
                 Service.gI().sendMoney(player);
                 Service.gI().hsChar(player, player.nPoint.hpMax, player.nPoint.mpMax);
-                 player.achievement.plusCount(13);
+                player.achievement.plusCount(13);
             }
         }
     }

@@ -416,9 +416,9 @@ public class Service {
         try {
             msg = Service.gI().messageSubCommand((byte) 14);// Cập nhật máu
             msg.writer().writeInt((int) pl.id);
-            msg.writer().writeInt(pl.nPoint.hp);
+            msg.writer().writeLong(pl.nPoint.hp);
             msg.writer().writeByte(0);// Hiệu ứng Ăn Đậu
-            msg.writer().writeInt(pl.nPoint.hpMax);
+            msg.writer().writeLong(pl.nPoint.hpMax);
             sendMessAnotherNotMeInMap(pl, msg);
             msg.cleanup();
         } catch (Exception e) {
@@ -431,9 +431,9 @@ public class Service {
         try {
             msg = Service.gI().messageSubCommand((byte) 14);
             msg.writer().writeInt((int) pl.id);
-            msg.writer().writeInt(pl.nPoint.hp);
+            msg.writer().writeLong(pl.nPoint.hp);
             msg.writer().writeByte(1);
-            msg.writer().writeInt(pl.nPoint.hpMax);
+            msg.writer().writeLong(pl.nPoint.hpMax);
             sendMessAnotherNotMeInMap(pl, msg);
             msg.cleanup();
         } catch (Exception e) {
@@ -905,18 +905,18 @@ public class Service {
             Message msg;
             try {
                 msg = new Message(-42);
-                msg.writer().writeInt(player.nPoint.hpg);
-                msg.writer().writeInt(player.nPoint.mpg);
-                msg.writer().writeInt(player.nPoint.dameg);
-                msg.writer().writeInt(player.nPoint.hpMax);// hp full
-                msg.writer().writeInt(player.nPoint.mpMax);// mp full
-                msg.writer().writeInt(player.nPoint.hp);// hp
-                msg.writer().writeInt(player.nPoint.mp);// mp
+                msg.writer().writeLong(player.nPoint.hpg);
+                msg.writer().writeLong(player.nPoint.mpg);
+                msg.writer().writeLong(player.nPoint.dameg);
+                msg.writer().writeLong(player.nPoint.hpMax);// hp full
+                msg.writer().writeLong(player.nPoint.mpMax);// mp full
+                msg.writer().writeLong(player.nPoint.hp);// hp
+                msg.writer().writeLong(player.nPoint.mp);// mp
                 msg.writer().writeByte(player.nPoint.speed);// speed
                 msg.writer().writeByte(20);
                 msg.writer().writeByte(20);
                 msg.writer().writeByte(1);
-                msg.writer().writeInt(player.nPoint.dame);// dam base
+                msg.writer().writeLong(player.nPoint.dame);// dam base
                 msg.writer().writeInt(player.nPoint.def);// def full
                 msg.writer().writeByte(player.nPoint.crit);// crit full
                 msg.writer().writeLong(player.nPoint.tiemNang);
@@ -1304,7 +1304,7 @@ public class Service {
     }
 }
 
-    public void hsChar(Player pl, int hp, int mp) {
+    public void hsChar(Player pl, Long hp, Long mp) {
         Message msg;
         try {
             pl.setJustRevivaled();
@@ -1319,8 +1319,8 @@ public class Service {
 
             msg = messageSubCommand((byte) 15);
             msg.writer().writeInt((int) pl.id);
-            msg.writer().writeInt(hp);
-            msg.writer().writeInt(mp);
+            msg.writer().writeLong(hp);
+            msg.writer().writeLong(mp);
             msg.writer().writeShort(pl.location.x);
             msg.writer().writeShort(pl.location.y);
             sendMessAllPlayerInMap(pl, msg);
@@ -1826,11 +1826,11 @@ public class Service {
                     }
                 }
 
-                msg.writer().writeInt(pl.pet.nPoint.hp); // hp
-                msg.writer().writeInt(pl.pet.nPoint.hpMax); // hpfull
-                msg.writer().writeInt(pl.pet.nPoint.mp); // mp
-                msg.writer().writeInt(pl.pet.nPoint.mpMax); // mpfull
-                msg.writer().writeInt(pl.pet.nPoint.dame); // damefull
+                msg.writer().writeLong(pl.pet.nPoint.hp); // hp
+                msg.writer().writeLong(pl.pet.nPoint.hpMax); // hpfull
+                msg.writer().writeLong(pl.pet.nPoint.mp); // mp
+                msg.writer().writeLong(pl.pet.nPoint.mpMax); // mpfull
+                msg.writer().writeLong(pl.pet.nPoint.dame); // damefull
                 msg.writer().writeUTF(pl.pet.name); // name
                 msg.writer().writeUTF(getCurrStrLevel(pl.pet)); // curr level
                 msg.writer().writeLong(pl.pet.nPoint.power); // power
