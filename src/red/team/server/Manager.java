@@ -856,14 +856,14 @@ public class Manager {
                     dataArray = (JSONArray) jv.parse(rs.getString("mobs").replaceAll("\\\"", ""));
                     mapTemplate.mobTemp = new byte[dataArray.size()];
                     mapTemplate.mobLevel = new byte[dataArray.size()];
-                    mapTemplate.mobHp = new int[dataArray.size()];
+                    mapTemplate.mobHp = new long[dataArray.size()];
                     mapTemplate.mobX = new short[dataArray.size()];
                     mapTemplate.mobY = new short[dataArray.size()];
                     for (int j = 0; j < dataArray.size(); j++) {
                         JSONArray dtm = (JSONArray) jv.parse(String.valueOf(dataArray.get(j)));
                         mapTemplate.mobTemp[j] = Byte.parseByte(String.valueOf(dtm.get(0)));
                         mapTemplate.mobLevel[j] = Byte.parseByte(String.valueOf(dtm.get(1)));
-                        mapTemplate.mobHp[j] = Integer.parseInt(String.valueOf(dtm.get(2)));
+                        mapTemplate.mobHp[j] = Long.parseLong(String.valueOf(dtm.get(2)));
                         mapTemplate.mobX[j] = Short.parseShort(String.valueOf(dtm.get(3)));
                         mapTemplate.mobY[j] = Short.parseShort(String.valueOf(dtm.get(4)));
                         dtm.clear();

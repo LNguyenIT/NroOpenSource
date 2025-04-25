@@ -26,7 +26,6 @@ import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class DataGame {
 
     public static byte vsData = 80;
@@ -63,8 +62,8 @@ public class DataGame {
             msg.writer().writeByte(0);
 
             long[] smtieuchuan = {1000L, 3000L, 15000L, 40000L, 90000L, 170000L, 340000L, 700000L,
-                    1500000L, 15000000L, 150000000L, 1500000000L, 5000000000L, 10000000000L, 40000000000L,
-                    50010000000L, 60010000000L, 70010000000L, 80010000000L, 100010000000L};
+                1500000L, 15000000L, 150000000L, 1500000000L, 5000000000L, 10000000000L, 40000000000L,
+                50010000000L, 60010000000L, 70010000000L, 80010000000L, 100010000000L};
             msg.writer().writeByte(smtieuchuan.length);
             for (int i = 0; i < smtieuchuan.length; i++) {
                 msg.writer().writeLong(smtieuchuan[i]);
@@ -132,7 +131,7 @@ public class DataGame {
             for (MobTemplate temp : Manager.MOB_TEMPLATES) {
                 msg.writer().writeByte(temp.type);
                 msg.writer().writeUTF(temp.name);
-                msg.writer().writeInt(temp.hp);
+                msg.writer().writeLong(temp.hp);
                 msg.writer().writeByte(temp.rangeMove);
                 msg.writer().writeByte(temp.speed);
                 msg.writer().writeByte(temp.dartType);
@@ -248,15 +247,16 @@ public class DataGame {
             Logger.logException(Manager.class, e, "Lỗi sendEffectTemplate");
         }
     }
-public static void effData(MySession session, int id, int... idtemp) {
+
+    public static void effData(MySession session, int id, int... idtemp) {
         int idT = id;
-        if(idtemp.length > 0 && idtemp[0] != 0){
+        if (idtemp.length > 0 && idtemp[0] != 0) {
             idT = idtemp[0];
         }
         Message msg;
         try {
             byte[] effData = FileIO.readFile("data/girlkun/effect/x" + session.zoomLevel + "/data/DataEffect_" + idT);
-            byte[] effImg = FileIO.readFile("data/girlkun/effect/x" + session.zoomLevel + "/img/ImgEffect_" + idT+".png");
+            byte[] effImg = FileIO.readFile("data/girlkun/effect/x" + session.zoomLevel + "/img/ImgEffect_" + idT + ".png");
             msg = new Message(-66);
             msg.writer().writeShort(id);
             msg.writer().writeInt(effData.length);
@@ -270,6 +270,7 @@ public static void effData(MySession session, int id, int... idtemp) {
             //Logger.logException(Manager.class, e, "Lỗi effdata");
         }
     }
+
     public static void sendItemBGTemplate(MySession session, int id) {
         Message msg;
         try {
@@ -281,7 +282,7 @@ public static void effData(MySession session, int id, int... idtemp) {
             session.sendMessage(msg);
             msg.cleanup();
         } catch (Exception e) {
-           Logger.logException(Manager.class, e, "Lỗi sendItemBGTemplate");
+            Logger.logException(Manager.class, e, "Lỗi sendItemBGTemplate");
         }
     }
 
@@ -326,18 +327,17 @@ public static void effData(MySession session, int id, int... idtemp) {
         }
     }
 
-
     private static List<Integer> list = new ArrayList<>();
 
-   public static void requestMobTemplate(MySession session, int id) {
+    public static void requestMobTemplate(MySession session, int id) {
         Message msg;
         try {
             byte[] mob = FileIO.readFile("data/girlkun/mob/x" + session.zoomLevel + "/" + id);
             msg = new Message(11);
-            if(id >= 90 && id <= 93){
+            if (id >= 90 && id <= 93) {
                 msg.writer().writeByte(id);
                 msg.writer().writeByte(0);
-            }else if(id < 82){
+            } else if (id < 82) {
                 msg.writer().writeByte(id);
             }
 
@@ -482,9 +482,29 @@ public static void effData(MySession session, int id, int... idtemp) {
     public static void sendRes(MySession session) {
         Message msg;
         try {
-            for (final File fileEntry : new File("data/girlkun/res/x" + session.zoomLevel).listFiles()) {
+            // xác định thư mục dựa vào zoomLevel
+            File dir = new File("data/girlkun/res/x" + session.zoomLevel);
+            if (!dir.exists() || !dir.isDirectory()) {
+                System.out.println("Thư mục không tồn tại hoặc không phải là thư mục: "
+                        + dir.getAbsolutePath());
+                return;  // hoặc bỏ qua, tuỳ logic của bạn
+            }
+
+            File[] files = dir.listFiles();
+            if (files == null || files.length == 0) {
+                System.out.println("Không có file nào trong thư mục: "
+                        + dir.getAbsolutePath());
+                return;
+            }
+
+            for (File fileEntry : files) {
                 String original = fileEntry.getName();
                 byte[] res = FileIO.readFile(fileEntry.getAbsolutePath());
+                if (res == null) {
+                    System.out.println("Đọc file thất bại: " + fileEntry.getAbsolutePath());
+                    continue;
+                }
+
                 msg = new Message(-74);
                 msg.writer().writeByte(2);
                 msg.writer().writeUTF(original);
@@ -492,9 +512,11 @@ public static void effData(MySession session, int id, int... idtemp) {
                 msg.writer().write(res);
                 session.sendMessage(msg);
                 msg.cleanup();
+
                 Thread.sleep(10);
             }
 
+            // gửi kết quả cuối cùng
             msg = new Message(-74);
             msg.writer().writeByte(3);
             msg.writer().writeInt(vsRes);

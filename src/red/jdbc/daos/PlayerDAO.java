@@ -87,7 +87,7 @@ public class PlayerDAO {
             int idAo = gender == 0 ? 0 : gender == 1 ? 1 : 2;
             int idQuan = gender == 0 ? 6 : gender == 1 ? 7 : 8;
             int def = gender == 2 ? 3 : 2;
-            int hp = gender == 0 ? 30 : 20;
+            long hp = gender == 0 ? 30 : 20;
 
             JSONArray item = new JSONArray();
             JSONArray options = new JSONArray();

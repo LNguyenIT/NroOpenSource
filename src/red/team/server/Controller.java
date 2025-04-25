@@ -25,7 +25,6 @@ import red.data.DataGame;
 import red.data.ItemData;
 import red.jdbc.daos.PlayerDAO;
 import red.s1.boss.BossManager;
-import red.team.item.Item;
 import red.team.map.blackball.BlackBallWar;
 import red.team.matches.PVPService;
 import red.team.npc.NpcManager;
@@ -39,12 +38,9 @@ import red.services.func.LuckyRound;
 import red.services.func.TransactionService;
 import red.services.func.UseItem;
 import red.utils.Logger;
-import red.utils.Util;
 import com.girlkun.database.GirlkunDB;
 import com.girlkun.result.GirlkunResultSet;
 
-import static red.services.func.Input.CHOOSE_LEVEL_BDKB;
-import static red.services.func.Input.NUMERIC;
 
 import java.io.IOException;
 
@@ -78,7 +74,7 @@ public class Controller implements IMessageHandler {
             // && cmd != -103) {
             // System.out.println(cmd);
             // }
-            // System.out.println("***************************CMD receive: " + cmd);
+            System.out.println("***************************CMD receive: " + cmd);
             switch (cmd) {
                 case -100:
                     byte action = _msg.reader().readByte();
@@ -577,6 +573,7 @@ public class Controller implements IMessageHandler {
                     }
                     break;
                 case -28:
+                    new Exception("TRACE ONMSG: ").printStackTrace();
                     messageNotMap(_session, _msg);
                     break;
                 case -29:
@@ -640,7 +637,7 @@ public class Controller implements IMessageHandler {
             try {
                 player = _session.player;
                 byte cmd = _msg.reader().readByte();
-                // System.out.println("CMD receive -28 / " + cmd);
+                 System.out.println("CMD receive -28 / " + cmd);
                 switch (cmd) {
                     case 2:
                         createChar(_session, _msg);

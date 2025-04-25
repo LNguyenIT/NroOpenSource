@@ -486,9 +486,9 @@ public class PetService {
         }
     }
 
-    private int[] getDataPetNormal() {
-        int[] hpmp = { 1700, 1800, 1900, 2000, 2100, 2200 };
-        int[] petData = new int[5];
+    private long[] getDataPetNormal() {
+        long[] hpmp = { 1700, 1800, 1900, 2000, 2100, 2200 };
+        long[] petData = new long[5];
         petData[0] = Util.nextInt(40, 105) * 20; // hp
         petData[1] = Util.nextInt(40, 105) * 20; // mp
         petData[2] = Util.nextInt(20, 45); // dame
@@ -497,9 +497,9 @@ public class PetService {
         return petData;
     }
 
-    private int[] getDataPetBerus() {
-        int[] hpmp = { 1700, 1800, 1900, 2000, 2100, 2200 };
-        int[] petData = new int[5];
+    private long[] getDataPetBerus() {
+        long[] hpmp = { 1700, 1800, 1900, 2000, 2100, 2200 };
+        long[] petData = new long[5];
         petData[0] = Util.nextInt(40, 105) * 50; // hp
         petData[1] = Util.nextInt(40, 105) * 50; // mp
         petData[2] = Util.nextInt(50, 120); // dame
@@ -508,9 +508,9 @@ public class PetService {
         return petData;
     }
 
-    private int[] getDataPetMabu() {
-        int[] hpmp = { 1700, 1800, 1900, 2000, 2100, 2200 };
-        int[] petData = new int[5];
+    private long[] getDataPetMabu() {
+        long[] hpmp = { 1700, 1800, 1900, 2000, 2100, 2200 };
+        long[] petData = new long[5];
         petData[0] = Util.nextInt(40, 105) * 40; // hp
         petData[1] = Util.nextInt(40, 105) * 40; // mp
         petData[2] = Util.nextInt(50, 120); // dame
@@ -519,9 +519,9 @@ public class PetService {
         return petData;
     }
 
-    private int[] getDataPetGoku() {
-        int[] hpmp = { 1800, 1900, 2000, 2100, 2200, 2300 };
-        int[] petData = new int[5];
+    private long[] getDataPetGoku() {
+        long[] hpmp = { 1700, 1800, 1900, 2000, 2100, 2200 };
+        long[] petData = new long[5];
         petData[0] = Util.nextInt(40, 115) * 60; // hp
         petData[1] = Util.nextInt(40, 115) * 60; // mp
         petData[2] = Util.nextInt(70, 140); // dame
@@ -530,9 +530,9 @@ public class PetService {
         return petData;
     }
 
-    private int[] getDataPetNgokhong() {
-        int[] hpmp = { 1700, 1800, 1900, 2000, 2100, 2200 };
-        int[] petData = new int[5];
+    private long[] getDataPetNgokhong() {
+        long[] hpmp = { 1700, 1800, 1900, 2000, 2100, 2200 };
+        long[] petData = new long[5];
         petData[0] = Util.nextInt(40, 105) * 30; // hp
         petData[1] = Util.nextInt(40, 105) * 30; // mp
         petData[2] = Util.nextInt(50, 120); // dame
@@ -541,9 +541,9 @@ public class PetService {
         return petData;
     }
 
-    private int[] getDataPetNguyetThan() {
-        int[] hpmp = { 1700, 1800, 1900, 2000, 2100, 2200 };
-        int[] petData = new int[5];
+    private long[] getDataPetNguyetThan() {
+        long[] hpmp = { 1700, 1800, 1900, 2000, 2100, 2200 };
+        long[] petData = new long[5];
         petData[0] = Util.nextInt(40, 105) * 90; // hp
         petData[1] = Util.nextInt(40, 105) * 90; // mp
         petData[2] = Util.nextInt(50, 120); // dame
@@ -552,9 +552,9 @@ public class PetService {
         return petData;
     }
 
-    private int[] getDataPetNhatThan() {
-        int[] hpmp = { 1700, 1800, 1900, 2000, 2100, 2200 };
-        int[] petData = new int[5];
+    private long[] getDataPetNhatThan() {
+        long[] hpmp = { 1700, 1800, 1900, 2000, 2100, 2200 };
+        long[] petData = new long[5];
         petData[0] = Util.nextInt(40, 105) * 90; // hp
         petData[1] = Util.nextInt(40, 105) * 90; // mp
         petData[2] = Util.nextInt(50, 120); // dame
@@ -563,9 +563,9 @@ public class PetService {
         return petData;
     }
 
-    private int[] getDataPetLucy() {
-        int[] hpmp = { 1700, 1800, 1900, 2000, 2100, 2200 };
-        int[] petData = new int[5];
+    private long[] getDataPetLucy() {
+        long[] hpmp = { 1700, 1800, 1900, 2000, 2100, 2200 };
+        long[] petData = new long[5];
         petData[0] = Util.nextInt(40, 105) * 90; // hp
         petData[1] = Util.nextInt(40, 105) * 90; // mp
         petData[2] = Util.nextInt(50, 120); // dame
@@ -577,7 +577,7 @@ public class PetService {
     private void createNewPet(Player player, boolean isMabu, boolean isBerus, boolean isGoku, boolean isNgokhong,
             boolean isNguyetThan, boolean isNhatThan, boolean isLucy,
             byte... gender) {
-        int[] data = isMabu
+        long[] data = isMabu
                 ? isBerus
                         ? isGoku ? isNgokhong
                                 ? isNguyetThan
@@ -602,7 +602,7 @@ public class PetService {
         pet.nPoint.hpg = data[0];
         pet.nPoint.mpg = data[1];
         pet.nPoint.dameg = data[2];
-        pet.nPoint.defg = data[3];
+        pet.nPoint.defg =  (int)data[3];
         pet.nPoint.critg = (byte)data[4];
         for (int i = 0; i <= 12; i++) {
             pet.inventory.itemsBody.add(ItemService.gI().createItemNull());

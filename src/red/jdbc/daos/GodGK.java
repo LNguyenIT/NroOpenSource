@@ -39,8 +39,6 @@ import red.utils.Util;
 import com.girlkun.database.GirlkunDB;
 import com.girlkun.result.GirlkunResultSet;
 import com.girlkun.network.server.GirlkunServer;
-import com.girlkun.network.server.GirlkunSessionManager;
-import com.girlkun.network.session.ISession;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -152,8 +150,8 @@ public class GodGK {
                             if (plInGame != null) {
                                 Client.gI().kickSession(plInGame.getSession());
                             }
-                            int plHp = 200000000;
-                            int plMp = 200000000;
+                            long plHp = 200000000;
+                            long plMp = 200000000;
                             JSONValue jv = new JSONValue();
                             JSONArray dataArray = null;
 
