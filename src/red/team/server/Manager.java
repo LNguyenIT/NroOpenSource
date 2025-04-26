@@ -204,10 +204,17 @@ public class Manager {
             int[][] tileMap = readTileMap(mapTemp.id);
             int[] tileTop = tileTyleTop[mapTemp.tileId - 1];
             red.team.map.Map map = new red.team.map.Map(mapTemp.id,
-                    mapTemp.name, mapTemp.planetId, mapTemp.tileId, mapTemp.bgId,
-                    mapTemp.bgType, mapTemp.type, tileMap, tileTop,
+                    mapTemp.name, 
+                    mapTemp.planetId, 
+                    mapTemp.tileId, 
+                    mapTemp.bgId,
+                    mapTemp.bgType, 
+                    mapTemp.type, 
+                    tileMap, 
+                    tileTop,
                     mapTemp.zones,
-                    mapTemp.maxPlayerPerZone, mapTemp.wayPoints);
+                    mapTemp.maxPlayerPerZone, 
+                    mapTemp.wayPoints);
             MAPS.add(map);
             map.initMob(mapTemp.mobTemp, mapTemp.mobLevel, mapTemp.mobHp, mapTemp.mobX, mapTemp.mobY);
             map.initNpc(mapTemp.npcId, mapTemp.npcX, mapTemp.npcY);
