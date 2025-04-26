@@ -581,7 +581,7 @@ public class Mob {
             // Nếu có đồ huỷ diệt thì rơi mts
             if ((!player.isPet  && player.setClothes.setHuyDiet() == true
                     && (this.zone.map.mapId == 155))) {
-                if (Util.isTrue(2, 300)) {
+                if (Util.isTrue(3, 300)) {
                     Item linhThu = ItemService.gI().createNewItem(Manager.manhts[(Util.nextInt(0, 4))]);
                     Service.getInstance().sendThongBao(player, "Bạn vừa nhận được  " + linhThu.template.name);
                     InventoryServiceNew.gI().addItemBag(player, linhThu);
@@ -592,6 +592,25 @@ public class Mob {
             if (!player.isPet  && this.zone.map.mapId == 160 ) {
                 if (Util.isTrue(5, 200)) {
                     Item linhThu = ItemService.gI().createNewItem(Manager.mvbt[0]);
+                    Service.getInstance().sendThongBao(player, "Bạn vừa nhận được  " + linhThu.template.name);
+                    InventoryServiceNew.gI().addItemBag(player, linhThu);
+                    InventoryServiceNew.gI().sendItemBags(player);
+                }
+            }
+            //MHBT-C3
+            if (!player.isPet  && this.zone.map.mapId == 161 && player.fusion.isBTC2 ) {
+                if (Util.isTrue(3, 200)) {
+                    Item linhThu = ItemService.gI().createNewItem((short) 2076);
+                    Service.getInstance().sendThongBao(player, "Bạn vừa nhận được  " + linhThu.template.name);
+                    InventoryServiceNew.gI().addItemBag(player, linhThu);
+                    InventoryServiceNew.gI().sendItemBags(player);
+                }
+            }
+            
+            //MHBT-C3
+            if (!player.isPet  && this.zone.map.mapId == 162 && player.fusion.isBTC2 ) {
+                if (Util.isTrue(3, 200)) {
+                    Item linhThu = ItemService.gI().createNewItem((short) 2077);
                     Service.getInstance().sendThongBao(player, "Bạn vừa nhận được  " + linhThu.template.name);
                     InventoryServiceNew.gI().addItemBag(player, linhThu);
                     InventoryServiceNew.gI().sendItemBags(player);
