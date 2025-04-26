@@ -2433,7 +2433,8 @@ public class NpcFactory {
                                 "Ngươi tìm ta có việc gì?",
                                 "Về đảo\nrùa");
                     } else if (this.mapId == 84) {
-                        this.createOtherMenu(player, ConstNpc.BASE_MENU,
+                        this.createOtherMenu(player, ConstNpc.BASE_MENU,"Chào em nha",
+                                "Chuyển hoá đồ",
                                 "Đổi SPL?",
                                 "đóng");
                     } else {
@@ -2501,125 +2502,134 @@ public class NpcFactory {
                                                 player.combineNew.quantities = 100;
                                             }
                                             break;
+                                        case 3:
+                                            if (player.combineNew.typeCombine == CombineServiceNew.PHA_LE_HOA_TRANG_BI) {
+                                                player.combineNew.quantities = 1000;
+                                            }
+                                            break;
                                     }
                                     CombineServiceNew.gI().startCombine(player);
                                     break;
                             }
-                        } else if (this.mapId == 84) {
-                            if (player.iDMark.isBaseMenu()) {
-                                switch (select) {
-                                    case 0:
-                                        CombineServiceNew.gI().openTabCombine(player, CombineServiceNew.DOI_SPL);
-                                        break;
-                                    case 1:
-                                        break;
-                                }
-                            } else if (player.iDMark.getIndexMenu() == ConstNpc.MENU_START_COMBINE) {
-                                switch (player.combineNew.typeCombine) {
-                                    case CombineServiceNew.PHAN_RA_DO_HOI_LONG:
-                                    case CombineServiceNew.EP_SAO_TRANG_BI:
-                                    case CombineServiceNew.PHA_LE_HOA_TRANG_BI:
-                                    case CombineServiceNew.CHUYEN_HOA_TRANG_BI:
-                                    case CombineServiceNew.NANG_HUY_DIET_LEN_SKH_VIP:
-                                    case CombineServiceNew.NANG_HUY_DIET_LEN_SKH:
-                                    case CombineServiceNew.NANG_TL_LEN_HUY_DIET:
-                                    case CombineServiceNew.NANG_CAP_CHAN_MENH:
-                                    case CombineServiceNew.DOI_SPL:
-                                        switch (select) {
-                                            case 0:
-                                                if (player.combineNew.typeCombine == CombineServiceNew.PHA_LE_HOA_TRANG_BI) {
-                                                    player.combineNew.quantities = 1;
-                                                }
-                                                break;
-                                            case 1:
-                                                if (player.combineNew.typeCombine == CombineServiceNew.PHA_LE_HOA_TRANG_BI) {
-                                                    player.combineNew.quantities = 10;
-                                                }
-                                                break;
-                                            case 2:
-                                                if (player.combineNew.typeCombine == CombineServiceNew.PHA_LE_HOA_TRANG_BI) {
-                                                    player.combineNew.quantities = 100;
-                                                }
-                                                break;
-                                        }
-                                        CombineServiceNew.gI().startCombine(player);
-                                        break;
-                                }
+                        }
+                    } else if (this.mapId == 84) {
+                        if (player.iDMark.isBaseMenu()) {
+                            switch (select) {
+                                case 0:
+                                    CombineServiceNew.gI().openTabCombine(player,CombineServiceNew.CHUYEN_HOA);
+                                case 1:
+                                    CombineServiceNew.gI().openTabCombine(player, CombineServiceNew.DOI_SPL);
+                                    break;
+                                case 2:
+                                    break;
                             }
-                        } else if (this.mapId == 42 || this.mapId == 43 || this.mapId == 44) {
-                            if (player.iDMark.isBaseMenu()) {
-                                switch (select) {
-                                    case 0: //shop bùa
-                                        createOtherMenu(player, ConstNpc.MENU_OPTION_SHOP_BUA,
-                                                "Bùa của ta rất lợi hại, nhìn ngươi yếu đuối thế này, chắc muốn mua bùa để "
-                                                + "mạnh mẽ à, mua không ta bán cho, xài rồi lại thích cho mà xem.",
-                                                "Bùa\n1 giờ", "Bùa\n8 giờ", "Bùa\n1 tháng", "Đóng");
-                                        break;
-                                    case 1:
-                                        CombineServiceNew.gI().openTabCombine(player, CombineServiceNew.NANG_CAP_VAT_PHAM);
-                                        break;
-                                    case 2:
-                                        CombineServiceNew.gI().openTabCombine(player, CombineServiceNew.NANG_CAP_BONG_TAI);
-                                        break;
-                                    case 3:
-                                        CombineServiceNew.gI().openTabCombine(player, CombineServiceNew.MO_CHI_SO_BONG_TAI);
-                                        break;
-                                    case 4:
-                                        CombineServiceNew.gI().openTabCombine(player, CombineServiceNew.NHAP_NGOC_RONG);
-                                        break;
-                                    case 5:
-                                        CombineServiceNew.gI().openTabCombine(player, CombineServiceNew.NANG_CAP_DO_TS);
-                                        break;
+                        } else if (player.iDMark.getIndexMenu() == ConstNpc.MENU_START_COMBINE) {
+                            switch (player.combineNew.typeCombine) {
+                                case CombineServiceNew.PHAN_RA_DO_HOI_LONG:
+                                case CombineServiceNew.EP_SAO_TRANG_BI:
+                                case CombineServiceNew.PHA_LE_HOA_TRANG_BI:
+                                case CombineServiceNew.CHUYEN_HOA_TRANG_BI:
+                                case CombineServiceNew.NANG_HUY_DIET_LEN_SKH_VIP:
+                                case CombineServiceNew.NANG_HUY_DIET_LEN_SKH:
+                                case CombineServiceNew.NANG_TL_LEN_HUY_DIET:
+                                case CombineServiceNew.NANG_CAP_CHAN_MENH:
+                                case CombineServiceNew.DOI_SPL:
+                                case CombineServiceNew.CHUYEN_HOA:
+                                    switch (select) {
+                                        case 0:
+                                            if (player.combineNew.typeCombine == CombineServiceNew.PHA_LE_HOA_TRANG_BI) {
+                                                player.combineNew.quantities = 1;
+                                            }
+                                            break;
+                                        case 1:
+                                            if (player.combineNew.typeCombine == CombineServiceNew.PHA_LE_HOA_TRANG_BI) {
+                                                player.combineNew.quantities = 10;
+                                            }
+                                            break;
+                                        case 2:
+                                            if (player.combineNew.typeCombine == CombineServiceNew.PHA_LE_HOA_TRANG_BI) {
+                                                player.combineNew.quantities = 100;
+                                            }
+                                            break;
+                                    }
+                                    CombineServiceNew.gI().startCombine(player);
+                                    break;
+                            }
+                        }
+                    } else if (this.mapId == 42 || this.mapId == 43 || this.mapId == 44) {
+                        if (player.iDMark.isBaseMenu()) {
+                            switch (select) {
+                                case 0: //shop bùa
+                                    createOtherMenu(player, ConstNpc.MENU_OPTION_SHOP_BUA,
+                                            "Bùa của ta rất lợi hại, nhìn ngươi yếu đuối thế này, chắc muốn mua bùa để "
+                                            + "mạnh mẽ à, mua không ta bán cho, xài rồi lại thích cho mà xem.",
+                                            "Bùa\n1 giờ", "Bùa\n8 giờ", "Bùa\n1 tháng", "Đóng");
+                                    break;
+                                case 1:
+                                    CombineServiceNew.gI().openTabCombine(player, CombineServiceNew.NANG_CAP_VAT_PHAM);
+                                    break;
+                                case 2:
+                                    CombineServiceNew.gI().openTabCombine(player, CombineServiceNew.NANG_CAP_BONG_TAI);
+                                    break;
+                                case 3:
+                                    CombineServiceNew.gI().openTabCombine(player, CombineServiceNew.MO_CHI_SO_BONG_TAI);
+                                    break;
+                                case 4:
+                                    CombineServiceNew.gI().openTabCombine(player, CombineServiceNew.NHAP_NGOC_RONG);
+                                    break;
+                                case 5:
+                                    CombineServiceNew.gI().openTabCombine(player, CombineServiceNew.NANG_CAP_DO_TS);
+                                    break;
 
-                                }
-                            } else if (player.iDMark.getIndexMenu() == ConstNpc.MENU_OPTION_SHOP_BUA) {
-                                switch (select) {
-                                    case 0:
-                                        ShopServiceNew.gI().opendShop(player, "BUA_1H", true);
-                                        break;
-                                    case 1:
-                                        ShopServiceNew.gI().opendShop(player, "BUA_8H", true);
-                                        break;
-                                    case 2:
-                                        ShopServiceNew.gI().opendShop(player, "BUA_1M", true);
-                                        break;
-                                }
-                            } else if (player.iDMark.getIndexMenu() == ConstNpc.MENU_START_COMBINE) {
-                                switch (player.combineNew.typeCombine) {
-                                    case CombineServiceNew.NANG_CAP_VAT_PHAM:
-                                    case CombineServiceNew.NANG_CAP_BONG_TAI:
-                                    case CombineServiceNew.MO_CHI_SO_BONG_TAI:
-                                    case CombineServiceNew.NANG_CAP_BONG_TAI_CAP3:
-                                    case CombineServiceNew.MO_CHI_SO_BONG_TAI_CAP3:
-                                    case CombineServiceNew.NANG_CAP_BONG_TAI_CAP4:
-                                    case CombineServiceNew.MO_CHI_SO_BONG_TAI_CAP4:
-                                    case CombineServiceNew.NHAP_NGOC_RONG:
-                                    case CombineServiceNew.NANG_CAP_DO_TS:
-                                        if (select == 0) {
-                                            CombineServiceNew.gI().startCombine(player);
-                                        }
-                                        break;
-                                }
+                            }
+                        } else if (player.iDMark.getIndexMenu() == ConstNpc.MENU_OPTION_SHOP_BUA) {
+                            switch (select) {
+                                case 0:
+                                    ShopServiceNew.gI().opendShop(player, "BUA_1H", true);
+                                    break;
+                                case 1:
+                                    ShopServiceNew.gI().opendShop(player, "BUA_8H", true);
+                                    break;
+                                case 2:
+                                    ShopServiceNew.gI().opendShop(player, "BUA_1M", true);
+                                    break;
+                            }
+                        } else if (player.iDMark.getIndexMenu() == ConstNpc.MENU_START_COMBINE) {
+                            switch (player.combineNew.typeCombine) {
+                                case CombineServiceNew.NANG_CAP_VAT_PHAM:
+                                case CombineServiceNew.NANG_CAP_BONG_TAI:
+                                case CombineServiceNew.MO_CHI_SO_BONG_TAI:
+                                case CombineServiceNew.NANG_CAP_BONG_TAI_CAP3:
+                                case CombineServiceNew.MO_CHI_SO_BONG_TAI_CAP3:
+                                case CombineServiceNew.NANG_CAP_BONG_TAI_CAP4:
+                                case CombineServiceNew.MO_CHI_SO_BONG_TAI_CAP4:
+                                case CombineServiceNew.NHAP_NGOC_RONG:
+                                case CombineServiceNew.NANG_CAP_DO_TS:
+                                    if (select == 0) {
+                                        CombineServiceNew.gI().startCombine(player);
+                                    }
+                                    break;
                             }
                         }
                     }
-                }
             }
-        };
+        }
     }
+;
+}
 
     public static Npc ruongDo(int mapId, int status, int cx, int cy, int tempId, int avartar) {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
 
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                 if (canOpenNpc(player)) {
                     InventoryServiceNew.gI().sendItemBox(player);
                 }
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
 
                 }
@@ -2631,7 +2641,7 @@ public class NpcFactory {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
 
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                 if (canOpenNpc(player)) {
                     if (mapId == 0) {
                         this.createOtherMenu(player, 0, "A mi khò khò, thí chủ hãy giúp giải cứu đệ tử của bần tăng đang bị phong ấn tại ngũ hành sơn.", "Đồng ý", "Từ chối");
@@ -2647,7 +2657,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     switch (select) {
                         case 0:
@@ -2682,7 +2692,7 @@ public class NpcFactory {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
 
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                 if (canOpenNpc(player)) {
                     if (mapId == 179) {
                         this.createOtherMenu(player, 0,
@@ -2695,7 +2705,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     switch (select) {
 
@@ -2720,7 +2730,11 @@ public class NpcFactory {
                                     player.haveMiNuong = true;
                                 } catch (Exception e) {
                                     e.printStackTrace();
-                                    Logger.logException(Manager.class, e, "Lỗi tạo mị nương hộ tống");
+                                    Logger
+
+.logException(Manager.class  
+
+, e, "Lỗi tạo mị nương hộ tống");
                                 }
                                 // trừ vàng khi gọi boss
                                 player.inventory.gem -= 50000;
@@ -2741,14 +2755,14 @@ public class NpcFactory {
     public static Npc dauThan(int mapId, int status, int cx, int cy, int tempId, int avartar) {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                 if (canOpenNpc(player)) {
                     player.magicTree.openMenuTree();
                 }
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     switch (player.iDMark.getIndexMenu()) {
                         case ConstNpc.MAGIC_TREE_NON_UPGRADE_LEFT_PEA:
@@ -2816,7 +2830,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                 player.iDMark.setIndexMenu(ConstNpc.BASE_MENU);
                 if (TaskService.gI().getIdTask(player) < ConstTask.TASK_20_0) {
                     Service.gI().hideWaitDialog(player);
@@ -2840,7 +2854,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (this.mapId == 102) {
                     if (player.iDMark.isBaseMenu()) {
                         if (select == 0) {
@@ -2872,7 +2886,7 @@ public class NpcFactory {
     public static Npc jaco(int mapId, int status, int cx, int cy, int tempId, int avartar) {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                 if (canOpenNpc(player)) {
                     if (!TaskService.gI().checkDoneTaskTalkNpc(player, this)) {
                         if (this.mapId == 24 || this.mapId == 25 || this.mapId == 26) {
@@ -2888,7 +2902,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 24 || this.mapId == 25 || this.mapId == 26) {
                         if (player.getSession().player.nPoint.power >= 800000000L) {
@@ -2915,7 +2929,7 @@ public class NpcFactory {
     public static Npc bulmaNm(int mapId, int status, int cx, int cy, int tempId, int avartar) {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                 if (canOpenNpc(player)) {
                     if (!TaskService.gI().checkDoneTaskTalkNpc(player, this)) {
                         if (this.mapId == 206) {
@@ -2933,7 +2947,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     if (player.iDMark.isBaseMenu()) {
                         if (this.mapId == 206) {
@@ -3025,7 +3039,7 @@ public class NpcFactory {
     public static Npc fideNm(int mapId, int status, int cx, int cy, int tempId, int avartar) {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                 if (canOpenNpc(player)) {
                     if (!TaskService.gI().checkDoneTaskTalkNpc(player, this)) {
 
@@ -3038,7 +3052,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     if (player.iDMark.isBaseMenu()) {
 
@@ -3113,7 +3127,7 @@ public class NpcFactory {
     public static Npc diemVuong(int mapId, int status, int cx, int cy, int tempId, int avartar) {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                 if (canOpenNpc(player)) {
                     if (!TaskService.gI().checkDoneTaskTalkNpc(player, this)) {
                         this.createOtherMenu(player, ConstNpc.BASE_MENU,
@@ -3125,7 +3139,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     if (player.iDMark.isBaseMenu()) {
                         switch (select) {
@@ -3150,7 +3164,7 @@ public class NpcFactory {
     public static Npc cayLongDen(int mapId, int status, int cx, int cy, int tempId, int avartar) {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                 Item longDenCheck = null;
                 Integer longDenCheckQuantity = 0;
                 try {
@@ -3173,7 +3187,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 Item longDenCheck = null;
                 Integer longDenCheckQuantity = 0;
                 try {
@@ -3239,7 +3253,7 @@ public class NpcFactory {
     public static Npc npclytieunuong(int mapId, int status, int cx, int cy, int tempId, int avartar) {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
 
                 if (canOpenNpc(player)) {
                     createOtherMenu(player, ConstNpc.BASE_MENU,
@@ -3249,7 +3263,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 5) {
                         Service.gI().sendThongBao(player, "Tệ nạn? ");
@@ -3275,7 +3289,7 @@ public class NpcFactory {
     public static Npc npclytieunuong54(int mapId, int status, int cx, int cy, int tempId, int avartar) {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
 
                 if (canOpenNpc(player)) {
                     Item daSangTheCheck = null;
@@ -3296,7 +3310,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 5 || this.mapId == 13 || this.mapId == 20) {
                         if (player.iDMark.isBaseMenu()) {
@@ -3355,7 +3369,7 @@ public class NpcFactory {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
 
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 45) {
                         this.createOtherMenu(player, ConstNpc.BASE_MENU,
@@ -3375,7 +3389,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 45) {
                         if (player.iDMark.isBaseMenu()) {
@@ -3467,7 +3481,7 @@ public class NpcFactory {
     public static Npc thanVuTru(int mapId, int status, int cx, int cy, int tempId, int avartar) {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 48) {
                         this.createOtherMenu(player, ConstNpc.BASE_MENU,
@@ -3477,7 +3491,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 48) {
                         if (player.iDMark.isBaseMenu()) {
@@ -3536,7 +3550,7 @@ public class NpcFactory {
     public static Npc mabu(int mapId, int status, int cx, int cy, int tempId, int avartar) {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 5) {
                         this.createOtherMenu(player, ConstNpc.BASE_MENU,
@@ -3546,7 +3560,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 5) {
                         if (player.iDMark.isBaseMenu()) {
@@ -3586,7 +3600,7 @@ public class NpcFactory {
     public static Npc mabu1(int mapId, int status, int cx, int cy, int tempId, int avartar) {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 223) {
                         this.createOtherMenu(player, ConstNpc.BASE_MENU,
@@ -3596,7 +3610,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 223) {
                         if (player.iDMark.isBaseMenu()) {
@@ -3636,7 +3650,7 @@ public class NpcFactory {
     public static Npc kibit(int mapId, int status, int cx, int cy, int tempId, int avartar) {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                 if (canOpenNpc(player)) {
 
                     this.createOtherMenu(player, ConstNpc.BASE_MENU, "Hãy giúp chúng tôi chống lại Babiday ?",
@@ -3646,7 +3660,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     if (player.iDMark.isBaseMenu()) {
                         switch (select) {
@@ -3663,7 +3677,7 @@ public class NpcFactory {
     public static Npc babiday(int mapId, int status, int cx, int cy, int tempId, int avartar) {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                 if (canOpenNpc(player)) {
 
                     this.createOtherMenu(player, ConstNpc.BASE_MENU, "Ngươi có muốn gia nhập với bọn ta ?",
@@ -3673,7 +3687,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     if (player.iDMark.isBaseMenu()) {
                         switch (select) {
@@ -3691,7 +3705,7 @@ public class NpcFactory {
     public static Npc osin(int mapId, int status, int cx, int cy, int tempId, int avartar) {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 50) {
                         this.createOtherMenu(player, ConstNpc.BASE_MENU, "Ta có thể giúp gì cho ngươi ?",
@@ -3744,7 +3758,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 50) {
                         if (player.iDMark.isBaseMenu()) {
@@ -3851,7 +3865,7 @@ public class NpcFactory {
     public static Npc docNhan(int mapId, int status, int cx, int cy, int tempId, int avartar) {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                 if (canOpenNpc(player)) {
                     if (player.clan == null) {
                         this.createOtherMenu(player, ConstNpc.IGNORE_MENU,
@@ -3903,7 +3917,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     switch (player.iDMark.getIndexMenu()) {
                         case ConstNpc.MENU_JOIN_DOANH_TRAI:
@@ -3927,7 +3941,7 @@ public class NpcFactory {
     public static Npc linhCanh(int mapId, int status, int cx, int cy, int tempId, int avartar) {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                 if (canOpenNpc(player)) {
                     if (player.clan == null) {
                         this.createOtherMenu(player, ConstNpc.IGNORE_MENU,
@@ -3980,7 +3994,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     switch (player.iDMark.getIndexMenu()) {
                         case ConstNpc.MENU_JOIN_DOANH_TRAI:
@@ -4008,7 +4022,7 @@ public class NpcFactory {
             private final int COST_AP_TRUNG_NHANH = 2000000000;
 
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 104) {
                         player.thienThanEgg.sendThienThanEgg();
@@ -4029,7 +4043,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
 
                     if (this.mapId == 104) {
@@ -4134,7 +4148,7 @@ public class NpcFactory {
             private final int COST_AP_TRUNG_NHANH = 2000000000;
 
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 104) {
                         player.hacAmEgg.sendHacAmEgg();
@@ -4155,7 +4169,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
 
                     if (this.mapId == 104) {
@@ -4255,7 +4269,7 @@ public class NpcFactory {
             private final int COST_AP_TRUNG_NHANH = 2000000000;
 
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                 if (canOpenNpc(player)) {
                     if (this.mapId == (21 + player.gender)) {
                         player.mabuEgg.sendMabuEgg();
@@ -4315,7 +4329,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
 
                     if (this.mapId == (21 + player.gender)) {
@@ -4608,14 +4622,14 @@ public class NpcFactory {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
 
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                 this.createOtherMenu(player, ConstNpc.BASE_MENU,
                         "Con muốn nâng giới hạn sức mạnh cho bản thân hay đệ tử?",
                         "Bản thân", "Đệ tử", "Từ chối");
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     if (player.iDMark.isBaseMenu()) {
                         switch (select) {
@@ -4699,7 +4713,7 @@ public class NpcFactory {
     public static Npc bulmaTL(int mapId, int status, int cx, int cy, int tempId, int avartar) {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 102) {
                         if (!TaskService.gI().checkDoneTaskTalkNpc(player, this)) {
@@ -4715,7 +4729,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 102) {
                         if (player.iDMark.isBaseMenu()) {
@@ -4757,7 +4771,7 @@ public class NpcFactory {
     public static Npc rongOmega(int mapId, int status, int cx, int cy, int tempId, int avartar) {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                 if (canOpenNpc(player)) {
                     BlackBallWar.gI().setTime();
                     if (this.mapId == 24 || this.mapId == 25 || this.mapId == 26) {
@@ -4803,7 +4817,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     switch (player.iDMark.getIndexMenu()) {
                         case ConstNpc.MENU_REWARD_BDW:
@@ -4838,7 +4852,7 @@ public class NpcFactory {
     public static Npc rong1_to_7s(int mapId, int status, int cx, int cy, int tempId, int avartar) {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                 if (canOpenNpc(player)) {
                     if (player.iDMark.isHoldBlackBall()) {
                         this.createOtherMenu(player, ConstNpc.MENU_PHU_HP, "Ta có thể giúp gì cho ngươi?", "Phù hộ",
@@ -4859,7 +4873,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     if (player.iDMark.getIndexMenu() == ConstNpc.MENU_PHU_HP) {
                         if (select == 0) {
@@ -4906,7 +4920,7 @@ public class NpcFactory {
     public static Npc npcThienSu64(int mapId, int status, int cx, int cy, int tempId, int avartar) {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                 if (this.mapId == 14) {
                     this.createOtherMenu(player, ConstNpc.BASE_MENU,
                             "Ta sẽ dẫn cậu tới hành tinh Berrus với điều kiện\n 2. đạt 80 tỷ sức mạnh "
@@ -4959,7 +4973,7 @@ public class NpcFactory {
             // return;
             // }
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     if (player.iDMark.isBaseMenu() && this.mapId == 7) {
                         if (select == 0) {
@@ -5272,7 +5286,7 @@ public class NpcFactory {
     public static Npc tapion(int mapId, int status, int cx, int cy, int tempId, int avartar) {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 19) {
                         try {
@@ -5303,7 +5317,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 19) {
                         switch (player.iDMark.getIndexMenu()) {
@@ -5359,7 +5373,7 @@ public class NpcFactory {
     public static Npc bill(int mapId, int status, int cx, int cy, int tempId, int avartar) {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 48) {
                         createOtherMenu(player, ConstNpc.BASE_MENU,
@@ -5376,7 +5390,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     switch (this.mapId) {
                         case 48:
@@ -5436,7 +5450,7 @@ public class NpcFactory {
     public static Npc boMong(int mapId, int status, int cx, int cy, int tempId, int avartar) {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 47 || this.mapId == 84) {
                         this.createOtherMenu(player, ConstNpc.BASE_MENU,
@@ -5453,7 +5467,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 47 || this.mapId == 84) {
                         if (player.iDMark.isBaseMenu()) {
@@ -5559,7 +5573,7 @@ public class NpcFactory {
     public static Npc lucy(int mapId, int status, int cx, int cy, int tempId, int avartar) {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                 new Thread(() -> {
                     try {
                         while (true) {
@@ -5589,7 +5603,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     if (player.iDMark.isBaseMenu()) {
                         switch (select) {
@@ -5654,7 +5668,7 @@ public class NpcFactory {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
 
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                 int mapCur = 0;
                 switch (this.mapId) {
                     case 6:
@@ -5683,7 +5697,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 int mapCur = 0;
                 switch (this.mapId) {
                     case 6:
@@ -5725,7 +5739,11 @@ public class NpcFactory {
                                         player.haveKiLan = true;
                                     } catch (Exception e) {
                                         e.printStackTrace();
-                                        Logger.logException(Manager.class, e, "Lỗi tạo kì lân hộ tống");
+                                        Logger
+
+.logException(Manager.class  
+
+, e, "Lỗi tạo kì lân hộ tống");
                                     }
                                     // trừ vàng khi gọi boss
                                     player.inventory.gem -= 50000;
@@ -5765,7 +5783,7 @@ public class NpcFactory {
     public static Npc toSuKaio(int mapId, int status, int cx, int cy, int tempId, int avartar) {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                 if (canOpenNpc(player)) {
 
                     this.createOtherMenu(player, ConstNpc.BASE_MENU,
@@ -5776,7 +5794,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     if (player.iDMark.isBaseMenu()) {
                         switch (select) {
@@ -5806,7 +5824,7 @@ public class NpcFactory {
     public static Npc karin(int mapId, int status, int cx, int cy, int tempId, int avartar) {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 5) {
                         Service.gI().sendThongBaoOK(player, "Mùa hè đã kết thúc, hẹn gặp lại vào năm sau nhé!");
@@ -5827,7 +5845,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 5) {
                         if (player.iDMark.isBaseMenu()) {
@@ -6035,7 +6053,7 @@ public class NpcFactory {
     public static Npc vados(int mapId, int status, int cx, int cy, int tempId, int avartar) {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                 if (canOpenNpc(player)) {
                     createOtherMenu(player, ConstNpc.BASE_MENU,
                             "|2|Ta Vừa Hắc Mắp Xêm Được Tóp Của Toàn Server\b|7|Người Muốn Xem Tóp Gì?",
@@ -6044,7 +6062,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     switch (this.mapId) {
                         case 5:
@@ -6083,7 +6101,7 @@ public class NpcFactory {
     public static Npc gokuSSJ_1(int mapId, int status, int cx, int cy, int tempId, int avartar) {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
 
                 if (canOpenNpc(player)) {
                     if (!TaskService.gI().checkDoneTaskTalkNpc(player, this)) {
@@ -6101,7 +6119,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     switch (player.iDMark.getIndexMenu()) {
                         case ConstNpc.BASE_MENU:
@@ -6120,7 +6138,7 @@ public class NpcFactory {
     public static Npc mavuong(int mapId, int status, int cx, int cy, int tempId, int avartar) {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 153) {
                         this.createOtherMenu(player, ConstNpc.BASE_MENU,
@@ -6134,7 +6152,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 153) {
                         if (player.iDMark.isBaseMenu()) {
@@ -6285,7 +6303,7 @@ public class NpcFactory {
     public static Npc cauca(int mapId, int status, int cx, int cy, int tempId, int avartar) {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
 
                 if (canOpenNpc(player)) {
                     this.createOtherMenu(player, ConstNpc.BASE_MENU,
@@ -6296,7 +6314,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     if (player.iDMark.isBaseMenu()) {
                         switch (select) {
@@ -6337,7 +6355,7 @@ public class NpcFactory {
     public static Npc cauca2(int mapId, int status, int cx, int cy, int tempId, int avartar) {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
 
                 if (canOpenNpc(player)) {
                     this.createOtherMenu(player, ConstNpc.BASE_MENU, "Anh muốn xem bảng xếp hạng câu cá chứ ?\n"
@@ -6348,7 +6366,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     if (player.iDMark.isBaseMenu()) {
                         switch (select) {
@@ -6369,7 +6387,7 @@ public class NpcFactory {
     public static Npc gokuSSJ_2(int mapId, int status, int cx, int cy, int tempId, int avartar) {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
 
                 if (canOpenNpc(player)) {
                     {
@@ -6394,7 +6412,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     try {
 
@@ -6421,7 +6439,7 @@ public class NpcFactory {
     public static Npc khidaumoi(int mapId, int status, int cx, int cy, int tempId, int avartar) {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                 if (this.mapId == 14) {
                     this.createOtherMenu(player, ConstNpc.BASE_MENU,
                             "Bạn muốn nâng cấp khỉ ư?", "Nâng cấp\nkhỉ", "Shop của Khỉ", "Từ chối");
@@ -6429,7 +6447,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 14) {
                         if (player.iDMark.isBaseMenu()) {
@@ -6585,7 +6603,7 @@ public class NpcFactory {
             String[] menuselect = new String[]{};
 
             @Override
-            public void openBaseMenu(Player pl) {
+public void openBaseMenu(Player pl) {
                 if (canOpenNpc(pl)) {
                     if (this.mapId == 52) {
                         createOtherMenu(pl, 0, DaiHoiVoThuatService.gI(DaiHoiVoThuat.gI().getDaiHoiNow()).Giai(pl),
@@ -6612,7 +6630,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 52) {
                         switch (select) {
@@ -6704,7 +6722,7 @@ public class NpcFactory {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
 
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 5) {
                         this.createOtherMenu(player, 0,
@@ -6720,7 +6738,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 5) {
                         if (player.iDMark.getIndexMenu() == 0) { //
@@ -6797,7 +6815,7 @@ public class NpcFactory {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
 
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 7) {
                         this.createOtherMenu(player, 0,
@@ -6819,7 +6837,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 7) {
                         if (player.iDMark.getIndexMenu() == 0) { //
@@ -6894,7 +6912,7 @@ public class NpcFactory {
     public static Npc billbingo(int mapId, int status, int cx, int cy, int tempId, int avartar) {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                 if (canOpenNpc(player)) {
                     if (!TaskService.gI().checkDoneTaskTalkNpc(player, this)) {
                         this.createOtherMenu(player, ConstNpc.BASE_MENU,
@@ -6906,7 +6924,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     if (player.iDMark.isBaseMenu()) {
                         switch (select) {
@@ -7042,7 +7060,7 @@ public class NpcFactory {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
 
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 14) {
                         this.createOtherMenu(player, ConstNpc.BASE_MENU,
@@ -7061,7 +7079,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 14) {
                         switch (player.iDMark.getIndexMenu()) {
@@ -7121,7 +7139,7 @@ public class NpcFactory {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
 
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 5) {
                         this.createOtherMenu(player, ConstNpc.BASE_MENU,
@@ -7139,7 +7157,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 5) {
                         if (player.iDMark.isBaseMenu()) {
@@ -7202,7 +7220,7 @@ public class NpcFactory {
     private static Npc popo(int mapId, int status, int cx, int cy, int tempId, int avartar) {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                 if (canOpenNpc(player)) {
                     if (player.getSession().is_gift_box) {
                         // this.createOtherMenu(player, ConstNpc.BASE_MENU, "Chào con, con muốn ta giúp
@@ -7216,7 +7234,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     if (player.iDMark.isBaseMenu()) {
                         switch (select) {
@@ -7307,7 +7325,7 @@ public class NpcFactory {
     public static Npc noel(int mapId, int status, int cx, int cy, int tempId, int avartar) {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
             @Override
-            public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
 
                 if (canOpenNpc(player)) {
                     this.createOtherMenu(player, ConstNpc.BASE_MENU, "Ông già noel lấy carot thì\n kệ tao à ý kiến thì ăn ban",
@@ -7321,7 +7339,7 @@ public class NpcFactory {
             }
 
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 14) {
                         if (player.iDMark.isBaseMenu()) {
@@ -7609,23 +7627,26 @@ public class NpcFactory {
                 default:
                     return new Npc(mapId, status, cx, cy, tempId, avatar) {
                         @Override
-                        public void openBaseMenu(Player player) {
+public void openBaseMenu(Player player) {
                             if (canOpenNpc(player)) {
                                 super.openBaseMenu(player);
                             }
                         }
 
                         @Override
-                        public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                             if (canOpenNpc(player)) {
                                 // ShopService.gI().openShopNormal(player, this, ConstNpc.SHOP_BUNMA_TL_0, 0,
                                 // player.gender);
                             }
                         }
                     };
-            }
+
+}
         } catch (Exception e) {
-            Logger.logException(NpcFactory.class, e, "Lỗi load npc");
+            Logger.logException(NpcFactory.class  
+
+, e, "Lỗi load npc");
             return null;
         }
     }
@@ -7634,7 +7655,7 @@ public class NpcFactory {
     public static void createNpcRongThieng() {
         Npc npc = new Npc(-1, -1, -1, -1, ConstNpc.RONG_THIENG, -1) {
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 switch (player.iDMark.getIndexMenu()) {
                     case ConstNpc.IGNORE_MENU:
 
@@ -7671,7 +7692,7 @@ public class NpcFactory {
     public static void createNpcConMeo() {
         Npc npc = new Npc(-1, -1, -1, -1, ConstNpc.CON_MEO, 351) {
             @Override
-            public void confirmMenu(Player player, int select) {
+public void confirmMenu(Player player, int select) {
                 switch (player.iDMark.getIndexMenu()) {
                     case ConstNpc.IGNORE_MENU:
 
